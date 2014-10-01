@@ -1,5 +1,5 @@
 <?php
-
+//test
 //Parametres de connexion a la bdd
 $user='login';
 $pass='mot de passe';
