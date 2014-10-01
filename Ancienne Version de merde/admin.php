@@ -21,7 +21,7 @@ error_reporting(E_ALL);
 	$codeProf=$_GET['prof'];
 	}
 
-	
+
 //récupération de variables
 if (isset ($_GET['horiz']))
 {
