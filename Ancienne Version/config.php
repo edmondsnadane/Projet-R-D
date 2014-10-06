@@ -1,10 +1,13 @@
 <?php
 //test
 //Parametres de connexion a la bdd
-$user='login';
-$pass='mot de passe';
-$serveur='adresse du serveur';
-
+//$user='login';
+//$pass='mot de passe';
+//$serveur='adresse du serveur';
+$user='root';
+$pass='';
+$serveur='localhost';
+//nagoulm1   nazim
 
 
 
@@ -13,23 +16,24 @@ $serveur='adresse du serveur';
 $base=array();
 $annee_scolaire=array();
 //nom de la base
-$base[0]='nom base 201-2012';
+//$base[0]='nom base 201-2012';
 //année scolaire correspondante (sert pour le bilan par formation)
-$annee_scolaire[0]='2011-2012';
+//$annee_scolaire[0]='2011-2012';
 
 //nom de la base (supprimez les 3 lignes suivantes si vous n'avez qu'une seule base)
-$base[1]='nom base 2012-2013';
+//$base[1]='nom base 2012-2013';
 //année scolaire correspondante (sert pour le bilan par formation)
-$annee_scolaire[1]='2012-2013';
+//$annee_scolaire[1]='2012-2013';
 
 //nom de la base (supprimez les 3 lignes suivantes si vous n'avez qu'une seule base)
-$base[2]='nom base 2013-2014';
+//$base[2]='nom base 2013-2014';
+$base[0]='vt_agenda';
 //année scolaire correspondante (sert pour le bilan par formation)
-$annee_scolaire[2]='2013-2014';
+$annee_scolaire[0]='2013-2014';
 
 
 //nombre de bases de données (faire la somme de ce qu'il y a précedement)
-$nbdebdd='3';
+$nbdebdd='1';
 
 //fuseau horaire à changer en cas de besoin
 date_default_timezone_set('Europe/Paris');
