@@ -13894,6 +13894,7 @@ $dbh=null;
 	for ($k=0;$k<=$nbdebdd-1;$k++)
 	{
 	$base_a_utiliser=$base[$k];
+	//print_r($base_a_utiliser);
 		try
 		{
 		$dbh=new PDO("mysql:host=$serveur;dbname=$base_a_utiliser;",$user,$pass);
