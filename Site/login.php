@@ -1,4 +1,17 @@
 <html>
+	<?php
+		include('config/config.php');
+					
+		//compteur de pages vues
+		$sql="SELECT valeur FROM compteur WHERE id_compteur='1'";
+		$compteur_req=$dbh->query($sql);
+		$compteur_res=$compteur_req->fetchAll();
+		$compteur=$compteur_res['0']['valeur'];
+
+
+		$sql="UPDATE compteur SET valeur=valeur+1 WHERE id_compteur='1'";
+		$dbh->exec($sql);
+	?> 
 	<head>
 		<meta charset="utf-8">
 		<title>VT Calendar - Acceuil</title>
@@ -39,22 +52,18 @@
 										</div>
 									</div>
 									<div class="form-group">
-										<div class="col-sm-offset-3 col-sm-9">
-											<div class="checkbox">
-												<label class="">
-													<input type="checkbox" class="">Rester connecté</label>
-											</div>
+										<div class="checkbox">
+											<input type="checkbox" class="">Rester connecté</label>
 										</div>
 									</div>
-									<div class="form-group last">
+									<div class="form-group last" id="teachButtons">
 										<button type="submit" class="btn btn-success btn-sm col-md-6">Valider</button>
-										<button type="reset" class="btn btn-default btn-sm col-md-6">Annuler</button>
+										<button type="reset" class="btn btn-danger btn-sm col-md-6">Annuler</button>
 									</div>
 								</form>
 							</div>
 							<div class="panel-footer">
-								<a href="#" rel="tooltip" data-placement="bottom" data-original-title="Tooltip on bottom">Stuff</a>
-								<!-- <a data-content="toto" role="button" class="btn" data-toggle="popover"  data-container="body" data-placement="bottom">Modifier le mot de passe</a> <br> -->
+								<a role="button" class="btn" data-toggle="modal" data-target="#modifyMdp">Modifier le mot de passe</a>
 								<a href="config/aide.pdf" role="button" class="btn" class="">Mode d'emploi</a>
 							</div>
 						</div>
@@ -77,18 +86,13 @@
 										</div>
 									</div>
 									<div class="form-group">
-										<div class="col-sm-offset-3 col-sm-9">
-											<div class="checkbox">
-												<label class="">
-													<input type="checkbox" class="">Rester connecté</label>
-											</div>
+										<div class="checkbox">
+											<input type="checkbox" class="">Rester connecté</label>
 										</div>
 									</div>
-									<div class="form-group last">
-										<div class="col-sm-offset-3 col-sm-9">
-											<button type="submit" class="btn btn-success btn-sm">Valider</button>
-											<button type="reset" class="btn btn-default btn-sm">Annuler</button>
-										</div>
+									<div class="form-group last" id="studyButtons">
+										<button type="submit" class="btn btn-success btn-sm col-md-6">Valider</button>
+										<button type="reset" class="btn btn-danger btn-sm col-md-6">Annuler</button>
 									</div>
 								</form>
 							</div>
@@ -100,15 +104,48 @@
 			</div>
 		</div>
 		
-		<div id="modifyMdp" class="popover">
-			<div class="arrow"></div>
-			<h3 class="popover-title">Bottom</h3>
-			<div class="popover-content">
-				<p>Sed posuere consectetur est at lobortis. Aenean eu leo quam. 
-					Pellentesque ornare sem lacinia quam venenatis vestibulum.
-					<a href="#" class="btn helloWorld">Click me</a>
-				</p>
+		<!-- POPUP MODAL DE MODIFICATION DE MOT DE PASSE -->
+		<div class="modal fade" id="modifyMdp" tabindex="-1" role="dialog" aria-labelledby="modifyMdpLabel" aria-hidden="true">
+		  <div class="modal-dialog">
+			<div class="modal-content">
+			  <div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+				<h4 class="modal-title" id="modifyMdpLabel">Modification de mot de passe</h4>
+			  </div>
+			  <div class="modal-body">
+				<form class="form-horizontal" role="form">
+					<div class="form-group">
+						<label for="inputLogin" class="col-sm-3 control-label">Login</label>
+						<div class="col-sm-9">
+							<input type="text" class="form-control" id="inputLogin" placeholder="Login">
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="inputOldPassword" class="col-sm-3 control-label">Ancien Mdp</label>
+						<div class="col-sm-9">
+							<input type="text" class="form-control" id="inputOldPassword" placeholder="Ancien Mot de passe">
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="inputNewPassword1" class="col-sm-3 control-label">Nouveau Mdp</label>
+						<div class="col-sm-9">
+							<input type="password" class="form-control" id="inputNewPassword1" placeholder="Nouveau Mot de passe">
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="inputNewPassword2" class="col-sm-3 control-label">Retappez Mdp</label>
+						<div class="col-sm-9">
+							<input type="password" class="form-control" id="inputNewPassword2" placeholder="Nouveau Mot de passe">
+						</div>
+					</div>
+				</form>
+			  </div>
+			  <div class="modal-footer">
+				<button type="button" class="btn btn-danger" data-dismiss="modal">Annuler</button>
+				<button type="button" class="btn btn-success">Valider</button>
+			  </div>
 			</div>
+		  </div>
 		</div>
 		
 		<div class="container">
