@@ -1,17 +1,4 @@
 <html>
-	<?php
-		include('config/config.php');
-					
-		//compteur de pages vues
-		$sql="SELECT valeur FROM compteur WHERE id_compteur='1'";
-		$compteur_req=$dbh->query($sql);
-		$compteur_res=$compteur_req->fetchAll();
-		$compteur=$compteur_res['0']['valeur'];
-
-
-		$sql="UPDATE compteur SET valeur=valeur+1 WHERE id_compteur='1'";
-		$dbh->exec($sql);
-	?> 
 	<head>
 		<meta charset="utf-8">
 		<title>VT Calendar - Acceuil</title>
@@ -150,7 +137,7 @@
 		
 		<div class="container">
 			<br><br>
-			D&eacute;velopp&eacute; par <span style="font-weight:bold;">Bruno MILLION</span> (IUT GMP) et par <span style="font-weight:bold;">Ga&euml;tan COLOMBIER</span> (IUT GMP) pour le PST de Ville d'Avray (Université Paris Ouest) - <?php echo $compteur; ?> pages vues.<br>
+			D&eacute;velopp&eacute; par <span style="font-weight:bold;">Bruno MILLION</span> (IUT GMP) et par <span style="font-weight:bold;">Ga&euml;tan COLOMBIER</span> (IUT GMP) pour le PST de Ville d'Avray (Université Paris Ouest) - {$compteur} pages vues.<br>
 			<a href="http://validator.w3.org/check?uri=referer"><img src="http://www.w3.org/Icons/valid-html401-blue" alt="Valid HTML 4.01 Transitional" ></a>
 			<a href="http://jigsaw.w3.org/css-validator/check/referer/"><img src="http://jigsaw.w3.org/css-validator/images/vcss-blue" alt="CSS Valide !" ></a>
 			<a href="http://www.php.net/"><img src="http://www.php.net/images/logos/php-power-white.png" alt="Powered by PHP" ></a>
