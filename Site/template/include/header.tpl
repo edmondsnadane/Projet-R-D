@@ -17,17 +17,18 @@
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span> nom prenom <span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
-            <li><a href="#">Outils</a></li>
-            <li><a href="#">Modules</a></li>
-            <li><a href="#">Droits</a></li>
-            <li><a href="#">Heures</a></li>
-			<li><a href="#">Export PDF</a></li>
-			<li><a href="#">Flux RSS</a></li>
-			<li><a href="#">Config</a></li>
+            <li><a href="#"><span class="glyphicon glyphicon-briefcase"></span> Outils</a></li>
+            <li><a href="#"><span class="glyphicon glyphicon-th-large"></span> Modules</a></li>
+            <li><a href="#"><span class="glyphicon glyphicon-lock"></span> Droits</a></li>
+            <li><a href="#"><span class="glyphicon glyphicon-time"></span> Heures</a></li>
+			<li><a href="#"><span class="glyphicon glyphicon-file"></span> Export PDF</a></li>
+			<li><a href="#"><span class="glyphicon glyphicon-transfer"></span> Flux RSS</a></li>
+			<li><a href="#"><span class="glyphicon glyphicon-cog"></span> Configuration</a></li>
           </ul>
         </li>
       </ul>
 	  <ul class="nav navbar-nav navbar-right">
+		<li><a href="#"><span class="glyphicon glyphicon-refresh"></span> Rafraichir</a></li>
 		<li><a href="#"><span class="glyphicon glyphicon-wrench"></span> Configuration</a></li>
         <li><a href="#"><span class="glyphicon glyphicon-off"></span> Déconnexion</a></li>
       </ul>
