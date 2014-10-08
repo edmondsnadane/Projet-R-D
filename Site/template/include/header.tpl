@@ -28,7 +28,8 @@
         </li>
       </ul>
 	  <ul class="nav navbar-nav navbar-right">
-        <li><a href="#">Déconnexion</a></li>
+		<li><a href="#"><span class="glyphicon glyphicon-wrench"></span> Configuration</a></li>
+        <li><a href="#"><span class="glyphicon glyphicon-off"></span> Déconnexion</a></li>
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
