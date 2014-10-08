@@ -17,6 +17,9 @@
 				<li class="active"><a href="#teachContainer" data-toggle="tab">Enseignant</a></li>
 				<li><a href="#studyContainer" data-toggle="tab">Etudiant</a></li>
 			</ul>
+			{if isset($errorMsg)}
+				<h2> {$errorMsg} </h2>
+			{/if}
 			<div id="teachContainer" class="tab-pane fade in active">
 				<div class="row">
 					<div class="col-md-4 col-centered">
@@ -25,17 +28,17 @@
 
 							</div>
 							<div class="panel-body">
-								<form class="form-horizontal" role="form">
+								<form class="form-horizontal" role="form" method="post" action="script/teachConnectScript.php" onSubmit="return true;">
 									<div class="form-group">
 										<label for="inputLogin3" class="col-sm-3 control-label">Login</label>
 										<div class="col-sm-9">
-											<input type="text" class="form-control" id="inputLogin3" required="" placeholder="Login">
+											<input type="text" name="teachLogin" class="form-control" id="inputLogin3" required="" placeholder="Login">
 										</div>
 									</div>
 									<div class="form-group">
-										<label for="inputPassword3" class="col-sm-3 control-label">Mot de passe</label>
+										<label for="inputPassword3" class="col-sm-3 control-label">Mdp</label>
 										<div class="col-sm-9">
-											<input type="password" class="form-control" id="inputPassword3" placeholder="Mot de passe" required="">
+											<input type="password" name="teachPwd" class="form-control" id="inputPassword3" placeholder="Mot de passe" required="">
 										</div>
 									</div>
 									<div class="form-group">
@@ -65,11 +68,11 @@
 
 							</div>
 							<div class="panel-body">
-								<form class="form-horizontal" role="form">
+								<form class="form-horizontal" role="form" method="post" action="script/studyConnectScript.php" onSubmit="return true;">
 									<div class="form-group">
 										<label for="inputLoginEtudiant" class="col-sm-3 control-label">Login</label>
 										<div class="col-sm-9">
-											<input type="text" class="form-control" id="inputLoginEtudiant" required="" placeholder="Login">
+											<input type="text" name="studyLogin" class="form-control" id="inputLoginEtudiant" required="" placeholder="Login">
 										</div>
 									</div>
 									<div class="form-group">
@@ -94,44 +97,45 @@
 		<!-- POPUP MODAL DE MODIFICATION DE MOT DE PASSE -->
 		<div class="modal fade" id="modifyMdp" tabindex="-1" role="dialog" aria-labelledby="modifyMdpLabel" aria-hidden="true">
 		  <div class="modal-dialog">
-			<div class="modal-content">
-			  <div class="modal-header">
-				<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-				<h4 class="modal-title" id="modifyMdpLabel">Modification de mot de passe</h4>
-			  </div>
-			  <div class="modal-body">
-				<form class="form-horizontal" role="form">
-					<div class="form-group">
-						<label for="inputLogin" class="col-sm-3 control-label">Login</label>
-						<div class="col-sm-9">
-							<input type="text" class="form-control" id="inputLogin" placeholder="Login">
+			<form class="form-horizontal" role="form" method="post" action="script/modifyMdp.php" onSubmit="return true;">
+				<div class="modal-content">
+				  <div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+					<h4 class="modal-title" id="modifyMdpLabel">Modification de mot de passe</h4>
+				  </div>
+				  <div class="modal-body">
+						<div class="form-group">
+							<label for="inputLogin" class="col-sm-3 control-label">Login</label>
+							<div class="col-sm-9">
+								<input type="text" name="loginTeach" class="form-control" id="inputLogin" placeholder="Login">
+							</div>
 						</div>
-					</div>
-					<div class="form-group">
-						<label for="inputOldPassword" class="col-sm-3 control-label">Ancien Mdp</label>
-						<div class="col-sm-9">
-							<input type="text" class="form-control" id="inputOldPassword" placeholder="Ancien Mot de passe">
+						<div class="form-group">
+							<label for="inputOldPassword" class="col-sm-3 control-label">Ancien Mdp</label>
+							<div class="col-sm-9">
+								<input type="text" name="oldMdp" class="form-control" id="inputOldPassword" placeholder="Ancien Mot de passe">
+							</div>
 						</div>
-					</div>
-					<div class="form-group">
-						<label for="inputNewPassword1" class="col-sm-3 control-label">Nouveau Mdp</label>
-						<div class="col-sm-9">
-							<input type="password" class="form-control" id="inputNewPassword1" placeholder="Nouveau Mot de passe">
+						<div class="form-group">
+							<label for="inputNewPassword1" class="col-sm-3 control-label">Nouveau Mdp</label>
+							<div class="col-sm-9">
+								<input type="password" name="newMdp1" class="form-control" id="inputNewPassword1" placeholder="Nouveau Mot de passe">
+							</div>
 						</div>
-					</div>
-					<div class="form-group">
-						<label for="inputNewPassword2" class="col-sm-3 control-label">Retappez Mdp</label>
-						<div class="col-sm-9">
-							<input type="password" class="form-control" id="inputNewPassword2" placeholder="Nouveau Mot de passe">
+						<div class="form-group">
+							<label for="inputNewPassword2" class="col-sm-3 control-label">Retappez Mdp</label>
+							<div class="col-sm-9">
+								<input type="password" name="newMdp2" class="form-control" id="inputNewPassword2" placeholder="Nouveau Mot de passe">
+							</div>
 						</div>
-					</div>
-				</form>
-			  </div>
-			  <div class="modal-footer">
-				<button type="button" class="btn btn-danger" data-dismiss="modal">Annuler</button>
-				<button type="button" class="btn btn-success">Valider</button>
-			  </div>
-			</div>
+					</form>
+				  </div>
+				  <div class="modal-footer">
+					<button type="button" class="btn btn-danger" data-dismiss="modal">Annuler</button>
+					<button type="submit" class="btn btn-success">Valider</button>
+				  </div>
+				</div>
+			</form>
 		  </div>
 		</div>
 		
