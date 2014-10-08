@@ -47,16 +47,15 @@
 										</div>
 									</div>
 									<div class="form-group last">
-										<div class="col-sm-offset-3 col-sm-9">
-											<button type="submit" class="btn btn-success btn-sm">Valider</button>
-											<button type="reset" class="btn btn-default btn-sm">Annuler</button>
-										</div>
+										<button type="submit" class="btn btn-success btn-sm col-md-6">Valider</button>
+										<button type="reset" class="btn btn-default btn-sm col-md-6">Annuler</button>
 									</div>
 								</form>
 							</div>
 							<div class="panel-footer">
-								<a href="modifyPassword.html" class="">Modifier le mot de passe</a> <br>
-								<a href="config/aide.pdf" class="">Mode d'emploi</a>
+								<a href="#" rel="tooltip" data-placement="bottom" data-original-title="Tooltip on bottom">Stuff</a>
+								<!-- <a data-content="toto" role="button" class="btn" data-toggle="popover"  data-container="body" data-placement="bottom">Modifier le mot de passe</a> <br> -->
+								<a href="config/aide.pdf" role="button" class="btn" class="">Mode d'emploi</a>
 							</div>
 						</div>
 					</div>
@@ -100,14 +99,28 @@
 				</div>
 			</div>
 		</div>
+		
+		<div id="modifyMdp" class="popover">
+			<div class="arrow"></div>
+			<h3 class="popover-title">Bottom</h3>
+			<div class="popover-content">
+				<p>Sed posuere consectetur est at lobortis. Aenean eu leo quam. 
+					Pellentesque ornare sem lacinia quam venenatis vestibulum.
+					<a href="#" class="btn helloWorld">Click me</a>
+				</p>
+			</div>
+		</div>
+		
 		<div class="container">
-			D&eacute;velopp&eacute; par <span style="font-weight:bold;">Bruno MILLION</span> (IUT GMP) et par <span style="font-weight:bold;">Ga&euml;tan COLOMBIER</span> (IUT GMP) pour le PST de Ville d'Avray (Université Paris Ouest) - 1701 pages vues.<br>
+			<br><br>
+			D&eacute;velopp&eacute; par <span style="font-weight:bold;">Bruno MILLION</span> (IUT GMP) et par <span style="font-weight:bold;">Ga&euml;tan COLOMBIER</span> (IUT GMP) pour le PST de Ville d'Avray (Université Paris Ouest) - <?php echo $compteur; ?> pages vues.<br>
 			<a href="http://validator.w3.org/check?uri=referer"><img src="http://www.w3.org/Icons/valid-html401-blue" alt="Valid HTML 4.01 Transitional" ></a>
 			<a href="http://jigsaw.w3.org/css-validator/check/referer/"><img src="http://jigsaw.w3.org/css-validator/images/vcss-blue" alt="CSS Valide !" ></a>
 			<a href="http://www.php.net/"><img src="http://www.php.net/images/logos/php-power-white.png" alt="Powered by PHP" ></a>
-			<a href="http://www.mysql.com"><img src="http://www.cygneweb.com/images/logo_mysql.gif" alt="Powered by Mysql" ></a>
-			<a href="version.html">Version 6.0.0</a>	
+			<a href="http://www.mysql.com"><img src="http://www.cygneweb.com/images/logo_mysql.gif" alt="Powered by Mysql" ></a><br><br>
+			<a href="version.html" role="button" class="btn">Version 6.0.0</a>	
 		</div>
+		
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 		<script type="text/javascript" src="API/bootstrap/js/bootstrap.js"></script>
 	</body>

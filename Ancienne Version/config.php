@@ -1,12 +1,5 @@
 <?php
-//test
-//Parametres de connexion a la bdd
-<<<<<<< HEAD
-$user='root';
-$pass='';
-$serveur='localhost';
 
-=======
 //$user='login';
 //$pass='mot de passe';
 //$serveur='adresse du serveur';
@@ -14,9 +7,6 @@ $user='root';
 $pass='';
 $serveur='localhost';
 //nagoulm1   nazim
->>>>>>> origin/master
-
-
 
 //mise dans un tableau de toutes les bases a utiliser dans ordre chronologique
 
@@ -33,10 +23,7 @@ $annee_scolaire=array();
 //$annee_scolaire[1]='2012-2013';
 
 //nom de la base (supprimez les 3 lignes suivantes si vous n'avez qu'une seule base)
-<<<<<<< HEAD
-=======
 //$base[2]='nom base 2013-2014';
->>>>>>> origin/master
 $base[0]='vt_agenda';
 //année scolaire correspondante (sert pour le bilan par formation)
 $annee_scolaire[0]='2013-2014';
