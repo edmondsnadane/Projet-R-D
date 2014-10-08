@@ -7,25 +7,27 @@
 	</head>
 	<body>
 		<div class="page-header">
-			<h1><img src="img/calendar_31.png" alt="Powered by Mysql" width="60px">
+			<h2><img src="img/calendar_31.png" alt="Powered by Mysql" width="50px">
 				VT CALENDAR 
 				<small>consultation des emplois du temps faits avec VT</small><br>
-			</h1>
+			</h2>
 		</div>
 		<div id="loginTabContent" class="tab-content container">
 			<ul id="myTab" class="nav nav-tabs col-md-4">
 				<li class="active"><a href="#teachContainer" data-toggle="tab">Enseignant</a></li>
 				<li><a href="#studyContainer" data-toggle="tab">Etudiant</a></li>
 			</ul>
+			
 			{if isset($errorMsg)}
-				<h2> {$errorMsg} </h2>
+				<div class="alert alert-danger col-md-4 col-centered" role="alert">{$errorMsg}</div>
 			{/if}
+			
 			<div id="teachContainer" class="tab-pane fade in active">
 				<div class="row">
 					<div class="col-md-4 col-centered">
 						<div class="panel panel-default">
-							<div class="panel-heading"> <strong class="">Planning des enseignants</strong>
-
+							<div class="panel-heading"> 
+								<strong class="">Planning des enseignants</strong>
 							</div>
 							<div class="panel-body">
 								<form class="form-horizontal" role="form" method="post" action="script/teachConnectScript.php" onSubmit="return true;">
