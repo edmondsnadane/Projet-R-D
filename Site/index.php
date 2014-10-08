@@ -15,13 +15,9 @@ $compteur_res=$compteur_req->fetchAll();
 $compteur=$compteur_res['0']['valeur'];
 $smarty->assign("compteur", $compteur);
 
-if (isset($_SESSION['login']) && isset($_SESSION['codeProf']))
+if (isset($_GET['page']) && $_GET['page'] == "calendar")
 {
-	// chargement vue prof
-}
-else if (isset($_SESSION['login']))
-{
-	// chargement vue étudiant
+	$smarty->display("template/index.tpl");
 }
 else
 {
