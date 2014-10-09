@@ -1,5 +1,36 @@
 <html>
 	<head>
+		<script type="text/javascript">
+			// Méthode pour changer la visiblité d'une balise dont l'ID est passée en paramètre
+			function toggleVisibility(tagId) {
+			if (!document.getElementById) {
+			msg = 'Votre navigateur est trop ancien pour profiter de votre visite\n';
+			msg += 'Veuillez le mettre à jour ou vous en procurer un autre';
+			return false;
+			}
+			var tagToToggle;
+			try { // On tente de récupérer la balise cible dont on doit changer la visibilité
+			tagToToggle = document.getElementById(tagId);
+			} catch (e) { // Si échec de la récupération de la balise cible
+			alert('Je n\'ai pas pu trouver la balise cible');
+			}
+			try { // Seulement pour les non IE
+			if (tagToToggle.style.display == 'none') {
+			tagToToggle.style.display = 'inline';
+			} else {
+			tagToToggle.style.display = 'none';
+			}
+			} catch (e) {
+			}
+			// Pour IE
+			if (tagToToggle.style.visibility == 'hidden') {
+			tagToToggle.style.visibility = 'visible';
+			} else {
+			tagToToggle.style.visibility = 'hidden';
+			}
+			}
+		</script>
+		
 		<meta charset="utf-8">
 		<title>Versions du site</title>
 		<link rel="stylesheet" href="API/bootstrap/css/bootstrap.min.css"/>
@@ -8,8 +39,8 @@
 	</head>
 	
 	<body>
-		<p> <a name="haut"></a> </p> <!-- d�finition de l'ancre-->
-		<div>
+		<p> <a name="haut"></a> </p> <!-- définition de l'ancre-->
+		
 		<div class="page-header">
 			<h1><img src="img/calendar_31.png" alt="Powered by Mysql" width="60px">
 				VERSIONNING 
@@ -17,30 +48,127 @@
 			</h1>
 		</div>
 
-		<div class="dropdown">
-		  <a id="dLabel" role="button" data-toggle="dropdown" data-target="#" href="/page.html">Versions <span class="caret"></span></a>
+		<div class="panel panel-default">
+		
+			<div class="panel-heading">
+				<h3 class="panel-title"><a href="javascript:toggleVisibility('texte1')">Version 6.0</a></h3>
+			</div>
+  
+			<div class="panel-body"><span id="texte1" style="visibility: hidden; display: none;">
+				<ul>
+					<lh><em><strong>Interface étudiant :</strong></em></lh>
+						<li>Wesh on a refait le design</li>
+				</ul>
 
-		  <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
-			<li><a href="#1" > Version 2.1</a></li>
-			<li><a href="#2" > Version 2.2</a></li>
-			<li><a href="#3" > Version 2.3</a></li>
-			<li><a href="#4" > Version 2.4</a></li>
-			<li><a href="#5" > Version 2.5</a></li>
-			<li><a href="#6" > Version 2.6</a></li>
-			<li><a href="#7" > Version 2.7</a></li>
-			<li><a href="#8" > Version 2.8</a></li>
-	
-		  </ul>
+				<ul>
+					<lh><em><strong>Booba:</strong></em></lh>
+					<li>3 2 3 4 0 6 on va te peter le coccyx à 3 pce ke t tro balèze.</li>
+				</ul>			
+			</span></div>
+			
+			<div class="panel-heading">
+				<h3 class="panel-title"><a href="javascript:toggleVisibility('texte2')">Version 5.1.9</a></h3>
+			</div>
+  
+			<div class="panel-body"><span id="texte2" style="visibility: hidden; display: none;">
+				<ul>
+					<lh><em><strong>Interface prof :</strong></em></lh>
+						<li>Dans les infos-bulles des séances des profs, il y avait un problème entre la durée réelle d'une séance et la durée par défaut définie dans vt..</li>
+						<li>Maintenant, les réservations privées s'affichent dans une couleur différente des réservations non privées.</li>
+				</ul>			
+			</span></div>
+			
+			
+			
+			<div class="panel-heading">
+				<h3 class="panel-title"><a href="javascript:toggleVisibility('texte1')">Version 2.1</a></h3>
+			</div>
+  
+			<div class="panel-body"><span id="texte1" style="visibility: hidden; display: none;">
+				<ul>
+					<lh><em><strong>Interface étudiant :</strong></em></lh>
+						<li>J'ai corrigé l'affichage des commentaires de séances qui dépassaient 2 lignes.</li>
+					    <li>Le flux RSS est maintenant détecté par votre navigateur.</li>
+				</ul>
+
+				<ul>
+					<lh><em><strong>Interface prof :</strong></em></lh>
+					<li>Les fichiers ics sont faits à partir des bases 08-09 et 09-10.</li>
+					<li>J'ai ajouté le bouton "journée" dans l'ajout des rendez-vous perso.</li>
+					<li>J'ai corrigé l'affichage des commentaires de séances qui dépassaient 2 lignes.</li>
+					<li>Le flux RSS est maintenant détecté par votre navigateur.</li>
+				</ul>
+
+				<ul>
+					<lh><em><strong>Interface salle :</strong></em></lh>
+					<li>J'ai corrigé l'affichage des commentaires de séances qui dépassaient 2 lignes</li>
+					<li>J'ai corrigé l'affichage des noms des réservations qui dépassaient 2 lignes.</li>
+					<li>On peut maintenant masquer réservations pour voir le cours qu'il y a en dessous en cas de superposition..</li>
+				</ul> 
+
+				<ul>
+					<lh><em><strong>Interface multi-ressources :</strong></em></lh>
+					<li>j'ai réduit la largeur (ou la hauteur pour la vue verticale) du rectangle des rendez-vous perso pour pouvoir voir s'il y a un cours en dessous.</li>
+					<li>j'ai réduit la largeur (ou la hauteur pour la vue verticale) du rectangle des rendez-vous perso pour pouvoir voir s'il y a un cours en dessous.</li>
+					<li>On peut maintenant masquer les rendez-vous perso pour voir le cours qu'il y a en dessous en cas de superposition..</li>
+					<li>J'ai ajouté le bouton "journée" dans l'ajout des rendez-vous perso.</li>
+					J'ai corrigé l'affichage des noms des rdv perso qui dépassaient 2 lignes.</li>
+					<li>J'ai corrigé l'affichage des commentaires de séances qui dépassaient 2 lignes.</li>
+					<li>Affichage de son propre emploi du temps lorsqu'on vient juste de se loguer avec son login perso en multi ressources..</li>
+					<li>Le flux RSS est maintenant détecté par votre navigateur..</li>
+				</ul>  				
+			</span></div>
+			
+			<div class="panel-heading">
+				<h3 class="panel-title"><a href="javascript:toggleVisibility('texte2')">Version 2.2</a></h3>
+			</div>
+  
+			<div class="panel-body"><span id="texte2" style="visibility: hidden; display: none;">
+				<ul>
+					<lh><em><strong>Interface étudiant :</strong></em></lh>
+						<li>Les vacances scolaires et les périodes d'apprentissage apparaissent dans l'emploi du temps.</li>
+				</ul>
+
+				<ul>
+					<lh><em><strong>Interface prof :</strong></em></lh>
+					<li>Les vacances scolaires des profs apparaissent dans l'emploi du temps.</li>
+				</ul>
+
+				<ul>
+					<lh><em><strong>Interface multi-ressources :</strong></em></lh>
+					<li>Les vacances scolaires des profs apparaissent dans l'emploi du temps.</li>
+					<li>Les vacances scolaires et les périodes d'apprentissage des groupes apparaissent dans l'emploi du temps.</li>
+					<li>On peut maintenant masquer réservations pour voir le cours qu'il y a en dessous en cas de superposition.</li>
+				</ul> 
+			</span></div>
+			
+			<div class="panel-heading">
+				<h3 class="panel-title"><a href="javascript:toggleVisibility('texte3')">Version 2.3</a></h3>
+			</div>
+  
+			<div class="panel-body"><span id="texte3" style="visibility: hidden; display: none;">
+				<ul>
+					<li>Les emplois du temps de 2008-2009 et de 2009-2010 sont visibles sur la même interface web.</li>
+				</ul>
+			</span></div>
+			
+			<div class="panel-heading">
+				<h3 class="panel-title"><a href="javascript:toggleVisibility('texte4')">Version 2.4</a></h3>
+			</div>
+  
+			<div class="panel-body"><span id="texte4" style="visibility: hidden; display: none;">
+				<ul>
+					<lh><em><strong>Interface multi-ressources :</strong></em></lh>
+					<li>Une vue mensuelle a été ajoutée. Pour voir le détail des séances, il faut laisser la souris quelques secondes au-dessus de celles-ci.</li>
+				</ul>
+			</span></div>
+  
 		</div>
-		
-		
-	</div>
 		
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 		<script type="text/javascript" src="API/bootstrap/js/bootstrap.js"></script>	
 		
-
-	</body>
+</body>
 	
 	
 	

@@ -6,9 +6,10 @@
 				 -moz-background-size: cover;
 				 -o-background-size: cover;
 				 background-size: cover;
+				
 			}
 			
-			li{
-			float:right;
+			.panel-body {
+				padding: 0px !important;
 			}
 	
