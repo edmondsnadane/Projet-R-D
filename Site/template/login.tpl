@@ -22,6 +22,10 @@
 				<div class="alert alert-danger col-md-4 col-centered" role="alert">{$errorMsg}</div>
 			{/if}
 			
+			{if isset($successMsg)}
+				<div class="alert alert-success col-md-4 col-centered" role="alert">{$successMsg}</div>
+			{/if}
+			
 			<div id="teachContainer" class="tab-pane fade in active">
 				<div class="row">
 					<div class="col-md-4 col-centered">
@@ -45,7 +49,7 @@
 									</div>
 									<div class="form-group">
 										<div class="checkbox">
-											<input type="checkbox" class="">Rester connecté</label>
+											<input type="checkbox" class="" name="teachCookie">Rester connecté</label>
 										</div>
 									</div>
 									<div class="form-group last" id="teachButtons">
@@ -79,7 +83,7 @@
 									</div>
 									<div class="form-group">
 										<div class="checkbox">
-											<input type="checkbox" class="">Rester connecté</label>
+											<input type="checkbox" class="" name="studyCookie">Rester connecté</label>
 										</div>
 									</div>
 									<div class="form-group last" id="studyButtons">

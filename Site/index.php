@@ -15,10 +15,41 @@ $compteur_res=$compteur_req->fetchAll();
 $compteur=$compteur_res['0']['valeur'];
 $smarty->assign("compteur", $compteur);
 
-if (isset($_GET['page']) && $_GET['page'] == "calendar")
+/* l'utilisateur est connecté */
+if (isset($_SESSION['studyLogin']) || isset($_SESSION['teachLogin']) || !empty($_COOKIE['teachLogin']) || !empty($_COOKIE['studyLogin']))
 {
+	$loginUtilisateur = "";
+	$user = array();
+	/* l'utilisateur connecté est un étudiant */
+	if (isset($_SESSION['studyLogin']) ||!empty($_COOKIE['studyLogin']))
+	{
+		if (isset($_SESSION['studyLogin']))
+		{
+			$loginUtilisateur = $_SESSION['studyLogin'];
+		}
+		else
+		{
+			$loginUtilisateur = $_COOKIE['studyLogin'];
+		}
+		include('script/getStudyInfos.php');
+	}
+	/* l'utilisateur connecté est un enseignant */
+	else if (isset($_SESSION['studyLogin']) || !empty($_COOKIE['teachLogin']))
+	{
+		if (isset($_SESSION['studyLogin']))
+		{
+			$loginUtilisateur = $_SESSION['studyLogin'];
+		}
+		else
+		{
+			$loginUtilisateur = $_COOKIE['studyLogin'];
+		}
+		include('script/getTeachInfos.php');
+	}
+	$smarty->assign("user", $user);
 	$smarty->display("template/index.tpl");
 }
+/* l'utilisateur n'est pas connecté */
 else
 {
 	if (isset($_GET['page']) && $_GET['page'] == "version")
@@ -44,6 +75,15 @@ else
 			}
 			
 			$smarty->assign("errorMsg", $msg);
+		}
+		else if (isset($_GET['successId']) && !empty($_GET['successId']))
+		{
+			$msg = "";
+			if($_GET['successId'] == 1)
+			{
+				$msg = "Votre mot de passe a été modifié";
+			}
+			$smarty->assign("successMsg", $msg);
 		}
 
 		$smarty->display("template/login.tpl");

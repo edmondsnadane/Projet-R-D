@@ -9,7 +9,7 @@ if (isset($_POST['studyLogin']) && !empty($_POST['studyLogin']))
 	$find = FALSE;
 
 	// si tout les champs sont remplis alors on regarde si le nom de compte rentré existe bien dans la base de données.
-	$sql = "SELECT * FROM utilisateurs WHERE login = ".$dbh->quote($_POST['teachLogin'], PDO::PARAM_STR);   
+	$sql = "SELECT * FROM resources_etudiants WHERE identifiant = ".$dbh->quote($_POST['teachLogin'], PDO::PARAM_STR);   
 	$req = $dbh->prepare($sql);
 	$req->execute();
 		  
@@ -18,11 +18,21 @@ if (isset($_POST['studyLogin']) && !empty($_POST['studyLogin']))
 	{
 		$find = TRUE;
 			
-		// MAJ du compteur de visite
+		$sql="UPDATE compteur SET valeur=valeur+1 WHERE id_compteur='1'";
+		$dbh->exec($sql);
 			
-		// stockage dans des variables de sessions des infos utilisateurs
-			
-		// si Resté connecté cocher, stockage dans des cookies
+		//creation des cookies etudiant
+		if (isset($_POST['studyCookie']))
+		{
+			if ($_POST['studyCookie']==1)
+			{
+				setcookie('studyLogin', $_POST['studyLogin'], time() + 365*24*3600); 
+			}
+			else
+			{
+				$_SESSION['studyLogin'] = $_POST['studyLogin'];
+			}
+		}
 	}
 
 	$req->closeCursor();
