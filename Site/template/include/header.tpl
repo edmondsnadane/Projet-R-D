@@ -15,7 +15,7 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
         <li class="dropdown">
-          <a class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span> nom prenom <span class="caret"></span></a>
+          <a class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span><span>{if isset($firstName)} {$firstName} {/if} {$userName}</span><span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
             <li onClick="loadTools()"><a href="#"><span class="glyphicon glyphicon-briefcase"></span> Outils</a></li>
             <li onClick="loadModule()"><a href="#"><span class="glyphicon glyphicon-th-large"></span> Modules</a></li>

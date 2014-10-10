@@ -18,48 +18,36 @@ $smarty->assign("compteur", $compteur);
 /* l'utilisateur est connecté */
 if (isset($_SESSION['studyLogin']) || isset($_SESSION['teachLogin']) || !empty($_COOKIE['teachLogin']) || !empty($_COOKIE['studyLogin']))
 {
-	$loginUtilisateur = "";
-	$user = array();
 	/* l'utilisateur connecté est un étudiant */
-	if (isset($_SESSION['studyLogin']) ||!empty($_COOKIE['studyLogin']))
+	if (isset($_SESSION['studyLogin']) || !empty($_COOKIE['studyLogin']))
 	{
-		if (isset($_SESSION['studyLogin']))
-		{
-			$loginUtilisateur = $_SESSION['studyLogin'];
-		}
-		else
-		{
-			$loginUtilisateur = $_COOKIE['studyLogin'];
-		}
 		include('script/getStudyInfos.php');
+		$smarty->assign("loginStudy",$loginUtilisateur);
+		$smarty->assign("userName",$userName);
 	}
-	/* l'utilisateur connecté est un enseignant */
-	else if (isset($_SESSION['studyLogin']) || !empty($_COOKIE['teachLogin']))
+	else
 	{
-		if (isset($_SESSION['studyLogin']))
-		{
-			$loginUtilisateur = $_SESSION['studyLogin'];
-		}
-		else
-		{
-			$loginUtilisateur = $_COOKIE['studyLogin'];
-		}
+		/* l'utilisateur connecté est un enseignant */
 		include('script/getTeachInfos.php');
+		$smarty->assign("loginTeach",$loginUtilisateur);
+		$smarty->assign("firstName",$firstName);
+		$smarty->assign("userName",$userName);
+		
+		include('script/getDroits.php');
+		$smarty->assign("droits", $droits);
 	}
-	
-	$smarty->assign("user", $user);
 	
 	if (isset($_GET['page']))
 	{
-		if ($_GET['page' ] == "deconnection")
+		if ($_GET['page'] == "deconnection")
 		{
 			include('script/disconnect.php');
 			$smarty->assign("successMsg", "Déconnection reussie");
 			$smarty->display("template/login.tpl");
 		}
-		else if ($_GET['page' ] == "module")
+		else if ($_GET['page'] == "module")
 		{
-			$smarty->display("template/module.tpl");
+			$smarty->display("template/modules.tpl");
 		}
 		else if ($_GET['page' ] == "heure")
 		{
@@ -100,7 +88,7 @@ else
 {
 	if (isset($_GET['page']) && $_GET['page'] == "version")
 	{
-		// chargement vue de versions
+		$smarty->display("template/versions.tpl");
 	}
 	else
 	{
