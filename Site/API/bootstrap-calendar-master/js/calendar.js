@@ -46,8 +46,8 @@ if(!String.prototype.formatNum) {
 		// Initial date. No matter month, week or day this will be a starting point. Can be 'now' or a date in format 'yyyy-mm-dd'
 		day:                'now',
 		// Day Start time and end time with time intervals. Time split 10, 15 or 30.
-		time_start:         '06:00',
-		time_end:           '22:00',
+		time_start:         '08:00',
+		time_end:           '18:00',
 		time_split:         '30',
 		// Source of events data. It can be one of the following:
 		// - URL to return JSON list of events in special format.
@@ -138,86 +138,80 @@ if(!String.prototype.formatNum) {
 	};
 
 	var defaults_extended = {
-		first_day: 2,
+		first_day: 1,
 		holidays:  {
-			// January 1
-			'01-01':  "New Year's Day",
-			// Third (+3*) Monday (1) in January (01)
-			'01+3*1': "Birthday of Dr. Martin Luther King, Jr.",
-			// Third (+3*) Monday (1) in February (02)
-			'02+3*1': "Washington's Birthday",
-			// Last (-1*) Monday (1) in May (05)
-			'05-1*1': "Memorial Day",
-			// July 4
-			'04-07':  "Independence Day",
-			// First (+1*) Monday (1) in September (09)
-			'09+1*1': "Labor Day",
-			// Second (+2*) Monday (1) in October (10)
-			'10+2*1': "Columbus Day",
-			// November 11
-			'11-11':  "Veterans Day",
-			// Fourth (+4*) Thursday (4) in November (11)
-			'11+4*4': "Thanksgiving Day",
-			// December 25
-			'25-12':  "Christmas"
+			'01-01':     "Premier de l'an",
+			'easter-2':  "Vendredi Saint",
+			'easter':    "Pâques",
+			'easter+1':  "Lundi de Pâques",
+			'01-05':     "Fête du Travail",
+			'easter+39': "Ascension",
+			'easter+49': "Pentecôte",
+			'easter+50': "Lundi de Pentecôte",
+			'14-07':     "Fête Nationale",
+			'15-08':     "Assomption",
+			'01-11':     "Toussaint",
+			'11-11':     "Armistice 1918",
+			'25-12':     "Noël",
+			'26-12':     "Saint Etienne"
 		}
 	};
 
 	var strings = {
-		error_noview:     'Calendar: View {0} not found',
-		error_dateformat: 'Calendar: Wrong date format {0}. Should be either "now" or "yyyy-mm-dd"',
-		error_loadurl:    'Calendar: Event URL is not set',
-		error_where:      'Calendar: Wrong navigation direction {0}. Can be only "next" or "prev" or "today"',
-		error_timedevide: 'Calendar: Time split parameter should divide 60 without decimals. Something like 10, 15, 30',
+		error_noview:     'Calendrier: Vue {0} introuvable',
+		error_dateformat: 'Calendrier: Format de date incorrect {0}. Formats acceptés : "now" ou "yyyy-mm-dd"',
+		error_loadurl:    'Calendrier: Events load URL is not set',
+		error_where:      'Calendrier: Mauvaise commande de navigation {0}. Commandes acceptées : "suivant", "précédent" or "aujourd\'hui"',
+		error_timedevide: 'Calendrier: paramètre pour le séparateur de temps doit diviser 60 par un nombre entier. Par exemple 10, 15, 30',
 
-		no_events_in_day: 'No events in this day.',
+		no_events_in_day: 'Pas d\'événements dans cette journée.',//'No events in this day.',
 
-		title_year:  '{0}',
+		title_year:  'Année {0}',
 		title_month: '{0} {1}',
-		title_week:  'week {0} of {1}',
-		title_day:   '{0} {1} {2}, {3}',
+		title_week:  'Semaine {0}',
+		title_day:   '{0} {1} {2} {3}',
 
-		week:        'Week {0}',
-		all_day:     'All day',
-		time:        'Time',
-		events:      'Events',
-		before_time: 'Ends before timeline',
-		after_time:  'Starts after timeline',
+		week:        'Semaine {0}',
+		all_day:     'Toute la journée',
+		time:        'Temps',
+		events:      'Développements',
+		before_time: 'Temps avant que la bande de fin',
+		after_time:  'Fin après une bande temporaire',
 
 
-		m0:  'January',
-		m1:  'February',
-		m2:  'March',
-		m3:  'April',
-		m4:  'May',
-		m5:  'June',
-		m6:  'July',
-		m7:  'August',
-		m8:  'September',
-		m9:  'October',
-		m10: 'November',
-		m11: 'December',
+		m0:  'Janvier',
+		m1:  'Février',
+		m2:  'Mars',
+		m3:  'Avril',
+		m4:  'Mai',
+		m5:  'Juin',
+		m6:  'Juillet',
+		m7:  'Août',
+		m8:  'Septembre',
+		m9:  'Octobre',
+		m10: 'Novembre',
+		m11: 'Décembre',
 
 		ms0:  'Jan',
-		ms1:  'Feb',
+		ms1:  'Fév',
 		ms2:  'Mar',
-		ms3:  'Apr',
-		ms4:  'May',
+		ms3:  'Avr',
+		ms4:  'Mai',
 		ms5:  'Jun',
 		ms6:  'Jul',
-		ms7:  'Aug',
+		ms7:  'Aoû',
 		ms8:  'Sep',
 		ms9:  'Oct',
 		ms10: 'Nov',
-		ms11: 'Dec',
+		ms11: 'Déc',
 
-		d0: 'Sunday',
-		d1: 'Monday',
-		d2: 'Tuesday',
-		d3: 'Wednesday',
-		d4: 'Thursday',
-		d5: 'Friday',
-		d6: 'Saturday'
+		d0: 'Dimanche',
+		d1: 'Lundi',
+		d2: 'Mardi',
+		d3: 'Mercredi',
+		d4: 'Jeudi',
+		d5: 'Vendredi',
+		d6: 'Samedi',
 	};
 
 	var browser_timezone = '';
@@ -811,18 +805,23 @@ if(!String.prototype.formatNum) {
 
 	Calendar.prototype.getTitle = function() {
 		var p = this.options.position.start;
+		console.log(p);
 		switch(this.options.view) {
 			case 'year':
 				return this.locale.title_year.format(p.getFullYear());
+				//console.log(this.locale.title_year.format(p.getFullYear()));
 				break;
 			case 'month':
 				return this.locale.title_month.format(this.locale['m' + p.getMonth()], p.getFullYear());
+				//console.log(this.locale.title_month.format(this.locale['m' + p.getMonth()], p.getFullYear()));
 				break;
 			case 'week':
 				return this.locale.title_week.format(p.getWeek(), p.getFullYear());
+				//console.log(this.locale.title_week.format(p.getWeek(), p.getFullYear()));
 				break;
 			case 'day':
 				return this.locale.title_day.format(this.locale['d' + p.getDay()], p.getDate(), this.locale['m' + p.getMonth()], p.getFullYear());
+				//console.log(this.locale.title_day.format(this.locale['d' + p.getDay()], p.getDate(), this.locale['m' + p.getMonth()], p.getFullYear()));
 				break;
 		}
 		return;

@@ -105,9 +105,12 @@
 		</div>
 	</div>
 
-	<script type="text/javascript" src="API/bootstrap-calendar-master/components/jquery/jquery.min.js"></script>
+	<!--<script type="text/javascript" src="API/bootstrap-calendar-master/components/jquery/jquery.min.js"></script>-->
+	<!--<script type="text/javascript" src="API/jquery/jquery.js"></script>-->
+	<!--<script type="text/javascript" src="API/bootstrap-calendar-master/components/bootstrap2/js/bootstrap.min.js"></script>-->
 	<script type="text/javascript" src="API/bootstrap-calendar-master/components/underscore/underscore-min.js"></script>
-	<script type="text/javascript" src="API/bootstrap-calendar-master/components/bootstrap2/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="API/jquery/jquery.js"></script>
+	<script type="text/javascript" src="API/bootstrap/js/bootstrap.js"></script>
 	<script type="text/javascript" src="API/bootstrap-calendar-master/components/jstimezonedetect/jstz.min.js"></script>
 	<script type="text/javascript" src="API/bootstrap-calendar-master/js/language/nl-NL.js"></script>
 	<script type="text/javascript" src="API/bootstrap-calendar-master/js/language/fr-FR.js"></script>
