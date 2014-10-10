@@ -1,0 +1,12 @@
+/* CSS commun à l'ensemble des pages */
+
+body 
+{ 
+	background: url('../img/bg_suburb.jpg') no-repeat center center fixed;
+	/*background-color: #F2F2F2;*/
+	text-align: center;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+}

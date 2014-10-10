@@ -57,21 +57,28 @@ if (isset($_SESSION['studyLogin']) || isset($_SESSION['teachLogin']) || !empty($
 		{
 			$smarty->display("template/exportPDF.tpl");
 		}
-		else if ($_GET['page' ] == "maconfig")
+		else if ($_GET['page'] == "maconfig")
 		{
 			$smarty->display("template/maConfig.tpl");
 		}
-		else if ($_GET['page' ] == "RSS")
+		else if ($_GET['page'] == "RSS")
 		{
 			$smarty->display("template/fluxRSS.tpl");
 		}
-		else if ($_GET['page' ] == "droits")
+		else if ($_GET['page'] == "droits")
 		{
 			$smarty->display("template/droits.tpl");
 		}
-		else if ($_GET['page' ] == "tools")
+		else if ($_GET['page'] == "tools")
 		{
 			$smarty->display("template/tools.tpl");
+		}
+		else if ($_GET['page'] == "admin" && $droits['admin'] == 1)
+		{
+			include('script/getAllTeacherInfos.php');
+			$smarty->assign("allTeachers", $allTeachers);
+			
+			$smarty->display("template/admin.tpl");
 		}
 		else
 		{

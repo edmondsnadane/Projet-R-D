@@ -1,9 +1,9 @@
 <html>
 	<head>
 		<meta charset="utf-8">
-		<title>VT Calendar - Acceuil</title>
+		<title>VT Calendar - Mes Droits</title>
 		<link rel="stylesheet" href="API/bootstrap/css/bootstrap.min.css"/>
-		<link rel="stylesheet" href="css/login.css"/>
+		<link rel="stylesheet" href="css/common.css"/>
 		<link rel="stylesheet" href="css/droits.css"/>
 		<script type="text/javascript" src="js/loadPage.js"></script>
 	</head>
