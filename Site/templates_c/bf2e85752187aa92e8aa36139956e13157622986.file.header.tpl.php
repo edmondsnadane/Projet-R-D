@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.18, created on 2014-10-08 15:54:57
+<?php /* Smarty version Smarty-3.1.18, created on 2014-10-09 10:30:59
          compiled from "template\include\header.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:3013254353bfa894fd1-39340041%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'bf2e85752187aa92e8aa36139956e13157622986' => 
     array (
       0 => 'template\\include\\header.tpl',
-      1 => 1412776495,
+      1 => 1412843373,
       2 => 'file',
     ),
   ),
@@ -38,18 +38,20 @@ $_valid = $_smarty_tpl->decodeProperties(array (
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span> nom prenom <span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
-            <li><a href="#">Outils</a></li>
-            <li><a href="#">Modules</a></li>
-            <li><a href="#">Droits</a></li>
-            <li><a href="#">Heures</a></li>
-			<li><a href="#">Export PDF</a></li>
-			<li><a href="#">Flux RSS</a></li>
-			<li><a href="#">Config</a></li>
+            <li><a href="#"><span class="glyphicon glyphicon-briefcase"></span> Outils</a></li>
+            <li><a href="#"><span class="glyphicon glyphicon-th-large"></span> Modules</a></li>
+            <li><a href="#"><span class="glyphicon glyphicon-lock"></span> Droits</a></li>
+            <li><a href="#"><span class="glyphicon glyphicon-time"></span> Heures</a></li>
+			<li><a href="#"><span class="glyphicon glyphicon-file"></span> Export PDF</a></li>
+			<li><a href="#"><span class="glyphicon glyphicon-transfer"></span> Flux RSS</a></li>
+			<li><a href="#"><span class="glyphicon glyphicon-cog"></span> Configuration</a></li>
           </ul>
         </li>
       </ul>
 	  <ul class="nav navbar-nav navbar-right">
-        <li><a href="#">Déconnexion</a></li>
+		<li><a href="#"><span class="glyphicon glyphicon-refresh"></span> Rafraichir</a></li>
+		<li><a href="#"><span class="glyphicon glyphicon-wrench"></span> Configuration</a></li>
+        <li><a href="#"><span class="glyphicon glyphicon-off"></span> Déconnexion</a></li>
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->

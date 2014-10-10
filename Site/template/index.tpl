@@ -8,7 +8,7 @@
 	<body>
 		
 		{include file='template/include/header.tpl'}
-		
+		{include file='template/include/calendar.tpl'}
 		{include file='template/include/footer.tpl'}
 		
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
