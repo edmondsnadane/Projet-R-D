@@ -56,7 +56,7 @@
 					<option value="" selected="selected">First day of week language-dependant</option>
 					<option value="2">First day of week is Sunday</option>
 					<option value="1">First day of week is Monday</option>
-				</select>
+				</select> 
 				<select id="language" class="span12">
 					<option value="">Select Language (default: fr-FR)</option>
 					<option value="nl-NL">Dutch</option>
