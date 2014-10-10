@@ -2,6 +2,8 @@
 
 session_start();
 
+error_reporting(E_ALL);
+
 include('../config/config.php');
 
 if (isset($_POST['teachLogin'])&& isset($_POST['teachPwd']) && !empty($_POST['teachLogin']) && !empty($_POST['teachPwd']))
@@ -21,11 +23,8 @@ if (isset($_POST['teachLogin'])&& isset($_POST['teachPwd']) && !empty($_POST['te
 		{
 			$find = TRUE;
 			
-			// MAJ du compteur de visite
-			
-			// stockage dans des variables de sessions des infos utilisateurs
-			
-			// si Resté connecté cocher, stockage dans des cookies
+			$sql="UPDATE compteur SET valeur=valeur+1 WHERE id_compteur='1'";
+			$dbh->exec($sql);
 		}
 	}
 
@@ -36,6 +35,17 @@ if (isset($_POST['teachLogin'])&& isset($_POST['teachPwd']) && !empty($_POST['te
 	{
 		header('Location: ../index.php?errorID=2');
 		exit();
+	}
+	else
+	{
+		if (isset ($_POST['teachCookie']) && $_POST['teachCookie']== 1)
+		{
+			setcookie('teachLogin', $_POST['teachLogin'], time() + 365*24*3600); 
+		}
+		else
+		{
+			$_SESSION['teachLogin'] = $_POST['teachLogin'];
+		}
 	}
 	
 	header('Location: ../index.php');
