@@ -46,8 +46,54 @@ if (isset($_SESSION['studyLogin']) || isset($_SESSION['teachLogin']) || !empty($
 		}
 		include('script/getTeachInfos.php');
 	}
+	
 	$smarty->assign("user", $user);
-	$smarty->display("template/index.tpl");
+	
+	if (isset($_GET['page']))
+	{
+		if ($_GET['page' ] == "deconnection")
+		{
+			include('script/disconnect.php');
+			$smarty->assign("successMsg", "Déconnection reussie");
+			$smarty->display("template/login.tpl");
+		}
+		else if ($_GET['page' ] == "module")
+		{
+			$smarty->display("template/module.tpl");
+		}
+		else if ($_GET['page' ] == "heure")
+		{
+			$smarty->display("template/heures.tpl");
+		}
+		else if ($_GET['page' ] == "export")
+		{
+			$smarty->display("template/exportPDF.tpl");
+		}
+		else if ($_GET['page' ] == "maconfig")
+		{
+			$smarty->display("template/maConfig.tpl");
+		}
+		else if ($_GET['page' ] == "RSS")
+		{
+			$smarty->display("template/fluxRSS.tpl");
+		}
+		else if ($_GET['page' ] == "droits")
+		{
+			$smarty->display("template/droits.tpl");
+		}
+		else if ($_GET['page' ] == "tools")
+		{
+			$smarty->display("template/tools.tpl");
+		}
+		else
+		{
+			$smarty->display("template/index.tpl");
+		}
+	}
+	else
+	{
+		$smarty->display("template/index.tpl");
+	}
 }
 /* l'utilisateur n'est pas connecté */
 else
