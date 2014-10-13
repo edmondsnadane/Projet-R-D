@@ -5,31 +5,30 @@
 
 	<meta charset="UTF-8">
 
-	<link rel="stylesheet" href="API/bootstrap-calendar-master/components/bootstrap2/css/bootstrap.css">
-	<link rel="stylesheet" href="API/bootstrap-calendar-master/components/bootstrap2/css/bootstrap-responsive.css">
+	<!--<link rel="stylesheet" href="API/bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" href="API/bootstrap/css/bootstrap-theme.min.css">
 	<link rel="stylesheet" href="API/bootstrap-calendar-master/css/calendar.css">
-
+-->
 	<style type="text/css">
 		.btn-twitter {
 			padding-left: 30px;
-			background: rgba(0, 0, 0, 0) url(https://platform.twitter.com/widgets/images/btn.27237bab4db188ca749164efd38861b0.png) -20px 6px no-repeat;
-			background-position: -20px 11px !important;
+			background: rgba(0, 0, 0, 0) url(https://platform.twitter.com/widgets/images/btn.27237bab4db188ca749164efd38861b0.png) -20px 9px no-repeat;
 		}
 		.btn-twitter:hover {
-			background-position:  -20px -18px !important;
+			background-position:  -21px -16px;
 		}
 	</style>
 </head>
 <body>
 <div class="container">
-
+	
 
 	<div class="page-header">
 
 		<div class="pull-right form-inline">
 			<div class="btn-group">
 				<button class="btn btn-primary" data-calendar-nav="prev"><< Prev</button>
-				<button class="btn" data-calendar-nav="today">Today</button>
+				<button class="btn btn-default" data-calendar-nav="today">Today</button>
 				<button class="btn btn-primary" data-calendar-nav="next">Next >></button>
 			</div>
 			<div class="btn-group">
@@ -39,26 +38,22 @@
 				<button class="btn btn-warning" data-calendar-view="day">Day</button>
 			</div>
 		</div>
-
 		<h3></h3>
-
 	</div>
 
 	<div class="row">
-		<div class="span9">
-		
-	
+		<div class="col-md-9">
 			<div id="calendar"></div>
 		</div>
-		<div class="span3">
-			<div class="row-fluid">
-				<select id="first_day" class="span12">
+		<div class="col-md-3">
+			<div class="row">
+				<select id="first_day" class="form-control">
 					<option value="" selected="selected">First day of week language-dependant</option>
 					<option value="2">First day of week is Sunday</option>
 					<option value="1">First day of week is Monday</option>
-				</select> 
-				<select id="language" class="span12">
-					<option value="">Select Language (default: fr-FR)</option>
+				</select>
+				<select id="language" class="form-control">
+					<option value="">Select Language (default: en-US)</option>
 					<option value="nl-NL">Dutch</option>
 					<option value="fr-FR">French</option>
 					<option value="de-DE">German</option>
@@ -73,9 +68,8 @@
 					<option value="es-ES">Spanish (Spain)</option>
 					<option value="ru-RU">Russian</option>
 					<option value="sv-SE">Swedish</option>
-					<option value="zh-CN">简体中文</option>
+					<option value="ko-KR">Korean</option>
 					<option value="zh-TW">繁體中文</option>
-					<option value="ko-KR">한국어</option>
 				</select>
 				<label class="checkbox">
 					<input type="checkbox" value="#events-modal" id="events-in-modal"> Open events in modal window
@@ -88,49 +82,22 @@
 	<div class="clearfix"></div>
 	<br><br>
 	
-	<br><br>
-	
-	<!--<div id="disqus_thread"></div>
-	<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
--->
-	<div class="modal hide fade" id="events-modal">
-		<div class="modal-header">
-			<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-			<h3>Event</h3>
-		</div>
-		<div class="modal-body" style="height: 400px">
-		</div>
-		<div class="modal-footer">
-			<a href="#" data-dismiss="modal" class="btn">Close</a>
+	<div class="modal fade" id="events-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+					<h3 class="modal-title">Event</h3>
+				</div>
+				<div class="modal-body" style="height: 400px">
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+				</div>
+			</div>
 		</div>
 	</div>
 
-	<!--<script type="text/javascript" src="API/bootstrap-calendar-master/components/jquery/jquery.min.js"></script>-->
-	<!--<script type="text/javascript" src="API/jquery/jquery.js"></script>-->
-	<!--<script type="text/javascript" src="API/bootstrap-calendar-master/components/bootstrap2/js/bootstrap.min.js"></script>-->
-	<script type="text/javascript" src="API/bootstrap-calendar-master/components/underscore/underscore-min.js"></script>
-	<script type="text/javascript" src="API/jquery/jquery.js"></script>
-	<script type="text/javascript" src="API/bootstrap/js/bootstrap.js"></script>
-	<script type="text/javascript" src="API/bootstrap-calendar-master/components/jstimezonedetect/jstz.min.js"></script>
-	<script type="text/javascript" src="API/bootstrap-calendar-master/js/language/nl-NL.js"></script>
-	<script type="text/javascript" src="API/bootstrap-calendar-master/js/language/fr-FR.js"></script>
-	<script type="text/javascript" src="API/bootstrap-calendar-master/js/language/de-DE.js"></script>
-	<script type="text/javascript" src="API/bootstrap-calendar-master/js/language/el-GR.js"></script>
-	<script type="text/javascript" src="API/bootstrap-calendar-master/js/language/it-IT.js"></script>
-	<script type="text/javascript" src="API/bootstrap-calendar-master/js/language/hu-HU.js"></script>
-	<script type="text/javascript" src="API/bootstrap-calendar-master/js/language/pl-PL.js"></script>
-	<script type="text/javascript" src="API/bootstrap-calendar-master/js/language/pt-BR.js"></script>
-	<script type="text/javascript" src="API/bootstrap-calendar-master/js/language/ro-RO.js"></script>
-	<script type="text/javascript" src="API/bootstrap-calendar-master/js/language/es-CO.js"></script>
-	<script type="text/javascript" src="API/bootstrap-calendar-master/js/language/es-MX.js"></script>
-	<script type="text/javascript" src="API/bootstrap-calendar-master/js/language/es-ES.js"></script>
-	<script type="text/javascript" src="API/bootstrap-calendar-master/js/language/ru-RU.js"></script>
-	<script type="text/javascript" src="API/bootstrap-calendar-master/js/language/sv-SE.js"></script>
-    <script type="text/javascript" src="API/bootstrap-calendar-master/js/language/zh-CN.js"></script>
-    <script type="text/javascript" src="API/bootstrap-calendar-master/js/language/cs-CZ.js"></script>
-    <script type="text/javascript" src="API/bootstrap-calendar-master/js/language/ko-KR.js"></script>
-    <script type="text/javascript" src="API/bootstrap-calendar-master/js/language/zh-TW.js"></script>
-	<script type="text/javascript" src="API/bootstrap-calendar-master/js/calendar.js"></script>
 	<script type="text/javascript" src="API/bootstrap-calendar-master/js/app.js"></script>
 
 	<script type="text/javascript">
@@ -140,20 +107,6 @@
 			dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
 			(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
 		})();*/
-		
-	var calendar = $('#calendar').calendar({
-    events_source: [
-        {
-            "id": "999",
-            "title": "Event 1",
-            "url": "www.example.com",
-            "class": "event-important",
-            "start": "1362938400000",
-			"end":   "1363197686300"
-        },
-        
-    ]});
-		
 	</script>
 </div>
 </body>
