@@ -53,12 +53,16 @@ if (isset($_SESSION['studyLogin']) || isset($_SESSION['teachLogin']) || !empty($
 		{
 			$smarty->display("template/heures.tpl");
 		}
-		else if ($_GET['page' ] == "export")
+		else if ($_GET['page' ] == "export" && ($droits['pdf'] == 1 || $droits['giseh'] == 1))
 		{
-			$smarty->display("template/exportPDF.tpl");
+			include('script/getAllFormation.php');
+			$smarty->assign("formations", $formations);
+			$smarty->display("template/export.tpl");
 		}
-		else if ($_GET['page'] == "maconfig")
+		else if ($_GET['page'] == "config")
 		{
+			include('script/getUserConfig.php');
+			$smarty->assign("userConfs", $userConfs);
 			$smarty->display("template/maConfig.tpl");
 		}
 		else if ($_GET['page'] == "RSS")
