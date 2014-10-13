@@ -24,6 +24,7 @@ if (isset($_SESSION['studyLogin']) || isset($_SESSION['teachLogin']) || !empty($
 		include('script/getStudyInfos.php');
 		$smarty->assign("loginStudy",$loginUtilisateur);
 		$smarty->assign("userName",$userName);
+		
 	}
 	else
 	{
@@ -39,66 +40,98 @@ if (isset($_SESSION['studyLogin']) || isset($_SESSION['teachLogin']) || !empty($
 	
 	if (isset($_GET['page']))
 	{
-		if ($_GET['page'] == "deconnection")
+		// NAVIGATION ETUDIANT
+		if (isset($_SESSION['studyLogin']) || !empty($_COOKIE['studyLogin']))
 		{
-			include('script/disconnect.php');
-			$smarty->assign("successMsg", "Déconnection reussie");
-			$smarty->display("template/login.tpl");
-		}
-		else if ($_GET['page'] == "module")
-		{
-			$smarty->display("template/modules.tpl");
-		}
-		else if ($_GET['page' ] == "heure")
-		{
-			$smarty->display("template/heures.tpl");
-		}
-		else if ($_GET['page' ] == "export" && ($droits['pdf'] == 1 || $droits['giseh'] == 1))
-		{
-			include('script/getAllFormation.php');
-			$smarty->assign("formations", $formations);
-			$smarty->display("template/export.tpl");
-		}
-		else if ($_GET['page'] == "config")
-		{
-			include('script/getUserConfig.php');
-			$smarty->assign("userConfs", $userConfs);
-			$smarty->display("template/maConfig.tpl");
-		}
-		else if ($_GET['page'] == "RSS")
-		{
-			$smarty->display("template/fluxRSS.tpl");
-		}
-		else if ($_GET['page'] == "droits")
-		{
-			$smarty->display("template/droits.tpl");
-		}
-		else if ($_GET['page'] == "dialogue" && $droits['dialogue'] == 1)
-		{
-			include('script/getComposantes.php');
-			include('script/computeDialogueGestion.php');
-			$smarty->assign("composantes", $composantesComplet);
-			
-			$smarty->display("template/dialogueGestion.tpl");
-		}
-		else if ($_GET['page'] == "tools")
-		{
-			$smarty->display("template/tools.tpl");
-		}
-		else if ($_GET['page'] == "admin" && $droits['admin'] == 1)
-		{
-			include('script/getAllTeacherInfos.php');
-			$smarty->assign("allTeachers", $allTeachers);
-			
-			$smarty->display("template/admin.tpl");
-		}
-		else if ($_GET['page'] == "version")
-		{
-			$smarty->display("template/versions.tpl");
+			if ($_GET['page'] == "module")
+			{
+				$smarty->display("template/modules.tpl");
+			}
+			else if ($_GET['page' ] == "export")
+			{
+				include('script/getAllFormation.php');
+				$smarty->assign("formations", $formations);
+				$smarty->display("template/export.tpl");
+			}
+			else if ($_GET['page'] == "RSS")
+			{
+				$smarty->display("template/fluxRSS.tpl");
+			}
+			else if ($_GET['page'] == "mesDS")
+			{
+				include('script/getDS.php');
+				$smarty->assign("mesDS", $mesDS);
+				$smarty->display("template/mesDS.tpl");
+			}
+			else
+			{
+				$smarty->display("template/index.tpl");
+			}
 		}
 		else
 		{
-			$smarty->display("template/index.tpl");
+			// NAVIGATION ENSEIGNANT
+			if ($_GET['page'] == "deconnection")
+			{
+				include('script/disconnect.php');
+				$smarty->assign("successMsg", "Déconnection reussie");
+				$smarty->display("template/login.tpl");
+			}
+			else if ($_GET['page'] == "module")
+			{
+				$smarty->display("template/modules.tpl");
+			}
+			else if ($_GET['page' ] == "heure")
+			{
+				$smarty->display("template/heures.tpl");
+			}
+			else if ($_GET['page' ] == "export" && ($droits['pdf'] == 1 || $droits['giseh'] == 1))
+			{
+				include('script/getAllFormation.php');
+				$smarty->assign("formations", $formations);
+				$smarty->display("template/export.tpl");
+			}
+			else if ($_GET['page'] == "config")
+			{
+				include('script/getUserConfig.php');
+				$smarty->assign("userConfs", $userConfs);
+				$smarty->display("template/maConfig.tpl");
+			}
+			else if ($_GET['page'] == "RSS")
+			{
+				$smarty->display("template/fluxRSS.tpl");
+			}
+			else if ($_GET['page'] == "droits")
+			{
+				$smarty->display("template/droits.tpl");
+			}
+			else if ($_GET['page'] == "dialogue" && $droits['dialogue'] == 1)
+			{
+				include('script/getComposantes.php');
+				include('script/computeDialogueGestion.php');
+				$smarty->assign("composantes", $composantesComplet);
+				
+				$smarty->display("template/dialogueGestion.tpl");
+			}
+			else if ($_GET['page'] == "tools")
+			{
+				$smarty->display("template/tools.tpl");
+			}
+			else if ($_GET['page'] == "admin" && $droits['admin'] == 1)
+			{
+				include('script/getAllTeacherInfos.php');
+				$smarty->assign("allTeachers", $allTeachers);
+				
+				$smarty->display("template/admin.tpl");
+			}
+			else if ($_GET['page'] == "version")
+			{
+				$smarty->display("template/versions.tpl");
+			}
+			else
+			{
+				$smarty->display("template/index.tpl");
+			}
 		}
 	}
 	else

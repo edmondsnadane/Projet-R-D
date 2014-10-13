@@ -14,7 +14,7 @@
 	$userName = "";
 
 	// on récupere le nom et prenom reliés au login de l'étudiant
-	$sql = "SELECT * FROM resources_etudiants WHERE identifiant = ".$dbh->quote($loginUtilisateur, PDO::PARAM_STR);   
+	$sql = "SELECT * FROM ressources_etudiants WHERE identifiant = ".$dbh->quote($loginUtilisateur, PDO::PARAM_STR);   
 	$req = $dbh->prepare($sql);
 	$req->execute();
 		  
