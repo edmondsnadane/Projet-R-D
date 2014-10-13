@@ -15,5 +15,11 @@
 			
 			li{
 				list-style-type:none;
+				text-align: center;
+			}
+			
+			.col-centered, #myTab{
+				float: none !important;
+				margin: 0 auto !important;
 			}
 	
