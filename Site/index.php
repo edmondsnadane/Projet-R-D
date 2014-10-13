@@ -73,6 +73,14 @@ if (isset($_SESSION['studyLogin']) || isset($_SESSION['teachLogin']) || !empty($
 		{
 			$smarty->display("template/droits.tpl");
 		}
+		else if ($_GET['page'] == "dialogue" && $droits['dialogue'] == 1)
+		{
+			include('script/getComposantes.php');
+			include('script/computeDialogueGestion.php');
+			$smarty->assign("composantes", $composantesComplet);
+			
+			$smarty->display("template/dialogueGestion.tpl");
+		}
 		else if ($_GET['page'] == "tools")
 		{
 			$smarty->display("template/tools.tpl");
@@ -83,6 +91,10 @@ if (isset($_SESSION['studyLogin']) || isset($_SESSION['teachLogin']) || !empty($
 			$smarty->assign("allTeachers", $allTeachers);
 			
 			$smarty->display("template/admin.tpl");
+		}
+		else if ($_GET['page'] == "version")
+		{
+			$smarty->display("template/versions.tpl");
 		}
 		else
 		{

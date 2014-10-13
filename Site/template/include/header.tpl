@@ -42,7 +42,7 @@
 					{/if}
 					
 					{if $droits.dialogue == 1}
-						<li onClick=""><a href="#"><span class="glyphicon glyphicon-comment"></span> Dialogue de gestion</a></li>
+						<li onClick="loadDialogue()"><a href="#"><span class="glyphicon glyphicon-comment"></span> Dialogue de gestion</a></li>
 					{/if}
 					
 					{if $droits.salle == 1}
@@ -68,7 +68,7 @@
       </ul>
 	  <ul class="nav navbar-nav navbar-right">
 		<li onClick="loadIndex()"><a><span class="glyphicon glyphicon-home"></span> Acceuil</a></li>
-		<li onClick="loadMaConfig()"><a><span class="glyphicon glyphicon-wrench"></span> Configuration</a></li>
+		<li onClick="loadConfig()"><a><span class="glyphicon glyphicon-wrench"></span> Configuration</a></li>
 		<li onClick="deconnect()"><a><span class="glyphicon glyphicon-off"></span> Déconnexion</a></li>
       </ul>
     </div><!-- /.navbar-collapse -->
