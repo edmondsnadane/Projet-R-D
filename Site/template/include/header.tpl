@@ -15,16 +15,59 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
         <li class="dropdown">
-          <a class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span> nom prenom <span class="caret"></span></a>
-          <ul class="dropdown-menu" role="menu">
-            <li onClick="loadTools()"><a href="#"><span class="glyphicon glyphicon-briefcase"></span> Outils</a></li>
-            <li onClick="loadModule()"><a href="#"><span class="glyphicon glyphicon-th-large"></span> Modules</a></li>
-            <li onClick="loadDroits()"><a href="#"><span class="glyphicon glyphicon-lock"></span> Droits</a></li>
-            <li onClick="loadHeures()"><a href="#"><span class="glyphicon glyphicon-time"></span> Heures</a></li>
-			<li onClick="loadExport()"><a href="#"><span class="glyphicon glyphicon-file"></span> Export PDF</a></li>
-			<li onClick="loadRSS()"><a href="#"><span class="glyphicon glyphicon-transfer"></span> Flux RSS</a></li>
-			<li onClick="loadConfig()"><a href="#"><span class="glyphicon glyphicon-cog"></span> Configuration</a></li>
-          </ul>
+			<a class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span><span>{if isset($firstName)} {$firstName} {/if} {$userName}</span><span class="caret"></span></a>
+			{if isset($firstName)}
+				<!-- l'utilisateur connecté est un enseignant -->
+				<ul class="dropdown-menu" role="menu">
+					<li onClick="loadTools()"><a href="#"><span class="glyphicon glyphicon-briefcase"></span> Outils</a></li>
+					
+					{if $droits.admin == 1}
+						<li onClick="loadAdmin()"><a href="#"><span class="glyphicon glyphicon-eye-open"></span> Gestion des droits</a></li>
+					{/if}
+					
+					{if $droits.module == 1}
+						<li onClick="loadModule()"><a href="#"><span class="glyphicon glyphicon-th-large"></span> Mes Modules</a></li>
+					{/if}
+					
+					{if $droits.mes_droits == 1}
+						<li onClick="loadDroits()"><a href="#"><span class="glyphicon glyphicon-lock"></span> Mes Droits</a></li>
+					{/if}
+					
+					{if $droits.bilan_heure == 1}
+						<li onClick="loadHeures()"><a href="#"><span class="glyphicon glyphicon-time"></span> Mes Heures</a></li>
+					{/if}
+					
+					{if $droits.bilan_formation == 1}
+						<li onClick=""><a href="#"><span class="glyphicon glyphicon-stats"></span> Bilan par formation</a></li>
+					{/if}
+					
+					{if $droits.giseh == 1}
+						<li onClick=""><a href="#"><span class="glyphicon glyphicon-send"></span> Giseh</a></li>
+					{/if}
+					
+					{if $droits.dialogue == 1}
+						<li onClick=""><a href="#"><span class="glyphicon glyphicon-comment"></span> Dialogue de gestion</a></li>
+					{/if}
+					
+					{if $droits.salle == 1}
+						<li onClick=""><a href="#"><span class="glyphicon glyphicon-home"></span> Occupation de salles</a></li>
+					{/if}
+					
+					{if $droits.pdf == 1}
+						<li onClick="loadExport()"><a href="#"><span class="glyphicon glyphicon-file"></span> Export PDF</a></li>
+					{/if}
+					
+					{if $droits.rss == 1}
+						<li onClick="loadRSS()"><a href="#"><span class="glyphicon glyphicon-transfer"></span> Flux RSS</a></li>
+					{/if}
+					
+					{if $droits.configuration == 1}
+						<li onClick="loadConfig()"><a href="#"><span class="glyphicon glyphicon-cog"></span> Configuration</a></li>
+					{/if}
+				</ul>
+			{else}
+				<!-- l'utilisateur connecté est un étudiant -->
+			{/if}
         </li>
       </ul>
 	  <ul class="nav navbar-nav navbar-right">
