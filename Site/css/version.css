@@ -12,4 +12,8 @@
 			.panel-body {
 				padding: 0px !important;
 			}
+			
+			li{
+				list-style-type:none;
+			}
 	
