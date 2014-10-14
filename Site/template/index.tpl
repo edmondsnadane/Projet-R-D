@@ -6,7 +6,7 @@
 		<link rel="stylesheet" href="API/bootstrap/css/bootstrap.min.css">
 		<link rel="stylesheet" href="API/bootstrap/css/bootstrap-theme.min.css">
 		<link rel="stylesheet" href="API/bootstrap-calendar-master/css/calendar.css">
-		<link rel="stylesheet" href="css/login.css"/>
+		<link rel="stylesheet" href="css/common.css"/>
 		
 		<script type="text/javascript" src="js/loadPage.js"></script>
 		<script type="text/javascript" src="API/bootstrap-calendar-master/components/jquery/jquery.min.js"></script>
