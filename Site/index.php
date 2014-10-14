@@ -15,6 +15,8 @@ $compteur_res=$compteur_req->fetchAll();
 $compteur=$compteur_res['0']['valeur'];
 $smarty->assign("compteur", $compteur);
 
+$smarty->assign("annees", $annee_scolaire);
+
 /* l'utilisateur est connecté */
 if (isset($_SESSION['studyLogin']) || isset($_SESSION['teachLogin']) || !empty($_COOKIE['teachLogin']) || !empty($_COOKIE['studyLogin']))
 {
@@ -30,7 +32,7 @@ if (isset($_SESSION['studyLogin']) || isset($_SESSION['teachLogin']) || !empty($
 	{
 		/* l'utilisateur connecté est un enseignant */
 		include('script/getTeachInfos.php');
-		$smarty->assign("loginTeach",$loginUtilisateur);
+		$smarty->assign("teachLogin",$loginUtilisateur);
 		$smarty->assign("firstName",$firstName);
 		$smarty->assign("userName",$userName);
 		

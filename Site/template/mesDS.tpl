@@ -29,13 +29,17 @@
 				<th>Durée</th>
 				<th>Effectué</th>
 			</tr>
-			{foreach from=$composante.grades item=grade}
+			{foreach from=$mesDS item=ds}
 				<tr>
-					<td>{$grade.nom}</td>
-					<td class="resource_cell">{$grade.resources}</td>
-					<td>{$grade.heure_vol_stat}h{$grade.minutes_vol_stat}</td>
-					<td>{$grade.nb_prof}</td>
-					<td>{$grade.nb_heure}</td>
+					<td>{$ds.dateDS}</td>
+					<td>{$ds.groupeDS}</td>
+					<td class="danger">DS</td>
+					<td>{$ds.enseignementDS}</td>
+					<td>{$ds.profs}</td>
+					<td>{$ds.salles}</td>
+					<td>{$ds.heureDS}</td>
+					<td>{$ds.dureeDS}</td>
+					<td>{$ds.passe}</td>
 				</tr>
 			{/foreach}
 		</table>

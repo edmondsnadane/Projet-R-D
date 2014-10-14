@@ -62,3 +62,8 @@ function loadDialogue()
 {
 	window.location.replace('index.php?page=dialogue');
 }
+
+function loadMesDS()
+{
+	window.location.replace('index.php?page=mesDS');
+}

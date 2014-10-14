@@ -64,6 +64,7 @@
 			{else}
 				<!-- l'utilisateur connecté est un étudiant -->
 				<ul class="dropdown-menu" role="menu">
+					<li onClick="loadTools()"><a href="#"><span class="glyphicon glyphicon-briefcase"></span> Outils</a></li>
 					<li onClick="loadExport()"><a href="#"><span class="glyphicon glyphicon-file"></span> Export </a></li>
 					<li onClick="loadMesDS()"><a href="#"><span class="glyphicon glyphicon-pencil"></span> Mes DS</a></li>
 					<li onClick="loadModule()"><a href="#"><span class="glyphicon glyphicon-th-large"></span> Mes Modules</a></li>

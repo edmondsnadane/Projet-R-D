@@ -22,6 +22,7 @@
 	while($ligne = $req->fetch())
 	{
 		$userName = $ligne['nom'];
+		$userCode = $ligne['codeEtudiant'];
 	}
 
 	$req->closeCursor();		

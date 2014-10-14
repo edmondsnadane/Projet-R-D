@@ -28,6 +28,9 @@ $heure_fin_pause_midi=13.75;
 $heure_debut_pause_apresmidi=15.75;
 $heure_fin_pause_apresmidi=16.00;
 
+//Code de l'identifiant des DS dans la base de données de VT (par défaut 9 sauf si vous l'avez changé)
+$identifiant_DS=9;
+
 date_default_timezone_set('Europe/Paris');
 
 $k=$nbdebdd-1;
