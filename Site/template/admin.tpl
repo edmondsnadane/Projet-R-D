@@ -4,8 +4,11 @@
 		<title>VT Calendar - Gestion des droits</title>
 		<link rel="stylesheet" href="API/bootstrap/css/bootstrap.min.css"/>
 		<link rel="stylesheet" href="css/common.css"/>
-		<link rel="stylesheet" href="css/droits.css"/>
+		<link rel="stylesheet" href="css/admin.css"/>
+		<link rel="stylesheet" href="API/dataTables/css/dataTables.css"/>
 		<script src="API/jquery/jquery.js"></script>
+		<script src="API/jquery/jquery.tablesorter.min.js"></script>
+		<script src="API/dataTables/js/jquery.dataTables.min.js"></script>
 		<script type="text/javascript" src="API/bootstrap/js/bootstrap.js"></script>
 		<script type="text/javascript" src="js/loadPage.js"></script>
 		<script type="text/javascript" src="js/filterTable.js"></script>
@@ -14,10 +17,7 @@
 		
 		{include file='template/include/header.tpl'}
 		<form>
-				<div class="input-group"> <span class="input-group-addon">Filtrer</span>
-					<input id="filter" type="text" class="form-control" placeholder="...">
-				</div>
-				<table class="table-striped table center-table col-md-12">
+				<table class="table-striped table center-table col-md-12 sortTable dataTable">
 					<thead>
 						<tr>
 						   <th>Nom</th>
