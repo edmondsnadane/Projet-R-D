@@ -1,15 +1,15 @@
 
-			// Méthode pour changer la visiblité d'une balise dont l'ID est passée en paramètre
+			// MÃ©thode pour changer la visiblitÃ© d'une balise dont l'ID est passÃ©e en paramÃ¨tre
 			function toggleVisibility(tagId) {
 			if (!document.getElementById) {
 			msg = 'Votre navigateur est trop ancien pour profiter de votre visite\n';
-			msg += 'Veuillez le mettre à jour ou vous en procurer un autre';
+			msg += 'Veuillez le mettre Ã  jour ou vous en procurer un autre';
 			return false;
 			}
 			var tagToToggle;
-			try { // On tente de récupérer la balise cible dont on doit changer la visibilité
+			try { // On tente de rÃ©cupÃ©rer la balise cible dont on doit changer la visibilitÃ©
 			tagToToggle = document.getElementById(tagId);
-			} catch (e) { // Si échec de la récupération de la balise cible
+			} catch (e) { // Si Ã©chec de la rÃ©cupÃ©ration de la balise cible
 			alert('Je n\'ai pas pu trouver la balise cible');
 			}
 			try { // Seulement pour les non IE
