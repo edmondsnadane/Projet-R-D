@@ -373,9 +373,29 @@ if(!String.prototype.formatNum) {
 			this.setLanguage(object.language);
 		}
 		if('modal' in object) {
+			console.log(this);
 			this._update_modal();
 		}
 	}
+	
+//LBR	
+//Calendar.prototype.defautModal = function(){
+//console.log(this._update_modal());
+	//this._update_modal();
+//}	
+	//var defautModal = document.geteElementById("calendar");
+//defautModal._update_modal();
+	//calendar._update_modal();
+/*
+Calendar.prototype.setOptions = function(object) {
+		$.extend(this.options, object);
+		if('language' in object) {
+			this.setLanguage(object.language);
+		}
+		if('modal' in object) {
+			this._update_modal();
+		}
+	}*/
 
 	Calendar.prototype.setLanguage = function(lang) {
 		if(window.calendar_languages && (lang in window.calendar_languages)) {
@@ -955,6 +975,7 @@ if(!String.prototype.formatNum) {
 
 	Calendar.prototype._update_modal = function() {
 		var self = this;
+		console.log("test calendar.js _update_modal : ");console.log(self);
 
 		$('a[data-event-id]', this.context).unbind('click');
 
@@ -1195,4 +1216,5 @@ if(!String.prototype.formatNum) {
 	$.fn.calendar = function(params) {
 		return new Calendar(params, this);
 	}
+	
 }(jQuery));

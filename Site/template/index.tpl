@@ -3,10 +3,11 @@
 		<meta charset="utf-8">
 		<title>VT Calendar - Acceuil</title>
 
+		<link rel="stylesheet" href="css/MyCalendar.css">
 		<link rel="stylesheet" href="API/bootstrap/css/bootstrap.min.css">
 		<link rel="stylesheet" href="API/bootstrap/css/bootstrap-theme.min.css">
 		<link rel="stylesheet" href="API/bootstrap-calendar-master/css/calendar.css">
-		<link rel="stylesheet" href="css/login.css"/>
+		<link rel="stylesheet" href="css/common.css"/>
 		
 		<script type="text/javascript" src="js/loadPage.js"></script>
 		<script type="text/javascript" src="API/bootstrap-calendar-master/components/jquery/jquery.min.js"></script>
@@ -31,6 +32,8 @@
 		<script type="text/javascript" src="API/bootstrap-calendar-master/js/language/cs-CZ.js"></script>
 		<script type="text/javascript" src="API/bootstrap-calendar-master/js/language/ko-KR.js"></script>
 		<script type="text/javascript" src="API/bootstrap-calendar-master/js/calendar.js"></script>
+		
+		<script type="text/javascript" src="API/bootstrap-calendar-master/js/app.js"></script>
 		
 	</head>
 	<body>

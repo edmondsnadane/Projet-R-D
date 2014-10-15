@@ -1,16 +1,4 @@
 /* CSS de la page de connexion */
-
-body 
-{ 
-	background: url('../img/bg_suburb.jpg') no-repeat center center fixed;
-	/*background-color: #F2F2F2;*/
-	text-align: center;
-	-webkit-background-size: cover;
-	-moz-background-size: cover;
-	-o-background-size: cover;
-	background-size: cover;
-}
-			
 .col-centered, #myTab
 {
 	float: none !important;
@@ -31,4 +19,17 @@ body
 #teachButtons, #studyButtons 
 {
 	padding: 10px;
+}
+
+#menuHeader, #menuHeaderNom {
+	text-align : left;
+}
+
+
+#bs-example-navbar-collapse-1 ul li {
+	text-align : left;
+}
+
+.pull-right form-inline {
+	width : 100%;
 }

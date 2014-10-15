@@ -1,0 +1,42 @@
+#filtreAnnee {
+	height : 40px;
+	max-height : 40px;
+	width : 350px;
+	max-width : 350px;
+}
+
+#filtreToday{
+	height : 40px;
+	max-height : 40px;
+	width : 350px;
+	max-width : 350px;
+}
+
+#h3MoisAnnee {
+	width : 350px;
+	max-width : 350px;
+	text-align : center;
+	float: left;
+}
+
+#groupeFiltre {
+	float: rigth;
+	text-align : center;
+	height : 80px;
+	max-height : 85px;
+	width : 350px;
+	max-width : 350px;
+}
+
+
+#allFiltre {
+	display: inline-block;
+}
+
+.container-fluid, .row, .page-header {
+	text-align : left;
+}
+
+#bs-example-navbar-collapse-1 ul li a {
+	cursor : pointer;
+}

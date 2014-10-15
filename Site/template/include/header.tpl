@@ -16,7 +16,7 @@
       <ul class="nav navbar-nav">
         <li class="dropdown">
 			<a class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span><span>{if isset($firstName)} {$firstName} {/if} {$userName}</span><span class="caret"></span></a>
-			{if isset($firstName)}
+			{if isset($teachLogin)}
 				<!-- l'utilisateur connecté est un enseignant -->
 				<ul class="dropdown-menu" role="menu">
 					<li onClick="loadTools()"><a href="#"><span class="glyphicon glyphicon-briefcase"></span> Outils</a></li>
@@ -41,20 +41,16 @@
 						<li onClick=""><a href="#"><span class="glyphicon glyphicon-stats"></span> Bilan par formation</a></li>
 					{/if}
 					
-					{if $droits.giseh == 1}
-						<li onClick=""><a href="#"><span class="glyphicon glyphicon-send"></span> Giseh</a></li>
-					{/if}
-					
 					{if $droits.dialogue == 1}
-						<li onClick=""><a href="#"><span class="glyphicon glyphicon-comment"></span> Dialogue de gestion</a></li>
+						<li onClick="loadDialogue()"><a href="#"><span class="glyphicon glyphicon-comment"></span> Dialogue de gestion</a></li>
 					{/if}
 					
 					{if $droits.salle == 1}
 						<li onClick=""><a href="#"><span class="glyphicon glyphicon-home"></span> Occupation de salles</a></li>
 					{/if}
 					
-					{if $droits.pdf == 1}
-						<li onClick="loadExport()"><a href="#"><span class="glyphicon glyphicon-file"></span> Export PDF</a></li>
+					{if $droits.pdf == 1 || $droits.giseh == 1 || isset($studyLogin)}
+						<li onClick="loadExport()"><a href="#"><span class="glyphicon glyphicon-file"></span> Export </a></li>
 					{/if}
 					
 					{if $droits.rss == 1}
@@ -67,12 +63,22 @@
 				</ul>
 			{else}
 				<!-- l'utilisateur connecté est un étudiant -->
+				<ul class="dropdown-menu" role="menu">
+					<li onClick="loadTools()"><a href="#"><span class="glyphicon glyphicon-briefcase"></span> Outils</a></li>
+					<li onClick="loadExport()"><a href="#"><span class="glyphicon glyphicon-file"></span> Export </a></li>
+					<li onClick="loadMesDS()"><a href="#"><span class="glyphicon glyphicon-pencil"></span> Mes DS</a></li>
+					<li onClick="loadModule()"><a href="#"><span class="glyphicon glyphicon-th-large"></span> Mes Modules</a></li>
+					<li onClick="loadRSS()"><a href="#"><span class="glyphicon glyphicon-transfer"></span> Flux RSS</a></li>
+					<li onClick="loadICal()"><a href="#"><span class="glyphicon glyphicon-calendar"></span> Agenda éléctronique</a></li>
+				</ul>
 			{/if}
         </li>
       </ul>
 	  <ul class="nav navbar-nav navbar-right">
-		<li><a><span class="glyphicon glyphicon-refresh"></span> Rafraichir</a></li>
-		<li><a><span class="glyphicon glyphicon-wrench"></span> Configuration</a></li>
+		<li onClick="loadIndex()"><a><span class="glyphicon glyphicon-home"></span> Acceuil</a></li>
+		{if isset($teachLogin)}
+			<li onClick="loadConfig()"><a><span class="glyphicon glyphicon-wrench"></span> Configuration</a></li>
+		{/if}
 		<li onClick="deconnect()"><a><span class="glyphicon glyphicon-off"></span> Déconnexion</a></li>
       </ul>
     </div><!-- /.navbar-collapse -->

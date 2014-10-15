@@ -52,3 +52,18 @@ function loadAdmin()
 {
 	window.location.replace('index.php?page=admin');
 }
+
+function loadVersion()
+{
+	window.location.replace('index.php?page=version');
+}
+
+function loadDialogue()
+{
+	window.location.replace('index.php?page=dialogue');
+}
+
+function loadMesDS()
+{
+	window.location.replace('index.php?page=mesDS');
+}
