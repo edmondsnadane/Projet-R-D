@@ -40,3 +40,7 @@
 #bs-example-navbar-collapse-1 ul li a {
 	cursor : pointer;
 }
+
+#calendar {
+	background-color : white;
+}
