@@ -18,3 +18,21 @@ a {
 #bs-example-navbar-collapse-1 ul li{
 	text-align : left;
 }
+
+
+/*@media (max-width: 770px) {
+	.navbar-toggle{
+		
+	}
+}*/
+@media (min-width: 1030px){
+.navbar-nav>li>a {
+padding-top: 15px;
+padding-bottom: 15px;
+}
+}
+@media (min-width: 1030px){
+	.navbar-toggle {
+	display: none;
+	}
+}
