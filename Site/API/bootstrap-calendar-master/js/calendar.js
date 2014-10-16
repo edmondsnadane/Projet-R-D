@@ -846,6 +846,12 @@ Calendar.prototype.setOptions = function(object) {
 		}
 		return;
 	};
+	
+	Calendar.prototype.getSemaine = function() {
+		var p = this.options.position.start;
+		console.log(p);
+		return this.locale.title_week.format(p.getWeek(), p.getFullYear());
+	};
 
 	Calendar.prototype.isToday = function() {
 		var now = new Date().getTime();

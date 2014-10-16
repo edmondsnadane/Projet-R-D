@@ -2,8 +2,8 @@
 
 body 
 { 
-	background: url('../img/bg4.jpg') no-repeat center center fixed;
-	/*background-color: #F2F2F2;*/
+	/*background: url('../img/bg4.jpg') no-repeat center center fixed;*/
+	background-color: #F2F2F2;
 	text-align: center;
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
@@ -13,4 +13,8 @@ body
 
 a {
 	cursor: pointer;
+}
+
+#bs-example-navbar-collapse-1 ul li{
+	text-align : left;
 }

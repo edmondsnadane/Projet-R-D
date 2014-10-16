@@ -11,54 +11,48 @@
 </head>
 <body>
 <div class="container">
-	<div class="container-fluid row page-header">
+	<div class="page-header" id="groupeFiltre">
+				
+					<div class="btn-group btn-group-justified" id="filtreToday">
+						<div class="btn-group" >
+							<button class="btn btn-primary" data-calendar-nav="prev"> << </button>
+						</div>	
+						<div class="btn-group" >	
+							<button class="btn btn-default" data-calendar-nav="today"> Aujourd'hui </button>
+						</div>	
+						<div class="btn-group" >	
+							<button class="btn btn-primary" data-calendar-nav="next"> >> </button>
+						</div>	
+					</div>	
+					
+					<div class="btn-group btn-group-justified" id="filtreAnnee">
+						<div class="btn-group" >	
+							<button class="btn btn-warning" data-calendar-view="year">Année</button>
+						</div>
+						<div class="btn-group" >		
+							<button class="btn btn-warning active" data-calendar-view="month">Mois</button>
+						</div>
+						<div class="btn-group" >
+							<button class="btn btn-warning" data-calendar-view="week">Semaine</button>
+						</div>
+						<div class="btn-group" >	
+							<button class="btn btn-warning" data-calendar-view="day">Jour</button>
+						</div>		
+					</div>
+			
+			<div class="col-md-6" id="h3MoisAnnee">
+				<h3 class=""></h3>
+				<h4 class=""></h4>
+				</div>
+				
 		
-		<div class="row" id="allFiltre">
-			<div class="container-fluid col-xs-6" id="groupeFiltre">
-			
-				<div class="btn-group btn-group-justified" id="filtreToday">
-					<div class="btn-group" >
-						<button class="btn btn-primary" data-calendar-nav="prev"> << Précé </button>
-					</div>	
-					<div class="btn-group" >	
-						<button class="btn btn-default" data-calendar-nav="today"> Aujourd'hui </button>
-					</div>	
-					<div class="btn-group" >	
-						<button class="btn btn-primary" data-calendar-nav="next"> Suiv >> </button>
-					</div>	
-				</div>	
-				
-				<div class="btn-group btn-group-justified" id="filtreAnnee">
-					<div class="btn-group" >	
-						<button class="btn btn-warning" data-calendar-view="year">Année</button>
-					</div>
-					<div class="btn-group" >		
-						<button class="btn btn-warning active" data-calendar-view="month">Mois</button>
-					</div>
-					<div class="btn-group" >
-						<button class="btn btn-warning" data-calendar-view="week">Semaine</button>
-					</div>
-					<div class="btn-group" >	
-						<button class="btn btn-warning" data-calendar-view="day">Jour</button>
-					</div>
-				</div>	
-				
-			</div>	
-			
-			<div class="col-xs-6" id="h3MoisAnnee">
-				<h3></h3>
-			</div>
-				
-				
-		</div>
 	</div>	
 	
-		<div class="row">
-			<div class="col-md-12">
-				<div id="calendar"></div>			
-			</div>	
-		</div>
-		
+	<div class="row">
+		<div class="col-md-12">
+			<div id="calendar"></div>
+		</div>			
+	</div>
 	
 
 	<div class="clearfix"></div>
