@@ -8,7 +8,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" ><span class="glyphicon glyphicon-calendar"></span> VT Calendar</a>
+      <a class="navbar-brand" onClick="loadIndex()"><span class="glyphicon glyphicon-calendar"></span> VT Calendar</a>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->

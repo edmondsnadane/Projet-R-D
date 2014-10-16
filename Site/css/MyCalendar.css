@@ -37,3 +37,16 @@
 #bs-example-navbar-collapse-1 ul li a {
 	cursor : pointer;
 }
+
+#petitH4 {
+	font-size: 14px;
+}
+
+#calendar {
+	background-color: #F2F2F2;
+}
+
+.page-header {
+	padding-bottom: 0px !important;
+	margin: 0px 0 0px !important;
+}
