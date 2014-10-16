@@ -50,11 +50,7 @@
 					
 					Bouton 1
 					<div class="form-group">
-<<<<<<< HEAD
 						<label for="beginBtn1" class="col-sm-3 control-label">Début</label>
-=======
-						<label for="beginBtn1" class="col-sm-3 control-label">DÃ©but</label>
->>>>>>> 9455c96460af8224e9b54756316f6545d3d97d90
 						<div class="col-sm-9">
 							<select name="beginBtn1" class="form-control" id="beginBtn1" required="">
 								{foreach from=$userConfs.listHeuresBouton item=heureBouton}

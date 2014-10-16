@@ -45,8 +45,16 @@ if (isset($_SESSION['studyLogin']) || isset($_SESSION['teachLogin']) || !empty($
 		// NAVIGATION ETUDIANT
 		if (isset($_SESSION['studyLogin']) || !empty($_COOKIE['studyLogin']))
 		{
-			if ($_GET['page'] == "module")
+			if ($_GET['page'] == "deconnection")
 			{
+				include('script/disconnect.php');
+				$smarty->assign("successMsg", "Déconnection reussie");
+				$smarty->display("template/login.tpl");
+			}
+			else if ($_GET['page'] == "module")
+			{
+				include('script/getStudyModule.php');
+				$smarty->assign("liste_enseignement", $liste_enseignement);
 				$smarty->display("template/modules.tpl");
 			}
 			else if ($_GET['page' ] == "export")
