@@ -9,61 +9,20 @@ include('../config/config.php');
 
 $start = $_REQUEST['from'] / 1000;
 $end   = $_REQUEST['to'] / 1000;
-
 /*
-
-//requete pour avoir le nom et le prénom du prof
-$sql="SELECT * FROM ressources_profs where codeProf=:codeProf AND deleted= '0'";
-$req_prof=$dbh->prepare($sql);	
-$req_prof->execute(array(':codeProf'=>$codeProf));
-$res_prof=$req_prof->fetchAll();
-foreach ($res_prof as $prof)
-	{
-		$prof_nom=$prof['nom'];
-		$prof_prenom=ucwords(strtolower($prof['prenom'])) ;
-		
-	}*/
-	/*
 //préparation des requetes
 
-	if($chrono=='1')
-	{
-		$sql="SELECT * FROM seances_profs 
-		left join (seances) on (seances.codeSeance=seances_profs.codeSeance )  
-		where seances_profs.codeRessource=:codeProf 
-		AND seances_profs.deleted='0'
-		AND seances.deleted='0' 
-		AND seances.annulee='0' 
-		order by seances.dateSeance,seances.heureSeance";
-	}
-	elseif ($chrono=='0')
-	{
 		$sql="SELECT * FROM seances 
 		left join (seances_profs) on (seances.codeSeance=seances_profs.codeSeance ) 
 		left join (enseignements) on (seances.codeEnseignement=enseignements.codeEnseignement) 
 		right join (matieres) on (matieres.codeMatiere=enseignements.codeMatiere) 
-		where seances_profs.codeRessource=:codeProf 
-		AND seances_profs.deleted='0' 
+		where seances_profs.deleted='0'
 		AND seances.deleted='0' 
 		and matieres.deleted='0' 
 		and enseignements.deleted='0' 
 		AND seances.annulee='0'  
-		order by matieres.nom,seances.dateSeance,seances.heureSeance";
-	}
-	else
-	{
-		$sql="SELECT *, enseignements.identifiant as codeapogee  
-		FROM seances left join (seances_profs) on (seances.codeSeance=seances_profs.codeSeance ) 
-		left join (enseignements) on (seances.codeEnseignement=enseignements.codeEnseignement) 
-		right join (matieres) on (matieres.codeMatiere=enseignements.codeMatiere) 
-		where seances_profs.codeRessource=:codeProf 
-		AND seances_profs.deleted='0' 
-		AND seances.deleted='0' 
-		and matieres.deleted='0'
-		and enseignements.deleted='0' 
-		AND seances.annulee='0'  
-		order by enseignements.identifiant,matieres.nom,seances.dateSeance,seances.heureSeance";
-	}
+		";
+	
 
 	$req_seances_prof=$dbh->prepare($sql);
 	

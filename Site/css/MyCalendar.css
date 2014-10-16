@@ -1,31 +1,32 @@
 #filtreAnnee {
 	height : 40px;
 	max-height : 40px;
-	width : 350px;
-	max-width : 350px;
-}
+	/*width : 100%;
+	max-width : 300px;
+*/
+	}
 
 #filtreToday{
 	height : 40px;
 	max-height : 40px;
-	width : 350px;
-	max-width : 350px;
 }
 
 #h3MoisAnnee {
-	width : 350px;
-	max-width : 350px;
+	height : 40px;
+	max-height : 40px;
 	text-align : center;
-	float: left;
+}	
+
+#h3MoisAnnee h3, h4 {	
+	/*zorder: 1px solid red;*/
+	height : 38px;
+	max-height : 38px;
+	display: inline;
 }
 
 #groupeFiltre {
-	float: rigth;
-	text-align : center;
-	height : 80px;
-	max-height : 85px;
-	width : 350px;
-	max-width : 350px;
+	display: inline-block;
+	text-align: center;
 }
 
 
@@ -33,14 +34,6 @@
 	display: inline-block;
 }
 
-.container-fluid, .row, .page-header {
-	text-align : left;
-}
-
 #bs-example-navbar-collapse-1 ul li a {
 	cursor : pointer;
-}
-
-#calendar {
-	background-color : white;
 }
