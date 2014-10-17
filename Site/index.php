@@ -127,10 +127,6 @@ if (isset($_SESSION['studyLogin']) || isset($_SESSION['teachLogin']) || !empty($
 				
 				$smarty->display("template/dialogueGestion.tpl");
 			}
-			else if ($_GET['page'] == "tools")
-			{
-				$smarty->display("template/tools.tpl");
-			}
 			else if ($_GET['page'] == "admin" && $droits['admin'] == 1)
 			{
 				include('script/getAllTeacherInfos.php');
