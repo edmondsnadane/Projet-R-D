@@ -205,13 +205,13 @@ if(!String.prototype.formatNum) {
 		ms10: 'Nov',
 		ms11: 'Déc',
 
-		d0: 'Dimanche',
-		d1: 'Lundi',
-		d2: 'Mardi',
-		d3: 'Mercredi',
-		d4: 'Jeudi',
-		d5: 'Vendredi',
-		d6: 'Samedi',
+		d0: 'Dim',
+		d1: 'Lun',
+		d2: 'Mar',
+		d3: 'Mer',
+		d4: 'Jeu',
+		d5: 'Ven',
+		d6: 'Sam',
 	};
 
 	var browser_timezone = '';
