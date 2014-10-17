@@ -2,6 +2,7 @@
 
 	$annee = $annee_scolaire[0];
 	
+	$sql="SELECT * FROM seances_profs WHERE  deleted='0' and codeRessource=:codeRessource";
 	$sql="SELECT *,ressources_etudiants.nom AS nom, ressources_groupes.nom AS nom_groupe FROM ressources_etudiants LEFT JOIN ressources_groupes_etudiants USING (codeEtudiant) LEFT JOIN ressources_groupes USING (codeGroupe) WHERE ressources_etudiants.codeEtudiant=:current_student AND ressources_etudiants.deleted='0' AND ressources_groupes_etudiants.deleted='0' AND ressources_groupes.deleted='0' ";
 	$req_groupes2=$dbh->prepare($sql);
 	$req_groupes2->execute(array(':current_student'=>$userCode));

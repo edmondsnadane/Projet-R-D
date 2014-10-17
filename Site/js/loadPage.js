@@ -43,11 +43,6 @@ function loadMaConfig()
 	window.location.replace('index.php?page=maconfig');
 }
 
-function loadTools()
-{
-	window.location.replace('index.php?page=tools');
-}
-
 function loadAdmin()
 {
 	window.location.replace('index.php?page=admin');

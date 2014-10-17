@@ -36,6 +36,7 @@
 	{
 		$userName = $ligneTeach['nom'];
 		$firstName = $ligneTeach['prenom'];
+		$userCode = $ligneTeach['codeProf'];
 	}
 
 	$req->closeCursor();

@@ -65,13 +65,17 @@ if (isset($_SESSION['studyLogin']) || isset($_SESSION['teachLogin']) || !empty($
 			}
 			else if ($_GET['page'] == "RSS")
 			{
-				$smarty->display("template/fluxRSS.tpl");
+				header('Location: http://ufrsitec.u-paris10.fr/edtpst/RSSetudiant/rss.php?codeEtudiant='.$userCode);
 			}
 			else if ($_GET['page'] == "mesDS")
 			{
 				include('script/getDS.php');
 				$smarty->assign("mesDS", $mesDS);
 				$smarty->display("template/mesDS.tpl");
+			}
+			else if ($_GET['page'] == "version")
+			{
+				$smarty->display("template/versions.tpl");
 			}
 			else
 			{
@@ -109,7 +113,7 @@ if (isset($_SESSION['studyLogin']) || isset($_SESSION['teachLogin']) || !empty($
 			}
 			else if ($_GET['page'] == "RSS")
 			{
-				$smarty->display("template/fluxRSS.tpl");
+				header('Location: http://ufrsitec.u-paris10.fr/edtpst/RSS/rss.php?codeProf='.$userCode);
 			}
 			else if ($_GET['page'] == "droits")
 			{
@@ -122,10 +126,6 @@ if (isset($_SESSION['studyLogin']) || isset($_SESSION['teachLogin']) || !empty($
 				$smarty->assign("composantes", $composantesComplet);
 				
 				$smarty->display("template/dialogueGestion.tpl");
-			}
-			else if ($_GET['page'] == "tools")
-			{
-				$smarty->display("template/tools.tpl");
 			}
 			else if ($_GET['page'] == "admin" && $droits['admin'] == 1)
 			{
