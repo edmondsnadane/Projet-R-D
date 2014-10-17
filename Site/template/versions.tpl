@@ -11,12 +11,14 @@
 	
 	<body>
 		<div class="page-header">
-			<h2><span class="glyphicon glyphicon-calendar"></span>
-				VT CALENDAR 
-				<small>consultation des emplois du temps faits avec VT</small><br>
-			</h2>
+				<h2>
+					<a onClick="loadIndex()">
+						<span class="glyphicon glyphicon-calendar"></span>
+						VT CALENDAR 
+					</a>
+					<small>consultation des emplois du temps faits avec VT</small><br>
+				</h2>
 		</div>
-		<input type="button" value="Précedent" onClick="loadIndex()">
 		<div class="panel panel-default">
 		
 			<div class="panel-heading">
@@ -29,7 +31,7 @@
 				</ul>
 
 				<ul>
-					<lh><em><strong>Inferface étudiant :</strong></em></lh>
+					<lh><em><strong>Inferface Ã©tudiant :</strong></em></lh>
 					<li>Design et refonte de l'arbo en cours</li>
 				</ul>			
 			</span></div>
@@ -40,8 +42,8 @@
 			<div class="panel-body"><span id="texte78" style="visibility: hidden; display: none;">
 				<ul>
 					<lh><em><strong>Interface prof :</strong></em></lh>
-						<li>Dans les infos-bulles des séances des profs, il y avait un problème entre la durée réelle d'une séance et la durée par défaut définie dans vt..</li>
-						<li>Maintenant, les réservations privées s'affichent dans une couleur différente des réservations non privées.</li>
+						<li>Dans les infos-bulles des sÃ©ances des profs, il y avait un problÃ¨me entre la durÃ©e rÃ©elle d'une sÃ©ance et la durÃ©e par dÃ©faut dÃ©finie dans vt..</li>
+						<li>Maintenant, les rÃ©servations privÃ©es s'affichent dans une couleur diffÃ©rente des rÃ©servations non privÃ©es.</li>
 				</ul>			
 			</span></div>
 			
@@ -51,7 +53,7 @@
 			<div class="panel-body"><span id="texte77" style="visibility: hidden; display: none;">
 				<ul>
 					<lh><em><strong>Interface prof :</strong></em></lh>
-						<li>Dans les infos-bulles des séances des profs, le noms du et des profs ont été ajoutés.</li>
+						<li>Dans les infos-bulles des sÃ©ances des profs, le noms du et des profs ont Ã©tÃ© ajoutÃ©s.</li>
 				</ul>			
 			</span></div>
 			
@@ -62,8 +64,8 @@
 				<ul>
 					<lh><em><strong>Interface prof :</strong></em></lh>
 						<li>Dans le bilan des salles, ajout d'un colonne donnant le taux d'occupation annuel par salle.</li>
-						<li>Dans le bilan des salles, correction du bug qui après un export excel continuait à générer des fichiers excel lorsqu'on changeait d'année.</li>
-						<li>Correction de variables mal initialisées dans "dialogue de gestion" et dans "admin".</li>
+						<li>Dans le bilan des salles, correction du bug qui aprÃ¨s un export excel continuait Ã  gÃ©nÃ©rer des fichiers excel lorsqu'on changeait d'annÃ©e.</li>
+						<li>Correction de variables mal initialisÃ©es dans "dialogue de gestion" et dans "admin".</li>
 				</ul>			
 			</span></div>
 			
@@ -72,13 +74,13 @@
 			</div>
 			<div class="panel-body"><span id="texte75" style="visibility: hidden; display: none;">
 				<ul>
-					<lh><em><strong>Interface étudiant :</strong></em></lh>
-						<li>Ajout de la possibilité de choisir dans le fichier config.php l'identifiant correspondant aux DS dans la base de données de VT.</li>
+					<lh><em><strong>Interface Ã©tudiant :</strong></em></lh>
+						<li>Ajout de la possibilitÃ© de choisir dans le fichier config.php l'identifiant correspondant aux DS dans la base de donnÃ©es de VT.</li>
 				</ul>
 				<ul>
 					<lh><em><strong>Interface prof :</strong></em></lh>
-						<li>Dans le bilan des salles, le graphique du taux d'occupation des salles par zone se fait maintenant sur une base de 1120h/an au lieu de 1400h comme ce qui est demandé lors des enquêtes nationales.</li>
-						<li>Dans le fichier config.php, on peut maintenant faire en sorte qu'une réservation privée soit totalement invisible par les autres profs au lieu de marquer "privé" sur la réservation.</li>
+						<li>Dans le bilan des salles, le graphique du taux d'occupation des salles par zone se fait maintenant sur une base de 1120h/an au lieu de 1400h comme ce qui est demandÃ© lors des enquÃªtes nationales.</li>
+						<li>Dans le fichier config.php, on peut maintenant faire en sorte qu'une rÃ©servation privÃ©e soit totalement invisible par les autres profs au lieu de marquer "privÃ©" sur la rÃ©servation.</li>
 				</ul>				
 			</span></div>
 			
@@ -88,7 +90,7 @@
 			<div class="panel-body"><span id="texte74" style="visibility: hidden; display: none;">
 				<ul>
 					<lh><em><strong>Interface prof :</strong></em></lh>
-						<li>Export Giseh (uniquement pour l'université Paris10). Le code de la composante n'apparaissait pas à chaque fois pour certains enseignements au forfait.</li>
+						<li>Export Giseh (uniquement pour l'universitÃ© Paris10). Le code de la composante n'apparaissait pas Ã  chaque fois pour certains enseignements au forfait.</li>
 				</ul>			
 			</span></div>
 			
@@ -97,13 +99,13 @@
 			</div>
 			<div class="panel-body"><span id="texte73" style="visibility: hidden; display: none;">
 				<ul>
-					<li>Il faut ajouter le champ "dialogue" en int(2) dans la table "login_prof" avec 0 comme valeur par défaut.</li>
+					<li>Il faut ajouter le champ "dialogue" en int(2) dans la table "login_prof" avec 0 comme valeur par dÃ©faut.</li>
 				</ul>
 				<ul>
 					<lh><em><strong>Interface prof :</strong></em></lh>
-						<li>Export Giseh (uniquement pour l'université Paris10). Les cours au forfait apparaissaient sous forme de TD.</li>
-						<li>Dialogue de gestion (uniquement pour l'université Paris10). Ajout de l'interface qui calcule les données nécessaires au dialogue de gestion avec l'université.</li>
-						<li>Lorsqu'on triait les salles par composante, il y avait un petit bug et les salles n'apparaissaient pas dans la liste déroulante.</li>
+						<li>Export Giseh (uniquement pour l'universitÃ© Paris10). Les cours au forfait apparaissaient sous forme de TD.</li>
+						<li>Dialogue de gestion (uniquement pour l'universitÃ© Paris10). Ajout de l'interface qui calcule les donnÃ©es nÃ©cessaires au dialogue de gestion avec l'universitÃ©.</li>
+						<li>Lorsqu'on triait les salles par composante, il y avait un petit bug et les salles n'apparaissaient pas dans la liste dÃ©roulante.</li>
 				</ul>			
 			</span></div>
 			
@@ -113,8 +115,8 @@
 			<div class="panel-body"><span id="texte72" style="visibility: hidden; display: none;">
 				<ul>
 					<lh><em><strong>Interface prof :</strong></em></lh>
-						<li>Dans "mes heures", lorsqu'on a le droit de voir les heures des autres profs le changement de prof ne se fait plus de manière automatique mais en appuyant sur le bouton "envoyer"</li>
-						<li>Export Giseh (uniquement pour l'université Paris10). Si le dernier enseignement du dernier prof du tableau n'avait qu'une seule séance, celle-ci n'apparaissait pas et les heures étaient reportées sur la ligne précédente.</li>
+						<li>Dans "mes heures", lorsqu'on a le droit de voir les heures des autres profs le changement de prof ne se fait plus de maniÃ¨re automatique mais en appuyant sur le bouton "envoyer"</li>
+						<li>Export Giseh (uniquement pour l'universitÃ© Paris10). Si le dernier enseignement du dernier prof du tableau n'avait qu'une seule sÃ©ance, celle-ci n'apparaissait pas et les heures Ã©taient reportÃ©es sur la ligne prÃ©cÃ©dente.</li>
 				</ul>			
 			</span></div>
 			
@@ -123,12 +125,12 @@
 			</div>
 			<div class="panel-body"><span id="texte71" style="visibility: hidden; display: none;">
 				<ul>
-					<lh><em><strong>Interface étudiant :</strong></em></lh>
-						<li>Si on n'est pas sur la semaine courante un dimanche soir et qu'on appuie sur le bouton "retour à la semaine courante" le lundi, on tombe maintenant sur la nouvelle semaine et non sur la semaine passée.</li>
+					<lh><em><strong>Interface Ã©tudiant :</strong></em></lh>
+						<li>Si on n'est pas sur la semaine courante un dimanche soir et qu'on appuie sur le bouton "retour Ã  la semaine courante" le lundi, on tombe maintenant sur la nouvelle semaine et non sur la semaine passÃ©e.</li>
 				</ul>
 				<ul>
 					<lh><em><strong>Interface prof :</strong></em></lh>
-						<li>Si on n'est pas sur la semaine courante un dimanche soir et qu'on appuie sur le bouton "retour à la semaine courante" le lundi, on tombe maintenant sur la nouvelle semaine et non sur la semaine passée.</li>
+						<li>Si on n'est pas sur la semaine courante un dimanche soir et qu'on appuie sur le bouton "retour Ã  la semaine courante" le lundi, on tombe maintenant sur la nouvelle semaine et non sur la semaine passÃ©e.</li>
 				</ul>				
 			</span></div>
 			
@@ -138,7 +140,7 @@
 			<div class="panel-body"><span id="texte70" style="visibility: hidden; display: none;">
 				<ul>
 					<lh><em><strong>Interface prof :</strong></em></lh>
-						<li>Suite a la disparition du champ "affectation" dans la table "ressources_profs", le pré-tri des profs se fait maintenant uniquement avec les composantes.</li>
+						<li>Suite a la disparition du champ "affectation" dans la table "ressources_profs", le prÃ©-tri des profs se fait maintenant uniquement avec les composantes.</li>
 				</ul>			
 			</span></div>
 			
@@ -148,7 +150,7 @@
 			<div class="panel-body"><span id="texte69" style="visibility: hidden; display: none;">
 				<ul>
 					<lh><em><strong>Interface prof :</strong></em></lh>
-						<li>Ajout d'une interface "Gestion des droits" qui permet à l'administrateur de définir les droits de chaque utilisateur.</li>
+						<li>Ajout d'une interface "Gestion des droits" qui permet Ã  l'administrateur de dÃ©finir les droits de chaque utilisateur.</li>
 				</ul>			
 			</span></div>
 			
@@ -157,8 +159,8 @@
 			</div>
 			<div class="panel-body"><span id="texte68" style="visibility: hidden; display: none;">
 				<ul>
-					<li>Il faut ajouter le champ "mes_droits" en int(2) dans la table "login_prof" avec 1 comme valeur par défaut.</li>
-					<li>Il faut ajouter le champ "admin" en int(2) dans la table "login_prof" avec 0 comme valeur par défaut.</li>
+					<li>Il faut ajouter le champ "mes_droits" en int(2) dans la table "login_prof" avec 1 comme valeur par dÃ©faut.</li>
+					<li>Il faut ajouter le champ "admin" en int(2) dans la table "login_prof" avec 0 comme valeur par dÃ©faut.</li>
 				</ul>
 				<ul>
 					<lh><em><strong>Interface prof :</strong></em></lh>
@@ -171,11 +173,11 @@
 			</div>
 			<div class="panel-body"><span id="texte67" style="visibility: hidden; display: none;">
 				<ul>
-					<li>Il y avait un petit problème d'affichage sur la page d'accueil depuis la version 7 de firefox qui a été corrigé.</li>
+					<li>Il y avait un petit problÃ¨me d'affichage sur la page d'accueil depuis la version 7 de firefox qui a Ã©tÃ© corrigÃ©.</li>
 				</ul>
 				<ul>
-					<lh><em><strong>Interface étudiant :</strong></em></lh>
-						<li>Il y a maintenant une vue verticale, horizontale, mensuelle, mensuelle réduite et journalière.</li>
+					<lh><em><strong>Interface Ã©tudiant :</strong></em></lh>
+						<li>Il y a maintenant une vue verticale, horizontale, mensuelle, mensuelle rÃ©duite et journaliÃ¨re.</li>
 				</ul>			
 			</span></div>
 			
@@ -184,8 +186,8 @@
 			</div>
 			<div class="panel-body"><span id="texte66" style="visibility: hidden; display: none;">
 				<ul>
-					<lh><em><strong>Interface étudiant :</strong></em></lh>
-						<li>Création d'un outil "Mes DS" qui permet aux étudiants d'avoir une liste de leurs DS.</li>
+					<lh><em><strong>Interface Ã©tudiant :</strong></em></lh>
+						<li>CrÃ©ation d'un outil "Mes DS" qui permet aux Ã©tudiants d'avoir une liste de leurs DS.</li>
 				</ul>			
 			</span></div>
 			
@@ -195,10 +197,10 @@
 			<div class="panel-body"><span id="texte65" style="visibility: hidden; display: none;">
 				<ul>
 					<lh><em><strong>Interface prof :</strong></em></lh>
-						<li>Quand on est dans "Mes modules", "Mes heures", "Bilan par formation"... et qu'on se fait déconnecter par le serveur, il y a maintenant un lien qui s'affiche pour revenir à la page principale.</li>
-						<li>Dans "Mes heures", il y a maintenant la somme des heures effectuées en bas du tableau.</li>
-						<li>Dans "Mes heures, il y a maintenant un graphique qui représente l'évolution des heures au cours de l'année.</li>
-						<li>Dans "Occupation des salles", il y a maintenant un graphique qui représente le taux d'occupation des salles en fonction des zones.</li>
+						<li>Quand on est dans "Mes modules", "Mes heures", "Bilan par formation"... et qu'on se fait dÃ©connecter par le serveur, il y a maintenant un lien qui s'affiche pour revenir Ã  la page principale.</li>
+						<li>Dans "Mes heures", il y a maintenant la somme des heures effectuÃ©es en bas du tableau.</li>
+						<li>Dans "Mes heures, il y a maintenant un graphique qui reprÃ©sente l'Ã©volution des heures au cours de l'annÃ©e.</li>
+						<li>Dans "Occupation des salles", il y a maintenant un graphique qui reprÃ©sente le taux d'occupation des salles en fonction des zones.</li>
 				</ul>			
 			</span></div>
 			
@@ -208,8 +210,8 @@
 			<div class="panel-body"><span id="texte64" style="visibility: hidden; display: none;">
 				<ul>
 					<lh><em><strong>Interface prof :</strong></em></lh>
-						<li>Ajout d'une vue mensuelle où on voit le détail des séances. L'ancienne vue mensuelle s'appelle maintenant "vue mensuelle réduite".</li>
-						<li>Dans le bilan par formation et dans le bilan "giseh", les vacataires et les titulaires sont distingués à l'aide du champ "titulaire" de la table "ressource_profs".</li>
+						<li>Ajout d'une vue mensuelle oÃ¹ on voit le dÃ©tail des sÃ©ances. L'ancienne vue mensuelle s'appelle maintenant "vue mensuelle rÃ©duite".</li>
+						<li>Dans le bilan par formation et dans le bilan "giseh", les vacataires et les titulaires sont distinguÃ©s Ã  l'aide du champ "titulaire" de la table "ressource_profs".</li>
 				</ul>			
 			</span></div>
 			
@@ -239,9 +241,9 @@
 			<div class="panel-body"><span id="texte61" style="visibility: hidden; display: none;">
 				<ul>
 					<lh><em><strong>Interface prof :</strong></em></lh>
-						<li>Avec le login perso, si on n'a pas le droit de se mettre des rendez-vous perso, les boutons permettant de définir l'heure de début et de fin des raccourcis dans "ma config" sont maintenant cachés.</li>
-						<li>Les champs permettant de choisir la semaine et l'année ont été déplacés pour gagner un peu de place.</li>
-						<li>Lors de l'export pdf de la vue mensuelle, si la date de début était durant la dernière semaine du mois, il y avait un problème d'affichage.</li>
+						<li>Avec le login perso, si on n'a pas le droit de se mettre des rendez-vous perso, les boutons permettant de dÃ©finir l'heure de dÃ©but et de fin des raccourcis dans "ma config" sont maintenant cachÃ©s.</li>
+						<li>Les champs permettant de choisir la semaine et l'annÃ©e ont Ã©tÃ© dÃ©placÃ©s pour gagner un peu de place.</li>
+						<li>Lors de l'export pdf de la vue mensuelle, si la date de dÃ©but Ã©tait durant la derniÃ¨re semaine du mois, il y avait un problÃ¨me d'affichage.</li>
 				</ul>			
 			</span></div>
 			
@@ -251,8 +253,8 @@
 			<div class="panel-body"><span id="texte60" style="visibility: hidden; display: none;">
 				<ul>
 					<lh><em><strong>Interface prof :</strong></em></lh>
-						<li>Lors d'un export PDF, les dates de début et de fin correspondent maintenant aux dates du planning visualisé.</li>
-						<li>Lors d'un conflit, la taille du rectangle noir est maintenant fonction du nombre de lignes à afficher.</li>
+						<li>Lors d'un export PDF, les dates de dÃ©but et de fin correspondent maintenant aux dates du planning visualisÃ©.</li>
+						<li>Lors d'un conflit, la taille du rectangle noir est maintenant fonction du nombre de lignes Ã  afficher.</li>
 				</ul>			
 			</span></div>
 			
@@ -266,17 +268,17 @@
 				</ul>
 				<ul>
 					<lh><em><strong>Interface prof :</strong></em></lh>
-						<li>Quand on affiche le planning d'un groupe, quand celui-ci est en "congé", on voit maintenant le type de congé : examen, entreprise/stage et congé.</li>
-						<li>Dans "Mes heures", il est maintenant possible de définir la répartition cours, td et tp de chaque type d'enseignement de VT. Cela se fait dans le fichier config.php.</li>
-						<li>Maintenant, on peut afficher le planning du matériel.</li>
-						<li>Dans "ma config", on peut choisir pour chaque ressource (salle, groupe, prof et materiel) la couleur à associer à la séance (groupe, prof ou matiere).</li>
-						<li>Dans mes modules, on a maintenant le matériel associé aux séances.</li>
-						<li>Ajout du script pour générer les fichiers ics du matériel.</li>
-						<li>Dans la vue verticale avec plusieurs ressources, quand on cliquait sur le bouton "Retour à la semaine actuelle" qui était en bas du planning, la largeur et la hauteur de l'écran n'étaient plus pris en compte lors de l'affichage du planning de la semaine courante.</li>
+						<li>Quand on affiche le planning d'un groupe, quand celui-ci est en "congÃ©", on voit maintenant le type de congÃ© : examen, entreprise/stage et congÃ©.</li>
+						<li>Dans "Mes heures", il est maintenant possible de dÃ©finir la rÃ©partition cours, td et tp de chaque type d'enseignement de VT. Cela se fait dans le fichier config.php.</li>
+						<li>Maintenant, on peut afficher le planning du matÃ©riel.</li>
+						<li>Dans "ma config", on peut choisir pour chaque ressource (salle, groupe, prof et materiel) la couleur Ã  associer Ã  la sÃ©ance (groupe, prof ou matiere).</li>
+						<li>Dans mes modules, on a maintenant le matÃ©riel associÃ© aux sÃ©ances.</li>
+						<li>Ajout du script pour gÃ©nÃ©rer les fichiers ics du matÃ©riel.</li>
+						<li>Dans la vue verticale avec plusieurs ressources, quand on cliquait sur le bouton "Retour Ã  la semaine actuelle" qui Ã©tait en bas du planning, la largeur et la hauteur de l'Ã©cran n'Ã©taient plus pris en compte lors de l'affichage du planning de la semaine courante.</li>
 				</ul>
 				<ul>
-					<lh><em><strong>Interface étudiant :</strong></em></lh>
-						<li>On voit maintenant le type de congé : examen, entreprise/stage et congé.</li>
+					<lh><em><strong>Interface Ã©tudiant :</strong></em></lh>
+						<li>On voit maintenant le type de congÃ© : examen, entreprise/stage et congÃ©.</li>
 				</ul>
 			</span></div>
 			
@@ -286,9 +288,9 @@
 			<div class="panel-body"><span id="texte58" style="visibility: hidden; display: none;">
 				<ul>
 					<lh><em><strong>Interface prof :</strong></em></lh>
-						<li>Lors de la génération d'un pdf, le nom du fichier comporte le type de vue utilisé et les heures et les minutes ont été supprimées.</li>
-						<li>Avant de générer un pdf, la page de choix des dates indique maintenant si les conflits et les réservations risquent d'être masqués si les cases "masquer les problèmes" et "masquer les RDV" sont cochées.</li>
-						<li>Lors de l'export pdf du planning mensuel d'une seule ressource, l'intitulé des séances et des réservations apparait.</li>
+						<li>Lors de la gÃ©nÃ©ration d'un pdf, le nom du fichier comporte le type de vue utilisÃ© et les heures et les minutes ont Ã©tÃ© supprimÃ©es.</li>
+						<li>Avant de gÃ©nÃ©rer un pdf, la page de choix des dates indique maintenant si les conflits et les rÃ©servations risquent d'Ãªtre masquÃ©s si les cases "masquer les problÃ¨mes" et "masquer les RDV" sont cochÃ©es.</li>
+						<li>Lors de l'export pdf du planning mensuel d'une seule ressource, l'intitulÃ© des sÃ©ances et des rÃ©servations apparait.</li>
 				</ul>			
 			</span></div>
 			
@@ -298,9 +300,9 @@
 			<div class="panel-body"><span id="texte57" style="visibility: hidden; display: none;">
 				<ul>
 					<lh><em><strong>Interface prof :</strong></em></lh>
-						<li>Le menu du haut lors d'un export pdf avec le login générique ne fonctionnait pas correctement. C'est corrigé.</li>
-						<li>Tous les CSS de la mise en page se trouvent maintenant dans le répertoire "css" au lieu d'être inclus dans chaque fichier php.</li>
-						<li>La largeur des listes de choix est maintenant fixe. Elle peut être modifiée dans le fichier "css/index.css".</li>
+						<li>Le menu du haut lors d'un export pdf avec le login gÃ©nÃ©rique ne fonctionnait pas correctement. C'est corrigÃ©.</li>
+						<li>Tous les CSS de la mise en page se trouvent maintenant dans le rÃ©pertoire "css" au lieu d'Ãªtre inclus dans chaque fichier php.</li>
+						<li>La largeur des listes de choix est maintenant fixe. Elle peut Ãªtre modifiÃ©e dans le fichier "css/index.css".</li>
 				</ul>			
 			</span></div>
 			
@@ -310,14 +312,14 @@
 			<div class="panel-body"><span id="texte56" style="visibility: hidden; display: none;">
 				<ul>
 					<lh><em><strong>Interface prof :</strong></em></lh>
-						<li>Maintenant, quand plusieurs séances sont superposées, dès qu'on passe la souris sur les séances une info-bulle apparait avec la liste de toutes les séances superposées.</li>
-						<li>Lors d'un export PDF, le nom de la vue que l'on souhaite exporter apparait sur la page où on choisit les dates de début et de fin de l'export.</li>
-						<li>Lors d'un export PDF, le nom du fichier est fonction des ressources sélectionnées.</li>
-						<li>Avec le login perso, si l'utilisateur n'avait pas défini une autre heure que l'heure de début et de fin par défaut, la génération des pdf plantait.</li>
+						<li>Maintenant, quand plusieurs sÃ©ances sont superposÃ©es, dÃ¨s qu'on passe la souris sur les sÃ©ances une info-bulle apparait avec la liste de toutes les sÃ©ances superposÃ©es.</li>
+						<li>Lors d'un export PDF, le nom de la vue que l'on souhaite exporter apparait sur la page oÃ¹ on choisit les dates de dÃ©but et de fin de l'export.</li>
+						<li>Lors d'un export PDF, le nom du fichier est fonction des ressources sÃ©lectionnÃ©es.</li>
+						<li>Avec le login perso, si l'utilisateur n'avait pas dÃ©fini une autre heure que l'heure de dÃ©but et de fin par dÃ©faut, la gÃ©nÃ©ration des pdf plantait.</li>
 				</ul>
 				<ul>
-					<lh><em><strong>Interface étudiant :</strong></em></lh>
-						<li>Lors d'un export PDF, le nom du fichier correspond au nom de l'étudiant.</li>
+					<lh><em><strong>Interface Ã©tudiant :</strong></em></lh>
+						<li>Lors d'un export PDF, le nom du fichier correspond au nom de l'Ã©tudiant.</li>
 				</ul>
 			</span></div>
 			
@@ -327,7 +329,7 @@
 			<div class="panel-body"><span id="texte55" style="visibility: hidden; display: none;">
 				<ul>
 					<lh><em><strong>Interface prof :</strong></em></lh>
-						<li>Dans le bilan par formation, il est maintenant possible de définir la répartition cours, td et tp de chaque type d'enseignement de VT. Cela se fait dans le fichier config.php. La même chose sera faite bientôt dans le bilan "mes heures".</li>
+						<li>Dans le bilan par formation, il est maintenant possible de dÃ©finir la rÃ©partition cours, td et tp de chaque type d'enseignement de VT. Cela se fait dans le fichier config.php. La mÃªme chose sera faite bientÃ´t dans le bilan "mes heures".</li>
 				</ul>			
 			</span></div>
 			
@@ -337,14 +339,14 @@
 			<div class="panel-body"><span id="texte54" style="visibility: hidden; display: none;">
 				<ul>
 					<lh><em><strong>Interface prof :</strong></em></lh>
-						<li>Ajout de la possibilité de choisir l'année scolaire dans "Mes modules" quand on a plusieurs bases de données.</li>
-						<li>Ajout de la possibilité de choisir l'année scolaire dans "Mes heures" quand on a plusieurs bases de données.</li>
-						<li>Quand on clique sur une séance, l'interface choisit maintenant la bonne base de données et non plus uniquement la dernière. </li>
+						<li>Ajout de la possibilitÃ© de choisir l'annÃ©e scolaire dans "Mes modules" quand on a plusieurs bases de donnÃ©es.</li>
+						<li>Ajout de la possibilitÃ© de choisir l'annÃ©e scolaire dans "Mes heures" quand on a plusieurs bases de donnÃ©es.</li>
+						<li>Quand on clique sur une sÃ©ance, l'interface choisit maintenant la bonne base de donnÃ©es et non plus uniquement la derniÃ¨re. </li>
 				</ul>
 				<ul>
-					<lh><em><strong>Interface étudiant :</strong></em></lh>
-						<li>Ajout de la possibilité de choisir l'année scolaire dans "Mes modules" quand on a plusieurs bases de données.</li>
-						<li>Quand on clique sur une séance, l'interface choisit maintenant la bonne base de données et non plus uniquement la dernière.</li>
+					<lh><em><strong>Interface Ã©tudiant :</strong></em></lh>
+						<li>Ajout de la possibilitÃ© de choisir l'annÃ©e scolaire dans "Mes modules" quand on a plusieurs bases de donnÃ©es.</li>
+						<li>Quand on clique sur une sÃ©ance, l'interface choisit maintenant la bonne base de donnÃ©es et non plus uniquement la derniÃ¨re.</li>
 				</ul>
 			</span></div>
 			
@@ -354,13 +356,13 @@
 			<div class="panel-body"><span id="texte53" style="visibility: hidden; display: none;">
 				<ul>
 					<lh><em><strong>Interface prof :</strong></em></lh>
-						<li>Le passage d'une année à l'autre avec les flèches permettant de se déplacer de mois en mois ne fonctionnait pas. C'est corriger.</li>
-						<li>Ajout de la possibilité de colorier les séances avec la couleur associée aux profs dans VT. Le choix se fait dans le fichier config.php.</li>
+						<li>Le passage d'une annÃ©e Ã  l'autre avec les flÃ¨ches permettant de se dÃ©placer de mois en mois ne fonctionnait pas. C'est corriger.</li>
+						<li>Ajout de la possibilitÃ© de colorier les sÃ©ances avec la couleur associÃ©e aux profs dans VT. Le choix se fait dans le fichier config.php.</li>
 				</ul>
 				<ul>
-					<lh><em><strong>Interface étudiant :</strong></em></lh>
-						<li>Le passage d'une année à l'autre avec les flèches permettant de se déplacer de mois en mois ne fonctionnait pas. C'est corriger.</li>
-						<li>Ajout de la possibilité de colorier les séances avec la couleur associée aux profs dans VT. Le choix se fait dans le fichier config.php.</li>
+					<lh><em><strong>Interface Ã©tudiant :</strong></em></lh>
+						<li>Le passage d'une annÃ©e Ã  l'autre avec les flÃ¨ches permettant de se dÃ©placer de mois en mois ne fonctionnait pas. C'est corriger.</li>
+						<li>Ajout de la possibilitÃ© de colorier les sÃ©ances avec la couleur associÃ©e aux profs dans VT. Le choix se fait dans le fichier config.php.</li>
 				</ul>
 			</span></div>
 			
@@ -370,11 +372,11 @@
 			<div class="panel-body"><span id="texte52" style="visibility: hidden; display: none;">
 				<ul>
 					<lh><em><strong>Interface prof :</strong></em></lh>
-						<li>Possibilité d'afficher soit le nom soit l'alias des enseignements.</li>
+						<li>PossibilitÃ© d'afficher soit le nom soit l'alias des enseignements.</li>
 				</ul>
 				<ul>
-					<lh><em><strong>Interface étudiant :</strong></em></lh>
-						<li>Possibilité d'afficher soit le nom soit l'alias des enseignements.</li>
+					<lh><em><strong>Interface Ã©tudiant :</strong></em></lh>
+						<li>PossibilitÃ© d'afficher soit le nom soit l'alias des enseignements.</li>
 				</ul>
 			</span></div>
 			
@@ -383,12 +385,12 @@
 			</div>
 			<div class="panel-body"><span id="texte51" style="visibility: hidden; display: none;">
 				<ul>
-					<li>Ajout d'un champ "salle" en int(2) avec une valeur par défaut de 0 pour autoriser ou non l'utilisation du bilan de l'occupation des salles.</li>
+					<li>Ajout d'un champ "salle" en int(2) avec une valeur par dÃ©faut de 0 pour autoriser ou non l'utilisation du bilan de l'occupation des salles.</li>
 				</ul>
 				<ul>
 					<lh><em><strong>Interface prof :</strong></em></lh>
 						<li>Ajout du bilan d'occupation des salles.</li>
-						<li>Possibilité d'afficher soit le nom soit l'alias des salles.</li>
+						<li>PossibilitÃ© d'afficher soit le nom soit l'alias des salles.</li>
 				</ul>
 			</span></div>
 			
@@ -397,19 +399,19 @@
 			</div>
 			<div class="panel-body"><span id="texte50" style="visibility: hidden; display: none;">
 				<ul>
-					<li>Ajout d'un champ "giseh" en int(2) avec une valeur par défaut de 0 pour que la version de l'interface web disponible sur le site de VT soit la même que celle utilisée dans mon université. Ce champ sert à activer un bilan des heures pour les exporter vers le logiciel Giseh. Si vous n'avez pas ce logiciel, il faut laisser ce champ à 0 pour tous vos utilisateurs.</li>
+					<li>Ajout d'un champ "giseh" en int(2) avec une valeur par dÃ©faut de 0 pour que la version de l'interface web disponible sur le site de VT soit la mÃªme que celle utilisÃ©e dans mon universitÃ©. Ce champ sert Ã  activer un bilan des heures pour les exporter vers le logiciel Giseh. Si vous n'avez pas ce logiciel, il faut laisser ce champ Ã  0 pour tous vos utilisateurs.</li>
 				</ul>
 				<ul>
 					<lh><em><strong>Interface prof :</strong></em></lh>
-						<li>Ajout d'un paramètre dans config.php afin de définir le fuseau horaire. Cela permet de mettre la bonne heure dans le champ "dateModif" lors de la création d'une réservation au lieu de l'heure GMT+0.</li>
-						<li>Ajout d'un paramètre dans config.php afin de choisir si la couleur des séances correspond à la couleur des groupes dans vt ou à la couleur des matières.</li>
-						<li>Dans "Bilan par formation", j'ai ajouté en fin de tableau la somme totale des heures faites.</li>
-						<li>Dans "Bilan par formation", j'ai séparé les heures des titulaires des heures des vacataires.</li>
-						<li>Ajout de flèches supplémentaires pour se déplacer de mois en mois</li>
+						<li>Ajout d'un paramÃ¨tre dans config.php afin de dÃ©finir le fuseau horaire. Cela permet de mettre la bonne heure dans le champ "dateModif" lors de la crÃ©ation d'une rÃ©servation au lieu de l'heure GMT+0.</li>
+						<li>Ajout d'un paramÃ¨tre dans config.php afin de choisir si la couleur des sÃ©ances correspond Ã  la couleur des groupes dans vt ou Ã  la couleur des matiÃ¨res.</li>
+						<li>Dans "Bilan par formation", j'ai ajoutÃ© en fin de tableau la somme totale des heures faites.</li>
+						<li>Dans "Bilan par formation", j'ai sÃ©parÃ© les heures des titulaires des heures des vacataires.</li>
+						<li>Ajout de flÃ¨ches supplÃ©mentaires pour se dÃ©placer de mois en mois</li>
 				</ul>
 				<ul>
-					<lh><em><strong>Interface étudiant :</strong></em></lh>
-						<li>Ajout de flèches supplémentaires pour se déplacer de mois en mois.</li>
+					<lh><em><strong>Interface Ã©tudiant :</strong></em></lh>
+						<li>Ajout de flÃ¨ches supplÃ©mentaires pour se dÃ©placer de mois en mois.</li>
 				</ul>
 			</span></div>
 			
@@ -419,12 +421,12 @@
 			<div class="panel-body"><span id="texte49" style="visibility: hidden; display: none;">
 				<ul>
 					<lh><em><strong>Interface prof :</strong></em></lh>
-						<li>Le flux RSS a été revu. Maintenant, les changements de prof, de salle et de groupe sont pris en compte.</li>
+						<li>Le flux RSS a Ã©tÃ© revu. Maintenant, les changements de prof, de salle et de groupe sont pris en compte.</li>
 				</ul>
 				<ul>
-					<lh><em><strong>Interface étudiant :</strong></em></lh>
-						<li>Le flux RSS a été revu. Maintenant, les changements de prof, de salle et de groupe sont pris en compte.</li>
-						<li>La création du cookie pour rester connecté est réparée.</li>
+					<lh><em><strong>Interface Ã©tudiant :</strong></em></lh>
+						<li>Le flux RSS a Ã©tÃ© revu. Maintenant, les changements de prof, de salle et de groupe sont pris en compte.</li>
+						<li>La crÃ©ation du cookie pour rester connectÃ© est rÃ©parÃ©e.</li>
 				</ul>
 			</span></div>
 			
@@ -434,23 +436,23 @@
 			<div class="panel-body"><span id="texte48" style="visibility: hidden; display: none;">
 				<ul>
 					<lh><em><strong>Interface prof :</strong></em></lh>
-						<li>Amélioration de la mise en page et ajout d'un menu.</li>
-						<li>Dans la vue horizontale, quand une séance ou une réservation ont une durée inférieure à 1h, le bandeau du haut et les arrondis sont réduits pour laisser plus de place au texte.</li>
-						<li>Dans la vue verticale mono-ressource, le bandeau du haut et les arrondis de chaque séance et réservation sont légèrement plus petits pour gagner un peu de place.</li>
-						<li>La légende en bas de page a été revue.</li>
-						<li>Dans "mes heures", ajout de la possibilité de faire un tri par code apogée.</li>
+						<li>AmÃ©lioration de la mise en page et ajout d'un menu.</li>
+						<li>Dans la vue horizontale, quand une sÃ©ance ou une rÃ©servation ont une durÃ©e infÃ©rieure Ã  1h, le bandeau du haut et les arrondis sont rÃ©duits pour laisser plus de place au texte.</li>
+						<li>Dans la vue verticale mono-ressource, le bandeau du haut et les arrondis de chaque sÃ©ance et rÃ©servation sont lÃ©gÃ¨rement plus petits pour gagner un peu de place.</li>
+						<li>La lÃ©gende en bas de page a Ã©tÃ© revue.</li>
+						<li>Dans "mes heures", ajout de la possibilitÃ© de faire un tri par code apogÃ©e.</li>
 				</ul>
 				<ul>
-					<lh><em><strong>Interface étudiant :</strong></em></lh>
-						<li>Amélioration de la mise en page et ajout d'un menu.</li>
-						<li>Quand une séance ou une réservation ont une durée inférieure à 1h, le bandeau du haut et les arrondis sont réduits pour laisser plus de place au texte.</li>
-						<li>La légende en bas de page a été revue.</li>
-						<li>Ajout de "Mes modules" pour les étudiants.</li>
+					<lh><em><strong>Interface Ã©tudiant :</strong></em></lh>
+						<li>AmÃ©lioration de la mise en page et ajout d'un menu.</li>
+						<li>Quand une sÃ©ance ou une rÃ©servation ont une durÃ©e infÃ©rieure Ã  1h, le bandeau du haut et les arrondis sont rÃ©duits pour laisser plus de place au texte.</li>
+						<li>La lÃ©gende en bas de page a Ã©tÃ© revue.</li>
+						<li>Ajout de "Mes modules" pour les Ã©tudiants.</li>
 				</ul>
 				<ul>
 					<lh><em><strong>Interface smartphone :</strong></em></lh>
-						<li>Le rayon des arrondis a été légèrement réduit pour gagner un peu de place.</li>
-						<li>Les horaires de début et de fin de chaque séance ou réservation sont mieux centrés</li>
+						<li>Le rayon des arrondis a Ã©tÃ© lÃ©gÃ¨rement rÃ©duit pour gagner un peu de place.</li>
+						<li>Les horaires de dÃ©but et de fin de chaque sÃ©ance ou rÃ©servation sont mieux centrÃ©s</li>
 				</ul>
 			</span></div>
 			
@@ -460,26 +462,26 @@
 			<div class="panel-body"><span id="texte47" style="visibility: hidden; display: none;">
 				<ul>
 					<lh><em><strong>Interface prof :</strong></em></lh>
-						<li>Affichage des jours fériés qui sont définis au niveau de la filière.</li>
-						<li>Dans la vue "jour J", les vacances des anciennes bases de données sont maintenant affichées.</li>
-						<li>Dans "Mes modules", quand il y a plusieurs ressources associées à une séance, elles sont maintenant classées dans l'ordre alphabétique.</li>
-						<li>Quand on utilisait le login générique et qu'on souhaitait visualiser une semaine contenant un rendez-vous marqué comme "privé" et que le serveur est configuré pour afficher les erreurs, le planning ne s'affichait pas. C'est corrigé.</li>
-						<li>Si dans une séance il y a plusieurs profs, plusieurs salles ou plusieurs groupes, ils sont maintenant classés dans l'ordre alphabétique.</li>
-						<li>Dans "Mes heures", il y a une nouvelle colonne "Effectué" afin de savoir quelles sont les séances qui sont déjà passées.</li>
+						<li>Affichage des jours fÃ©riÃ©s qui sont dÃ©finis au niveau de la filiÃ¨re.</li>
+						<li>Dans la vue "jour J", les vacances des anciennes bases de donnÃ©es sont maintenant affichÃ©es.</li>
+						<li>Dans "Mes modules", quand il y a plusieurs ressources associÃ©es Ã  une sÃ©ance, elles sont maintenant classÃ©es dans l'ordre alphabÃ©tique.</li>
+						<li>Quand on utilisait le login gÃ©nÃ©rique et qu'on souhaitait visualiser une semaine contenant un rendez-vous marquÃ© comme "privÃ©" et que le serveur est configurÃ© pour afficher les erreurs, le planning ne s'affichait pas. C'est corrigÃ©.</li>
+						<li>Si dans une sÃ©ance il y a plusieurs profs, plusieurs salles ou plusieurs groupes, ils sont maintenant classÃ©s dans l'ordre alphabÃ©tique.</li>
+						<li>Dans "Mes heures", il y a une nouvelle colonne "EffectuÃ©" afin de savoir quelles sont les sÃ©ances qui sont dÃ©jÃ  passÃ©es.</li>
 				</ul>
 				<ul>
-					<lh><em><strong>Interface étudiant :</strong></em></lh>
-						<li>Affichage des jours fériés qui sont définis au niveau de la filière.</li>
-						<li>Dans "Mes modules", quand il y a plusieurs ressources associées à une séance, elles sont maintenant classées dans l'ordre alphabétique.</li>
-						<li>Si dans une séance il y a plusieurs profs ou plusieurs salles, ils sont maintenant classés dans l'ordre alphabétique.</li>
+					<lh><em><strong>Interface Ã©tudiant :</strong></em></lh>
+						<li>Affichage des jours fÃ©riÃ©s qui sont dÃ©finis au niveau de la filiÃ¨re.</li>
+						<li>Dans "Mes modules", quand il y a plusieurs ressources associÃ©es Ã  une sÃ©ance, elles sont maintenant classÃ©es dans l'ordre alphabÃ©tique.</li>
+						<li>Si dans une sÃ©ance il y a plusieurs profs ou plusieurs salles, ils sont maintenant classÃ©s dans l'ordre alphabÃ©tique.</li>
 				</ul>
 				<ul>
 					<lh><em><strong>Interface smartphone :</strong></em></lh>
-						<li>Affichage des jours fériés qui sont définis au niveau de la filière.</li>
-						<li>Les cases des séances et des réservations ont maintenant les coins arrondis comme dans l'interface classique.</li>
-						<li>Dans la vue des profs, l'intitulé des séances n'était pas en gras.</li>
-						<li>Quand une salle était associée à une réservation, la salle n'apparaissait pas. C'est corrigé.</li>
-						<li>Quand on utilisait le login générique et qu'on souhaitait visualiser une semaine contenant un rendez-vous marqué comme "privé" et que le serveur est configuré pour afficher les erreurs, le planning ne s'affichait pas. C'est corrigé.</li>
+						<li>Affichage des jours fÃ©riÃ©s qui sont dÃ©finis au niveau de la filiÃ¨re.</li>
+						<li>Les cases des sÃ©ances et des rÃ©servations ont maintenant les coins arrondis comme dans l'interface classique.</li>
+						<li>Dans la vue des profs, l'intitulÃ© des sÃ©ances n'Ã©tait pas en gras.</li>
+						<li>Quand une salle Ã©tait associÃ©e Ã  une rÃ©servation, la salle n'apparaissait pas. C'est corrigÃ©.</li>
+						<li>Quand on utilisait le login gÃ©nÃ©rique et qu'on souhaitait visualiser une semaine contenant un rendez-vous marquÃ© comme "privÃ©" et que le serveur est configurÃ© pour afficher les erreurs, le planning ne s'affichait pas. C'est corrigÃ©.</li>
 				</ul>
 			</span></div>
 			
@@ -489,8 +491,8 @@
 			<div class="panel-body"><span id="texte46" style="visibility: hidden; display: none;">
 				<ul>
 					<lh><em><strong>Interface prof :</strong></em></lh>
-						<li>Dans "Ma config", on peut maintenant choisir les heures de début et de fin de chacun des 4 boutons de raccourci pour les horaires des réservations. IL NE FAUT PAS OUBLIER D'AJOUTER 8 CHAMPS (bouton1Debut, bouton1Fin...) DANS LA TABLE LOGIN_PROF (Cf. lisezmoi.txt) !!!</li>
-						<li>Dans "Mes modules", ajout d'un tiret pour séparer le nom des profs quand il y a plusieurs profs associés à une séance.</li>
+						<li>Dans "Ma config", on peut maintenant choisir les heures de dÃ©but et de fin de chacun des 4 boutons de raccourci pour les horaires des rÃ©servations. IL NE FAUT PAS OUBLIER D'AJOUTER 8 CHAMPS (bouton1Debut, bouton1Fin...) DANS LA TABLE LOGIN_PROF (Cf. lisezmoi.txt) !!!</li>
+						<li>Dans "Mes modules", ajout d'un tiret pour sÃ©parer le nom des profs quand il y a plusieurs profs associÃ©s Ã  une sÃ©ance.</li>
 				</ul>
 			</span></div>
 			
@@ -500,14 +502,14 @@
 			<div class="panel-body"><span id="texte45" style="visibility: hidden; display: none;">
 				<ul>
 					<lh><em><strong>Interface prof :</strong></em></lh>
-						<li>Lors que la croix permettant de modifier ou de supprimer une réservation se trouvait superposée à une séance, elle n'était pas cliquable. C'est corrigé.</li>
-						<li>Le pré-tri des groupes se fait avec les "niveaux" qui sont associés aux groupes dans "groupes/ajouter modifier détruire" dans VT.</li>
-						<li>Quand on laisse la souris quelques secondes sur une séance, l'intitulé complet de la séance apparait dans une info-bulle.</li>
+						<li>Lors que la croix permettant de modifier ou de supprimer une rÃ©servation se trouvait superposÃ©e Ã  une sÃ©ance, elle n'Ã©tait pas cliquable. C'est corrigÃ©.</li>
+						<li>Le prÃ©-tri des groupes se fait avec les "niveaux" qui sont associÃ©s aux groupes dans "groupes/ajouter modifier dÃ©truire" dans VT.</li>
+						<li>Quand on laisse la souris quelques secondes sur une sÃ©ance, l'intitulÃ© complet de la sÃ©ance apparait dans une info-bulle.</li>
 				</ul>
 				<ul>
-					<lh><em><strong>Interface étudiant :</strong></em></lh>
-						<li>Quand on clique sur une séance, on obtient le détail de l'ensemble des séances de l'enseignement.</li>
-						<li>Quand on laisse la souris quelques secondes sur une séance, l'intitulé complet de la séance apparait dans une info-bulle.</li>
+					<lh><em><strong>Interface Ã©tudiant :</strong></em></lh>
+						<li>Quand on clique sur une sÃ©ance, on obtient le dÃ©tail de l'ensemble des sÃ©ances de l'enseignement.</li>
+						<li>Quand on laisse la souris quelques secondes sur une sÃ©ance, l'intitulÃ© complet de la sÃ©ance apparait dans une info-bulle.</li>
 				</ul>
 			</span></div>
 			
@@ -517,9 +519,9 @@
 			<div class="panel-body"><span id="texte44" style="visibility: hidden; display: none;">
 				<ul>
 					<lh><em><strong>Interface prof :</strong></em></lh>
-						<li>La liste des profs était visible quand on tapait l'url des fonctions "mes modules" et "mes heures" en étant déconnecté. Maintenant, il y a une page blanche.</li>
-						<li>Quand une salle est associée à une réservation pour un groupe ou un prof, le nom de la salle est maintenant affiché.</li>
-						<li>Le texte des réservations est mieux centré verticalement.</li>
+						<li>La liste des profs Ã©tait visible quand on tapait l'url des fonctions "mes modules" et "mes heures" en Ã©tant dÃ©connectÃ©. Maintenant, il y a une page blanche.</li>
+						<li>Quand une salle est associÃ©e Ã  une rÃ©servation pour un groupe ou un prof, le nom de la salle est maintenant affichÃ©.</li>
+						<li>Le texte des rÃ©servations est mieux centrÃ© verticalement.</li>
 				</ul>
 			</span></div>
 			
@@ -528,13 +530,13 @@
 			</div>
 			<div class="panel-body"><span id="texte43" style="visibility: hidden; display: none;">
 				<ul>
-					<li>Amélioration des générateurs de logins et de mots de passe pour les étudiants et les profs. Maintenant, les espaces, les tirets et les apostrophes sont supprimées lors de la génération.</li>
+					<li>AmÃ©lioration des gÃ©nÃ©rateurs de logins et de mots de passe pour les Ã©tudiants et les profs. Maintenant, les espaces, les tirets et les apostrophes sont supprimÃ©es lors de la gÃ©nÃ©ration.</li>
 				</ul>
 				<ul>
 					<lh><em><strong>Interface prof :</strong></em></lh>
-						<li>Quand un rendez-vous perso et une séance avaient la même heure de début, la croix permettant de modifier ou de supprimer le rendez-vous perso n'était pas cliquable. C'est corrigé.</li>
-						<li>Dans "Bilan par formation", la date de la génération n'était pas la bonne pour la deuxième année scolaire et les suivantes.</li>
-						<li>Dans les différents bilans, les forfaits de plus de 100h étaient mal comptabilisés.</li>
+						<li>Quand un rendez-vous perso et une sÃ©ance avaient la mÃªme heure de dÃ©but, la croix permettant de modifier ou de supprimer le rendez-vous perso n'Ã©tait pas cliquable. C'est corrigÃ©.</li>
+						<li>Dans "Bilan par formation", la date de la gÃ©nÃ©ration n'Ã©tait pas la bonne pour la deuxiÃ¨me annÃ©e scolaire et les suivantes.</li>
+						<li>Dans les diffÃ©rents bilans, les forfaits de plus de 100h Ã©taient mal comptabilisÃ©s.</li>
 				</ul>	
 			</span></div>
 			
@@ -544,7 +546,7 @@
 			<div class="panel-body"><span id="texte42" style="visibility: hidden; display: none;">
 				<ul>
 					<lh><em><strong>Interface prof :</strong></em></lh>
-						<li>Dans "Mes modules", suppression du trait rouge de séparation entre les séances passées et les séances futures et ajout d'une nouvelle colonne "Effectuée" pour savoir si une séance a déjà été faite ou non.</li>
+						<li>Dans "Mes modules", suppression du trait rouge de sÃ©paration entre les sÃ©ances passÃ©es et les sÃ©ances futures et ajout d'une nouvelle colonne "EffectuÃ©e" pour savoir si une sÃ©ance a dÃ©jÃ  Ã©tÃ© faite ou non.</li>
 				</ul>
 			</span></div>
 			
@@ -554,9 +556,9 @@
 			<div class="panel-body"><span id="texte41" style="visibility: hidden; display: none;">
 				<ul>
 					<lh><em><strong>Interface prof :</strong></em></lh>
-						<li>La balise <*map*> n'était pas toujours fermée. C'est corrigé.</li>
-						<li>Avec le login et le mot de passe perso, on peut maintenant cliquer sur n'importe quelle séance afin d'afficher le détail du module auquel appartient celle-ci. L'administrateur peut activer ou non cette fonction pour chaque utilisateur. IL NE FAUT PAS  OUBLIER D'AJOUTER 1 CHAMP DANS LA TABLE LOGIN_PROF (Cf. lisezmoi.txt) !!!</li>
-						<li>Dans "mes modules" quand on faisait un classement par prof, par groupe, par type ou par salle, le prof sélectionné dans la liste déroulante changeait pour devenir l'utilisateur au lieu de rester sur le prof sélectionné au départ. C'est corrigé.</li>
+						<li>La balise <*map*> n'Ã©tait pas toujours fermÃ©e. C'est corrigÃ©.</li>
+						<li>Avec le login et le mot de passe perso, on peut maintenant cliquer sur n'importe quelle sÃ©ance afin d'afficher le dÃ©tail du module auquel appartient celle-ci. L'administrateur peut activer ou non cette fonction pour chaque utilisateur. IL NE FAUT PAS  OUBLIER D'AJOUTER 1 CHAMP DANS LA TABLE LOGIN_PROF (Cf. lisezmoi.txt) !!!</li>
+						<li>Dans "mes modules" quand on faisait un classement par prof, par groupe, par type ou par salle, le prof sÃ©lectionnÃ© dans la liste dÃ©roulante changeait pour devenir l'utilisateur au lieu de rester sur le prof sÃ©lectionnÃ© au dÃ©part. C'est corrigÃ©.</li>
 				</ul>
 			</span></div>
 			
@@ -566,7 +568,7 @@
 			<div class="panel-body"><span id="texte40" style="visibility: hidden; display: none;">
 				<ul>
 					<lh><em><strong>Interface prof :</strong></em></lh>
-						<li>Dans "Bilan par formation", quand il n'y avait que des enseignements au forfait durant une année scolaire, le tableau s'affichait mal. C'est corrigé.</li>
+						<li>Dans "Bilan par formation", quand il n'y avait que des enseignements au forfait durant une annÃ©e scolaire, le tableau s'affichait mal. C'est corrigÃ©.</li>
 				</ul>
 			</span></div>
 			
@@ -575,20 +577,20 @@
 			</div>
 			<div class="panel-body"><span id="texte39" style="visibility: hidden; display: none;">
 				<ul>
-					<li>Correction des erreurs de syntaxe HTML afin de passer le test w3c sur toutes les pages sauf celles de l'interface Smartphone (prévu pour bientôt).</li>
+					<li>Correction des erreurs de syntaxe HTML afin de passer le test w3c sur toutes les pages sauf celles de l'interface Smartphone (prÃ©vu pour bientÃ´t).</li>
 				</ul>
 				<ul>
 					<lh><em><strong>Interface prof :</strong></em></lh>
-						<li>Dans "Mes heures", il y avait un bug d'affichage quand on sélectionnait un prof qui n’a aucune séance.</li>
-						<li>La mise en page du menu de "Mes modules" a été corrigée pour être identique aux autres.</li>
-						<li>Dans "Mes modules", il y avait une variable mal initialisée.</li>
-						<li>Dans "Mes modules", lors du classement chronologique, la séparation entre les séances passées et les séances futures se fait par un trait ROUGE. Pour les autres types de classement, la séparation entre les ressources se fait avec un trait BLEU.</li>
-						<li>Limitation à 2 chiffres du numéro de la semaine et à 4 chiffres pour l'année dans les champs "semaine" et "année".</li>
-						<li>Dans "Ma config", il manquait des sauts de lignes pour avoir la même mise en page que les autres fonctions (Mes heures, Mes modules...).</li>
+						<li>Dans "Mes heures", il y avait un bug d'affichage quand on sÃ©lectionnait un prof qui nâ€™a aucune sÃ©ance.</li>
+						<li>La mise en page du menu de "Mes modules" a Ã©tÃ© corrigÃ©e pour Ãªtre identique aux autres.</li>
+						<li>Dans "Mes modules", il y avait une variable mal initialisÃ©e.</li>
+						<li>Dans "Mes modules", lors du classement chronologique, la sÃ©paration entre les sÃ©ances passÃ©es et les sÃ©ances futures se fait par un trait ROUGE. Pour les autres types de classement, la sÃ©paration entre les ressources se fait avec un trait BLEU.</li>
+						<li>Limitation Ã  2 chiffres du numÃ©ro de la semaine et Ã  4 chiffres pour l'annÃ©e dans les champs "semaine" et "annÃ©e".</li>
+						<li>Dans "Ma config", il manquait des sauts de lignes pour avoir la mÃªme mise en page que les autres fonctions (Mes heures, Mes modules...).</li>
 				</ul>
 				<ul>
-					<lh><em><strong>Interface étudiant :</strong></em></lh>
-						<li>Limitation à 2 chiffres du numéro de la semaine et à 4 chiffres pour l'année dans les champs "semaine" et "année".</li>
+					<lh><em><strong>Interface Ã©tudiant :</strong></em></lh>
+						<li>Limitation Ã  2 chiffres du numÃ©ro de la semaine et Ã  4 chiffres pour l'annÃ©e dans les champs "semaine" et "annÃ©e".</li>
 				</ul>
 			</span></div>
 			
@@ -597,15 +599,15 @@
 			</div>
 			<div class="panel-body"><span id="texte38" style="visibility: hidden; display: none;">
 				<ul>
-					<li>Correction d'une variable utilisée pour les cookies mal initialisée.</li>
+					<li>Correction d'une variable utilisÃ©e pour les cookies mal initialisÃ©e.</li>
 				</ul>
 				<ul>
 					<lh><em><strong>Interface prof :</strong></em></lh>
 						<li>Ajout d'un bouton pour le flux RSS car dans Firefox 4 le flux RSS n'est plus accessible dans la barre d'adresse.</li>
 				</ul>
 				<ul>
-					<lh><em><strong>Interface étudiant :</strong></em></lh>
-						<li>Transformation du lien du flux RSS en un bouton à côté de l'export PDF pour gagner un peu de place.</li>
+					<lh><em><strong>Interface Ã©tudiant :</strong></em></lh>
+						<li>Transformation du lien du flux RSS en un bouton Ã  cÃ´tÃ© de l'export PDF pour gagner un peu de place.</li>
 				</ul>
 			</span></div>
 			
@@ -615,9 +617,9 @@
 			<div class="panel-body"><span id="texte37" style="visibility: hidden; display: none;">
 				<ul>
 					<lh><em><strong>Interface prof :</strong></em></lh>
-						<li>Ajout de la possibilité de faire un export PDF avec le login et le mot de passe générique des profs. On peut activer ou désactiver cette possibilité dans le fichier config.php.</li>
-						<li>Ajout de la possibilité d'ajouter un titre lors de la génération des fichiers pdf.</li>
-						<li>Avec le login et le mot de passe persos, prise en compte de l'affichage du samedi et du dimanche ainsi que de l'heure personnalisée dans les exports PDF.</li>
+						<li>Ajout de la possibilitÃ© de faire un export PDF avec le login et le mot de passe gÃ©nÃ©rique des profs. On peut activer ou dÃ©sactiver cette possibilitÃ© dans le fichier config.php.</li>
+						<li>Ajout de la possibilitÃ© d'ajouter un titre lors de la gÃ©nÃ©ration des fichiers pdf.</li>
+						<li>Avec le login et le mot de passe persos, prise en compte de l'affichage du samedi et du dimanche ainsi que de l'heure personnalisÃ©e dans les exports PDF.</li>
 				</ul>
 			</span></div>
 			
@@ -626,14 +628,14 @@
 			</div>
 			<div class="panel-body"><span id="texte36" style="visibility: hidden; display: none;">
 				<ul>
-					<li>Ajout de la possibilité de sauvegarder un cookie pour rester connecté. Dès qu'on appuie sur "Se déconnecter", le cookie est supprimé.</li>
+					<li>Ajout de la possibilitÃ© de sauvegarder un cookie pour rester connectÃ©. DÃ¨s qu'on appuie sur "Se dÃ©connecter", le cookie est supprimÃ©.</li>
 				</ul>
 				<ul>
 					<lh><em><strong>Interface prof :</strong></em></lh>
 						<li>Ajout d'un export PDF de l'emploi du temps. L'administrateur peut activer ou non cette fonction pour chaque utilisateur. IL NE FAUT PAS OUBLIER D'AJOUTER 1 CHAMP DANS LA TABLE LOGIN_PROF (Cf. lisezmoi.txt) !!!</li>
 				</ul>
 				<ul>
-					<lh><em><strong>Interface étudiant :</strong></em></lh>
+					<lh><em><strong>Interface Ã©tudiant :</strong></em></lh>
 						<li>Ajout d'un export PDF de l'emploi du temps.</li>
 				</ul>
 			</span></div>
@@ -644,8 +646,8 @@
 			<div class="panel-body"><span id="texte35" style="visibility: hidden; display: none;">
 				<ul>
 					<lh><em><strong>Interface prof :</strong></em></lh>
-						<li>Bouton "Mes Modules" : ajout de la possibilité de faire des tris en fonction des groupes, des salles, des profs, des types et de la date. Pour cela, il faut cliquer sur l'intitulé des colonnes du tableau.</li>
-						<li>Vue "Jour J" : ajout de la possibilité de changer de jour.</li>
+						<li>Bouton "Mes Modules" : ajout de la possibilitÃ© de faire des tris en fonction des groupes, des salles, des profs, des types et de la date. Pour cela, il faut cliquer sur l'intitulÃ© des colonnes du tableau.</li>
+						<li>Vue "Jour J" : ajout de la possibilitÃ© de changer de jour.</li>
 				</ul>
 			</span></div>
 			
@@ -665,7 +667,7 @@
 			<div class="panel-body"><span id="texte33" style="visibility: hidden; display: none;">
 				<ul>
 					<lh><em><strong>Interface prof :</strong></em></lh>
-						<li>L'administrateur peut maintenant activer ou non pour certains utilisateurs un bilan des heures où on peut choisir le prof dont on veut faire le bilan. IL NE FAUT PAS OUBLIER D'AJOUTER 1 CHAMP DANS LA TABLE LOGIN_PROF (Cf. lisezmoi.txt) !!!</li>
+						<li>L'administrateur peut maintenant activer ou non pour certains utilisateurs un bilan des heures oÃ¹ on peut choisir le prof dont on veut faire le bilan. IL NE FAUT PAS OUBLIER D'AJOUTER 1 CHAMP DANS LA TABLE LOGIN_PROF (Cf. lisezmoi.txt) !!!</li>
 				</ul>
 			</span></div>
 			
@@ -675,11 +677,11 @@
 			<div class="panel-body"><span id="texte32" style="visibility: hidden; display: none;">
 				<ul>
 					<lh><em><strong>Interface prof :</strong></em></lh>
-						<li>L'administrateur peut maintenant activer ou non la possibilité de mettre des réservations, l'affichage des boutons "Mes modules", "Mes heures" et "Ma config" et le flux RSS. IL NE FAUT PAS OUBLIER D'AJOUTER 3 CHAMPS DANS LA TABLE LOGIN_PROF (Cf. lisezmoi.txt) !!!</li>
-						<li>Dans la vue mensuelle, les vacances de la dernière semaine du mois étaient affichées l'avant dernière semaine. C'est corrigé.</li>
-						<li>Dans la vue mensuelle, les vacances du dernier dimanche du mois n'étaient pas affichées. C'est corrigé.</li>
-						<li>Quand on a plusieurs bases de données, les vacances des bases des années précédentes s'affichent dorénavant.</li>
-						<li>Avec le login et le mot de passe perso, quand on se déloguait, le flux RSS était toujours disponible.</li>
+						<li>L'administrateur peut maintenant activer ou non la possibilitÃ© de mettre des rÃ©servations, l'affichage des boutons "Mes modules", "Mes heures" et "Ma config" et le flux RSS. IL NE FAUT PAS OUBLIER D'AJOUTER 3 CHAMPS DANS LA TABLE LOGIN_PROF (Cf. lisezmoi.txt) !!!</li>
+						<li>Dans la vue mensuelle, les vacances de la derniÃ¨re semaine du mois Ã©taient affichÃ©es l'avant derniÃ¨re semaine. C'est corrigÃ©.</li>
+						<li>Dans la vue mensuelle, les vacances du dernier dimanche du mois n'Ã©taient pas affichÃ©es. C'est corrigÃ©.</li>
+						<li>Quand on a plusieurs bases de donnÃ©es, les vacances des bases des annÃ©es prÃ©cÃ©dentes s'affichent dorÃ©navant.</li>
+						<li>Avec le login et le mot de passe perso, quand on se dÃ©loguait, le flux RSS Ã©tait toujours disponible.</li>
 				</ul>
 			</span></div>
 			
@@ -689,7 +691,7 @@
 			<div class="panel-body"><span id="texte31" style="visibility: hidden; display: none;">
 				<ul>
 					<lh><em><strong>Interface prof :</strong></em></lh>
-						<li>Dans certains cas, l'affichage des conflits des groupes faisait planter l'interface. C'est maintenant corrigé.</li>
+						<li>Dans certains cas, l'affichage des conflits des groupes faisait planter l'interface. C'est maintenant corrigÃ©.</li>
 				</ul>
 			</span></div>
 			
@@ -709,8 +711,8 @@
 			<div class="panel-body"><span id="texte29" style="visibility: hidden; display: none;">
 				<ul>
 					<lh><em><strong>Interface prof :</strong></em></lh>
-						<li>Maintenant, quand on visualise le planning d'un groupe, les séances et les réservations placées aux groupes de niveaux inférieurs sont visibles.</li>
-						<li>Ajout du bouton "Mon planning" qui permet de revenir à l'affichage de son propre emploi du temps lorsque d'autres groupes, salles ou profs ont été sélectionnés. Marche uniquement avec le login et le mot de passe perso.</li>
+						<li>Maintenant, quand on visualise le planning d'un groupe, les sÃ©ances et les rÃ©servations placÃ©es aux groupes de niveaux infÃ©rieurs sont visibles.</li>
+						<li>Ajout du bouton "Mon planning" qui permet de revenir Ã  l'affichage de son propre emploi du temps lorsque d'autres groupes, salles ou profs ont Ã©tÃ© sÃ©lectionnÃ©s. Marche uniquement avec le login et le mot de passe perso.</li>
 				</ul>
 			</span></div>
 			
@@ -720,11 +722,11 @@
 			<div class="panel-body"><span id="texte28" style="visibility: hidden; display: none;">
 				<ul>
 					<lh><em><strong>Interface prof :</strong></em></lh>
-						<li>La croix à côté de l'horaire des rendez-vous persos permettant de les modifier ou de les supprimer apparaissait sur les réservations enregistrées dans les bases de données des années scolaires précédentes. Celle-ci a été effacée car on ne peut modifier ou supprimer que les réservations de la base de données de l'année scolaire en cours.</li>
+						<li>La croix Ã  cÃ´tÃ© de l'horaire des rendez-vous persos permettant de les modifier ou de les supprimer apparaissait sur les rÃ©servations enregistrÃ©es dans les bases de donnÃ©es des annÃ©es scolaires prÃ©cÃ©dentes. Celle-ci a Ã©tÃ© effacÃ©e car on ne peut modifier ou supprimer que les rÃ©servations de la base de donnÃ©es de l'annÃ©e scolaire en cours.</li>
 				</ul>
 				<ul>
-					<lh><em><strong>Interface étudiant :</strong></em></lh>
-						<li>Prise en compte de la diffusabilité des séances. Si une séance est marquée comme "non diffusable" dans VT, elle ne s'affichera pas sur le planning des étudiants. Inversement, si elle est marquée comme "diffusable", elle s'affichera sur le planning des étudiants. L'activation ou non de cette fonction se fait dans le fichier config.php</li>
+					<lh><em><strong>Interface Ã©tudiant :</strong></em></lh>
+						<li>Prise en compte de la diffusabilitÃ© des sÃ©ances. Si une sÃ©ance est marquÃ©e comme "non diffusable" dans VT, elle ne s'affichera pas sur le planning des Ã©tudiants. Inversement, si elle est marquÃ©e comme "diffusable", elle s'affichera sur le planning des Ã©tudiants. L'activation ou non de cette fonction se fait dans le fichier config.php</li>
 				</ul>
 			</span></div>
 			
@@ -734,7 +736,7 @@
 			<div class="panel-body"><span id="texte27" style="visibility: hidden; display: none;">
 				<ul>
 					<lh><em><strong>Page de Login :</strong></em></lh>
-						<li>Maintenant, les logins génériques et persos des profs sont insensibles aux majuscules. En effet, les iPhones ajoutent par défaut des majuscules à la première lettre du login et cela faisait planter l'interface. Par contre, le mot de passe est toujours sensible aux majuscules.</li>
+						<li>Maintenant, les logins gÃ©nÃ©riques et persos des profs sont insensibles aux majuscules. En effet, les iPhones ajoutent par dÃ©faut des majuscules Ã  la premiÃ¨re lettre du login et cela faisait planter l'interface. Par contre, le mot de passe est toujours sensible aux majuscules.</li>
 				</ul>
 			</span></div>
 			
@@ -744,7 +746,7 @@
 			<div class="panel-body"><span id="texte26" style="visibility: hidden; display: none;">
 				<ul>
 					<lh><em><strong>Interface prof :</strong></em></lh>
-						<li>Quand on utilise son login et son mot de passe perso pour la première fois, l'heure de début et de fin du planning n'étaient pas les bonnes. Pour corriger le problème, il faut changer les valeurs par défaut dans la table login_prof au niveau des champs heureDebut et heureFin afin de mettre la valeur 0 au lieu de 8 et 19.</li>
+						<li>Quand on utilise son login et son mot de passe perso pour la premiÃ¨re fois, l'heure de dÃ©but et de fin du planning n'Ã©taient pas les bonnes. Pour corriger le problÃ¨me, il faut changer les valeurs par dÃ©faut dans la table login_prof au niveau des champs heureDebut et heureFin afin de mettre la valeur 0 au lieu de 8 et 19.</li>
 				</ul>
 			</span></div>
 			
@@ -753,12 +755,12 @@
 			</div>
 			<div class="panel-body"><span id="texte25" style="visibility: hidden; display: none;">
 				<ul>
-					<li>Ajout de la possibilité de changer le titre de la fenêtre depuis le fichier config.php</li>
+					<li>Ajout de la possibilitÃ© de changer le titre de la fenÃªtre depuis le fichier config.php</li>
 				</ul>
 				<ul>
 					<lh><em><strong>Interface prof :</strong></em></lh>
-						<li>La liste de pré-tri des salles ne s'affichait pas dans l'ordre alphabétique. C'est maintenant corrigé.</li>
-						<li>Quand on cliquait sur la croix pour modifier une réservation, la date et l'heure de la réservation n'étaient pas les bonnes.</li>
+						<li>La liste de prÃ©-tri des salles ne s'affichait pas dans l'ordre alphabÃ©tique. C'est maintenant corrigÃ©.</li>
+						<li>Quand on cliquait sur la croix pour modifier une rÃ©servation, la date et l'heure de la rÃ©servation n'Ã©taient pas les bonnes.</li>
 				</ul>
 			</span></div>
 			
@@ -767,13 +769,13 @@
 			</div>
 			<div class="panel-body"><span id="texte24" style="visibility: hidden; display: none;">
 				<ul>
-					<li>Si l'heure de début de journée n'était pas un nombre entier, l'interface n'affichait pas les séances de début de journée.</li>
-					<li>Certaines requêtes étaient mal interprétées avec les vielles versions de MySQL. Elles ont été améliorées.</li>
+					<li>Si l'heure de dÃ©but de journÃ©e n'Ã©tait pas un nombre entier, l'interface n'affichait pas les sÃ©ances de dÃ©but de journÃ©e.</li>
+					<li>Certaines requÃªtes Ã©taient mal interprÃ©tÃ©es avec les vielles versions de MySQL. Elles ont Ã©tÃ© amÃ©liorÃ©es.</li>
 				</ul>
 				<ul>
 					<lh><em><strong>Interface prof :</strong></em></lh>
-						<li>Si l'heure de début de journée n'était pas un nombre entier, il y avait un problème d'affichage dans le choix des heures de début et de fin des réservations.</li>
-						<li>Si l'heure de début de journée n'était pas un nombre entier, il y avait un problème d'affichage dans le choix des heures de début et de fin de journée dans "Ma config".</li>
+						<li>Si l'heure de dÃ©but de journÃ©e n'Ã©tait pas un nombre entier, il y avait un problÃ¨me d'affichage dans le choix des heures de dÃ©but et de fin des rÃ©servations.</li>
+						<li>Si l'heure de dÃ©but de journÃ©e n'Ã©tait pas un nombre entier, il y avait un problÃ¨me d'affichage dans le choix des heures de dÃ©but et de fin de journÃ©e dans "Ma config".</li>
 				</ul>
 			</span></div>
 			
@@ -783,7 +785,7 @@
 			<div class="panel-body"><span id="texte23" style="visibility: hidden; display: none;">
 				<ul>
 					<lh><em><strong>Interface prof :</strong></em></lh>
-						<li>Dans "Mes heures", les durées forfaitaires de 0h généraient une erreur qui a été corrigée.</li>
+						<li>Dans "Mes heures", les durÃ©es forfaitaires de 0h gÃ©nÃ©raient une erreur qui a Ã©tÃ© corrigÃ©e.</li>
 				</ul>
 			</span></div>
 			
@@ -793,7 +795,7 @@
 			<div class="panel-body"><span id="texte22" style="visibility: hidden; display: none;">
 				<ul>
 					<lh><em><strong>Interface prof :</strong></em></lh>
-						<li>Avec JavaScript désactivé, il était possible de placer une réservation avec une date dans un mauvais format (exemple : 35/13/2010) et cela faisait planter VT. Maintenant, l'interface détecte si JavaScript est activé et si ce n'est pas le cas, on ne peut plus placer de réservations.</li>
+						<li>Avec JavaScript dÃ©sactivÃ©, il Ã©tait possible de placer une rÃ©servation avec une date dans un mauvais format (exemple : 35/13/2010) et cela faisait planter VT. Maintenant, l'interface dÃ©tecte si JavaScript est activÃ© et si ce n'est pas le cas, on ne peut plus placer de rÃ©servations.</li>
 				</ul>
 			</span></div>
 			
@@ -803,7 +805,7 @@
 			<div class="panel-body"><span id="texte21" style="visibility: hidden; display: none;">
 				<ul>
 					<lh><em><strong>Interface prof :</strong></em></lh>
-						<li>Ajout de la possibilité d'activer ou de désactiver le message "pas de salle" quand aucune salle n'est affectée à une séance depuis le fichier config.php.</li>
+						<li>Ajout de la possibilitÃ© d'activer ou de dÃ©sactiver le message "pas de salle" quand aucune salle n'est affectÃ©e Ã  une sÃ©ance depuis le fichier config.php.</li>
 				</ul>
 			</span></div>
 			
@@ -813,7 +815,7 @@
 			<div class="panel-body"><span id="texte20" style="visibility: hidden; display: none;">
 				<ul>
 					<lh><em><strong>Interface prof :</strong></em></lh>
-						<li>Ajout du bouton "Ma config" qui permet de modifier l'heure de début et de fin des journées ainsi que de choisir si on veut afficher le samedi et le dimanche. Ne fonctionne que si on utilise son login perso.</li>
+						<li>Ajout du bouton "Ma config" qui permet de modifier l'heure de dÃ©but et de fin des journÃ©es ainsi que de choisir si on veut afficher le samedi et le dimanche. Ne fonctionne que si on utilise son login perso.</li>
 				</ul>
 			</span></div>
 			
@@ -823,9 +825,9 @@
 			<div class="panel-body"><span id="texte19" style="visibility: hidden; display: none;">
 				<ul>
 					<lh><em><strong>Interface prof :</strong></em></lh>
-						<li>Lorsque des séances étaient annulées, l'affichage du planning plantait. C'est corrigé.</li>
-						<li>Lorsqu'une séance est annulée, un message est maintenant affiché sur la séance.</li>
-						<li>Les séances non comptabilisées et les séances annulées ne sont plus prises en compte dans "Mes heures".</li>
+						<li>Lorsque des sÃ©ances Ã©taient annulÃ©es, l'affichage du planning plantait. C'est corrigÃ©.</li>
+						<li>Lorsqu'une sÃ©ance est annulÃ©e, un message est maintenant affichÃ© sur la sÃ©ance.</li>
+						<li>Les sÃ©ances non comptabilisÃ©es et les sÃ©ances annulÃ©es ne sont plus prises en compte dans "Mes heures".</li>
 				</ul>
 			</span></div>
 			
@@ -835,13 +837,13 @@
 			<div class="panel-body"><span id="texte18" style="visibility: hidden; display: none;">
 				<ul>
 					<lh><em><strong>Interface prof :</strong></em></lh>
-						<li>Ajout de la possibilité de configurer dans config.php l'ajout ou non du mot "Salle :" devant le nom des salles inscrits sur les séances.</li>
-						<li>Ajout de la possibilité de configurer dans config.php le nombre de caractères à afficher pour les salles dont le nom est inscrit sur les séances.</li>
+						<li>Ajout de la possibilitÃ© de configurer dans config.php l'ajout ou non du mot "Salle :" devant le nom des salles inscrits sur les sÃ©ances.</li>
+						<li>Ajout de la possibilitÃ© de configurer dans config.php le nombre de caractÃ¨res Ã  afficher pour les salles dont le nom est inscrit sur les sÃ©ances.</li>
 				</ul>
 				<ul>
-					<lh><em><strong>Interface étudiant :</strong></em></lh>
-						<li>Ajout de la possibilité de configurer dans config.php l'ajout ou non du mot "Salle :" devant le nom des salles inscrits sur les séances.</li>
-						<li>Ajout de la possibilité de configurer dans config.php le nombre de caractères à afficher pour les salles dont le nom est inscrit sur les séances.</li>
+					<lh><em><strong>Interface Ã©tudiant :</strong></em></lh>
+						<li>Ajout de la possibilitÃ© de configurer dans config.php l'ajout ou non du mot "Salle :" devant le nom des salles inscrits sur les sÃ©ances.</li>
+						<li>Ajout de la possibilitÃ© de configurer dans config.php le nombre de caractÃ¨res Ã  afficher pour les salles dont le nom est inscrit sur les sÃ©ances.</li>
 				</ul>
 			</span></div>
 			
@@ -850,25 +852,25 @@
 			</div>
 			<div class="panel-body"><span id="texte17" style="visibility: hidden; display: none;">
 				<ul>
-					<li>Adaptation des scripts à la nouvelle version de VT.</li>
-					<li>La page de login a été améliorée.</li>
+					<li>Adaptation des scripts Ã  la nouvelle version de VT.</li>
+					<li>La page de login a Ã©tÃ© amÃ©liorÃ©e.</li>
 					<li>Suppression de toutes les erreurs de syntaxe en php.</li>
-					<li>Suppression des erreurs de syntaxe en html afin d'être conforme à la norme W3C.</li>
-					<li>Les heures de début et de fin de journée sont réglables directement depuis le fichier config.php</li>
-					<li>Les heures de début et de fin de la pause de midi sont réglables directement depuis le fichier config.php</li>
+					<li>Suppression des erreurs de syntaxe en html afin d'Ãªtre conforme Ã  la norme W3C.</li>
+					<li>Les heures de dÃ©but et de fin de journÃ©e sont rÃ©glables directement depuis le fichier config.php</li>
+					<li>Les heures de dÃ©but et de fin de la pause de midi sont rÃ©glables directement depuis le fichier config.php</li>
 				</ul>
 				<ul>
 					<lh><em><strong>Interface prof :</strong></em></lh>
-						<li>Dans l'affichage du planning des salles, quand il y avait plusieurs profs associés à une séance, le texte n'était pas centré verticalement dans la case de la séance.</li>
-						<li>Dans la vue mensuelle, les info-bulles pour les réservations des groupes de niveaux supérieurs ne fonctionnait pas. Par exemple, une réservation au niveau d'un groupe de TD n'apparaissait pas quand on visualisait le groupe de TP. C'est corrigé.</li>
-						<li>Correction d'une faille de sécurité dans la suppression des rendez-vous.</li>
+						<li>Dans l'affichage du planning des salles, quand il y avait plusieurs profs associÃ©s Ã  une sÃ©ance, le texte n'Ã©tait pas centrÃ© verticalement dans la case de la sÃ©ance.</li>
+						<li>Dans la vue mensuelle, les info-bulles pour les rÃ©servations des groupes de niveaux supÃ©rieurs ne fonctionnait pas. Par exemple, une rÃ©servation au niveau d'un groupe de TD n'apparaissait pas quand on visualisait le groupe de TP. C'est corrigÃ©.</li>
+						<li>Correction d'une faille de sÃ©curitÃ© dans la suppression des rendez-vous.</li>
 						<li>Dans "Mes modules...", on peut maintenant choisir n'importe quel prof.</li>
-						<li>Avec Internet explorer, quand le filtre des groupes était sur "Tous", le filtre des profs se retrouvait aussi sur "Tous" en plus du filtre choisi.</li>
-						<li>Ajout de "Mes heures..." afin que les profs puissent voir le bilan de leurs heures. La colonne "Code apogée" correspond au champ "identifiant" des enseignements dans VT.</li>
-						<li>Dans "Mes heures.." ajout d'un bouton de tri qui classe les séances par ordre chronologique ou par matière.</li>
+						<li>Avec Internet explorer, quand le filtre des groupes Ã©tait sur "Tous", le filtre des profs se retrouvait aussi sur "Tous" en plus du filtre choisi.</li>
+						<li>Ajout de "Mes heures..." afin que les profs puissent voir le bilan de leurs heures. La colonne "Code apogÃ©e" correspond au champ "identifiant" des enseignements dans VT.</li>
+						<li>Dans "Mes heures.." ajout d'un bouton de tri qui classe les sÃ©ances par ordre chronologique ou par matiÃ¨re.</li>
 						<li>Dans "Mes heures..." ajout d'un export vers excel des bilans des heures.</li>
-						<li>Il n'y a plus besoin d'appuyer sur "envoyer" quand on change de type de vue ou qu'on cache les rendez-vous ou les problèmes. Ca marche pour tous les navigateurs sauf internet explorer qui ne respecte pas les standards du web.</li>
-						<li>Dans "Mes modules", l'interface ne faisait pas la différence entre un enseignement qui s'appelait par exemple "GMP1_AUTOM" et un autre qui s'appelait "GMP1_AUTOMATISATION" et les séances des deux enseignements se trouvaient mélangées quand on visualisait le module "GMP1_AUTOM". C'est corrigé.</li>
+						<li>Il n'y a plus besoin d'appuyer sur "envoyer" quand on change de type de vue ou qu'on cache les rendez-vous ou les problÃ¨mes. Ca marche pour tous les navigateurs sauf internet explorer qui ne respecte pas les standards du web.</li>
+						<li>Dans "Mes modules", l'interface ne faisait pas la diffÃ©rence entre un enseignement qui s'appelait par exemple "GMP1_AUTOM" et un autre qui s'appelait "GMP1_AUTOMATISATION" et les sÃ©ances des deux enseignements se trouvaient mÃ©langÃ©es quand on visualisait le module "GMP1_AUTOM". C'est corrigÃ©.</li>
 				</ul>
 			</span></div>
 			
@@ -878,11 +880,11 @@
 			<div class="panel-body"><span id="texte16" style="visibility: hidden; display: none;">
 				<ul>
 					<lh><em><strong>Interface prof :</strong></em></lh>
-						<li>Dans le flux RSS, l'heure des modifications était donnée en GMT+0. Elle est maintenant donnée en GMT+1.</li>
+						<li>Dans le flux RSS, l'heure des modifications Ã©tait donnÃ©e en GMT+0. Elle est maintenant donnÃ©e en GMT+1.</li>
 				</ul>
 				<ul>
-					<lh><em><strong>Interface étudiant :</strong></em></lh>
-						<li>Dans le flux RSS, l'heure des modifications était donnée en GMT+0. Elle est maintenant donnée en GMT+1.</li>
+					<lh><em><strong>Interface Ã©tudiant :</strong></em></lh>
+						<li>Dans le flux RSS, l'heure des modifications Ã©tait donnÃ©e en GMT+0. Elle est maintenant donnÃ©e en GMT+1.</li>
 				</ul>
 			</span></div>
 			
@@ -892,8 +894,8 @@
 			<div class="panel-body"><span id="texte15" style="visibility: hidden; display: none;">
 				<ul>
 					<lh><em><strong>Interface prof :</strong></em></lh>
-						<li>Dans "Mes modules", un trait de séparation horizontal rouge sépare maintenant les séances passées des futures séances.</li>
-						<li>Les réservations des groupes de niveaux supérieurs n'apparaissaient pas. Par exemple, une réservation au niveau d'un groupe de TD n'apparaissait pas quand on visualisait le groupe de TP. C'est corrigé.</li>
+						<li>Dans "Mes modules", un trait de sÃ©paration horizontal rouge sÃ©pare maintenant les sÃ©ances passÃ©es des futures sÃ©ances.</li>
+						<li>Les rÃ©servations des groupes de niveaux supÃ©rieurs n'apparaissaient pas. Par exemple, une rÃ©servation au niveau d'un groupe de TD n'apparaissait pas quand on visualisait le groupe de TP. C'est corrigÃ©.</li>
 				</ul>
 			</span></div>
 			
@@ -903,7 +905,7 @@
 			<div class="panel-body"><span id="texte14" style="visibility: hidden; display: none;">
 				<ul>
 					<lh><em><strong>Interface prof :</strong></em></lh>
-						<li>Amélioration de l'algorithme de détection des conflits de profs, groupes, salles... Durée de génération du planning divisée par 4.</li>
+						<li>AmÃ©lioration de l'algorithme de dÃ©tection des conflits de profs, groupes, salles... DurÃ©e de gÃ©nÃ©ration du planning divisÃ©e par 4.</li>
 				</ul>
 			</span></div>
 			
@@ -913,8 +915,8 @@
 			<div class="panel-body"><span id="texte13" style="visibility: hidden; display: none;">
 				<ul>
 					<lh><em><strong>Interface prof :</strong></em></lh>
-						<li>Dans l'emploi du temps d'un prof, on peut maintenant voir facilement s'il y a bien une salle affectée à la séance, si le prof n'a pas plusieurs cours en même temps, si les groupes n'ont pas plusieurs cours en même temps et si la salle n'est pas utilisée par quelqu'un d'autre.Ces messages peuvent être cachés si on coche la case "Masquer les problèmes".</li>
-						<li>Quand la case "Masquer les RDV" était cochée et qu'ensuite on cliquait sur "Retour à la semaine actuelle", la case "Masquer les RDV" ne restait pas cochée. C'est corrigé.</li>
+						<li>Dans l'emploi du temps d'un prof, on peut maintenant voir facilement s'il y a bien une salle affectÃ©e Ã  la sÃ©ance, si le prof n'a pas plusieurs cours en mÃªme temps, si les groupes n'ont pas plusieurs cours en mÃªme temps et si la salle n'est pas utilisÃ©e par quelqu'un d'autre.Ces messages peuvent Ãªtre cachÃ©s si on coche la case "Masquer les problÃ¨mes".</li>
+						<li>Quand la case "Masquer les RDV" Ã©tait cochÃ©e et qu'ensuite on cliquait sur "Retour Ã  la semaine actuelle", la case "Masquer les RDV" ne restait pas cochÃ©e. C'est corrigÃ©.</li>
 				</ul>
 			</span></div>
 			
@@ -924,7 +926,7 @@
 			<div class="panel-body"><span id="texte12" style="visibility: hidden; display: none;">
 				<ul>
 					<lh><em><strong>Interface prof :</strong></em></lh>
-						<li>Dans le flux RSS, les noms des groupes et des salles n'apparaissaient plus. Ca a été corrigé.</li>
+						<li>Dans le flux RSS, les noms des groupes et des salles n'apparaissaient plus. Ca a Ã©tÃ© corrigÃ©.</li>
 				</ul>
 			</span></div>
 			
@@ -934,11 +936,11 @@
 			<div class="panel-body"><span id="texte11" style="visibility: hidden; display: none;">
 				<ul>
 					<lh><em><strong>Interface prof :</strong></em></lh>
-						<li>Les fichiers .ics ont été légèrement modifiés afin de les rendre plus lisibles.</li>
+						<li>Les fichiers .ics ont Ã©tÃ© lÃ©gÃ¨rement modifiÃ©s afin de les rendre plus lisibles.</li>
 				</ul>
 				<ul>
-					<lh><em><strong>Interface étudiant :</strong></em></lh>
-						<li>Les fichiers .ics ont été légèrement modifiés afin de les rendre plus lisibles.</li>
+					<lh><em><strong>Interface Ã©tudiant :</strong></em></lh>
+						<li>Les fichiers .ics ont Ã©tÃ© lÃ©gÃ¨rement modifiÃ©s afin de les rendre plus lisibles.</li>
 				</ul>
 			</span></div>
 			
@@ -948,7 +950,7 @@
 			<div class="panel-body"><span id="texte10" style="visibility: hidden; display: none;">
 				<ul>
 					<lh><em><strong>Interface prof :</strong></em></lh>
-						<li>Un bug avec internet explorer a été corrigé. Quand on cliquait sur "Tout désélectionner" on se retrouvait délogué si après on cliquait sur "Envoyer".</li>
+						<li>Un bug avec internet explorer a Ã©tÃ© corrigÃ©. Quand on cliquait sur "Tout dÃ©sÃ©lectionner" on se retrouvait dÃ©loguÃ© si aprÃ¨s on cliquait sur "Envoyer".</li>
 				</ul>
 			</span></div>
 			
@@ -957,12 +959,12 @@
 			</div>
 			<div class="panel-body"><span id="texte9" style="visibility: hidden; display: none;">
 				<ul>
-					<li>Toutes les requêtes vers la base de données sont maintenant des requêtes préparées --> suppression des risques d'injections SQL.</li>
-					<li>Correction de certains problèmes d'affichage avec internet explorer.</li>
+					<li>Toutes les requÃªtes vers la base de donnÃ©es sont maintenant des requÃªtes prÃ©parÃ©es --> suppression des risques d'injections SQL.</li>
+					<li>Correction de certains problÃ¨mes d'affichage avec internet explorer.</li>
 				</ul>
 				<ul>
 					<lh><em><strong>Interface prof :</strong></em></lh>
-						<li>Dans la vue "Jour J" un problème lors de l'affichage des vacances a été corrigé.</li>
+						<li>Dans la vue "Jour J" un problÃ¨me lors de l'affichage des vacances a Ã©tÃ© corrigÃ©.</li>
 				</ul>
 			</span></div>
 			
@@ -972,14 +974,14 @@
 			<div class="panel-body"><span id="texte8" style="visibility: hidden; display: none;">
 				<ul>
 					<lh><em><strong>Interface prof :</strong></em></lh>
-						<li>Une vue "Jour J" a été ajoutée. Elle permet de ne visualiser que le jour actuel.</li>
-						<li>La taille de l'image générée dans les différentes vues a été corrigée pour être agrandie dans certains cas et diminuée dans d'autres pour supprimer les ascenseurs verticaux. Ca marche pour tous les navigateurs sauf internet explorer qui ne respecte pas les standards du web.</li>
-						<li>Dans "mes modules", le nom du jour (lundi, mardi...) des séances a été ajouté</li>
-						<li>L'abonnement au flux RSS ne marchait pas bien dans certains cas. C'est corrigé.</li>
+						<li>Une vue "Jour J" a Ã©tÃ© ajoutÃ©e. Elle permet de ne visualiser que le jour actuel.</li>
+						<li>La taille de l'image gÃ©nÃ©rÃ©e dans les diffÃ©rentes vues a Ã©tÃ© corrigÃ©e pour Ãªtre agrandie dans certains cas et diminuÃ©e dans d'autres pour supprimer les ascenseurs verticaux. Ca marche pour tous les navigateurs sauf internet explorer qui ne respecte pas les standards du web.</li>
+						<li>Dans "mes modules", le nom du jour (lundi, mardi...) des sÃ©ances a Ã©tÃ© ajoutÃ©</li>
+						<li>L'abonnement au flux RSS ne marchait pas bien dans certains cas. C'est corrigÃ©.</li>
 				</ul>
 				<ul>
-					<lh><em><strong>Interface étudiant :</strong></em></lh>
-						<li>L'abonnement au flux RSS ne marchait pas bien dans certains cas. C'est corrigé.</li>
+					<lh><em><strong>Interface Ã©tudiant :</strong></em></lh>
+						<li>L'abonnement au flux RSS ne marchait pas bien dans certains cas. C'est corrigÃ©.</li>
 				</ul>
 			</span></div>
 			
@@ -989,7 +991,7 @@
 			<div class="panel-body"><span id="texte7" style="visibility: hidden; display: none;">
 				<ul>
 					<lh><em><strong>Interface prof :</strong></em></lh>
-						<li>Un nouveau bouton a été ajouté. Il permet de voir tous les détails des modules dans lesquels on intervient. Pour le faire apparaitre, il faut absolument utiliser le login et le mot de passe perso.</li>
+						<li>Un nouveau bouton a Ã©tÃ© ajoutÃ©. Il permet de voir tous les dÃ©tails des modules dans lesquels on intervient. Pour le faire apparaitre, il faut absolument utiliser le login et le mot de passe perso.</li>
 				</ul>
 			</span></div>
 			
@@ -1002,16 +1004,16 @@
 				</ul>
 				<ul>
 					<lh><em><strong>Interface prof :</strong></em></lh>
-						<li>Changement du design des séances.</li>
-						<li>L'abonnement à l'agenda électronique est de nouveau disponible. Pour s'abonner, il faut cliquer sur le nom de la ressource dans la zone grise.</li>
-						<li>Ajout d'une liste de pré-tri des groupes d'étudiants.</li>
-						<li>Ajout d'une liste de pré-tri des profs</li>
-						<li>Ajout d'une liste de pré-tri des profs</li>
-						<li>Ajout d'une liste de pré-tri des salles.</li>
+						<li>Changement du design des sÃ©ances.</li>
+						<li>L'abonnement Ã  l'agenda Ã©lectronique est de nouveau disponible. Pour s'abonner, il faut cliquer sur le nom de la ressource dans la zone grise.</li>
+						<li>Ajout d'une liste de prÃ©-tri des groupes d'Ã©tudiants.</li>
+						<li>Ajout d'une liste de prÃ©-tri des profs</li>
+						<li>Ajout d'une liste de prÃ©-tri des profs</li>
+						<li>Ajout d'une liste de prÃ©-tri des salles.</li>
 				</ul>
 				<ul>
-					<lh><em><strong>Interface étudiant :</strong></em></lh>
-						<li>Changement du design des séances</li>
+					<lh><em><strong>Interface Ã©tudiant :</strong></em></lh>
+						<li>Changement du design des sÃ©ances</li>
 				</ul>
 			</span></div>
 			
@@ -1021,11 +1023,11 @@
 			<div class="panel-body"><span id="texte5" style="visibility: hidden; display: none;">
 				<ul>
 					<lh><em><strong>Interfaces profs, salles et multi-ressources :</strong></em></lh>
-						<li>Les interfaces profs et salles sont remplacées par l'interface multi-ressources qui s'appelle maintenant "planning des profs".</li>
+						<li>Les interfaces profs et salles sont remplacÃ©es par l'interface multi-ressources qui s'appelle maintenant "planning des profs".</li>
 				</ul>
 				<ul>
-					<lh><em><strong>Interface téléphones portables :</strong></em></lh>
-						<li>Une interface optimisée pour les téléphones portables a été ajoutée. Pour passer à la semaine suivante, il faut cliquer sur le tiers droit de l'image. Pour aller à la semaine précédente, il faut cliquer sur le tiers gauche de l'image.</li>
+					<lh><em><strong>Interface tÃ©lÃ©phones portables :</strong></em></lh>
+						<li>Une interface optimisÃ©e pour les tÃ©lÃ©phones portables a Ã©tÃ© ajoutÃ©e. Pour passer Ã  la semaine suivante, il faut cliquer sur le tiers droit de l'image. Pour aller Ã  la semaine prÃ©cÃ©dente, il faut cliquer sur le tiers gauche de l'image.</li>
 				</ul>
 			</span></div>
 			
@@ -1035,7 +1037,7 @@
 			<div class="panel-body"><span id="texte4" style="visibility: hidden; display: none;">
 				<ul>
 					<lh><em><strong>Interface multi-ressources :</strong></em></lh>
-					<li>Une vue mensuelle a été ajoutée. Pour voir le détail des séances, il faut laisser la souris quelques secondes au-dessus de celles-ci.</li>
+					<li>Une vue mensuelle a Ã©tÃ© ajoutÃ©e. Pour voir le dÃ©tail des sÃ©ances, il faut laisser la souris quelques secondes au-dessus de celles-ci.</li>
 				</ul>
 			</span></div>
 			
@@ -1044,7 +1046,7 @@
 			</div>
 			<div class="panel-body"><span id="texte3" style="visibility: hidden; display: none;">
 				<ul>
-					<li>Les emplois du temps de 2008-2009 et de 2009-2010 sont visibles sur la même interface web.</li>
+					<li>Les emplois du temps de 2008-2009 et de 2009-2010 sont visibles sur la mÃªme interface web.</li>
 				</ul>
 			</span></div>
 			
@@ -1053,8 +1055,8 @@
 			</div>
 			<div class="panel-body"><span id="texte2" style="visibility: hidden; display: none;">
 				<ul>
-					<lh><em><strong>Interface étudiant :</strong></em></lh>
-						<li>Les vacances scolaires et les périodes d'apprentissage apparaissent dans l'emploi du temps.</li>
+					<lh><em><strong>Interface Ã©tudiant :</strong></em></lh>
+						<li>Les vacances scolaires et les pÃ©riodes d'apprentissage apparaissent dans l'emploi du temps.</li>
 				</ul>
 				<ul>
 					<lh><em><strong>Interface prof :</strong></em></lh>
@@ -1063,8 +1065,8 @@
 				<ul>
 					<lh><em><strong>Interface multi-ressources :</strong></em></lh>
 					<li>Les vacances scolaires des profs apparaissent dans l'emploi du temps.</li>
-					<li>Les vacances scolaires et les périodes d'apprentissage des groupes apparaissent dans l'emploi du temps.</li>
-					<li>On peut maintenant masquer réservations pour voir le cours qu'il y a en dessous en cas de superposition.</li>
+					<li>Les vacances scolaires et les pÃ©riodes d'apprentissage des groupes apparaissent dans l'emploi du temps.</li>
+					<li>On peut maintenant masquer rÃ©servations pour voir le cours qu'il y a en dessous en cas de superposition.</li>
 				</ul> 
 			</span></div>
 			
@@ -1073,32 +1075,32 @@
 			</div>
 			<div class="panel-body"><span id="texte1" style="visibility: hidden; display: none;">
 				<ul>
-					<lh><em><strong>Interface étudiant :</strong></em></lh>
-						<li>J'ai corrigé l'affichage des commentaires de séances qui dépassaient 2 lignes.</li>
-					    <li>Le flux RSS est maintenant détecté par votre navigateur.</li>
+					<lh><em><strong>Interface Ã©tudiant :</strong></em></lh>
+						<li>J'ai corrigÃ© l'affichage des commentaires de sÃ©ances qui dÃ©passaient 2 lignes.</li>
+					    <li>Le flux RSS est maintenant dÃ©tectÃ© par votre navigateur.</li>
 				</ul>
 				<ul>
 					<lh><em><strong>Interface prof :</strong></em></lh>
-					<li>Les fichiers ics sont faits à partir des bases 08-09 et 09-10.</li>
-					<li>J'ai ajouté le bouton "journée" dans l'ajout des rendez-vous perso.</li>
-					<li>J'ai corrigé l'affichage des commentaires de séances qui dépassaient 2 lignes.</li>
-					<li>Le flux RSS est maintenant détecté par votre navigateur.</li>
+					<li>Les fichiers ics sont faits Ã  partir des bases 08-09 et 09-10.</li>
+					<li>J'ai ajoutÃ© le bouton "journÃ©e" dans l'ajout des rendez-vous perso.</li>
+					<li>J'ai corrigÃ© l'affichage des commentaires de sÃ©ances qui dÃ©passaient 2 lignes.</li>
+					<li>Le flux RSS est maintenant dÃ©tectÃ© par votre navigateur.</li>
 				</ul>
 				<ul>
 					<lh><em><strong>Interface salle :</strong></em></lh>
-					<li>J'ai corrigé l'affichage des commentaires de séances qui dépassaient 2 lignes</li>
-					<li>J'ai corrigé l'affichage des noms des réservations qui dépassaient 2 lignes.</li>
-					<li>On peut maintenant masquer réservations pour voir le cours qu'il y a en dessous en cas de superposition..</li>
+					<li>J'ai corrigÃ© l'affichage des commentaires de sÃ©ances qui dÃ©passaient 2 lignes</li>
+					<li>J'ai corrigÃ© l'affichage des noms des rÃ©servations qui dÃ©passaient 2 lignes.</li>
+					<li>On peut maintenant masquer rÃ©servations pour voir le cours qu'il y a en dessous en cas de superposition..</li>
 				</ul> 
 				<ul>
 					<lh><em><strong>Interface multi-ressources :</strong></em></lh>
-					<li>j'ai réduit la largeur (ou la hauteur pour la vue verticale) du rectangle des rendez-vous perso pour pouvoir voir s'il y a un cours en dessous.</li>
+					<li>j'ai rÃ©duit la largeur (ou la hauteur pour la vue verticale) du rectangle des rendez-vous perso pour pouvoir voir s'il y a un cours en dessous.</li>
 					<li>On peut maintenant masquer les rendez-vous perso pour voir le cours qu'il y a en dessous en cas de superposition..</li>
-					<li>J'ai ajouté le bouton "journée" dans l'ajout des rendez-vous perso.</li>
-					<li>J'ai corrigé l'affichage des noms des rdv perso qui dépassaient 2 lignes.</li>
-					<li>J'ai corrigé l'affichage des commentaires de séances qui dépassaient 2 lignes.</li>
+					<li>J'ai ajoutÃ© le bouton "journÃ©e" dans l'ajout des rendez-vous perso.</li>
+					<li>J'ai corrigÃ© l'affichage des noms des rdv perso qui dÃ©passaient 2 lignes.</li>
+					<li>J'ai corrigÃ© l'affichage des commentaires de sÃ©ances qui dÃ©passaient 2 lignes.</li>
 					<li>Affichage de son propre emploi du temps lorsqu'on vient juste de se loguer avec son login perso en multi ressources..</li>
-					<li>Le flux RSS est maintenant détecté par votre navigateur..</li>
+					<li>Le flux RSS est maintenant dÃ©tectÃ© par votre navigateur..</li>
 				</ul>  				
 			</span></div>
 		</div>

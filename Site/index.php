@@ -73,6 +73,10 @@ if (isset($_SESSION['studyLogin']) || isset($_SESSION['teachLogin']) || !empty($
 				$smarty->assign("mesDS", $mesDS);
 				$smarty->display("template/mesDS.tpl");
 			}
+			else if ($_GET['page'] == "version")
+			{
+				$smarty->display("template/versions.tpl");
+			}
 			else
 			{
 				$smarty->display("template/index.tpl");
