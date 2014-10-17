@@ -42,7 +42,7 @@
 			$nom_enseignement=$enseignement_explode[0]."_".$enseignement_explode[1];
 			if(!in_array($nom_enseignement,$liste_enseignement))
 			{
-				array_push($liste_enseignement, array("codeEnseignement" => $enseignement , "nomEnseignement" => $nom_enseignement));
+				array_push($liste_enseignement, $nom_enseignement);
 			}
 		}
 	}

@@ -7,7 +7,8 @@
 
 	if (isset($_POST['module']))
 	{
-		$sql="SELECT *,  enseignements.nom as nom_enseignement,seances.dureeSeance as seanceDuree, seances.commentaire as seancesCommentaire FROM seances LEFT JOIN (enseignements) ON (seances.codeEnseignement=enseignements.codeEnseignement)   where seances.deleted='0' and seances.codeSeance!=''  AND enseignements.deleted='0' and enseignements.codeEnseignement=".$_POST['module']." order by seances.dateSeance,seances.heureSeance";	
+		$nom_module=$_POST['module']."\_";
+		$sql="SELECT *,  enseignements.nom as nom_enseignement,seances.dureeSeance as seanceDuree, seances.commentaire as seancesCommentaire FROM seances LEFT JOIN (enseignements) ON (seances.codeEnseignement=enseignements.codeEnseignement)   where seances.deleted='0' and seances.codeSeance!=''  AND enseignements.deleted='0' and enseignements.nom like ".$dbh->quote("%".$nom_module."%", PDO::PARAM_STR)." order by seances.dateSeance,seances.heureSeance ";		
 		$req4=$dbh->prepare($sql);
 		$req4->execute();
 		while($res_4 = $req4->fetch())

@@ -1,7 +1,7 @@
 
 function loadSeanceList()
 {
-	var codeModule = $('#module :selected').val();
+	var codeModule = $('#module :selected').text();
 	
 	/* fonction recuperant la liste des groupe dans lequel n'est pas un utilisateur */
 	createSeanceTable = function(seance)
@@ -15,7 +15,28 @@ function loadSeanceList()
 				var seanceInfo = seance[i].split("#");
 				for(j=0; j<seanceInfo.length; j++)
 				{
-					ligne += "<td>";
+					ligne += "<td "
+					if (j == 2)
+					{
+						if (seanceInfo[j] == "CM")
+						{
+							ligne += "class='info'";
+						}
+						else if (seanceInfo[j] == "TD")
+						{
+							ligne += "class='success'";
+						}
+						else if (seanceInfo[j] == "TP")
+						{
+							ligne += "class='warning'";
+						}
+						else
+						{
+							ligne += "class='danger'";
+						}
+					}
+
+					ligne += ">";
 					if (j == (seanceInfo.length - 1))
 					{
 						if (seanceInfo[j] == 1)

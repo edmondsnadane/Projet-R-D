@@ -37,7 +37,7 @@
 							<div class="col-sm-9">
 								<select name="module" class="form-control" id="module" required="" onChange="loadSeanceList()">
 									{foreach from=$liste_enseignement item=enseignement}
-										<option value={$enseignement.codeEnseignement}>{$enseignement.nomEnseignement}</option>
+										<option>{$enseignement}</option>
 									{/foreach}
 								</select>
 							</div>
