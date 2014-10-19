@@ -9,6 +9,13 @@ $base[0]='vt_agenda';
 $annee_scolaire[0]='2013-2014';
 $nbdebdd='1';
 
+//recuperation de la date du jour pour l'afficher au dessus du tableau ( Mes heures)
+$jour=date('d');
+$mois=date('m');
+$annee=date('y');
+$heure=date('H');
+$minute=date('i');
+
 //url du site (utile pour la génération des pdf)(pas de / à la fin)
 $url_site="http://ufrsitec.u-paris10.fr/edt";
 

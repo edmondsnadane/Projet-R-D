@@ -15,3 +15,9 @@ $(document).ready(function () {
     }(jQuery));
 
 });
+
+onchange=function(ancre) {
+ var form = document.forms['form_pro'];
+ form.action = form.action +'#' + ancre;
+ return form.submit();
+}

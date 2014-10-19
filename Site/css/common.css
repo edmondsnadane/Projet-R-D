@@ -14,3 +14,8 @@ body
 a {
 	cursor: pointer;
 }
+
+table
+{
+	background-color:white;
+}
