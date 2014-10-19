@@ -67,7 +67,6 @@
 					<li onClick="loadMesDS()"><a href="#"><span class="glyphicon glyphicon-pencil"></span> Mes DS</a></li>
 					<li onClick="loadModule()"><a href="#"><span class="glyphicon glyphicon-th-large"></span> Mes Modules</a></li>
 					<li onClick="loadRSS()"><a href="#"><span class="glyphicon glyphicon-transfer"></span> Flux RSS</a></li>
-					<li onClick="loadICal()"><a href="#"><span class="glyphicon glyphicon-calendar"></span> Agenda éléctronique</a></li>
 				</ul>
 			{/if}
         </li>
