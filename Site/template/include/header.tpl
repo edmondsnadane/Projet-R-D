@@ -61,7 +61,7 @@
 					{/if}
 
                     {if $droits.agendas_ics == 1}
-                        <li onclick="loadAgendasICS()"><a href="#"><span class="glyphicon glyphicon-calendar"></span> Les Agendas</a></li>
+                        <li onClick="loadICal()"><a href="#"><span class="glyphicon glyphicon-calendar"></span> Les Agendas</a></li>
                     {/if}
 				</ul>
 			{else}
