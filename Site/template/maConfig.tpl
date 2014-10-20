@@ -28,7 +28,7 @@
 						</div>
 					</div>
 					<div class="form-group">
-						<label for="beginTime" class="col-sm-3 control-label">Heure dÃ©but</label>
+						<label for="beginTime" class="col-sm-3 control-label">Heure début</label>
 						<div class="col-sm-9">
 							<select name="beginTime" class="form-control" id="beginTime" required="">
 								{foreach from=$userConfs.listHeuresDebut item=heureDebut}
@@ -50,7 +50,7 @@
 					
 					Bouton 1
 					<div class="form-group">
-						<label for="beginBtn1" class="col-sm-3 control-label">DÃ©but</label>
+						<label for="beginBtn1" class="col-sm-3 control-label">Début</label>
 						<div class="col-sm-9">
 							<select name="beginBtn1" class="form-control" id="beginBtn1" required="">
 								{foreach from=$userConfs.listHeuresBouton item=heureBouton}
@@ -72,7 +72,7 @@
 					
 					Bouton 2
 					<div class="form-group">
-						<label for="beginBtn2" class="col-sm-3 control-label">DÃ©but</label>
+						<label for="beginBtn2" class="col-sm-3 control-label">Début</label>
 						<div class="col-sm-9">
 							<select name="beginBtn2" class="form-control" id="beginBtn2" required="">
 								{foreach from=$userConfs.listHeuresBouton item=heureBouton}
@@ -94,7 +94,7 @@
 					
 					Bouton 3
 					<div class="form-group">
-						<label for="beginBtn3" class="col-sm-3 control-label">DÃ©but</label>
+						<label for="beginBtn3" class="col-sm-3 control-label">Début</label>
 						<div class="col-sm-9">
 							<select name="beginBtn3" class="form-control" id="beginBtn3" required="">
 								{foreach from=$userConfs.listHeuresBouton item=heureBouton}
@@ -116,7 +116,7 @@
 					
 					Bouton 4
 					<div class="form-group">
-						<label for="beginBtn4" class="col-sm-3 control-label">DÃ©but</label>
+						<label for="beginBtn4" class="col-sm-3 control-label">Début</label>
 						<div class="col-sm-9">
 							<select name="beginBtn4" class="form-control" id="beginBtn4" required="">
 								{foreach from=$userConfs.listHeuresBouton item=heureBouton}

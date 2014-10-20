@@ -1,20 +1,22 @@
 <?php
 
-if(isset($_GET["codeProf"])) {
-	$codeProf = $_GET["codeProf"];
+$codeProf = 0;
 
-	$sql = "SELECT * FROM `seances_profs` WHERE codeRessource:codeProf ";
+if(isset($_GET["prof"]) && $_GET["prof"] != 0) {
+	$codeProf = $_GET["prof"];
+
+	$sql = "SELECT * FROM `seances_profs,seances WHERE codeRessource:codeProf AND seances_profs.codeSeance=seances.codeSeance ";
 	$req = $dbh->prepare($sql);
 	$req->execute(array(':codeProf' => $codeProf));
 } 
 
 
-$allCSTeachers = array();
+$allSeances = array();
 
 while($ligne = $req->fetch())
 {
-	$csTeacher = array('prenom' => $ligne['prenom'], 'nom' => $ligne['nom']);
-	array_push($allCSTeachers, $csTeacher);
+	$seance = array('dateSeance' => $ligne['dateSeance']);
+	array_push($allSeances, $seance);
 }
 
 $req->closeCursor();

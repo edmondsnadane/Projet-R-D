@@ -1,13 +1,14 @@
 (function($) {
 
 	"use strict";
-
+	
+	//Paramètre par défaut
 	var options = {
-		events_source: 'events.json.php',
+		events_source: 'script/EventCalendar.php',//events.json.php',
 		view: 'month',
 		tmpl_path: 'tmpls/',
 		tmpl_cache: false,
-		day: '2013-03-12',
+		day: 'now',//'2013-03-12',
 		onAfterEventsLoad: function(events) {
 			if(!events) {
 				return;
@@ -23,6 +24,7 @@
 		},
 		onAfterViewLoad: function(view) {
 			$('.page-header h3').text(this.getTitle());
+			$('.page-header h4').text(this.getSemaine());
 			$('.btn-group button').removeClass('active');
 			$('button[data-calendar-view="' + view + '"]').addClass('active');
 		},
@@ -34,7 +36,11 @@
 	};
 
 	var calendar = $('#calendar').calendar(options);
-
+	
+	//Par defaut le clic sur des events ouvre des modals
+	calendar.setOptions({modal: "#events-modal"});	
+	
+	
 	$('.btn-group button[data-calendar-nav]').each(function() {
 		var $this = $(this);
 		$this.click(function() {
@@ -63,6 +69,7 @@
 
 	$('#events-in-modal').change(function(){
 		var val = $(this).is(':checked') ? $(this).val() : null;
+		console.log(val);
 		calendar.setOptions({modal: val});
 	});
 	$('#events-modal .modal-header, #events-modal .modal-footer').click(function(e){

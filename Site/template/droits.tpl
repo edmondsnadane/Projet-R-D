@@ -11,14 +11,14 @@
 		
 		{include file='template/include/header.tpl'}
 		
-		<div class="table-responsive">
+		<div class="table-responsive" id="vueDroits">
 			<table class="table-striped center-table">
 				<tr>
-				   <th>Droits</th>
+				   <th id="thdroittable">Droits</th>
 				   <th>Activation</th>
 				</tr>
 			    <tr>
-				   <td>Administrateur</td>
+				   <td id="thdroittable">Administrateur</td>
 				   <td>
 						{if $droits.admin == 1}
 							<span class="glyphicon glyphicon-ok-circle"></span>
@@ -28,7 +28,7 @@
 					</td>
 			    </tr>
 			    <tr>
-				   <td>Dialogue de gestion</td>
+				   <td id="thdroittable">Dialogue de gestion</td>
 				   <td>
 						{if $droits.dialogue == 1}
 							<span class="glyphicon glyphicon-ok-circle"></span>
@@ -38,7 +38,7 @@
 					</td>
 			    </tr>
 				<tr>
-				   <td>Export vers Giseh (Université Paris Ouest uniquement)</td>
+				   <td id="thdroittable">Export vers Giseh (Université Paris Ouest uniquement)</td>
 				   <td>
 						{if $droits.giseh == 1}
 							<span class="glyphicon glyphicon-ok-circle"></span>
@@ -48,7 +48,7 @@
 					</td>
 			    </tr>
 				<tr>
-				   <td>Export PDF</td>
+				   <td id="thdroittable">Export PDF</td>
 				   <td>
 						{if $droits.pdf == 1}
 							<span class="glyphicon glyphicon-ok-circle"></span>
@@ -58,7 +58,7 @@
 					</td>
 			    </tr>
 				<tr>
-				   <td>Faire le bilan de l'occupation des salles</td>
+				   <td id="thdroittable">Faire le bilan de l'occupation des salles</td>
 				   <td>
 						{if $droits.salle == 1}
 							<span class="glyphicon glyphicon-ok-circle"></span>
@@ -68,7 +68,7 @@
 					</td>
 			    </tr>
 				<tr>
-				   <td>Faire le bilan de ses heures</td>
+				   <td id="thdroittable">Faire le bilan de ses heures</td>
 				   <td>
 						{if $droits.bilan_heure == 1}
 							<span class="glyphicon glyphicon-ok-circle"></span>
@@ -78,7 +78,7 @@
 					</td>
 			    </tr>
 				<tr>
-				   <td>Faire le bilan des heures de tout le monde</td>
+				   <td id="thdroittable">Faire le bilan des heures de tout le monde</td>
 				   <td>
 						{if $droits.bilan_heure_global == 1}
 							<span class="glyphicon glyphicon-ok-circle"></span>
@@ -88,7 +88,7 @@
 					</td>
 			    </tr>
 				<tr>
-				   <td>Faire le bilan des heures des formations</td>
+				   <td id="thdroittable">Faire le bilan des heures des formations</td>
 				   <td>
 						{if $droits.bilan_formation == 1}
 							<span class="glyphicon glyphicon-ok-circle"></span>
@@ -98,7 +98,7 @@
 					</td>
 			    </tr>
 				<tr>
-				   <td>Flux RSS</td>
+				   <td id="thdroittable">Flux RSS</td>
 				   <td>
 						{if $droits.rss == 1}
 							<span class="glyphicon glyphicon-ok-circle"></span>
@@ -108,7 +108,7 @@
 					</td>
 			    </tr>
 				<tr>
-				   <td>Modifier sa configuration</td>
+				   <td id="thdroittable">Modifier sa configuration</td>
 				   <td>
 						{if $droits.configuration == 1}
 							<span class="glyphicon glyphicon-ok-circle"></span>
@@ -118,7 +118,7 @@
 					</td>
 			    </tr>
 				<tr>
-				   <td>Se placer des réservations</td>
+				   <td id="thdroittable">Se placer des réservations</td>
 				   <td>
 						{if $droits.reservation == 1}
 							<span class="glyphicon glyphicon-ok-circle"></span>
@@ -128,7 +128,7 @@
 					</td>
 			    </tr>
 				<tr>
-				   <td>Séances clicables</td>
+				   <td id="thdroittable">Séances clicables</td>
 				   <td>
 						{if $droits.seance_clicable == 1}
 							<span class="glyphicon glyphicon-ok-circle"></span>

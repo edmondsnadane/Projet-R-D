@@ -18,7 +18,7 @@ $allCSTeachers = array();
 
 while($ligne = $req->fetch())
 {
-	$csTeacher = array('prenom' => $ligne['prenom'], 'nom' => $ligne['nom']);
+	$csTeacher = array('codeProf' =>$ligne['codeProf'],'prenom' => $ligne['prenom'], 'nom' => $ligne['nom']);
 	array_push($allCSTeachers, $csTeacher);
 }
 

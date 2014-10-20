@@ -11,12 +11,14 @@
 	
 	<body>
 		<div class="page-header">
-			<h2><span class="glyphicon glyphicon-calendar"></span>
-				VT CALENDAR 
-				<small>consultation des emplois du temps faits avec VT</small><br>
-			</h2>
+				<h2>
+					<a onClick="loadIndex()">
+						<span class="glyphicon glyphicon-calendar"></span>
+						VT CALENDAR 
+					</a>
+					<small>consultation des emplois du temps faits avec VT</small><br>
+				</h2>
 		</div>
-		<input type="button" value="Précedent" onClick="loadIndex()">
 		<div class="panel panel-default">
 		
 			<div class="panel-heading">

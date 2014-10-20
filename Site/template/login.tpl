@@ -49,11 +49,19 @@
 											<input type="password" name="teachPwd" class="form-control" id="inputPassword3" placeholder="Mot de passe" required="">
 										</div>
 									</div>
-									<div class="form-group">
-										<div class="checkbox">
-											<input type="checkbox" class="" name="teachCookie">Rester connecté</label>
+									
+									
+										<div class="form-group" id="liste-document">
+											<label for="inputPassword4" class="col-sm-3 control-label"> </label>
+												<div class="list-group-item checkbox  col-sm-9" style="background: none;">
+													<input type="checkbox" name="teachCookie" >
+													<span id="inputPassword4">Rester connecté</span>
+													<!--<span class="control-label">Rester connecté</span>	-->
+												</div>
 										</div>
-									</div>
+										
+										
+										
 									<div class="form-group last" id="teachButtons">
 										<button type="submit" class="btn btn-success btn-sm col-md-6">Valider</button>
 										<button type="reset" class="btn btn-danger btn-sm col-md-6">Annuler</button>
@@ -83,11 +91,17 @@
 											<input type="text" name="studyLogin" class="form-control" id="inputLoginEtudiant" required="" placeholder="Login">
 										</div>
 									</div>
-									<div class="form-group">
-										<div class="checkbox">
-											<input type="checkbox" class="" name="studyCookie">Rester connecté</label>
+									
+									
+									<div class="form-group col-sm-9" id="liste-document">
+											<div class="list-group-item checkbox" style="background: none;">
+												<input type="checkbox" name="teachCookie">
+												<span class="col-sm-3 control-label">Rester connecté</span>	
+											</div>
 										</div>
-									</div>
+										
+										
+										
 									<div class="form-group last" id="studyButtons">
 										<button type="submit" class="btn btn-success btn-sm col-md-6">Valider</button>
 										<button type="reset" class="btn btn-danger btn-sm col-md-6">Annuler</button>
@@ -151,5 +165,27 @@
 		
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 		<script type="text/javascript" src="API/bootstrap/js/bootstrap.js"></script>
+		<script type="text/javascript">
+		$(function() {
+	/*
+	 * Selection des documents à ajouter au groupe
+	 */
+	$( "#liste-document div" ).on( "click", function() {
+		
+		var input = $(this).children( 'input' )[0];
+		console.log(input);
+		if(input.checked) 
+		{
+			input.checked = false;
+			$( this ).css('background', "none");
+		} 
+		else
+		{ 
+			input.checked = true;
+			$( this ).css('background', "#F5F5F6");
+		}	
+	});
+});
+</script>
 	</body>
 </html>

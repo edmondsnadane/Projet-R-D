@@ -66,7 +66,12 @@
 					</tr>
 				</thead>
 				<tbody> 
-					 <tr><td>1</td><td>3</td><td>13-10-2010</td><td>Low</td><td>6</td><td>49</td><td>293</td><td>1-10-2012</td><td>High</td><td>49</td><td>50</td><td>293</td><td>1-10-2012</td></tr>
+					 <tr>
+						{foreach from=$allSeance item=seance}
+							<td>{$seance.dateSeance}</td>
+						{/foreach}
+						
+					 <td>3</td><td>13-10-2010</td><td>Low</td><td>6</td><td>49</td><td>293</td><td>1-10-2012</td><td>High</td><td>49</td><td>50</td><td>293</td><td>1-10-2012</td></tr>
 				</tbody>
 
 			</table>

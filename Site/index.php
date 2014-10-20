@@ -45,8 +45,16 @@ if (isset($_SESSION['studyLogin']) || isset($_SESSION['teachLogin']) || !empty($
 		// NAVIGATION ETUDIANT
 		if (isset($_SESSION['studyLogin']) || !empty($_COOKIE['studyLogin']))
 		{
-			if ($_GET['page'] == "module")
+			if ($_GET['page'] == "deconnection")
 			{
+				include('script/disconnect.php');
+				$smarty->assign("successMsg", "Déconnection reussie");
+				$smarty->display("template/login.tpl");
+			}
+			else if ($_GET['page'] == "module")
+			{
+				include('script/getStudyModule.php');
+				$smarty->assign("liste_enseignement", $liste_enseignement);
 				$smarty->display("template/modules.tpl");
 			}
 			else if ($_GET['page' ] == "export")
@@ -57,13 +65,17 @@ if (isset($_SESSION['studyLogin']) || isset($_SESSION['teachLogin']) || !empty($
 			}
 			else if ($_GET['page'] == "RSS")
 			{
-				$smarty->display("template/fluxRSS.tpl");
+				header('Location: http://ufrsitec.u-paris10.fr/edtpst/RSSetudiant/rss.php?codeEtudiant='.$userCode);
 			}
 			else if ($_GET['page'] == "mesDS")
 			{
 				include('script/getDS.php');
 				$smarty->assign("mesDS", $mesDS);
 				$smarty->display("template/mesDS.tpl");
+			}
+			else if ($_GET['page'] == "version")
+			{
+				$smarty->display("template/versions.tpl");
 			}
 			else
 			{
@@ -91,7 +103,7 @@ if (isset($_SESSION['studyLogin']) || isset($_SESSION['teachLogin']) || !empty($
 				$smarty->assign("allCSTeachers", $allCSTeachers);
 				$smarty->assign("code", $code);
 				include('script/getTeachersHours.php');
-				$smarty->assign("codeProf", $codeProf);
+				$smarty->assign("allSeances", $allSeances);
 				
 				
 				$smarty->display("template/heures.tpl");
@@ -110,7 +122,7 @@ if (isset($_SESSION['studyLogin']) || isset($_SESSION['teachLogin']) || !empty($
 			}
 			else if ($_GET['page'] == "RSS")
 			{
-				$smarty->display("template/fluxRSS.tpl");
+				header('Location: http://ufrsitec.u-paris10.fr/edtpst/RSS/rss.php?codeProf='.$userCode);
 			}
 			else if ($_GET['page'] == "droits")
 			{
@@ -123,10 +135,6 @@ if (isset($_SESSION['studyLogin']) || isset($_SESSION['teachLogin']) || !empty($
 				$smarty->assign("composantes", $composantesComplet);
 				
 				$smarty->display("template/dialogueGestion.tpl");
-			}
-			else if ($_GET['page'] == "tools")
-			{
-				$smarty->display("template/tools.tpl");
 			}
 			else if ($_GET['page'] == "admin" && $droits['admin'] == 1)
 			{

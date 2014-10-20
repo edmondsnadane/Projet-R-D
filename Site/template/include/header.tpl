@@ -2,13 +2,13 @@
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+      <button type="button" class="navbar-toggle collapsed" id="boutonNavBar" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
         <span class="sr-only">Toggle navigation</span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" ><span class="glyphicon glyphicon-calendar"></span> VT Calendar</a>
+      <a class="navbar-brand" onClick="loadIndex()"><span class="glyphicon glyphicon-calendar"></span> VT Calendar</a>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
@@ -19,7 +19,6 @@
 			{if isset($teachLogin)}
 				<!-- l'utilisateur connecté est un enseignant -->
 				<ul class="dropdown-menu" role="menu">
-					<li onClick="loadTools()"><a href="#"><span class="glyphicon glyphicon-briefcase"></span> Outils</a></li>
 					
 					{if $droits.admin == 1}
 						<li onClick="loadAdmin()"><a href="#"><span class="glyphicon glyphicon-eye-open"></span> Gestion des droits</a></li>
@@ -64,12 +63,10 @@
 			{else}
 				<!-- l'utilisateur connecté est un étudiant -->
 				<ul class="dropdown-menu" role="menu">
-					<li onClick="loadTools()"><a href="#"><span class="glyphicon glyphicon-briefcase"></span> Outils</a></li>
 					<li onClick="loadExport()"><a href="#"><span class="glyphicon glyphicon-file"></span> Export </a></li>
 					<li onClick="loadMesDS()"><a href="#"><span class="glyphicon glyphicon-pencil"></span> Mes DS</a></li>
 					<li onClick="loadModule()"><a href="#"><span class="glyphicon glyphicon-th-large"></span> Mes Modules</a></li>
 					<li onClick="loadRSS()"><a href="#"><span class="glyphicon glyphicon-transfer"></span> Flux RSS</a></li>
-					<li onClick="loadICal()"><a href="#"><span class="glyphicon glyphicon-calendar"></span> Agenda éléctronique</a></li>
 				</ul>
 			{/if}
         </li>

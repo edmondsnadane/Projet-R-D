@@ -1,5 +1,4 @@
 /* CSS de la page de connexion */
-		
 .col-centered, #myTab
 {
 	float: none !important;
@@ -20,4 +19,22 @@
 #teachButtons, #studyButtons 
 {
 	padding: 10px;
+}
+
+#menuHeader, #menuHeaderNom {
+	text-align : left;
+}
+
+
+#bs-example-navbar-collapse-1 ul li {
+	text-align : left;
+}
+
+.pull-right form-inline {
+	width : 100%;
+}
+
+#liste-document {
+	margin: 0 0 0;
+	
 }

@@ -205,13 +205,13 @@ if(!String.prototype.formatNum) {
 		ms10: 'Nov',
 		ms11: 'Déc',
 
-		d0: 'Dimanche',
-		d1: 'Lundi',
-		d2: 'Mardi',
-		d3: 'Mercredi',
-		d4: 'Jeudi',
-		d5: 'Vendredi',
-		d6: 'Samedi',
+		d0: 'Dim',
+		d1: 'Lun',
+		d2: 'Mar',
+		d3: 'Mer',
+		d4: 'Jeu',
+		d5: 'Ven',
+		d6: 'Sam',
 	};
 
 	var browser_timezone = '';
@@ -373,9 +373,29 @@ if(!String.prototype.formatNum) {
 			this.setLanguage(object.language);
 		}
 		if('modal' in object) {
+			console.log(this);
 			this._update_modal();
 		}
 	}
+	
+//LBR	
+//Calendar.prototype.defautModal = function(){
+//console.log(this._update_modal());
+	//this._update_modal();
+//}	
+	//var defautModal = document.geteElementById("calendar");
+//defautModal._update_modal();
+	//calendar._update_modal();
+/*
+Calendar.prototype.setOptions = function(object) {
+		$.extend(this.options, object);
+		if('language' in object) {
+			this.setLanguage(object.language);
+		}
+		if('modal' in object) {
+			this._update_modal();
+		}
+	}*/
 
 	Calendar.prototype.setLanguage = function(lang) {
 		if(window.calendar_languages && (lang in window.calendar_languages)) {
@@ -826,6 +846,12 @@ if(!String.prototype.formatNum) {
 		}
 		return;
 	};
+	
+	Calendar.prototype.getSemaine = function() {
+		var p = this.options.position.start;
+		console.log(p);
+		return this.locale.title_week.format(p.getWeek(), p.getFullYear());
+	};
 
 	Calendar.prototype.isToday = function() {
 		var now = new Date().getTime();
@@ -955,6 +981,7 @@ if(!String.prototype.formatNum) {
 
 	Calendar.prototype._update_modal = function() {
 		var self = this;
+		console.log("test calendar.js _update_modal : ");console.log(self);
 
 		$('a[data-event-id]', this.context).unbind('click');
 
@@ -1195,4 +1222,5 @@ if(!String.prototype.formatNum) {
 	$.fn.calendar = function(params) {
 		return new Calendar(params, this);
 	}
+	
 }(jQuery));
