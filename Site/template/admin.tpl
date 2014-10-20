@@ -37,6 +37,7 @@
 						   <th>Detail des modules</th>
 						   <th>Séances clicables</th>
 						   <th>Dialogue de Gestion</th>
+						   <th>Agenda ICS</th>
 						</tr>
 					</thead>
 					<tbody  class="searchable">
