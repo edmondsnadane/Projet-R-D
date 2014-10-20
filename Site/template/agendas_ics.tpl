@@ -38,7 +38,7 @@
     <body>
 
         {include file='template/include/header.tpl'}
-
+        <div class="container">
         {if isset($loginStudy)}
             <!-- PARTIE ETUDIANT -->
             <!-- faire une redirection vers index.php -->
@@ -82,7 +82,7 @@
             <!-- ./form - form-enseignant -->
 
         {/if}
-
+</div>
         <script src="js/agendas_ics.js"></script>
 
         {include file='template/include/footer.tpl'}

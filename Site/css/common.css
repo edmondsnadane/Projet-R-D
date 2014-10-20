@@ -9,6 +9,17 @@ body
 	-moz-background-size: cover;
 	-o-background-size: cover;
 	background-size: cover;
+	overflow:hidden;
+
+}
+
+body::-webkit-scrollbar { 
+    display: none; 
+}
+If you want all scrollbars hidden, use
+
+::-webkit-scrollbar { 
+    display: none; 
 }
 
 a {
