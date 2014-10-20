@@ -1,3 +1,4 @@
 MyProject.komodoproject
 Site/.metadata/*
-Site/templates_c
+Site/templates_c/*
+Site/RemoteSystemsTempFiles/*
