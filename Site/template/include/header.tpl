@@ -19,46 +19,50 @@
 			{if isset($teachLogin)}
 				<!-- l'utilisateur connecté est un enseignant -->
 				<ul class="dropdown-menu" role="menu">
-					
+
 					{if $droits.admin == 1}
 						<li onClick="loadAdmin()"><a href="#"><span class="glyphicon glyphicon-eye-open"></span> Gestion des droits</a></li>
 					{/if}
-					
+
 					{if $droits.module == 1}
 						<li onClick="loadModule()"><a href="#"><span class="glyphicon glyphicon-th-large"></span> Mes Modules</a></li>
 					{/if}
-					
+
 					{if $droits.mes_droits == 1}
 						<li onClick="loadDroits()"><a href="#"><span class="glyphicon glyphicon-lock"></span> Mes Droits</a></li>
 					{/if}
-					
+
 					{if $droits.bilan_heure == 1}
 						<li onClick="loadHeures()"><a href="#"><span class="glyphicon glyphicon-time"></span> Mes Heures</a></li>
 					{/if}
-					
+
 					{if $droits.bilan_formation == 1}
 						<li onClick=""><a href="#"><span class="glyphicon glyphicon-stats"></span> Bilan par formation</a></li>
 					{/if}
-					
+
 					{if $droits.dialogue == 1}
 						<li onClick="loadDialogue()"><a href="#"><span class="glyphicon glyphicon-comment"></span> Dialogue de gestion</a></li>
 					{/if}
-					
+
 					{if $droits.salle == 1}
 						<li onClick=""><a href="#"><span class="glyphicon glyphicon-home"></span> Occupation de salles</a></li>
 					{/if}
-					
+
 					{if $droits.pdf == 1 || $droits.giseh == 1 || isset($studyLogin)}
 						<li onClick="loadExport()"><a href="#"><span class="glyphicon glyphicon-file"></span> Export </a></li>
 					{/if}
-					
+
 					{if $droits.rss == 1}
 						<li onClick="loadRSS()"><a href="#"><span class="glyphicon glyphicon-transfer"></span> Flux RSS</a></li>
 					{/if}
-					
+
 					{if $droits.configuration == 1}
 						<li onClick="loadConfig()"><a href="#"><span class="glyphicon glyphicon-cog"></span> Configuration</a></li>
 					{/if}
+
+                    {if $droits.agendas_ics == 1}
+                        <li onclick="loadAgendasICS()"><a href="#"><span class="glyphicon glyphicon-calendar"></span> Les Agendas</a></li>
+                    {/if}
 				</ul>
 			{else}
 				<!-- l'utilisateur connecté est un étudiant -->
@@ -72,7 +76,7 @@
         </li>
       </ul>
 	  <ul class="nav navbar-nav navbar-right">
-		<li onClick="loadIndex()"><a><span class="glyphicon glyphicon-home"></span> Acceuil</a></li>
+		<li onClick="loadIndex()"><a><span class="glyphicon glyphicon-home"></span> Accueil</a></li>
 		{if isset($teachLogin)}
 			<li onClick="loadConfig()"><a><span class="glyphicon glyphicon-wrench"></span> Configuration</a></li>
 		{/if}
