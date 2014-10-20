@@ -4,7 +4,7 @@
 * Avec connection a la bdd
 *
 */
-session_start();
+//session_start();
 include('../config/config.php');
 
 $start = $_REQUEST['from'] / 1000;
@@ -141,7 +141,7 @@ $total_min_eqtd_module='';
 	}
 	$req->closeCursor();*/
    
-   /*
+  /*
  $sql="SELECT nom, prenom from seances_profs left join ressources_profs on (seances_profs.codeRessource=ressources_profs.codeProf) WHERE seances_profs.codeSeance=".$code_seance." and seances_profs.deleted='0' and ressources_profs.deleted='0' order by ressources_profs.nom"; 
 			$req5=$dbh->prepare($sql);
 			$req5->execute();
@@ -158,11 +158,11 @@ $total_min_eqtd_module='';
 				$premierProf = FALSE;
 			}
 			$req5->closeCursor();  
+   
+   
    */
    
-   
- /*  
-   
+  /* 
 $sql="SELECT * FROM seances 
 		left join (seances_profs) on (seances.codeSeance=seances_profs.codeSeance ) 
 		left join (enseignements) on (seances.codeEnseignement=enseignements.codeEnseignement) 
@@ -176,7 +176,7 @@ $sql="SELECT * FROM seances
 		AND seances.annulee='0'  
 ";
 */
- 
+ /*
     $loginUtilisateur = "";
            
         if (isset($_SESSION['teachLogin']))
@@ -203,12 +203,15 @@ $sql="SELECT * FROM seances
                 AND matieres.deleted =  '0'
                 AND seances.annulee =  '0'
                 AND login_prof.login = ".$dbh->quote($loginUtilisateur, PDO::PARAM_STR);
+        
         $req = $dbh->prepare($sql);
         $req->execute(); 
         $out = array();
         
         $data = getdate();//'Y-m-d', strtotime("+14 days"));
         print_r($req);
+        */
+ 
         
         /*if()
         {
@@ -227,6 +230,14 @@ $sql="SELECT * FROM seances
             
         }*/
 
+$sql   = sprintf('SELECT * from seances where dateModif='.$dbh->quote('2014-09-22 13:45:28', PDO::PARAM_STR));  //2014-09-22 13:45:28');//('SELECT * FROM events WHERE `datetime` BETWEEN %s and %s',
+$req = $dbh->prepare($sql);
+//print_r($req);
+$req->execute();
+
+$out = array();
+
+$data = getdate();//'Y-m-d', strtotime("+14 days"));
 
 while($ligneCode = $req->fetch()) {    
 	$out[] = array(
