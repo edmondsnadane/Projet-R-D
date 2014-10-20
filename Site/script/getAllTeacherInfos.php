@@ -26,9 +26,10 @@ while($ligne = $req->fetch())
 	);
 
 	$teacher = array(
-		'prenom' => $ligne['prenom'],
-		'nom' 	 => $ligne['nom'],
-		'droits' => $droits);
+		'codeProf' 	=> $ligne['codeProf'],
+		'prenom' 	=> $ligne['prenom'],
+		'nom' 	 	=> $ligne['nom'],
+		'droits' 	=> $droits);
 
 	array_push($allTeachers, $teacher);
 }

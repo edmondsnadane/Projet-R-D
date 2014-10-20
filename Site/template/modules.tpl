@@ -63,9 +63,30 @@
 							</div>
 						</div>
 						<div class="form-group">
-							<label for="moduleProf" class="col-sm-3 control-label">Modules </label>
+							<label for="departements" class="col-sm-3 control-label">Departement </label>
 							<div class="col-sm-9">
-								<select name="moduleProf" class="form-control" id="moduleProf" required="" onChange="loadSeanceList()">
+								<select name="departements" class="form-control" id="departements" required="" onChange="loadProfsList()">
+									<option>TOUS</option>
+									{foreach from=$composantes item=composante}
+										<option value={$composante.codeComposante}>{$composante.nom}</option>
+									{/foreach}
+								</select>
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="profs" class="col-sm-3 control-label">Profs </label>
+							<div class="col-sm-9">
+								<select multiple name="profs" class="form-control" id="profs" required="" onChange="loadModuleList()">
+									{foreach from=$profs item=prof}
+										<option value={$prof.codeProf}>{$prof.prenom} {$prof.nom}</option>
+									{/foreach}
+								</select>
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="modules" class="col-sm-3 control-label">Modules </label>
+							<div class="col-sm-9">
+								<select name="module" class="form-control" id="module" required="" onChange="loadSeanceList()">
 									{foreach from=$liste_enseignement item=enseignement}
 										<option>{$enseignement}</option>
 									{/foreach}
