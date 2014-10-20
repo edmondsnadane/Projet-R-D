@@ -7,8 +7,29 @@ $allTeachers = array();
 
 while($ligne = $req->fetch())
 {
-	$droits = array('admin' => $ligne['admin'], 'giseh' => $ligne['giseh'], 'salle' => $ligne['salle'], 'bilan_heure_global' => $ligne['bilan_heure_global'], 'bilan_formation' => $ligne['bilan_formation'], 'mes_droits' => $ligne['mes_droits'], 'bilan_heure' => $ligne['bilan_heure'], 'pdf' => $ligne['pdf'], 'rss' => $ligne['rss'], 'configuration' => $ligne['configuration'], 'reservation' => $ligne['reservation'], 'module' => $ligne['module'], 'seance_clicable' => $ligne['seance_clicable'], 'dialogue' => $ligne['dialogue']);
-	$teacher = array('prenom' => $ligne['prenom'], 'nom' => $ligne['nom'],'droits' => $droits);
+	$droits = array(
+		'admin' 			 => $ligne['admin'],
+		'giseh' 			 => $ligne['giseh'],
+		'salle' 			 => $ligne['salle'],
+		'bilan_heure_global' => $ligne['bilan_heure_global'],
+		'bilan_formation' 	 => $ligne['bilan_formation'],
+		'mes_droits' 		 => $ligne['mes_droits'],
+		'bilan_heure' 		 => $ligne['bilan_heure'],
+		'pdf' 				 => $ligne['pdf'],
+		'rss'				 => $ligne['rss'],
+		'configuration' 	 => $ligne['configuration'],
+		'reservation' 		 => $ligne['reservation'],
+		'module' 			 => $ligne['module'],
+		'seance_clicable' 	 => $ligne['seance_clicable'],
+		'dialogue' 		  	 => $ligne['dialogue'],
+		'agendas_ics'		 => 1
+	);
+
+	$teacher = array(
+		'prenom' => $ligne['prenom'],
+		'nom' 	 => $ligne['nom'],
+		'droits' => $droits);
+
 	array_push($allTeachers, $teacher);
 }
 

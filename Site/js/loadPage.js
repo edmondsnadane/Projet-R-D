@@ -62,3 +62,7 @@ function loadMesDS()
 {
 	window.location.replace('index.php?page=mesDS');
 }
+function loadAgendasICS()
+{
+	window.location.replace('index.php?page=agendas_ics');
+}

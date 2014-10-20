@@ -1,44 +1,43 @@
 <?php
 $user='root';
-$pass='';
+$pass='root';
 $serveur='localhost';
 
 $base=array();
 $annee_scolaire=array();
-$base[0]='vt_agenda';
+$base[0]='VT_INFO_2014';
 $annee_scolaire[0]='2013-2014';
 $nbdebdd='1';
 
 //recuperation de la date du jour pour l'afficher au dessus du tableau ( Mes heures)
+date_default_timezone_set('Europe/Paris');
 $jour=date('d');
 $mois=date('m');
 $annee=date('y');
 $heure=date('H');
 $minute=date('i');
 
-//url du site (utile pour la génération des pdf)(pas de / à la fin)
+//url du site (utile pour la gï¿½nï¿½ration des pdf)(pas de / ï¿½ la fin)
 $url_site="http://ufrsitec.u-paris10.fr/edt";
 
-//heure du début et de fin de  journée (pour 8h30 par exemple, il faut mettre 08.50)
+//heure du dï¿½but et de fin de  journï¿½e (pour 8h30 par exemple, il faut mettre 08.50)
 $heure_debut_journee=08.00;
 $heure_fin_journee=19.50;
 
-//heure du début et de fin de la pause du matin (pour 11h30 par exemple, il faut mettre 11.50)
+//heure du dï¿½but et de fin de la pause du matin (pour 11h30 par exemple, il faut mettre 11.50)
 $heure_debut_pause_matin=10.25;
 $heure_fin_pause_matin=10.50;
 
-//heure du début et de fin de la pause de midi (pour 11h30 par exemple, il faut mettre 11.50)
+//heure du dï¿½but et de fin de la pause de midi (pour 11h30 par exemple, il faut mettre 11.50)
 $heure_debut_pause_midi=12.50;
 $heure_fin_pause_midi=13.75;
 
-//heure du début et de fin de la pause de l'après-midi (pour 15h30 par exemple, il faut mettre 15.50)
+//heure du dï¿½but et de fin de la pause de l'aprï¿½s-midi (pour 15h30 par exemple, il faut mettre 15.50)
 $heure_debut_pause_apresmidi=15.75;
 $heure_fin_pause_apresmidi=16.00;
 
-//Code de l'identifiant des DS dans la base de données de VT (par défaut 9 sauf si vous l'avez changé)
+//Code de l'identifiant des DS dans la base de donnï¿½es de VT (par dï¿½faut 9 sauf si vous l'avez changï¿½)
 $identifiant_DS=9;
-
-date_default_timezone_set('Europe/Paris');
 
 $k=$nbdebdd-1;
 $dernierebase=$base[$k];
