@@ -11,7 +11,7 @@
             radioClass    : 'iradio_flat-blue',
             increaseArea  : '40%'
         });
-    }).trigger('icheck');; // charger iCheck
+    }).trigger('icheck');;
 /*
  * ./iCheck plugin
  */
@@ -64,8 +64,8 @@
                 "zeroRecords" : "Aucun enseignant",
                 "search"      : "Rechercher un enseignant _INPUT_"
             },
-            "fnDrawCallback": function( oSettings ) {
-                $(document).trigger('icheck'); // charger iCheck
+            "fnInitComplete": function (oSettings, json) {
+                $(document).trigger('icheck');
             }
         });
 
