@@ -97,6 +97,15 @@ if (isset($_SESSION['studyLogin']) || isset($_SESSION['teachLogin']) || !empty($
 			}
 			else if ($_GET['page' ] == "heure")
 			{
+				include('script/getComposantes.php');
+				$smarty->assign("composantes", $composantes);
+				include('script/getComputerScienceTeachers.php');
+				$smarty->assign("allCSTeachers", $allCSTeachers);
+				$smarty->assign("code", $code);
+				include('script/getTeachersHours.php');
+				$smarty->assign("allSeances", $allSeances);
+				
+				
 				$smarty->display("template/heures.tpl");
 			}
 			else if ($_GET['page' ] == "export" && ($droits['pdf'] == 1 || $droits['giseh'] == 1))

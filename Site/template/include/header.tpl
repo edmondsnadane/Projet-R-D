@@ -72,7 +72,7 @@
         </li>
       </ul>
 	  <ul class="nav navbar-nav navbar-right">
-		<li onClick="loadIndex()"><a><span class="glyphicon glyphicon-home"></span> Acceuil</a></li>
+		<li onClick="loadIndex()"><a><span class="glyphicon glyphicon-home"></span> Accueil</a></li>
 		{if isset($teachLogin)}
 			<li onClick="loadConfig()"><a><span class="glyphicon glyphicon-wrench"></span> Configuration</a></li>
 		{/if}
