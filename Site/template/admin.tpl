@@ -16,6 +16,7 @@
 	<body>
 		
 		{include file='template/include/header.tpl'}
+		<div class="container">
 		<form>
 				<table class="table-striped table center-table col-md-12 sortTable dataTable">
 					<thead>
@@ -57,7 +58,7 @@
 			
 			<button type="submit" class="btn btn-default">Sauvegarder</button>
 		</form>
-		
+		</div>
 		{include file='template/include/footer.tpl'}
 	</body>
 </html>

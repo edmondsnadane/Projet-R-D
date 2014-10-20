@@ -10,7 +10,7 @@
 	<body>
 		
 		{include file='template/include/header.tpl'}
-		
+		<div class="container">
 		<div class="table-responsive" id="vueDroits">
 			<table class="table-striped center-table">
 				<tr>
@@ -139,7 +139,7 @@
 			    </tr>
 			</table>
 		</div>
-		
+		</div>
 		{include file='template/include/footer.tpl'}
 		
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>

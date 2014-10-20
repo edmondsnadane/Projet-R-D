@@ -12,7 +12,7 @@
 	<body>
 		
 		{include file='template/include/header.tpl'}
-		
+		<div class="container">
 		{foreach from=$composantes item=composante}
 			<h2>{$composante.nom}</h2>
 			<table class="table-striped table center-table">
@@ -38,7 +38,7 @@
 				</tr>
 			</table>
 		{/foreach}
-		
+		</div>
 		{include file='template/include/footer.tpl'}
 		
 		<script type="text/javascript" src="API/bootstrap-calendar-master/components/jquery/jquery.min.js"></script>

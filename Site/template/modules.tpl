@@ -13,7 +13,7 @@
 	<body>
 		
 		{include file='template/include/header.tpl'}
-		
+		<div class="container">
 		{if isset($loginStudy)}
 			<!-- PARTIE ETUDIANT -->
 			<div class="col-md-4 col-centered">
@@ -94,7 +94,7 @@
 			<tbody id="tableContent">
 			</tbody>
 		</table>
-
+		</div>
 		{include file='template/include/footer.tpl'}
 	
 	</body>

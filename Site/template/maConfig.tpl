@@ -10,7 +10,7 @@
 	<body>
 		
 		{include file='template/include/header.tpl'}
-		
+		<div class="container">
 		<div class="col-md-4 col-centered">
 			<div class="panel panel-default">
 				<div class="panel-heading"> 
@@ -142,7 +142,7 @@
 				</form>
 			</div>
 		</div>
-
+</div>
 		{include file='template/include/footer.tpl'}
 	
 	</body>
