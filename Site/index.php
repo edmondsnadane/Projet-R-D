@@ -100,8 +100,6 @@ if (isset($_SESSION['studyLogin']) || isset($_SESSION['teachLogin']) || !empty($
 			{
 				include('script/getComposantes.php');
 				$smarty->assign("composantes", $composantes);
-				include('script/getTeachModule.php');
-				$smarty->assign("liste_enseignement", $liste_enseignement);
 				include('script/getAllTeacherInfos.php');
 				$smarty->assign("profs", $allTeachers);
 				$smarty->display("template/modules.tpl");

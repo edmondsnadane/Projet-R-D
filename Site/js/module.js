@@ -1,4 +1,37 @@
 
+function loadModuleList()
+{
+	var codeProf = $('#profs :selected').val();
+	
+	addModulesToOptions = function(module)
+	{
+		$('#module').empty();
+		if (module.length)
+		{
+			for(i=0; i<module.length; i++)
+			{
+				$('#module').append("<option>"+module[i]+"</option>");
+			}
+		}
+	}
+	
+	$.ajax({
+		type: "POST",
+		url: "./script/getTeachModule.php",
+		data: {code : codeProf},
+		cache: false,
+		dateType: 'text',
+		success: function(data)
+		{
+			addModulesToOptions(data.split("~"));
+		},
+		error: function(data)
+		{
+			alert(data);
+		}
+	});
+}
+
 function loadSeanceList()
 {
 	var codeModule = $('#module :selected').text();
@@ -65,6 +98,7 @@ function loadSeanceList()
 		dateType: 'text',
 		success: function(data)
 		{
+			console.log(data);
 			createSeanceTable(data.split("~"));
 		},
 		error: function(data)

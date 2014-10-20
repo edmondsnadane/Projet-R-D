@@ -76,7 +76,7 @@
 						<div class="form-group">
 							<label for="profs" class="col-sm-3 control-label">Profs </label>
 							<div class="col-sm-9">
-								<select multiple name="profs" class="form-control" id="profs" required="" onChange="loadModuleList()">
+								<select name="profs" class="form-control" id="profs" required="" onChange="loadModuleList()">
 									{foreach from=$profs item=prof}
 										<option value={$prof.codeProf}>{$prof.prenom} {$prof.nom}</option>
 									{/foreach}
