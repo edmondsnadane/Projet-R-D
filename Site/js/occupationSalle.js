@@ -1,5 +1,4 @@
-$(document).ready(function ()
-{
+
 	google.load('visualization', '1', {packages: ['corechart']});
 	google.setOnLoadCallback(drawMouseoverVisualization);
 
@@ -37,5 +36,3 @@ $(document).ready(function ()
   {
 		barsVisualization.setSelection([{'row': null, 'column': null}]);
   }
-
-});
