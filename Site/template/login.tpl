@@ -93,11 +93,13 @@
 									</div>
 									
 									
-									<div class="form-group col-sm-9" id="liste-document">
-											<div class="list-group-item checkbox" style="background: none;">
-												<input type="checkbox" name="teachCookie">
-												<span class="col-sm-3 control-label">Rester connecté</span>	
-											</div>
+									<div class="form-group" id="liste-document">
+											<label for="inputPassword4" class="col-sm-3 control-label"> </label>
+												<div class="list-group-item checkbox  col-sm-9" style="background: none;">
+													<input type="checkbox" name="teachCookie" >
+													<span id="inputPassword4">Rester connecté</span>
+													<!--<span class="control-label">Rester connecté</span>	-->
+												</div>
 										</div>
 										
 										
