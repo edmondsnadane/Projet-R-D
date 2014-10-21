@@ -96,6 +96,12 @@ if (isset($_SESSION['studyLogin']) || isset($_SESSION['teachLogin']) || !empty($
 				$smarty->assign("successMsg", "Déconnection reussie");
 				$smarty->display("template/login.tpl");
 			}
+			else if ($_GET['page'] == "occupationSalle")
+			{
+				include('script/getOccupationSalle.php');
+				$smarty->assign("occupations", $occupations);
+				$smarty->display("template/occupationSalle.tpl");
+			}
 			else if ($_GET['page'] == "module")
 			{
 				include('script/getComposantes.php');

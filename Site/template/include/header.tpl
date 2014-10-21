@@ -45,7 +45,7 @@
 					{/if}
 
 					{if $droits.salle == 1}
-						<li onClick=""><a href="#"><span class="glyphicon glyphicon-home"></span> Occupation de salles</a></li>
+						<li onClick="loadOccupationSalle()"><a href="#"><span class="glyphicon glyphicon-home"></span> Occupation de salles</a></li>
 					{/if}
 
 					{if $droits.pdf == 1 || $droits.giseh == 1 || isset($studyLogin)}
