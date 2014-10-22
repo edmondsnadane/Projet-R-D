@@ -30,7 +30,6 @@
 					</thead>
 					<tbody>
 						{foreach from=$occupations item=occupation}
-							   {if isset($occupation.cumul) == FALSE}
 								 <tr>
 									<td>{$occupation.nom_salle}</td>
 									<td>{$occupation.nom_zone}</td>
@@ -39,19 +38,11 @@
 									<td>{$occupation.total}</td>
 									<td>{$occupation.taux}</td>
 								 </tr>
-							   {else}
-									<tr>
-										<td>{$occupation.nom_salle}</td>
-										<td>{$occupation.nom_zone}</td>
-										<td>{$occupation.heure}</td>
-										<td>{$occupation.heureReserve}</td>
-										<td>{$occupation.total}</td>
-										<td>{$occupation.taux}</td>
-									</tr>
-									<tr>
+							   {if $occupation.cumul == TRUE}
+									<tr class="success">
 										<td colspan="2">CUMUL DES HEURES DE LA ZONE CI-DESSUS</td>
-										<td>{$occupation.total_seance_par_zone}</td>
-										<td>{$occupation.total_res_par_zone}</td>
+										<td>{$occupation.total_seance}</td>
+										<td>{$occupation.total_reserve}</td>
 										<td>{$occupation.total_zone}</td>
 										<td>{$occupation.total_taux}</td>
 									<tr>

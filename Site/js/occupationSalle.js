@@ -25,14 +25,14 @@
 		// Add our over/out handlers.
 		google.visualization.events.addListener(barsVisualization, 'onmouseover', barMouseOver);
 		google.visualization.events.addListener(barsVisualization, 'onmouseout', barMouseOut);
-  }
+	}
 
-  function barMouseOver(e)
-  {
+	function barMouseOver(e)
+	{
 		barsVisualization.setSelection([e]);
-  }
+	}
 
-  function barMouseOut(e)
-  {
+	function barMouseOut(e)
+	{
 		barsVisualization.setSelection([{'row': null, 'column': null}]);
-  }
+	}

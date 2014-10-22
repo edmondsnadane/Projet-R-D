@@ -2,9 +2,9 @@
 
 		$occupations = array();
 		$total_seance=0;
-		$total_réservation=0;
+		$total_reservation=0;
 		$total_seance_par_zone=0;
-		$total_réservation_par_zone=0;	
+		$total_reservation_par_zone=0;	
 		$memoire_zone="";
 		$premiere_ligne=0;
 		$compteur_de_salle=0;
@@ -22,13 +22,12 @@
 		foreach ($res_liste_salle as $res_liste_salles)		
 		{
 			$i+=1;
+			$cumul = FALSE;
 			//requete pour avoir la durée des séances
 			$sql="SELECT SUM(ROUND(dureeSeance/100)+100*(dureeSeance/100-ROUND(dureeSeance/100))/60) as heure FROM seances_salles  LEFT JOIN seances USING (codeSeance)  WHERE  seances_salles.deleted=0 AND seances.deleted=0 and seances_salles.codeRessource=".$res_liste_salles['codeSalle'];
 
 			$req_salle=$dbh->query($sql);
 			$res_salle=$req_salle->fetchAll();	
-
-	
 
 			foreach ($res_salle as $res_salles)	
 			{
@@ -36,10 +35,10 @@
 				$compteur_de_salle_zone+=1;
 				//ligne bilan de chaque zone
 				
-				if ($memoire_zone!=$res_liste_salles['nom_zone'] && $premiere_ligne!=0)
+				if ($memoire_zone != $res_liste_salles['nom_zone'] && $premiere_ligne!=0)
 				{
 					$total_seance_par_zone=0;
-					$total_réservation_par_zone=0;	
+					$total_reservation_par_zone=0;	
 					$compteur_de_salle_zone=1;
 				}
 				
@@ -58,38 +57,21 @@
 				
 				unset ($req_reservation);
 				
-				if ($i%2 == 1)
-				{	
-					$total_seance+=round($res_salles['heure'],2);
-					$total_réservation+=round($duree_reservation,2);
-					$total_seance_par_zone+=round($res_salles['heure'],2);
-					$total_réservation_par_zone+=round($duree_reservation,2);
-				}
-				else
-				{
-
-					$total_seance+=round($res_salles['heure'],2);
-					$total_réservation+=round($duree_reservation,2);
-					$total_seance_par_zone+=round($res_salles['heure'],2);
-					$total_réservation_par_zone+=round($duree_reservation,2);
-				}
-
+				$total_seance+=round($res_salles['heure'],2);
+				$total_reservation+=round($duree_reservation,2);
+				$total_seance_par_zone+=round($res_salles['heure'],2);
+				$total_reservation_par_zone+=round($duree_reservation,2);
+				
 				//ligne bilan de la dernière zone
 				if ($compteur_de_salle==$nb_de_salle)
 				{
-
+					$cumul = TRUE;
 				}
 			}
 			unset ($req_salle);
 			$memoire_zone=$res_liste_salles['nom_zone'];
-		}	
-
-		/*$occupations = array();
-		
-		array_push($seances, array());
-		
-		array_push($zones, array());
 			
-		array_push($occupations, array("zones" => $zones, "total_seance" => $total_seance_par_zone, "total_reserve" => $total_reservation_par_zone, "total" => $total_seance_par_zone + $total_reservation_par_zone, "total_taux" => round(($total_seance_par_zone+$total_reservation_par_zone)/(1120*($compteur_de_salle_zone))*100,2)));	
-*/
+			array_push($occupations, array("nom_salle" => $res_liste_salles['salle'], "nom_zone" => $res_liste_salles['nom_zone'], "heure" => round($res_salles['heure'],2), "heureReserve" => round($duree_reservation,2), "total" => round($res_salles['heure'],2)+round($duree_reservation,2) , "taux" => round(((round($res_salles['heure'],2)+round($duree_reservation,2))/1120)*100,2), "total_seance" => $total_seance_par_zone, "total_reserve" => $total_reservation_par_zone, "total_zone" => $total_seance_par_zone + $total_reservation_par_zone, "total_taux" => round(($total_seance_par_zone+$total_reservation_par_zone)/(1120*($compteur_de_salle_zone))*100,2), "cumul" => $cumul));	
+		}	
+			
 ?>
