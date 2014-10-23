@@ -193,7 +193,7 @@ else
 	{
 		$smarty->display("template/versions.tpl");
 	}
-	else if ($_GET['page'] == "version")
+	else if (isset($_GET['page']) && $_GET['page'] == "nous")
 	{
 		$smarty->display("template/infosDev.tpl");
 	}
