@@ -72,12 +72,12 @@
 							 
 								{foreach from=$allSeances item=seance}
 									<tr>
-										<td>TODO</td>
-										<td>TODO</td>
-										<td>TODO</td>
+										<td>{$seance.nomFormation}</td>
+										<td>{$seance.codeApogee}</td>
+										<td>{$seance.nomMatiere}</td>
 										<td>{$seance.dateSeance}</td>
-										<td>{$seance.heureSeance}</td>
-										<td>{$seance.dureeSeance}</td>
+										<td>{$seance.heureDebut}</td>
+										<td>{$seance.heureFin}</td>
 										<td>TODO</td>
 										<td>TODO</td>
 										<td>TODO</td>
@@ -85,8 +85,7 @@
 										<td>TODO</td>
 									</tr>	
 								{/foreach}
-								
-							 <td>3</td><td>13-10-2010</td><td>Low</td><td>6</td><td>49</td><td>293</td><td>1-10-2012</td><td>High</td><td>49</td><td>50</td><td>293</td><td>1-10-2012</td></tr>
+
 						</tbody>
 
 					</table>
