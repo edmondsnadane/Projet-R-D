@@ -2,7 +2,7 @@ $(function() {
     /*
      * Selection des documents à ajouter au groupe
      */
-    $( "#liste-document div" ).on( "click", function() {
+    $( ".myCheck div" ).on( "click", function() {
 
         var input = $(this).children( "input" )[0];
         //console.log(input);

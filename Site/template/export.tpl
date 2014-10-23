@@ -6,6 +6,7 @@
 		<link rel="stylesheet" href="css/common.css"/>
 		<link rel="stylesheet" href="css/export.css"/>
 		<script type="text/javascript" src="js/loadPage.js"></script>
+		<script type="text/javascript" src="js/customCheck.js"></script>
 	</head>
 	<body>
 		{include file='template/include/header.tpl'}
@@ -26,11 +27,11 @@
 					<div class="row">
 						<div class="col-md-4 col-centered">
 							<div class="panel panel-default">
+								<div class="panel-heading"> 
+									<strong class="">Exporter en PDF</strong>
+								</div>
 								<div class="panel-body">
 									<form class="form-horizontal" role="form" method="post" action="script/exportPDF.php" onSubmit="return true;">
-										<div class="panel-heading"> 
-											<strong class="">Exporter en PDF</strong>
-										</div>
 										<div class="form-group">
 											<label for="beginDate" class="col-sm-3 control-label">Début</label>
 											<div class="col-sm-9">
@@ -46,7 +47,7 @@
 										<div class="form-group">
 											<label for="formatPDF" class="col-sm-3 control-label">Format</label>
 											<div class="col-sm-9">
-												<select name="formatPDF" id="formatPDF">
+												<select name="formatPDF" class="form-control" id="formatPDF">
 													<option value="A4" selected>A4</option>
 													<option value="A3">A3</option>
 												</select>
@@ -66,15 +67,15 @@
 					<div class="row">
 						<div class="col-md-4 col-centered">
 							<div class="panel panel-default">
+								<div class="panel-heading"> 
+									<strong class="">Exporter pour GISEH</strong>
+								</div>
 								<div class="panel-body">
 									<form class="form-horizontal" role="form" method="post" action="script/exportGiseh.php" onSubmit="return true;">
-										<div class="panel-heading"> 
-											<strong class="">Exporter en GISEH</strong>
-										</div>
 										<div class="form-group">
 											<label for="formation" class="col-sm-3 control-label">Format</label>
 											<div class="col-sm-9">
-												<select name="formation" id="formation">
+												<select name="formation" class="form-control" id="formation">
 													{foreach from=$formations item=formation}
 														<option value={$formation.codeNiveau}>{$formation.nom}</option>
 													{/foreach}
@@ -93,14 +94,18 @@
 												<input type="date" name="endDate" class="form-control" id="endDate" placeholder="Fin">
 											</div>
 										</div>
-										<div class="form-group">
-											<div class="checkbox">
-												<input type="checkbox" checked name="vacataire">déclarer les TP en TD</input>
+										<div class="form-group myCheck">
+											<label for="tptd" class="col-sm-3 control-label"> </label>
+											<div class="list-group-item checkbox  col-sm-9" style="background: none;">
+												<input type="checkbox" checked name="vacataire">
+												<span id="tptd">déclarer les TP en TD</span>
 											</div>
 										</div>
-										<div class="form-group">
-											<div class="checkbox">
-												<input type="checkbox" checked name="teachCookie">Exporter les forfaits sans séance placée</input>
+										<div class="form-group myCheck">
+											<label for="exportForfait" class="col-sm-3 control-label"> </label>
+											<div class="list-group-item checkbox  col-sm-9" style="background: none;">
+												<input type="checkbox" checked name="teachCookie">
+												<span id="exportForfait">Exporter les forfaits sans séance placée</span>
 											</div>
 										</div>
 										<div class="form-group last" id="gisehButtons">
