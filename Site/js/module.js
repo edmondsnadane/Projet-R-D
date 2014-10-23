@@ -12,6 +12,7 @@ function loadModuleList()
 			{
 				$('#module').append("<option>"+module[i]+"</option>");
 			}
+			loadSeanceList();
 		}
 	}
 	

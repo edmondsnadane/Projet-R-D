@@ -1,7 +1,7 @@
 <html>
 	<head>
 		<meta charset="utf-8">
-		<title>VT Calendar - Accueil</title>
+		<title>VT Calendar - Login</title>
 		<link rel="stylesheet" href="API/bootstrap/css/bootstrap.min.css"/>
 		<link rel="stylesheet" href="css/common.css"/>
 		<link rel="stylesheet" href="css/login.css"/>
