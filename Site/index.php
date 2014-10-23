@@ -77,10 +77,6 @@ if (isset($_SESSION['studyLogin']) || isset($_SESSION['teachLogin']) || !empty($
 			{
 				$smarty->display("template/versions.tpl");
 			}
-			else if ($_GET['page'] == "nous")
-			{
-				$smarty->display("template/infosDev.tpl");
-			}
 			else if ($_GET['page'] == "agendas_ics")
 			{
 				$smarty->display("template/agendas_ics.tpl");
@@ -166,10 +162,6 @@ if (isset($_SESSION['studyLogin']) || isset($_SESSION['teachLogin']) || !empty($
 			{
 				$smarty->display("template/versions.tpl");
 			}
-			else if ($_GET['page'] == "nous")
-			{
-				$smarty->display("template/infosDev.tpl");
-			}
 			else if ($_GET['page'] == "agendas_ics")
 			{
 				$smarty->display("template/agendas_ics.tpl");
@@ -192,10 +184,6 @@ else
 	if (isset($_GET['page']) && $_GET['page'] == "version")
 	{
 		$smarty->display("template/versions.tpl");
-	}
-	else if ($_GET['page'] == "nous")
-	{
-		$smarty->display("template/infosDev.tpl");
 	}
 	else
 	{

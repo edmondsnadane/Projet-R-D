@@ -43,44 +43,44 @@
 				</select><br>
 				<button type="submit" class="btn btn-success">Envoyer</button>
 			</form>
-		
-			<p style="text-align:center;"><span style="font-size:30px; font-weight:bold;">Liste de mes heures</span><br>
-			<span style="font-size:15px; ">G&eacute;n&eacute;r&eacute; le <?php echo $jour;?>/<?php echo $mois; ?>/<?php echo $annee; ?> à <?php echo $heure; ?>h<?php echo $minute; ?></span><br></p>	
-		
 
+			{if count($allSeances)>0  }			
+				<p style="text-align:center;"><span style="font-size:30px; font-weight:bold;">Liste de mes heures</span><br>
+				<span style="font-size:15px; ">G&eacute;n&eacute;r&eacute; le <?php echo $jour;?>/<?php echo $mois; ?>/<?php echo $annee; ?> à <?php echo $heure; ?>h<?php echo $minute; ?></span><br></p>	
 
-	
-			<div class="table-responsive">
-				<table class="table" id="mytable" >
-					<thead>
-						<tr>
-							<th align="center" bgcolor="black" ><font color="white" >Formation</font></th>
-							<th align="center" bgcolor="black" ><font color="white" >Code apog&eacute;e</font></th>
-							<th align="center" bgcolor="black" ><font color="white" >Mati&egrave;re</font></th>
-							<th align="center" bgcolor="black" ><font color="white" >Date</font></th>
-							<th align="center" bgcolor="black" ><font color="white" >Heure d&eacute;but</font></th>
-							<th align="center" bgcolor="black" ><font color="white" >Heure fin</font></th>
-							<th align="center" bgcolor="black" ><font color="white" >Horaire r&eacute;parti / nb profs</font></th>
-							<th align="center" bgcolor="black" ><font color="white" >Forfait</font></th>
-							<th align="center" bgcolor="black" ><font color="white" >CR</font></th>
-							<th align="center" bgcolor="black" ><font color="white" >TD</font></th>
-							<th align="center" bgcolor="black" ><font color="white" >TP</font></th>
-							<th align="center" bgcolor="black" ><font color="white" >EqTD</font></th>
-							<th align="center" bgcolor="black" ><font color="white" >Effectué</font></th>
-						</tr>
-					</thead>
-					<tbody> 
-						 <tr>
-							{foreach from=$allSeance item=seance}
-								<td>{$seance.dateSeance}</td>
-							{/foreach}
-							
-						 <td>3</td><td>13-10-2010</td><td>Low</td><td>6</td><td>49</td><td>293</td><td>1-10-2012</td><td>High</td><td>49</td><td>50</td><td>293</td><td>1-10-2012</td></tr>
-					</tbody>
+				<div class="table-responsive">
+					<table class="table" id="mytable" >
+						<thead>
+							<tr>
+								<th align="center" bgcolor="black" ><font color="white" >Formation</font></th>
+								<th align="center" bgcolor="black" ><font color="white" >Code apog&eacute;e</font></th>
+								<th align="center" bgcolor="black" ><font color="white" >Mati&egrave;re</font></th>
+								<th align="center" bgcolor="black" ><font color="white" >Date</font></th>
+								<th align="center" bgcolor="black" ><font color="white" >Heure d&eacute;but</font></th>
+								<th align="center" bgcolor="black" ><font color="white" >Heure fin</font></th>
+								<th align="center" bgcolor="black" ><font color="white" >Horaire r&eacute;parti / nb profs</font></th>
+								<th align="center" bgcolor="black" ><font color="white" >Forfait</font></th>
+								<th align="center" bgcolor="black" ><font color="white" >CR</font></th>
+								<th align="center" bgcolor="black" ><font color="white" >TD</font></th>
+								<th align="center" bgcolor="black" ><font color="white" >TP</font></th>
+								<th align="center" bgcolor="black" ><font color="white" >EqTD</font></th>
+								<th align="center" bgcolor="black" ><font color="white" >Effectué</font></th>
+							</tr>
+						</thead>
+						<tbody> 
+							 <tr>
+								{foreach from=$allSeances item=seance}
+									<td>{$seance.dateSeance}</td>
+								{/foreach}
+								
+							 <td>3</td><td>13-10-2010</td><td>Low</td><td>6</td><td>49</td><td>293</td><td>1-10-2012</td><td>High</td><td>49</td><td>50</td><td>293</td><td>1-10-2012</td></tr>
+						</tbody>
 
-				</table>
-			</div>
+					</table>
+				</div>
+			{/if}
 		</div>
+		
 		{include file='template/include/footer.tpl'}
 
 	</body>
