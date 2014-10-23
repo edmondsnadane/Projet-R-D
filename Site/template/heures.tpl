@@ -43,7 +43,8 @@
 				</select><br>
 				<button type="submit" class="btn btn-success">Envoyer</button>
 			</form>
-
+			
+			{count($allSeances)}
 			{if count($allSeances)>0  }			
 				<p style="text-align:center;"><span style="font-size:30px; font-weight:bold;">Liste de mes heures</span><br>
 				<span style="font-size:15px; ">G&eacute;n&eacute;r&eacute; le <?php echo $jour;?>/<?php echo $mois; ?>/<?php echo $annee; ?> à <?php echo $heure; ?>h<?php echo $minute; ?></span><br></p>	
@@ -68,9 +69,21 @@
 							</tr>
 						</thead>
 						<tbody> 
-							 <tr>
+							 
 								{foreach from=$allSeances item=seance}
-									<td>{$seance.dateSeance}</td>
+									<tr>
+										<td>TODO</td>
+										<td>TODO</td>
+										<td>TODO</td>
+										<td>{$seance.dateSeance}</td>
+										<td>{$seance.heureSeance}</td>
+										<td>{$seance.dureeSeance}</td>
+										<td>TODO</td>
+										<td>TODO</td>
+										<td>TODO</td>
+										<td>TODO</td>
+										<td>TODO</td>
+									</tr>	
 								{/foreach}
 								
 							 <td>3</td><td>13-10-2010</td><td>Low</td><td>6</td><td>49</td><td>293</td><td>1-10-2012</td><td>High</td><td>49</td><td>50</td><td>293</td><td>1-10-2012</td></tr>
