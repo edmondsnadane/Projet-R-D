@@ -34,6 +34,10 @@ function pad_zero($value) {
 
 while($ligne = $req->fetch())
 {
+	// On retourne le sens de  la date de la séance
+	$ligne["dateSeance"] = date("d-m-Y", strtotime($ligne["dateSeance"]));
+	
+	// Calcul heure Fin avec Heure Début et Durée 
 	$heureFin = $ligne["heureSeance"] + $ligne["dureeSeance"];
 	$minutes = $heureFin % 100;
 	$heure = floor($heureFin / 100) + floor($minutes / 60);
@@ -41,6 +45,8 @@ while($ligne = $req->fetch())
 	
 	$ligne["heureFin"] = pad_zero($heure).'h'.pad_zero($minutes);
 	$ligne["heureDebut"] = pad_zero(floor($ligne["heureSeance"] / 100)).'h'.pad_zero(floor($ligne["heureSeance"] % 100));
+	
+	
 	array_push($allSeances, $ligne);
 }
 
