@@ -11,6 +11,8 @@
           dataType:"json",
           async: false
           }).responseText;
+		  
+		  console.log(jsonData);
           
       // Create our data table out of JSON data loaded from server.
       var data = new google.visualization.DataTable(jsonData);
@@ -20,6 +22,6 @@
         };
 
       // Instantiate and draw our chart, passing in some options.
-      var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
+      var chart = new google.visualization.ColumnChart(document.getElementById('chart_div'));
       chart.draw(data, options);
     }
