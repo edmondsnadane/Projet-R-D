@@ -40,7 +40,7 @@
 								 </tr>
 							   {if $occupation.cumul == TRUE}
 									<tr class="success">
-										<td colspan="2">CUMUL DES HEURES DE LA ZONE CI-DESSUS</td>
+										<td colspan="2">TOTAL</td>
 										<td>{$occupation.total_seance}</td>
 										<td>{$occupation.total_reserve}</td>
 										<td>{$occupation.total_zone}</td>
@@ -52,7 +52,7 @@
 				</table>
 			</form>
 			
-			<div id="mouseoverdiv"></div>
+			<div id="chart_div"></div>
 		</div>
 		{include file='template/include/footer.tpl'}
 	</body>

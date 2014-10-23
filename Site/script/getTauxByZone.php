@@ -1,7 +1,10 @@
-<?php
+<?php 
 
-		$occupations = array();
-		$graphZones = array();
+		include('../config/config.php');
+		
+		$cols = array(array("id" => "", "label" => "Topping", "pattern" => "","type" => "string"), array("id" => "", "label" => "Taux d'occupation", "pattern" => "","type" => "number"));
+		$rows = array();
+
 		$total_seance=0;
 		$total_reservation=0;
 		$total_seance_par_zone=0;
@@ -24,7 +27,7 @@
 		{
 			$i+=1;
 			$cumul = FALSE;
-			//requete pour avoir la durÃ©e des sÃ©ances
+			//requete pour avoir la durée des séances
 			$sql="SELECT SUM(ROUND(dureeSeance/100)+100*(dureeSeance/100-ROUND(dureeSeance/100))/60) as heure FROM seances_salles  LEFT JOIN seances USING (codeSeance)  WHERE  seances_salles.deleted=0 AND seances.deleted=0 and seances_salles.codeRessource=".$res_liste_salles['codeSalle'];
 
 			$req_salle=$dbh->query($sql);
@@ -38,6 +41,8 @@
 				//ligne bilan de chaque zone
 				if ($memoire_zone != $res_liste_salles['nom_zone'] && $premiere_ligne!=0)
 				{
+					$taux_zone = round(($total_seance_par_zone+$total_reservation_par_zone)/(1120*($compteur_de_salle_zone))*100,2);
+					array_push($rows, array("c" => array(array("v" => $memoire_zone ,"f" => null), array("v" => $taux_zone ,"f" => null))));
 					$total_seance_par_zone=0;
 					$total_reservation_par_zone=0;	
 					$compteur_de_salle_zone=1;
@@ -45,7 +50,7 @@
 				
 				$premiere_ligne=1;	
 	
-				//requete pour avoir la durÃ©e des rÃ©servations
+				//requete pour avoir la durée des réservations
 				$sql="SELECT SUM(ROUND(dureeReservation/100)+100*(dureeReservation/100-ROUND(dureeReservation/100))/60) as heure FROM reservations_salles  LEFT JOIN reservations USING (codeReservation)  WHERE  reservations_salles.deleted=0 AND reservations.deleted=0 and reservations_salles.codeRessource=".$res_liste_salles['codeSalle'];
 				$req_reservation=$dbh->query($sql);
 				$res_reservation=$req_reservation->fetchAll();	
@@ -63,7 +68,7 @@
 				$total_seance_par_zone+=round($res_salles['heure'],2);
 				$total_reservation_par_zone+=round($duree_reservation,2);
 				
-				//ligne bilan de la derniÃ¨re zone
+				//ligne bilan de la dernière zone
 				if ($compteur_de_salle==$nb_de_salle)
 				{
 					$cumul = TRUE;
@@ -71,8 +76,9 @@
 			}
 			unset ($req_salle);
 			$memoire_zone=$res_liste_salles['nom_zone'];
-			
-			array_push($occupations, array("nom_salle" => $res_liste_salles['salle'], "nom_zone" => $res_liste_salles['nom_zone'], "heure" => round($res_salles['heure'],2), "heureReserve" => round($duree_reservation,2), "total" => round($res_salles['heure'],2)+round($duree_reservation,2) , "taux" => round(((round($res_salles['heure'],2)+round($duree_reservation,2))/1120)*100,2), "total_seance" => $total_seance, "total_reserve" => $total_reservation, "total_zone" => $total_seance+$total_reservation, "total_taux" => round(($total_seance+$total_reservation)/(1120*$nb_de_salle)*100,2), "cumul" => $cumul));	
-		}	
-			
+		}
+		
+		$out[] = array('cols' => $cols, 'rows' => $rows);
+		
+		echo json_encode(array('success' => 1, 'result' => $out));
 ?>
