@@ -5,7 +5,12 @@ $codeProf = 0;
 if(isset($_GET["prof"]) && $_GET["prof"] != 0) {
 	$codeProf = $_GET["prof"];
 	$sql = "
-		SELECT * ,ressources_groupes.nom as nomFormation, enseignements.identifiant as codeApogee, matieres.nom as nomMatiere
+		SELECT 
+			* ,
+			ressources_groupes.nom as nomFormation, 
+			enseignements.identifiant as codeApogee, 
+			matieres.nom as nomMatiere
+			
 		FROM 
 			seances_profs,
 			seances,
@@ -19,7 +24,11 @@ if(isset($_GET["prof"]) && $_GET["prof"] != 0) {
 			seances_groupes.codeSeance=seances.codeSeance AND
 			seances_groupes.codeRessource=ressources_groupes.codeGroupe AND
 			seances.codeEnseignement=enseignements.codeEnseignement AND
-			matieres.codeMatiere=enseignements.codeMatiere";
+			matieres.codeMatiere=enseignements.codeMatiere AND 
+			seances.deleted='0' AND 
+			matieres.deleted='0' AND 
+			enseignements.deleted='0' AND 
+			seances.annulee='0'";
 			
 	$req = $dbh->prepare($sql);
 	$req->execute(array(':codeProf' => $codeProf));
