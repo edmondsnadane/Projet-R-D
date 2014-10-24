@@ -5,6 +5,8 @@
 		<link rel="stylesheet" href="API/bootstrap/css/bootstrap.min.css"/>
 		<link rel="stylesheet" href="css/common.css"/>
 		<link rel="stylesheet" href="css/export.css"/>
+		<script src="API/jquery/jquery.js"></script>
+		<script type="text/javascript" src="API/bootstrap/js/bootstrap.js"></script>
 		<script type="text/javascript" src="js/loadPage.js"></script>
 		<script type="text/javascript" src="js/customCheck.js"></script>
 	</head>
@@ -96,14 +98,14 @@
 										</div>
 										<div class="form-group myCheck">
 											<label for="tptd" class="col-sm-3 control-label"> </label>
-											<div class="list-group-item checkbox  col-sm-9" style="background: none;">
+											<div class="list-group-item checkbox  col-sm-9" style="background: #F5F5F6;">
 												<input type="checkbox" checked name="vacataire">
 												<span id="tptd">déclarer les TP en TD</span>
 											</div>
 										</div>
 										<div class="form-group myCheck">
 											<label for="exportForfait" class="col-sm-3 control-label"> </label>
-											<div class="list-group-item checkbox  col-sm-9" style="background: none;">
+											<div class="list-group-item checkbox  col-sm-9" style="background: #F5F5F6;">
 												<input type="checkbox" checked name="teachCookie">
 												<span id="exportForfait">Exporter les forfaits sans séance placée</span>
 											</div>
@@ -120,8 +122,5 @@
 			</div>
 		
 		{include file='template/include/footer.tpl'}
-		
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-		<script type="text/javascript" src="API/bootstrap/js/bootstrap.js"></script>
 	</body>
 </html>
