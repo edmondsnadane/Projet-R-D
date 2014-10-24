@@ -25,49 +25,50 @@
 					<div class="panel-heading">
 						<strong class="">Afficher mes Heures</strong>
 					</div>
-					<form name="form" id="form" action=""  method="get" >
-						<input type="hidden" name="page" value="heure" />
-						<label>Année scolaire :</label> 
-						<select class="form-control" name="annee_scolaire">
-							{foreach from=$annees item=annee}
-								<option>{$annee}</option>
-							{/foreach}
-						</select><br>
-					
-						<label>Tri par Département :</label> 
-						<select class="form-control" name="composante" onchange="document.form.submit();">
-							<option value="all">TOUS</option>
-							{foreach from=$composantes item=composante}
-								<option {if $composante.codeComposante == $code}selected="selected"{/if} value="{$composante.codeComposante}">{$composante.nom}</option>
-							{/foreach}
-						</select></p><br>
+					<div class="panel-body">
+						<form name="form" id="form" action=""  method="get" >
+							<input type="hidden" name="page" value="heure" />
+							<label>Année scolaire :</label> 
+							<select class="form-control" name="annee_scolaire">
+								{foreach from=$annees item=annee}
+									<option>{$annee}</option>
+								{/foreach}
+							</select><br>
+						
+							<label>Tri par Département :</label> 
+							<select class="form-control" name="composante" onchange="document.form.submit();">
+								<option value="all">TOUS</option>
+								{foreach from=$composantes item=composante}
+									<option {if $composante.codeComposante == $code}selected="selected"{/if} value="{$composante.codeComposante}">{$composante.nom}</option>
+								{/foreach}
+							</select></p><br>
 
-						<label>Choix du professeur :</label> 
-						<select name="prof" class="form-control" id="prof" required="" onChange="loadSeanceList()">
-							{foreach from=$allCSTeachers item=csTeacher}
-								<option value="{$csTeacher.codeProf}">{$csTeacher.nom}   {$csTeacher.prenom}</option>
-							{/foreach}
-						</select><br>
-						<button type="submit" class="btn btn-success">Envoyer</button>
-					</form>
+							<label>Choix du professeur :</label> 
+							<select name="prof" class="form-control" id="prof" required="" onChange="loadSeanceList()">
+								{foreach from=$allCSTeachers item=csTeacher}
+									<option value="{$csTeacher.codeProf}">{$csTeacher.nom}   {$csTeacher.prenom}</option>
+								{/foreach}
+							</select><br>
+							<button type="submit" class="btn btn-success">Envoyer</button>
+						</form>
+					</div>
 				</div>
 			</div>
 			
 			{count($allSeances)}
 			{if count($allSeances)>0  }			
-				<span style="font-size:15px; ">G&eacute;n&eacute;r&eacute; le <?php echo $jour;?>/<?php echo $mois; ?>/<?php echo $annee; ?> à <?php echo $heure; ?>h<?php echo $minute; ?></span><br></p>	
 
 				<div class="table-responsive">
 					<table class="table-striped table center-table col-sm-9 sortTable">
 						<thead>
 							<tr>
 								<th>Formation</th>
-								<th>Code apog&eacute;e</th>
-								<th>Mati&egrave;re</th>
+								<th>Code apogée</th>
+								<th>Matière</th>
 								<th>Date</th>
-								<th>Heure d&eacute;but</th>
+								<th>Heure début</th>
 								<th>Heure fin</th>
-								<th>Horaire r&eacute;parti / nb profs</th>
+								<th>Horaire réparti / nb profs</th>
 								<th>Forfait</th>
 								<th>CR</th>
 								<th>TD</th>
