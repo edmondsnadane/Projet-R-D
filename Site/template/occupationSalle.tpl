@@ -8,7 +8,7 @@
 		<script src="API/jquery/jquery.js"></script>
 		<script type="text/javascript" src="API/bootstrap/js/bootstrap.js"></script>
 		<script type="text/javascript" src="js/loadPage.js"></script>
-		<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+		<script type="text/javascript" src="API/googleCharts/googleCharts.js"></script>
 		<script type="text/javascript" src="js/occupationSalle.js"></script>
 	</head>
 	<body>
