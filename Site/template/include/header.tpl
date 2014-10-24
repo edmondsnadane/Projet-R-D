@@ -37,7 +37,7 @@
 					{/if}
 
 					{if $droits.bilan_formation == 1}
-						<li onClick=""><a href="#"><span class="glyphicon glyphicon-stats"></span> Bilan par formation</a></li>
+						<li onClick="loadBilanFormation()"><a href="#"><span class="glyphicon glyphicon-stats"></span> Bilan par formation</a></li>
 					{/if}
 
 					{if $droits.dialogue == 1}

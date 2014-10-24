@@ -4,7 +4,6 @@
 		<title>VT Calendar - Mes modules</title>
 		<link rel="stylesheet" href="API/bootstrap/css/bootstrap.min.css"/>
 		<link rel="stylesheet" href="css/common.css"/>
-		<link rel="stylesheet" href="css/login.css"/>
 		<script src="API/jquery/jquery.js"></script>
 		<script type="text/javascript" src="API/bootstrap/js/bootstrap.js"></script>
 		<script type="text/javascript" src="js/loadPage.js"></script>

@@ -50,20 +50,9 @@
 										</div>
 									</div>
 
-
-										<div class="form-group myCheck">
-											<label for="inputPassword4" class="col-sm-3 control-label"> </label>
-												<div class="list-group-item checkbox  col-sm-9" style="background: none;">
-													<input type="checkbox" name="teachCookie" >
-													<span id="inputPassword4">Rester connecté</span>
-												</div>
-										</div>
-
-
-
 									<div class="form-group last" id="teachButtons">
-										<button type="submit" class="btn btn-success btn-sm col-md-6">Valider</button>
 										<button type="reset" class="btn btn-danger btn-sm col-md-6">Annuler</button>
+										<button type="submit" class="btn btn-success btn-sm col-md-6">Valider</button>
 									</div>
 								</form>
 							</div>
@@ -91,25 +80,14 @@
 										</div>
 									</div>
 
-
-									<div class="form-group myCheck">
-											<label for="inputPassword4" class="col-sm-3 control-label"> </label>
-												<div class="list-group-item checkbox  col-sm-9" style="background: none;">
-													<input type="checkbox" name="studyCookie" >
-													<span id="inputPassword4">Rester connecté</span>
-													<!--<span class="control-label">Rester connecté</span>	-->
-												</div>
-										</div>
-
-
-
 									<div class="form-group last" id="studyButtons">
-										<button type="submit" class="btn btn-success btn-sm col-md-6">Valider</button>
 										<button type="reset" class="btn btn-danger btn-sm col-md-6">Annuler</button>
+										<button type="submit" class="btn btn-success btn-sm col-md-6">Valider</button>
 									</div>
 								</form>
 							</div>
-							<div class="panel-footer"><a href="config/aide.pdf" class="">Mode d'emploi</a>
+							<div class="panel-footer">
+								<a href="config/aide.pdf" class="">Mode d'emploi</a>
 							</div>
 						</div>
 					</div>
@@ -164,8 +142,7 @@
 
 		{include file='template/include/footer.tpl'}
 
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+		<script src="API/jquery/jquery.js"></script>
 		<script src="API/bootstrap/js/bootstrap.js"></script>
-		<script src="js/customCheck.js"></script>
 	</body>
 </html>

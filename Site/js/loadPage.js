@@ -72,3 +72,8 @@ function loadOccupationSalle()
 {
 	window.location.replace('index.php?page=occupationSalle');
 }
+
+function loadBilanFormation()
+{
+	window.location.replace('index.php?page=bilanFormation');
+}

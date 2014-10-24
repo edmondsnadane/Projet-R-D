@@ -38,14 +38,7 @@ if (isset($_POST['teachLogin'])&& isset($_POST['teachPwd']) && !empty($_POST['te
 	}
 	else
 	{
-		if (isset ($_POST['teachCookie']) && $_POST['teachCookie']== 1)
-		{
-			setcookie('teachLogin', $_POST['teachLogin'], time() + 365*24*3600); 
-		}
-		else
-		{
-			$_SESSION['teachLogin'] = $_POST['teachLogin'];
-		}
+		$_SESSION['teachLogin'] = $_POST['teachLogin'];
 	}
 	
 	header('Location: ../index.php');
