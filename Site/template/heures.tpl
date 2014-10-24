@@ -13,6 +13,7 @@
 		<script src="API/jquery/jquery.tablesorter.min.js"></script>
 		<script src="API/jquery/jquery.dataTables.min.js"></script>
 		<script type="text/javascript" src="js/filterTable.js"></script>
+		<script src="js/heure.js"></script>
 		
 	</head>
 	
@@ -42,7 +43,7 @@
 						</select></p><br>
 
 						<label>Choix du professeur :</label> 
-						<select class="form-control" name="prof">
+						<select name="prof" class="form-control" id="prof" required="" onChange="loadSeanceList()">
 							{foreach from=$allCSTeachers item=csTeacher}
 								<option value="{$csTeacher.codeProf}">{$csTeacher.nom}   {$csTeacher.prenom}</option>
 							{/foreach}
@@ -75,8 +76,8 @@
 								<th>Effectué</th>
 							</tr>
 						</thead>
-						<tbody> 
-							 
+						
+						<tbody id="tableContent"> 
 								{foreach from=$allSeances item=seance}
 									<tr>
 										<td>{$seance.nomFormation}</td>
