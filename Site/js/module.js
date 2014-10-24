@@ -1,4 +1,40 @@
 
+function loadProfsList()
+{
+	var codeComposante = $('#departements :selected').val();
+	
+	addProfsToOptions = function(profs)
+	{
+		$('#profs').empty();
+		if (profs.length)
+		{
+			for(i=0; i<profs.length; i++)
+			{
+				profInfos = profs[i].split("#");
+				$('#profs').append("<option value="+profInfos[0]+">"+profInfos[1]+" "+profInfos[2]+"</option>");
+			}
+			loadModuleList();
+		}
+	}
+	
+	$.ajax({
+		type: "POST",
+		url: "./script/getTeacherByComposante.php",
+		data: {code : codeComposante},
+		cache: false,
+		dateType: 'text',
+		success: function(data)
+		{
+			console.log(data);
+			addProfsToOptions(data.split("~"));
+		},
+		error: function(data)
+		{
+			alert(data);
+		}
+	});
+}
+
 function loadModuleList()
 {
 	var codeProf = $('#profs :selected').val();
@@ -89,6 +125,10 @@ function loadSeanceList()
 				$('#tableContent').append(ligne);
 			}
 		}
+		else
+		{
+			$('#tableContent').append("<tr class='danger'><td colspan=9>Aucun resultats trouvés</td></tr>");
+		}
 	}
 	
 	$.ajax({
@@ -99,7 +139,6 @@ function loadSeanceList()
 		dateType: 'text',
 		success: function(data)
 		{
-			console.log(data);
 			createSeanceTable(data.split("~"));
 		},
 		error: function(data)
