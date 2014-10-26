@@ -15,7 +15,7 @@ function loadSeanceList()
 				var seanceInfo = seance[i].split("#");
 				for(j=0; j<seanceInfo.length; j++)
 				{
-					ligne += "<td "
+					ligne += "<td ";
 					if (j == 2)
 					{
 						if (seanceInfo[j] == "CM")
@@ -41,7 +41,7 @@ function loadSeanceList()
 					{
 						if (seanceInfo[j] == 1)
 						{
-							ligne += "<span class='glyphicon glyphicon-ok-circle'></span>"
+							ligne += "<span class='glyphicon glyphicon-ok-circle'></span>";
 						}
 					}
 					else
@@ -55,7 +55,7 @@ function loadSeanceList()
 				$('#tableContent').append(ligne);
 			}
 		}
-	}
+	};
 	
 	$.ajax({
 		type: "POST",
