@@ -6,12 +6,11 @@
 		<link rel="stylesheet" href="css/common.css"/>
 		<link rel="stylesheet" href="css/login.css"/>
 		<script type="text/javascript" src="js/loadPage.js"></script>
-		<script src="API/jquery/jquery.js"></script>
-		<script type="text/javascript" src="API/bootstrap/js/bootstrap.js"></script>
-		<script src="API/jquery/jquery.tablesorter.min.js"></script>
-		<script src="API/jquery/jquery.dataTables.min.js"></script>
+		<script type="text/javascript" src="API/jquery/jquery.js"></script>
+		<script type="text/javascript" src="API/jquery/jquery.tablesorter.min.js"></script>
+		<script type="text/javascript" src="API/bootstrap/js/bootstrap.js"></script>		
 		<script type="text/javascript" src="js/filterTable.js"></script>
-		<script src="js/heure.js"></script>
+		<script type="text/javascript" src="js/heure.js"></script>
 		
 	</head>
 	
@@ -48,7 +47,6 @@
 									<option {if $csTeacher.codeProf == $codeProf}selected="selected"{/if}  value="{$csTeacher.codeProf}">{$csTeacher.nom}   {$csTeacher.prenom}</option>
 								{/foreach}
 							</select><br>
-							<button type="submit" class="btn btn-success">Envoyer</button>
 						</form>
 					</div>
 				</div>
@@ -65,7 +63,7 @@
 						<th>Heure fin</th>
 						<th>Horaire réparti / nb profs</th>
 						<th>Forfait</th>
-						<th>CR</th>
+						<th>CM</th>
 						<th>TD</th>
 						<th>TP</th>
 						<th>EqTD</th>
@@ -82,12 +80,12 @@
 								<td>{$seance.dateSeance}</td>
 								<td>{$seance.heureDebut}</td>
 								<td>{$seance.heureFin}</td>
-								<td>{if $seance.volumeReparti ==0} NON {else} OUI {/if}</td>
-								<td>NON</td>
-								<td>TODO</td>
-								<td>TODO</td>
-								<td>TODO</td>
-								<td>TODO</td>
+								<td>{if $seance.volumeReparti == 0} NON {else} OUI {/if}</td>
+								<td>{if $seance.forfaitaire == 0} NON {else} OUI {/if} </td>
+								<td>{$seance.dureeCM}</td>
+								<td>{$seance.dureeTD}</td>
+								<td>{$seance.dureeTP}</td>
+								<td>{$seance.codeSeance} {$seance.seancesDureeSeance}</td>
 								<td>TODO</td>
 							</tr>	
 						{/foreach}

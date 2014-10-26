@@ -1544,6 +1544,7 @@ if ($seance_non_comptabilisee=='0')
 		}
 
 
+3+
 
 	//duree cr td tp
 
@@ -1643,8 +1644,6 @@ $date_seance=$annee.$mois.$jour;
 	$CodeActivite=$enseignement['codeTypeActivite'];
 	if ($enseignement['forfaitaire']==0)
 		{
-	
-
 
         if ($enseignement['volumeReparti']==1)
 				{
@@ -1770,6 +1769,7 @@ $date_seance=$annee.$mois.$jour;
 			$total_min_tp+=$mindureeTP;
 			$total_heure_tp_module+=$heuredureeTP;
 			$total_min_tp_module+=$mindureeTP;
+			
 			$total_heure_eqtd_module+=$heureeqtd;
 			$total_min_eqtd_module+=$mineqtd;
 		//mise en forme cumul des heure pour affichage chronologique

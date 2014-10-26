@@ -5,7 +5,7 @@
 	var annee_scolaire = $("#annee_scolaire").val();
 	var composante = $("#composante").val();
 	var prof = $("#prof").val();
-	var url = "index.php?page=heure&annee_scolaire=" + annee_scolaire + "&composante=" + composante + "&prof=" + prof + "&json";
+	var url = "index.php?page=heure&annee_scolaire=" + annee_scolaire + "&composante=" + composante + "&prof=" + prof + "&json&" + Math.random();
 	
 	$.ajax({
 		type: "GET",
@@ -16,6 +16,7 @@
 		{
 			var json = JSON.parse(data);
 			$("#tableContent").html(json.new_table);
+			$(".sortTable").trigger("update"); 
 		},
 		error: function(data)
 		{
