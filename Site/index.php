@@ -119,7 +119,12 @@ if (isset($_SESSION['studyLogin']) || isset($_SESSION['teachLogin']) || !empty($
 				$smarty->assign("code", $code);
 				include('script/getTeachersHours.php');
 				$smarty->assign("allSeances", $allSeances);
-				$smarty->display("template/heures.tpl");
+				$smarty->assign("codeProf", $codeProf);
+				if(isset($_GET['json'])) {
+					$smarty->display("template/heures_json.tpl");
+				} else {
+					$smarty->display("template/heures.tpl");
+				}
 			}
 			else if ($_GET['page' ] == "export" && ($droits['pdf'] == 1 || $droits['giseh'] == 1))
 			{
