@@ -18,7 +18,7 @@
 		}
 		else
 		{
-			$sql="SELECT * FROM ressources_profs WHERE deleted='0' and codeComposante=".$_POST['code']."  ORDER BY nom,prenom";
+			$sql="SELECT * FROM ressources_profs WHERE deleted='0' and codeComposante=".$_POST['code']." ORDER BY nom ASC,prenom ";
 			$req_prof=$dbh->prepare($sql);
 			$req_prof->execute();
 			while($ligne = $req_prof->fetch())

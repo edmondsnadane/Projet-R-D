@@ -1,7 +1,6 @@
 <?php
 
 $codeProf = 0;
-
 if(isset($_GET["prof"]) && $_GET["prof"] != 0) {
 	$codeProf = $_GET["prof"];
 	$sql = "
@@ -52,13 +51,18 @@ while($ligne = $req->fetch())
 	$heure = floor($heureFin / 100) + floor($minutes / 60);
 	$minutes = $minutes % 60;
 	
-	$ligne["heureFin"] = pad_zero($heure).'h'.pad_zero($minutes);
-	$ligne["heureDebut"] = pad_zero(floor($ligne["heureSeance"] / 100)).'h'.pad_zero(floor($ligne["heureSeance"] % 100));
+	$toto=$ligne["heureFin"] = pad_zero($heure).'h'.pad_zero($minutes);
+	$toto1=$ligne["heureDebut"] = pad_zero(floor($ligne["heureSeance"] / 100)).'h'.pad_zero(floor($ligne["heureSeance"] % 100));
 	
 	
-	array_push($allSeances, $ligne);
+//	array_push($allSeances, $ligne);
+	array_push($allSeances, implode('#', $toto, $toto1));
+
 }
 
 $req->closeCursor();
+
+echo implode('~', $allSeances);
+var_dump(implode('~', $allSeances));
 
 ?>

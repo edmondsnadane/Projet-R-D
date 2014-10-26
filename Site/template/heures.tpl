@@ -26,7 +26,8 @@
 						<strong class="">Afficher mes Heures</strong>
 					</div>
 					<div class="panel-body">
-						<form name="form" id="form" action=""  method="get" >
+						<form class="form-horizontal" role="form" name="form" id="form" method="get" >
+	
 							<input type="hidden" name="page" value="heure" />
 							<label>Année scolaire :</label> 
 							<select class="form-control" name="annee_scolaire">
@@ -34,7 +35,7 @@
 									<option>{$annee}</option>
 								{/foreach}
 							</select><br>
-						
+
 							<label>Tri par Département :</label> 
 							<select class="form-control" name="composante" onchange="document.form.submit();">
 								<option value="all">TOUS</option>
@@ -58,7 +59,6 @@
 			{count($allSeances)}
 			{if count($allSeances)>0  }			
 
-				<div class="table-responsive">
 					<table class="table-striped table center-table col-sm-9 sortTable">
 						<thead>
 							<tr>
@@ -79,26 +79,9 @@
 						</thead>
 						
 						<tbody id="tableContent"> 
-								{foreach from=$allSeances item=seance}
-									<tr>
-										<td>{$seance.nomFormation}</td>
-										<td>{$seance.codeApogee}</td>
-										<td>{$seance.nomMatiere}</td>
-										<td>{$seance.dateSeance}</td>
-										<td>{$seance.heureDebut}</td>
-										<td>{$seance.heureFin}</td>
-										<td>{if $seance.volumeReparti ==0} NON {else} OUI {/if}</td>
-										<td>NON</td>
-										<td>TODO</td>
-										<td>TODO</td>
-										<td>TODO</td>
-									</tr>	
-								{/foreach}
-
 						</tbody>
 
 					</table>
-				</div>
 			{/if}
 		</div>
 		

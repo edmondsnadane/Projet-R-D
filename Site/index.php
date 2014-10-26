@@ -18,10 +18,10 @@ $smarty->assign("compteur", $compteur);
 $smarty->assign("annees", $annee_scolaire);
 
 /* l'utilisateur est connecté */
-if (isset($_SESSION['studyLogin']) || isset($_SESSION['teachLogin']))
+if (isset($_SESSION['studyLogin']) || isset($_SESSION['teachLogin']) || !empty($_COOKIE['teachLogin']) || !empty($_COOKIE['studyLogin']))
 {
 	/* l'utilisateur connecté est un étudiant */
-	if (isset($_SESSION['studyLogin']))
+	if (isset($_SESSION['studyLogin']) || !empty($_COOKIE['studyLogin']))
 	{
 		include('script/getStudyInfos.php');
 		$smarty->assign("loginStudy",$loginUtilisateur);
@@ -43,7 +43,7 @@ if (isset($_SESSION['studyLogin']) || isset($_SESSION['teachLogin']))
 	if (isset($_GET['page']))
 	{
 		// NAVIGATION ETUDIANT
-		if (isset($_SESSION['studyLogin']))
+		if (isset($_SESSION['studyLogin']) || !empty($_COOKIE['studyLogin']))
 		{
 			if ($_GET['page'] == "deconnection")
 			{
@@ -76,10 +76,6 @@ if (isset($_SESSION['studyLogin']) || isset($_SESSION['teachLogin']))
 			else if ($_GET['page'] == "version")
 			{
 				$smarty->display("template/versions.tpl");
-			}
-			else if ($_GET['page'] == "nous")
-			{
-				$smarty->display("template/infosDev.tpl");
 			}
 			else if ($_GET['page'] == "agendas_ics")
 			{
@@ -123,8 +119,6 @@ if (isset($_SESSION['studyLogin']) || isset($_SESSION['teachLogin']))
 				$smarty->assign("code", $code);
 				include('script/getTeachersHours.php');
 				$smarty->assign("allSeances", $allSeances);
-				
-				
 				$smarty->display("template/heures.tpl");
 			}
 			else if ($_GET['page' ] == "export" && ($droits['pdf'] == 1 || $droits['giseh'] == 1))
@@ -166,14 +160,6 @@ if (isset($_SESSION['studyLogin']) || isset($_SESSION['teachLogin']))
 			{
 				$smarty->display("template/versions.tpl");
 			}
-			else if ($_GET['page'] == "bilanFormation")
-			{
-				$smarty->display("template/bilanFormation.tpl");
-			}
-			else if ($_GET['page'] == "nous")
-			{
-				$smarty->display("template/infosDev.tpl");
-			}
 			else if ($_GET['page'] == "agendas_ics")
 			{
 				$smarty->display("template/agendas_ics.tpl");
@@ -196,10 +182,6 @@ else
 	if (isset($_GET['page']) && $_GET['page'] == "version")
 	{
 		$smarty->display("template/versions.tpl");
-	}
-	else if (isset($_GET['page']) && $_GET['page'] == "nous")
-	{
-		$smarty->display("template/infosDev.tpl");
 	}
 	else
 	{

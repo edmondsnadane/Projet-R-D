@@ -1,4 +1,3 @@
-
 function loadSeanceList()
 {
 	var codeProf = $('#prof :selected').text();
@@ -55,11 +54,15 @@ function loadSeanceList()
 				$('#tableContent').append(ligne);
 			}
 		}
+		else
+		{
+			$('#tableContent').append("<tr class='danger'><td colspan=9>Aucun resultats trouvés</td></tr>");
+		}
 	}
 	
 	$.ajax({
 		type: "POST",
-		url: "./script/getTeachersHours.php.php",
+		url: "./script/getTeachersHours.php",
 		data: {prof : codeProf},
 		cache: false,
 		dateType: 'text',
