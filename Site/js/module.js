@@ -15,7 +15,7 @@ function loadProfsList()
 			}
 			loadModuleList();
 		}
-	}
+	};
 	
 	$.ajax({
 		type: "POST",
@@ -50,7 +50,7 @@ function loadModuleList()
 			}
 			loadSeanceList();
 		}
-	}
+	};
 	
 	$.ajax({
 		type: "POST",
@@ -85,7 +85,7 @@ function loadSeanceList()
 				var seanceInfo = seance[i].split("#");
 				for(j=0; j<seanceInfo.length; j++)
 				{
-					ligne += "<td "
+					ligne += "<td ";
 					if (j == 2)
 					{
 						if (seanceInfo[j] == "CM")
@@ -111,7 +111,7 @@ function loadSeanceList()
 					{
 						if (seanceInfo[j] == 1)
 						{
-							ligne += "<span class='glyphicon glyphicon-ok-circle'></span>"
+							ligne += "<span class='glyphicon glyphicon-ok-circle'></span>";
 						}
 					}
 					else
@@ -127,9 +127,9 @@ function loadSeanceList()
 		}
 		else
 		{
-			$('#tableContent').append("<tr class='danger'><td colspan=9>Aucun resultats trouvés</td></tr>");
+			$('#tableContent').append("<tr class='danger'><td colspan=9>Aucun resultats trouvÃ©s</td></tr>");
 		}
-	}
+	};
 	
 	$.ajax({
 		type: "POST",
