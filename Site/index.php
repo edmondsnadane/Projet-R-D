@@ -140,6 +140,15 @@ if (isset($_SESSION['studyLogin']) || isset($_SESSION['teachLogin']))
 			{
 				include('script/getUserConfig.php');
 				$smarty->assign("userConfs", $userConfs);
+				if ($_GET['successId'])
+				{
+					$successMsg = "";
+					if ($_GET['successId'] == 1)
+					{
+						$successMsg = "Modifications sauvegardées";
+					}
+					$smarty->assign("successMsg", $successMsg);
+				}
 				$smarty->display("template/maConfig.tpl");
 			}
 			else if ($_GET['page'] == "RSS")
