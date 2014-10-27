@@ -140,7 +140,7 @@ if (isset($_SESSION['studyLogin']) || isset($_SESSION['teachLogin']))
 			{
 				include('script/getUserConfig.php');
 				$smarty->assign("userConfs", $userConfs);
-				if ($_GET['successId'])
+				if (isset($_GET['successId']))
 				{
 					$successMsg = "";
 					if ($_GET['successId'] == 1)
