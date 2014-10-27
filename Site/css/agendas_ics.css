@@ -1,6 +1,7 @@
 /*
  * Header menu bar
  */
+
 .app-bar .utilisateur {
     color: #404040;
     padding-left: 5px;
@@ -11,24 +12,25 @@
     line-height: 1px;
 }
 @media (max-width: 620px) {
-    .app-bar .utilisateur p{
+    .app-bar .utilisateur p {
         display: none;
     }
 }
-
 main {
     padding-bottom: 20px;
 }
-.center, th, td {
-    text-align:center;
+.center,
+th,
+td {
+    text-align: center;
 }
-th, td {
+th,
+td {
     vertical-align: middle !important;
 }
 th.libelle {
     width: 684px;
 }
-
 .dataTable th {
     cursor: pointer;
 }
@@ -49,7 +51,7 @@ th.libelle {
     border-radius: 6px;
     box-shadow: none;
     color: #34495e;
-    font-family: Lato,Helvetica,Arial,sans-serif;
+    font-family: Lato, Helvetica, Arial, sans-serif;
     line-height: 1.467;
     padding: 5px 10px;
 }
