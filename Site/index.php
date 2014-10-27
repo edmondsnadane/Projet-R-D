@@ -18,7 +18,7 @@ $smarty->assign("compteur", $compteur);
 $smarty->assign("annees", $annee_scolaire);
 
 /* l'utilisateur est connecté */
-if (isset($_SESSION['studyLogin']) || isset($_SESSION['teachLogin'])
+if (isset($_SESSION['studyLogin']) || isset($_SESSION['teachLogin']))
 {
 	/* l'utilisateur connecté est un étudiant */
 	if (isset($_SESSION['studyLogin']))
