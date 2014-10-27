@@ -82,9 +82,9 @@
 								<td>{$seance.heureFin}</td>
 								<td>{if $seance.volumeReparti == 0} NON {else} OUI {/if}</td>
 								<td>{if $seance.forfaitaire == 0} NON {else} OUI {/if} </td>
-								<td>{$seance.dureeCM}</td>
-								<td>{$seance.dureeTD}</td>
-								<td>{$seance.dureeTP}</td>
+								<td>{if $seance.dureeCM !=0}{$seance.dureeCM}{else} --------{/if} </td>
+								<td>{if $seance.dureeTD !=0}{$seance.dureeTD}{else} --------{/if} </td>
+								<td>{if $seance.dureeTP !=0}{$seance.dureeTP}{else} --------{/if} </td>
 								<td>{$seance.codeSeance} {$seance.seancesDureeSeance}</td>
 								<td>TODO</td>
 							</tr>	
