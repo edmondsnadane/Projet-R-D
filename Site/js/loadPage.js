@@ -1,5 +1,5 @@
 function deconnect() {
-    window.location.replace('index.php?page=deconnection');
+    window.location.replace('index.php?page=deconnexion');
 }
 
 function loadConfig() {

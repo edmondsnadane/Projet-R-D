@@ -47,7 +47,7 @@ if (isset($_SESSION['studyLogin']) || isset($_SESSION['teachLogin']))
 		// NAVIGATION ETUDIANT
 		if (isset($_SESSION['studyLogin']))
 		{
-			if ($_GET['page'] == "deconnection")
+			if ($_GET['page'] == "deconnexion")
 			{
 				include('script/disconnect.php');
 				$smarty->assign("successMsg", "Déconnection reussie");
@@ -96,7 +96,7 @@ if (isset($_SESSION['studyLogin']) || isset($_SESSION['teachLogin']))
 		else
 		{
 			// NAVIGATION ENSEIGNANT
-			if ($_GET['page'] == "deconnection")
+			if ($_GET['page'] == "deconnexion")
 			{
 				include('script/disconnect.php');
 				$smarty->assign("successMsg", "Déconnection reussie");

@@ -1,26 +1,29 @@
 <html>
 	<head>
-		<meta charset="utf-8">
+		<meta charset="utf-8" />
 		<title>VT Calendar - Dialogue de gestion</title>
 		<link rel="stylesheet" href="API/bootstrap/css/bootstrap.min.css">
 		<link rel="stylesheet" href="API/bootstrap/css/bootstrap-theme.min.css">
-		<link rel="stylesheet" href="API/footable/css/footable.core.css">
+		<link href="API/footable/css/footable.core.min.css" rel="stylesheet" type="text/css">
+		<link href="API/footable/css/footable.standalone.min.css" rel="stylesheet" type="text/css">
 		<link rel="stylesheet" href="css/common.css"/>
 		<link rel="stylesheet" href="css/dialogueGestion.css"/>
+		<script type="text/javascript" src="API/jquery/jquery.js"></script>
+		<script type="text/javascript" src="API/bootstrap/js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="API/footable/js/footable.js"></script>
 		<script type="text/javascript" src="js/loadPage.js"></script>
 	</head>
 	<body>
-		
 		{include file='template/include/header.tpl'}
 		<div class="container">
 		{foreach from=$composantes item=composante}
 			<h2>{$composante.nom}</h2>
-			<table class="table-striped table center-table footable">
+			<table class="footable">
 				<tr>
-					<th data-toggle="true">Grade</th>
+					<th>Grade</th>
 					<th data-hide="phone,tablet">Nom des enseignants</th>
 					<th data-hide="phone,tablet">Horaires statuaires</th>
-					<th data-hide="phone,tablet">Nombre</th>
+					<th>Nombre</th>
 					<th data-hide="phone,tablet">Potentiel enseignement en heure</th>
 				</tr>
 				{foreach from=$composante.grades item=grade}
@@ -39,10 +42,8 @@
 			</table>
 		{/foreach}
 		</div>
-		{include file='template/include/footer.tpl'}
 		
-		<script type="text/javascript" src="API/bootstrap-calendar-master/components/jquery/jquery.min.js"></script>
-		<script type="text/javascript" src="API/bootstrap/js/bootstrap.min.js"></script>
-		<script type="text/javascript" src="API/footable/js/footable.js"></script>
+		{include file='template/include/footer.tpl'}
 	</body>
+	<script type="text/javascript" src="js/footableTest.js"></script>
 </html>
