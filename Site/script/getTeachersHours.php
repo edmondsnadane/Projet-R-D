@@ -70,7 +70,8 @@ function pretty_hour($hour, $minutes) {
 while($ligne = $req->fetch())
 {
 	// On retourne le sens de  la date de la séance
-	$ligne["dateSeance"] = date("d-m-Y", strtotime($ligne["dateSeance"]));
+	//$ligne["dateSeance"] = date("d-m-Y", strtotime($ligne["dateSeance"]));
+	$ligne["dateSeance"] = date("Y-m-d", strtotime($ligne["dateSeance"]));
 	
 	// Calcul heure Fin avec Heure Début et Durée 
 	$heureFin = $ligne["heureSeance"] + $ligne["seancesDureeSeance"];
@@ -88,7 +89,7 @@ while($ligne = $req->fetch())
 	$ligne["dureeCM"] = pretty_hour(floor($dureeCM / 100), floor($dureeCM % 100));
 	$ligne["dureeTD"] = pretty_hour(floor($dureeTD / 100), floor($dureeTD % 100));
 	$ligne["dureeTP"] = pretty_hour(floor($dureeTP / 100), floor($dureeTP % 100));
-	
+
 	array_push($allSeances, $ligne);
 
 }

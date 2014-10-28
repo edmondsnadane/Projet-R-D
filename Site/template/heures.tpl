@@ -86,7 +86,7 @@
 								<td>{if $seance.dureeTD !=0}{$seance.dureeTD}{else} --------{/if} </td>
 								<td>{if $seance.dureeTP !=0}{$seance.dureeTP}{else} --------{/if} </td>
 								<td>{$seance.codeSeance} {$seance.seancesDureeSeance}</td>
-								<td>TODO</td>
+								<td><td>{if $date_actuelle  >= $seance.dateSeance } <span class='glyphicon glyphicon-ok-circle'></span> {else}{/if}</td>
 							</tr>	
 						{/foreach}
 

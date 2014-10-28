@@ -11,6 +11,7 @@ $nbdebdd='1';
 
 //recuperation de la date du jour pour l'afficher au dessus du tableau ( Mes heures)
 date_default_timezone_set('Europe/Paris');
+$date_actuelle=date("Y-m-d");
 $jour=date('d');
 $mois=date('m');
 $annee=date('y');

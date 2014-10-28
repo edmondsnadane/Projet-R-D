@@ -16,6 +16,8 @@ $compteur=$compteur_res['0']['valeur'];
 $smarty->assign("compteur", $compteur);
 
 $smarty->assign("annees", $annee_scolaire);
+$smarty->assign("date_actuelle", $date_actuelle);
+
 
 /* l'utilisateur est connecté */
 if (isset($_SESSION['studyLogin']) || isset($_SESSION['teachLogin']))
