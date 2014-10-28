@@ -4,6 +4,7 @@
 		<title>VT Calendar - Dialogue de gestion</title>
 		<link rel="stylesheet" href="API/bootstrap/css/bootstrap.min.css">
 		<link rel="stylesheet" href="API/bootstrap/css/bootstrap-theme.min.css">
+		<link rel="stylesheet" href="API/footable/css/footable.core.css">
 		<link rel="stylesheet" href="css/common.css"/>
 		<link rel="stylesheet" href="css/dialogueGestion.css"/>
 		<script type="text/javascript" src="js/loadPage.js"></script>
@@ -14,13 +15,13 @@
 		<div class="container">
 		{foreach from=$composantes item=composante}
 			<h2>{$composante.nom}</h2>
-			<table class="table-striped table center-table">
+			<table class="table-striped table center-table footable">
 				<tr>
-					<th>Grade</th>
-					<th>Nom des enseignants</th>
-					<th>Horaires statuaires</th>
-					<th>Nombre</th>
-					<th>Potentiel enseignement en heure</th>
+					<th data-toggle="true">Grade</th>
+					<th data-hide="phone,tablet">Nom des enseignants</th>
+					<th data-hide="phone,tablet">Horaires statuaires</th>
+					<th data-hide="phone,tablet">Nombre</th>
+					<th data-hide="phone,tablet">Potentiel enseignement en heure</th>
 				</tr>
 				{foreach from=$composante.grades item=grade}
 					<tr>
@@ -42,6 +43,6 @@
 		
 		<script type="text/javascript" src="API/bootstrap-calendar-master/components/jquery/jquery.min.js"></script>
 		<script type="text/javascript" src="API/bootstrap/js/bootstrap.min.js"></script>
-	
+		<script type="text/javascript" src="API/footable/js/footable.js"></script>
 	</body>
 </html>
