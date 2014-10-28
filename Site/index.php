@@ -50,7 +50,7 @@ if (isset($_SESSION['studyLogin']) || isset($_SESSION['teachLogin']))
 			if ($_GET['page'] == "deconnexion")
 			{
 				include('script/disconnect.php');
-				$smarty->assign("successMsg", "Déconnection reussie");
+				$smarty->assign("successMsg", "Déconnexion reussie");
 				$smarty->display("template/login.tpl");
 			}
 			else if ($_GET['page'] == "module")
@@ -99,7 +99,7 @@ if (isset($_SESSION['studyLogin']) || isset($_SESSION['teachLogin']))
 			if ($_GET['page'] == "deconnexion")
 			{
 				include('script/disconnect.php');
-				$smarty->assign("successMsg", "Déconnection reussie");
+				$smarty->assign("successMsg", "Déconnexion reussie");
 				$smarty->display("template/login.tpl");
 			}
 			else if ($_GET['page'] == "occupationSalle")
