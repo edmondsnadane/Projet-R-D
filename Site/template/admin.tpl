@@ -25,25 +25,24 @@
 						<input type="text" class="form-control" id="filter">
 					</div>
 				</div>
-				<table class="table-striped table center-table col-sm-9 footable" data-filter="#filter" data-filter-text-only="true">
+				<table class="table center-table col-sm-9 footable" data-filter="#filter" data-filter-text-only="true">
 					<thead>
 						<tr>
 						   <th>Nom</th>
 						   <th>Prenom</th>
-						   <th data-hide="phone,tablet" data-sort-ignore="true">Administrateur</th>
-						   <th data-hide="phone,tablet" data-sort-ignore="true">Export vers Giseh</th>
-						   <th data-hide="phone,tablet" data-sort-ignore="true">Bilan des salles</th>
-						   <th data-hide="phone,tablet" data-sort-ignore="true">Bilan des heures des profs</th>
-						   <th data-hide="phone,tablet" data-sort-ignore="true">Bilan des formations</th>
-						   <th data-hide="phone,tablet" data-sort-ignore="true">Afficher ses droits</th>
-						   <th data-hide="phone,tablet" data-sort-ignore="true">Bilan de ses heures</th>
-						   <th data-hide="phone,tablet" data-sort-ignore="true">Export PDF</th>
+						   <th data-hide="phone,tablet" data-sort-ignore="true">Admin</th>
+						   <th data-hide="phone,tablet" data-sort-ignore="true">Giseh</th>
+						   <th data-hide="phone,tablet" data-sort-ignore="true">Bilan salles</th>
+						   <th data-hide="phone,tablet" data-sort-ignore="true">Bilan heures</th>
+						   <th data-hide="phone,tablet" data-sort-ignore="true">Bilan formations</th>
+						   <th data-hide="phone,tablet" data-sort-ignore="true">Droits</th>
+						   <th data-hide="phone,tablet" data-sort-ignore="true">Bilan mes heures</th>
+						   <th data-hide="phone,tablet" data-sort-ignore="true">PDF</th>
 						   <th data-hide="phone,tablet" data-sort-ignore="true">RSS</th>
 						   <th data-hide="phone,tablet" data-sort-ignore="true">Configuration</th>
 						   <th data-hide="phone,tablet" data-sort-ignore="true">Reservation</th>
-						   <th data-hide="phone,tablet" data-sort-ignore="true">Detail des modules</th>
-						   <th data-hide="phone,tablet" data-sort-ignore="true">Séances clicables</th>
-						   <th data-hide="phone,tablet" data-sort-ignore="true">Dialogue de Gestion</th>
+						   <th data-hide="phone,tablet" data-sort-ignore="true">Modules</th>
+						   <th data-hide="phone,tablet" data-sort-ignore="true">Dialogue</th>
 						   <th data-hide="phone,tablet" data-sort-ignore="true">Agenda ICS</th>
 						</tr>
 					</thead>

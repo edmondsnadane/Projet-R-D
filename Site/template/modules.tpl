@@ -105,7 +105,7 @@
 			</div>
 		{/if}
 		
-		<table class="table-striped table center-table col-sm-9 footable">
+		<table class="table center-table col-sm-9 footable">
 			<thead>
 				<tr>
 					<th>Date</th>

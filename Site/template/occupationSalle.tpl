@@ -22,7 +22,7 @@
 		<div class="container">
 			<a role="button" class="btn">Exporter vers EXCEL</a>
 			<br>
-			<table class="table-striped table center-table col-sm-9 footable">
+			<table class="table center-table col-sm-9 footable">
 				<thead>
 					<tr>
 						<th>Salle</th>
@@ -44,7 +44,7 @@
 							<td>{$occupation.taux}</td>
 						</tr>
 						{if $occupation.cumul == TRUE}
-							<tr class="success">
+							<tr class="success" data-hide="phone,tablet">
 								<td colspan="2">TOTAL</td>
 								<td>{$occupation.total_seance}</td>
 								<td>{$occupation.total_reserve}</td>
