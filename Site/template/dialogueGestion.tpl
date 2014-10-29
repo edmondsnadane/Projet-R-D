@@ -1,17 +1,17 @@
 <html>
 	<head>
-		<meta charset="utf-8" />
+		<meta name="viewport" content="width = device-width, initial-scale = 1.0, minimum-scale = 1.0, maximum-scale = 1.0, user-scalable = no" charset="utf-8"/>
 		<title>VT Calendar - Dialogue de gestion</title>
 		<link rel="stylesheet" href="API/bootstrap/css/bootstrap.min.css">
-		<link rel="stylesheet" href="API/bootstrap/css/bootstrap-theme.min.css">
-		<link href="API/footable/css/footable.core.min.css" rel="stylesheet" type="text/css">
-		<link href="API/footable/css/footable.standalone.min.css" rel="stylesheet" type="text/css">
 		<link rel="stylesheet" href="css/common.css"/>
 		<link rel="stylesheet" href="css/dialogueGestion.css"/>
+		<link href="API/footable/css/footable.core.css?v=2-0-1" rel="stylesheet" type="text/css">
 		<script type="text/javascript" src="API/jquery/jquery.js"></script>
 		<script type="text/javascript" src="API/bootstrap/js/bootstrap.min.js"></script>
-		<script type="text/javascript" src="API/footable/js/footable.js"></script>
 		<script type="text/javascript" src="js/loadPage.js"></script>
+		<script type="text/javascript" src="API/footable/js/footable.js"></script>
+		<script src="API/footable/js/footable.sort.js?v=2-0-1" type="text/javascript"></script>
+		<script type="text/javascript" src="js/filterTable.js"></script>
 	</head>
 	<body>
 		{include file='template/include/header.tpl'}
@@ -19,31 +19,34 @@
 		{foreach from=$composantes item=composante}
 			<h2>{$composante.nom}</h2>
 			<table class="footable">
-				<tr>
-					<th>Grade</th>
-					<th data-hide="phone,tablet">Nom des enseignants</th>
-					<th data-hide="phone,tablet">Horaires statuaires</th>
-					<th>Nombre</th>
-					<th data-hide="phone,tablet">Potentiel enseignement en heure</th>
-				</tr>
-				{foreach from=$composante.grades item=grade}
+				<thead>
 					<tr>
-						<td>{$grade.nom}</td>
-						<td class="resource_cell">{$grade.resources}</td>
-						<td>{$grade.heure_vol_stat}h{$grade.minutes_vol_stat}</td>
-						<td>{$grade.nb_prof}</td>
-						<td>{$grade.nb_heure}</td>
+						<th>Grade</th>
+						<th data-hide="phone,tablet">Nom des enseignants</th>
+						<th data-hide="phone,tablet" data-sort-ignore="true">Horaires statuaires</th>
+						<th data-sort-ignore="true">Nombre</th>
+						<th data-hide="phone,tablet" data-sort-ignore="true">Potentiel enseignement en heure</th>
 					</tr>
-				{/foreach}
-				<tr class="success">
-					<td colspan="4" class="potentielLabel">Potentiel Enseignement total</td>
-					<td>{$composante.nbHeure}</td>
-				</tr>
+				</thead>
+				<tbody>
+					{foreach from=$composante.grades item=grade}
+						<tr>
+							<td>{$grade.nom}</td>
+							<td class="resource_cell">{$grade.resources}</td>
+							<td>{$grade.heure_vol_stat}h{$grade.minutes_vol_stat}</td>
+							<td>{$grade.nb_prof}</td>
+							<td>{$grade.nb_heure}</td>
+						</tr>
+					{/foreach}
+					<tr class="success">
+						<td colspan="4" class="potentielLabel">Potentiel Enseignement total</td>
+						<td>{$composante.nbHeure}</td>
+					</tr>
+				</tbody>
 			</table>
 		{/foreach}
 		</div>
 		
 		{include file='template/include/footer.tpl'}
 	</body>
-	<script type="text/javascript" src="js/footableTest.js"></script>
 </html>
