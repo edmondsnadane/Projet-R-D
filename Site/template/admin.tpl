@@ -25,7 +25,7 @@
 						<input type="text" class="form-control" id="filter">
 					</div>
 				</div>
-				<table class="footable" data-filter="#filter" data-filter-text-only="true">
+				<table class="table-striped table center-table col-sm-9 footable" data-filter="#filter" data-filter-text-only="true">
 					<thead>
 						<tr>
 						   <th>Nom</th>

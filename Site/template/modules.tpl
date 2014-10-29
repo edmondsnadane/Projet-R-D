@@ -1,13 +1,17 @@
 <html>
 	<head>
-		<meta charset="utf-8">
+		<meta name="viewport" content="width = device-width, initial-scale = 1.0, minimum-scale = 1.0, maximum-scale = 1.0, user-scalable = no" charset="utf-8"/>
 		<title>VT Calendar - Mes modules</title>
 		<link rel="stylesheet" href="API/bootstrap/css/bootstrap.min.css"/>
 		<link rel="stylesheet" href="css/common.css"/>
+		<link href="API/footable/css/footable.core.css?v=2-0-1" rel="stylesheet" type="text/css">
 		<script src="API/jquery/jquery.js"></script>
 		<script type="text/javascript" src="API/bootstrap/js/bootstrap.js"></script>
 		<script type="text/javascript" src="js/loadPage.js"></script>
 		<script src="js/module.js"></script>
+		<script type="text/javascript" src="API/footable/js/footable.js"></script>
+		<script src="API/footable/js/footable.sort.js?v=2-0-1" type="text/javascript"></script>
+		<script type="text/javascript" src="js/filterTable.js"></script>
 	</head>
 	<body>
 		
@@ -101,18 +105,18 @@
 			</div>
 		{/if}
 		
-		<table class="table-striped table center-table col-sm-9 sortTable">
+		<table class="table-striped table center-table col-sm-9 footable">
 			<thead>
 				<tr>
 					<th>Date</th>
 					<th>Groupes</th>
-					<th>Type</th>
-					<th>Enseignement</th>
-					<th>Profs</th>
-					<th>Salles</th>
-					<th>Heure de début</th>
-					<th>Durée</th>
-					 <th>Effectuée</th>
+					<th data-hide="phone,tablet" data-sort-ignore="true">Type</th>
+					<th data-sort-ignore="true"  data-hide="phone,tablet">Enseignement</th>
+					<th data-hide="phone,tablet" data-sort-ignore="true">Profs</th>
+					<th data-hide="phone,tablet" data-sort-ignore="true">Salles</th>
+					<th data-sort-ignore="true">Heure de début</th>
+					<th data-hide="phone,tablet" data-sort-ignore="true">Durée</th>
+					<th data-hide="phone,tablet" data-sort-ignore="true">Effectuée</th>
 				</tr>
 			</thead>
 			<tbody id="tableContent">

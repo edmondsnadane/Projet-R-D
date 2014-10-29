@@ -18,7 +18,7 @@
 		<div class="container">
 		{foreach from=$composantes item=composante}
 			<h2>{$composante.nom}</h2>
-			<table class="footable">
+			<table class="table-striped table center-table col-sm-9 footable">
 				<thead>
 					<tr>
 						<th>Grade</th>
