@@ -1,7 +1,8 @@
 <html>
 	<head>
 		<meta name="viewport" content="width = device-width, initial-scale = 1.0, minimum-scale = 1.0, maximum-scale = 1.0, user-scalable = no" charset="utf-8"/>
-		<title>VT Calendar - Login</title>
+		<title>VT Agenda - Login</title>
+		<link rel="icon" type="image/png" href="img/glyphicons_calendar_title.png"/>
 		<link rel="stylesheet" href="API/bootstrap/css/bootstrap.min.css"/>
 		<link rel="stylesheet" href="css/common.css"/>
 		<link rel="stylesheet" href="css/login.css"/>
@@ -13,7 +14,7 @@
 	<body>
 		<div class="page-header">
 			<h2><span class="glyphicon glyphicon-calendar"></span>
-				VT CALENDAR 
+				VT AGENDA 
 				<small>consultation des emplois du temps faits avec VT</small><br>
 			</h2>
 		</div>

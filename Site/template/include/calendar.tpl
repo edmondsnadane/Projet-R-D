@@ -1,11 +1,3 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>VT Calendar</title>
-	<meta name="viewport" content="width = device-width, initial-scale = 1.0, minimum-scale = 1.0, maximum-scale = 1.0, user-scalable = no" charset="utf-8"/>
-	<style type="text/css"></style>
-</head>
-<body>
 <div class="container">
 	<div class="page-header" id="groupeFiltre">
 	<div class="row">
@@ -72,5 +64,3 @@
 </div>
 
 <script type="text/javascript" src="API/bootstrap-calendar-master/js/app.js"></script>
-</body>
-</html>

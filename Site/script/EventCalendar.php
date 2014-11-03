@@ -118,7 +118,7 @@ while($ligneCode = $req->fetch()) {
     else if($ligneCode['codeTypeActivite'] == 9) //TP APP
     {
         $eventC = 'event-special';
-    }       
+    }
        
     $out[] = array(
         'id' => $ligneCode['nom'],

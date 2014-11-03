@@ -2,7 +2,8 @@
 	<head>
 		
 		<meta name="viewport" content="width = device-width, initial-scale = 1.0, minimum-scale = 1.0, maximum-scale = 1.0, user-scalable = no" charset="utf-8"/>
-		<title>VT Calendar - Bilan Formation</title>
+		<title>VT Agenda - Bilan Formation</title>
+		<link rel="icon" type="image/png" href="img/glyphicons_calendar_title.png"/>
 		<link rel="stylesheet" href="API/bootstrap/css/bootstrap.min.css"/>
 		<link rel="stylesheet" href="css/common.css"/>
 		<script src="API/jquery/jquery.js"></script>
