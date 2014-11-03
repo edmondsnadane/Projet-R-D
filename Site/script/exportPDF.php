@@ -1,4 +1,6 @@
 <?php
+
+	// TODO : REFAIRE SCRIPT A L'AIDE DE HTML2PDF 
 	session_start();
 	
 	require('../API/fpdf/fpdf.php');
