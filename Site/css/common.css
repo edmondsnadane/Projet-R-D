@@ -1,15 +1,22 @@
 /* CSS commun à l'ensemble des pages */
+html {
+	position: relative;
+	min-height: 100%;
+}
 
 body {
     background: url('../img/bg4.jpg') no-repeat center center fixed;
     /*background-color: #F2F2F2;*/
-    
     text-align: center;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
+    margin: 0 0 40px; /* bottom = footer height */
 }
+
+#main {padding-bottom: 60px;}
+
 .col-centered {
     float: none !important;
     margin: 0 auto !important;
@@ -27,6 +34,20 @@ a {
 #bs-example-navbar-collapse-1 ul li {
     text-align: left;
 }
+
+footer{
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 40px;
+    width: 100%;
+    background-color: #FBFBFB;
+}
+
+table {
+    background-color: white !important;
+}
+
 /*@media (max-width: 770px) {
 	.navbar-toggle{
 		
@@ -45,21 +66,6 @@ padding-bottom: 15px;
 	}
 }*/
 
-.container {
-    padding: 0px 0 60px;
-    min-height: 100%;
-    height: auto !important
-}
-#footer {
-    padding-top: 60px;
-    background-color: #FBFBFB!important;
-    font-size: 10px!important;
-    height: 60px;
-    display: inline;
-}
-#footerText {
-    background-color: #FBFBFB;
-}
 /*
 @media (min-height: 776px){
 	#footerB{
@@ -73,6 +79,3 @@ padding-bottom: 15px;
 	}
 }*/
 
-table {
-    background-color: white !important;
-}
