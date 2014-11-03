@@ -5,7 +5,10 @@
 		<link rel="stylesheet" href="API/bootstrap/css/bootstrap.min.css"/>
 		<link rel="stylesheet" href="css/common.css"/>
 		<link rel="stylesheet" href="css/login.css"/>
+		<script src="API/jquery/jquery.js"></script>
+		<script src="API/bootstrap/js/bootstrap.js"></script>
 		<script type="text/javascript" src="js/loadPage.js"></script>
+		<script type="text/javascript" src="js/login.js"></script>
 	</head>
 	<body>
 		<div class="page-header">
@@ -20,13 +23,9 @@
 				<li><a href="#studyContainer" data-toggle="tab"><span class="glyphicon glyphicon-user"></span> Etudiant</a></li>
 			</ul>
 
-			{if isset($errorMsg)}
-				<div class="alert alert-danger col-md-4 col-centered" role="alert">{$errorMsg}</div>
-			{/if}
-
-			{if isset($successMsg)}
-				<div class="alert alert-success col-md-4 col-centered" role="alert">{$successMsg}</div>
-			{/if}
+			<!-- div - retour login.js -->
+			<div id="retourLoginJs"></div>
+			<!-- ./div - retour login.js -->
 
 			<div id="teachContainer" class="tab-pane fade in active">
 				<div class="row">
@@ -36,23 +35,25 @@
 								<strong class="">Planning des enseignants</strong>
 							</div>
 							<div class="panel-body">
-								<form class="form-horizontal" role="form" method="post" action="script/teachConnectScript.php" onSubmit="return true;">
+								<form class="form-horizontal" role="form" method="post" action="#" id="teachConnect">
 									<div class="form-group">
-										<label for="inputLogin3" class="col-sm-3 control-label">Login</label>
+										<label for="inputLoginEnseignement" class="col-sm-3 control-label">Login</label>
 										<div class="col-sm-9">
-											<input type="text" name="teachLogin" class="form-control" id="inputLogin3" required="" placeholder="Login">
+											<input type="text" name="teachLogin" class="form-control" id="inputLoginEnseignement" required="" placeholder="Login">
 										</div>
 									</div>
 									<div class="form-group">
-										<label for="inputPassword3" class="col-sm-3 control-label">Mdp</label>
+										<label for="inputPasswordEnseignement" class="col-sm-3 control-label">Mdp</label>
 										<div class="col-sm-9">
-											<input type="password" name="teachPwd" class="form-control" id="inputPassword3" placeholder="Mot de passe" required="">
+											<input type="password" name="teachPwd" class="form-control" id="inputPasswordEnseignement" placeholder="Mot de passe" required="">
 										</div>
 									</div>
 
 									<div class="form-group last" id="teachButtons">
-										<button type="reset" class="btn btn-danger btn-sm col-md-6">Annuler</button>
-										<button type="submit" class="btn btn-success btn-sm col-md-6">Valider</button>
+										<div class="btn-group col-xs-12">
+											<button type="reset" class="btn btn-danger btn-sm col-md-6">Annuler</button>
+											<button type="submit" class="btn btn-success btn-sm col-md-6">Valider</button>
+										</div>
 									</div>
 								</form>
 							</div>
@@ -72,7 +73,7 @@
 
 							</div>
 							<div class="panel-body">
-								<form class="form-horizontal" role="form" method="post" action="script/studyConnectScript.php" onSubmit="return true;">
+								<form class="form-horizontal" role="form" method="post" action="#" onSubmit="return true;" id="studyConnect">
 									<div class="form-group">
 										<label for="inputLoginEtudiant" class="col-sm-3 control-label">Login</label>
 										<div class="col-sm-9">
@@ -80,9 +81,11 @@
 										</div>
 									</div>
 
-									<div class="form-group last" id="studyButtons">
-										<button type="reset" class="btn btn-danger btn-sm col-md-6">Annuler</button>
-										<button type="submit" class="btn btn-success btn-sm col-md-6">Valider</button>
+									<div class="form-group" id="studyButtons">
+										<div class="btn-group col-xs-12">
+											<button type="reset" class="btn btn-danger col-xs-6" data-dismiss="modal">Annuler</button>
+											<button type="submit" class="btn btn-success col-xs-6">Valider</button>
+										</div>
 									</div>
 								</form>
 							</div>
@@ -141,8 +144,5 @@
 		</div>
 
 		{include file='template/include/footer.tpl'}
-
-		<script src="API/jquery/jquery.js"></script>
-		<script src="API/bootstrap/js/bootstrap.js"></script>
 	</body>
 </html>

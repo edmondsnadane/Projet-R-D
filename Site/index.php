@@ -217,25 +217,7 @@ else
 	}
 	else
 	{
-		if (isset($_GET['errorID']) && !empty($_GET['errorID']))
-		{	
-			$msg = "";
-			if($_GET['errorID'] == 1)
-			{
-				$msg = "Vous n'avez pas saisi toutes les informations";
-			}
-			elseif ($_GET['errorID'] == 2)
-			{
-				$msg = "L'utilisateur saisi n'existe pas";
-			}
-			elseif ($_GET['errorID'] == 3)
-			{
-				$msg = "La modification de mot de passe a echoué. Les variables saisies ne sont pas correctes";
-			}
-			
-			$smarty->assign("errorMsg", $msg);
-		}
-		else if (isset($_GET['successId']) && !empty($_GET['successId']))
+		if (isset($_GET['successId']) && !empty($_GET['successId']))
 		{
 			$msg = "";
 			if($_GET['successId'] == 1)
