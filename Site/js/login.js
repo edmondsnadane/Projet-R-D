@@ -74,11 +74,63 @@ $(document).ready(function()
                 alert("Appel AJAX impossible");
             });
     });
+	
+	// connexion student
+    $('#modifyMdpForm').submit(function(event)
+	{
+        event.preventDefault();
+
+        $.ajax({
+                type: "POST",
+                url: "script/modifyMdp.php",
+                data:
+				{
+                    loginTeach: $("#inputLogin").val(),
+					oldMdp: $("#inputOldPassword").val(),
+					newMdp1: $("#inputNewPassword1").val(),
+					newMdp2: $("#inputNewPassword2").val()
+                },
+                dataType: "json"
+            })
+            .done(function(elem)
+			{
+                if (elem.connexion === true)
+				{
+                    // connexion réussie
+                    $("#retourLoginJs")
+                        .html(elem.message)
+                        .addClass('alert alert-success col-md-4 col-centered alert-dismissible')
+                        .show();
+						
+					$("modifyMdp").modal('hide');
+                }
+				else
+				{
+                    // connexion échouée
+                    $("#modifyMdpRetour")
+                        .html(elem.message)
+                        .addClass('alert alert-danger alert-dismissible')
+                        .show();
+                }
+            })
+            .fail(function(elem)
+			{
+                alert("Appel AJAX impossible");
+            });
+    });
 
     $('.btn-success').click(function()
 	{
-
         $("#retourLoginJs").hide();
-
+    });
+	
+	 $('#modifyMdp .btn-danger').click(function()
+	{
+        $("#modifyMdpRetour").hide();
+    });
+	
+	 $('#modifyMdpClose').click(function()
+	{
+        $("#modifyMdpRetour").hide();
     });
 });
