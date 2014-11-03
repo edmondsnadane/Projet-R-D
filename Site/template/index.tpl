@@ -1,8 +1,9 @@
 <html>
 	<head>
-		<meta charset="utf-8">
+		
+		<meta name="viewport" content="width = device-width, initial-scale = 1.0, minimum-scale = 1.0, maximum-scale = 1.0, user-scalable = no" charset="utf-8"/>
 		<title>VT Calendar - Accueil</title>
-
+	
 		<link rel="stylesheet" href="css/MyCalendar.css">
 		<link rel="stylesheet" href="API/bootstrap/css/bootstrap.min.css">
 		<link rel="stylesheet" href="API/bootstrap/css/bootstrap-theme.min.css">
