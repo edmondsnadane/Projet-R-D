@@ -73,7 +73,7 @@
 
 							</div>
 							<div class="panel-body">
-								<form class="form-horizontal" role="form" method="post" action="#" onSubmit="return true;" id="studyConnect">
+								<form class="form-horizontal" role="form" method="post" action="#" id="studyConnect">
 									<div class="form-group">
 										<label for="inputLoginEtudiant" class="col-sm-3 control-label">Login</label>
 										<div class="col-sm-9">
