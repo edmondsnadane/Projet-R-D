@@ -96,12 +96,12 @@
 				if ($format=="A4")
 				{
 					$pdf->AddPage('P','A4');
-					$pdf->Image($nom_image.'&'.'current_year='.$annee_debut.'&'.'current_week='.$i,10,20,190);
+					$pdf->Image($nom_image.'&'.'current_year='.$annee_debut.'&'.'current_week='.$i,10,20,190,'PNG');
 				}
 				else
 				{
 					$pdf->AddPage('P','A3');
-					$pdf->Image($nom_image.'&'.'current_year='.$annee_debut.'&'.'current_week='.$i,10,20,277);
+					$pdf->Image($nom_image.'&'.'current_year='.$annee_debut.'&'.'current_week='.$i,10,20,277, 'PNG');
 				}
 				$pdf->Cell(0,2.5,$titre,0,0,'C');
 				$pdf->Cell(0,2.5,"Généré le ".$date_generation,0,1,'R');
@@ -140,12 +140,12 @@
 						if ($format=="A4")
 						{
 							$pdf->AddPage('P','A4');
-							$pdf->Image($nom_image.'&'.'current_year='.$annee_debut.'&'.'current_week='.$i,10,20,190);
+							$pdf->Image($nom_image.'&'.'current_year='.$annee_debut.'&'.'current_week='.$i,10,20,190, 'PNG');
 						}
 						else
 						{
 							$pdf->AddPage('P','A3');
-							$pdf->Image($nom_image.'&'.'current_year='.$annee_debut.'&'.'current_week='.$i,10,20,277);
+							$pdf->Image($nom_image.'&'.'current_year='.$annee_debut.'&'.'current_week='.$i,10,20,277, 'PNG');
 						}
 						$pdf->Cell(0,2.5,$titre,0,0,'C');
 						$pdf->Cell(0,2.5,"Généré le ".$date_generation,0,1,'R');
@@ -179,12 +179,12 @@
 						if ($format=="A4")
 						{
 							$pdf->AddPage('P','A4');
-							$pdf->Image($nom_image.'&'.'current_year='.$j.'&'.'current_week='.$i,10,20,190);
+							$pdf->Image($nom_image.'&'.'current_year='.$j.'&'.'current_week='.$i,10,20,190, 'PNG');
 						}
 						else
 						{
 							$pdf->AddPage('P','A3');
-							$pdf->Image($nom_image.'&'.'current_year='.$j.'&'.'current_week='.$i,10,20,277);
+							$pdf->Image($nom_image.'&'.'current_year='.$j.'&'.'current_week='.$i,10,20,277, 'PNG');
 						}
 						$pdf->Cell(0,2.5,$titre,0,0,'C');
 						$pdf->Cell(0,2.5,"Généré le ".$date_generation,0,1,'R');
@@ -217,12 +217,12 @@
 						if ($format=="A4")
 						{
 							$pdf->AddPage('P','A4');
-							$pdf->Image($nom_image.'&'.'current_year='.$j.'&'.'current_week='.$i,10,20,190);
+							$pdf->Image($nom_image.'&'.'current_year='.$j.'&'.'current_week='.$i,10,20,190, 'PNG');
 						}
 						else
 						{
 							$pdf->AddPage('P','A3');
-							$pdf->Image($nom_image.'&'.'current_year='.$j.'&'.'current_week='.$i,10,20,277);
+							$pdf->Image($nom_image.'&'.'current_year='.$j.'&'.'current_week='.$i,10,20,277, 'PNG');
 						}
 						$pdf->Cell(0,2.5,$titre,0,0,'C');
 						$pdf->Cell(0,2.5,"Généré le ".$date_generation,0,1,'R');

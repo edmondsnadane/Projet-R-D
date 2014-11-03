@@ -1,5 +1,7 @@
 <?php
 
+session_start();
+
 include('../config/config.php');
 
 error_reporting(E_ALL);
@@ -37,14 +39,13 @@ if (isset($_POST['studyLogin']) && !empty($_POST['studyLogin']))
 		$tableau["message"]	  	= "Connexion en cours";
 		$tableau["connexion"] 	= true;
 	}
-	
-	echo json_encode($tableau);
 }
 else
 {
 	$tableau["message"]	  = "informations incorrectes";
 	$tableau["connexion"] = false;
-	echo json_encode($tableau);
 }
+
+echo json_encode($tableau);
 
 ?>

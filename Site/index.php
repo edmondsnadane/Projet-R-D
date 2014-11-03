@@ -217,16 +217,6 @@ else
 	}
 	else
 	{
-		if (isset($_GET['successId']) && !empty($_GET['successId']))
-		{
-			$msg = "";
-			if($_GET['successId'] == 1)
-			{
-				$msg = "Votre mot de passe a été modifié";
-			}
-			$smarty->assign("successMsg", $msg);
-		}
-
 		$smarty->display("template/login.tpl");
 	}
 }
