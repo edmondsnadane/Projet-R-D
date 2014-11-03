@@ -1,8 +1,8 @@
 <html>
 	<head>
 		<meta charset="utf-8">
-		<title>VT Calendar - Mes DS</title>
-
+		<title>VT Agenda - Mes DS</title>
+		<link rel="icon" type="image/png" href="img/glyphicons_calendar_title.png"/>	
 		<link rel="stylesheet" href="API/bootstrap/css/bootstrap.min.css">
 		<link rel="stylesheet" href="API/bootstrap/css/bootstrap-theme.min.css">
 		<link rel="stylesheet" href="API/bootstrap-calendar-master/css/calendar.css">
