@@ -38,24 +38,21 @@
 							<div class="panel-body">
 								<form class="form-horizontal" role="form" method="post" action="#" id="teachConnect">
 									<div class="form-group">
-										<label for="inputLoginEnseignement" class="col-sm-3 control-label">Login</label>
+										<label for="inputLoginEnseignement" class="col-sm-2 control-label">Login</label>
 										<div class="col-sm-9">
 											<input type="text" name="teachLogin" class="form-control" id="inputLoginEnseignement" required="" placeholder="Login">
 										</div>
 									</div>
 									<div class="form-group">
-										<label for="inputPasswordEnseignement" class="col-sm-3 control-label">Mdp</label>
+										<label for="inputPasswordEnseignement" class="col-sm-2 control-label">Mdp</label>
 										<div class="col-sm-9">
 											<input type="password" name="teachPwd" class="form-control" id="inputPasswordEnseignement" placeholder="Mot de passe" required="">
 										</div>
 									</div>
-
 									<div class="form-group last" id="teachButtons">
-										<div class="btn-group col-xs-12">
-											<button type="reset" class="btn btn-danger btn-sm col-md-6">Annuler</button>
-											<button type="submit" class="btn btn-success btn-sm col-md-6">Valider</button>
-										</div>
-									</div>
+										<button type="reset" class="btn btn-danger btn-md col-md-6">Annuler</button>
+										<button type="submit" class="btn btn-success btn-md col-md-6">Valider</button>
+									</div>									
 								</form>
 							</div>
 							<div class="panel-footer">

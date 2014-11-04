@@ -1,37 +1,36 @@
 <div class="container">
 	<div class="page-header" id="groupeFiltre">
-	<div class="row">
-		<div class="col-sm-6" id="rowFiltreleft">
-	
-		<div class="btn-group btn-group-justified" id="filtreToday">
-			<div class="btn-group" >
-				<button class="btn btn-primary" data-calendar-nav="prev"> << </button>
-			</div>	
-			<div class="btn-group" >	
-				<button class="btn btn-default" data-calendar-nav="today"> Aujourd'hui </button>
-			</div>	
-			<div class="btn-group" >	
-				<button class="btn btn-primary" data-calendar-nav="next"> >> </button>
-			</div>	
-		</div>
-</div>		
-	<div class="col-sm-6" id="rowFiltreRight">			
-		<div class="btn-group btn-group-justified" id="filtreAnnee">
-			<div class="btn-group" >	
-				<button class="btn btn-warning" data-calendar-view="year">Année</button>
-			</div>
-			<div class="btn-group" >		
-				<button class="btn btn-warning active" data-calendar-view="month">Mois</button>
-			</div>
-			<div class="btn-group" >
-				<button class="btn btn-warning" data-calendar-view="week">Semaine</button>
-			</div>
-			<div class="btn-group" >	
-				<button class="btn btn-warning" data-calendar-view="day">Jour</button>
+		<div class="row">
+			<div class="col-sm-6" id="rowFiltreleft">
+				<div class="btn-group btn-group-justified" id="filtreToday">
+					<div class="btn-group" >
+						<button class="btn btn-primary" data-calendar-nav="prev"> << </button>
+					</div>	
+					<div class="btn-group" >	
+						<button class="btn btn-default" data-calendar-nav="today"> Aujourd'hui </button>
+					</div>	
+					<div class="btn-group" >	
+						<button class="btn btn-primary" data-calendar-nav="next"> >> </button>
+					</div>	
+				</div>
 			</div>		
+			<div class="col-sm-6" id="rowFiltreRight">			
+				<div class="btn-group btn-group-justified" id="filtreAnnee">
+					<div class="btn-group" >	
+						<button class="btn btn-warning" data-calendar-view="year">Année</button>
+					</div>
+					<div class="btn-group" >		
+						<button class="btn btn-warning active" data-calendar-view="month">Mois</button>
+					</div>
+					<div class="btn-group" >
+						<button class="btn btn-warning" data-calendar-view="week">Semaine</button>
+					</div>
+					<div class="btn-group" >	
+						<button class="btn btn-warning" data-calendar-view="day">Jour</button>
+					</div>		
+				</div>
+			</div>
 		</div>
-	</div>
-	</div>
 			
 		<div class="col-md-6" id="h3MoisAnnee">
 			<h3 class=""></h3>
