@@ -6,12 +6,16 @@
 		<link rel="stylesheet" href="API/bootstrap/css/bootstrap.min.css"/>
 		<link rel="stylesheet" href="css/common.css"/>
 		<link rel="stylesheet" href="css/login.css"/>
+		<link rel="stylesheet" href="css/dialogueGestion.css"/>
+		<link href="API/footable/css/footable.core.css?v=2-0-1" rel="stylesheet" type="text/css">
+		<script type="text/javascript" src="API/bootstrap/js/bootstrap.min.js"></script>
 		<script type="text/javascript" src="js/loadPage.js"></script>
 		<script type="text/javascript" src="API/jquery/jquery.js"></script>
-		<script type="text/javascript" src="API/jquery/jquery.tablesorter.min.js"></script>
 		<script type="text/javascript" src="API/bootstrap/js/bootstrap.js"></script>		
 		<script type="text/javascript" src="js/filterTable.js"></script>
 		<script type="text/javascript" src="js/heure.js"></script>
+		<script type="text/javascript" src="API/footable/js/footable.js"></script>
+		<script src="API/footable/js/footable.sort.js?v=2-0-1" type="text/javascript"></script>
 		
 	</head>
 	
@@ -53,7 +57,7 @@
 				</div>
 			</div>		
 
-			<table class="table-striped table center-table col-sm-9 sortTable">
+			<table class="table-striped table center-table col-sm-9">
 				<thead>
 					<tr>
 						<th>Formation</th>
@@ -62,12 +66,12 @@
 						<th>Date</th>
 						<th>Heure début</th>
 						<th>Heure fin</th>
-						<th>Horaire réparti / nb profs</th>
-						<th>Forfait</th>
-						<th>CM</th>
-						<th>TD</th>
-						<th>TP</th>
-						<th>EqTD</th>
+						<th data-hide="phone,tablet" data-sort-ignore="true">Horaire réparti / nb profs</th>
+						<th data-hide="phone,tablet" data-sort-ignore="true">Forfait</th>
+						<th data-hide="phone,tablet" data-sort-ignore="true">CM</th>
+						<th data-hide="phone,tablet" data-sort-ignore="true">TD</th>
+						<th data-hide="phone,tablet" data-sort-ignore="true">TP</th>
+						<th data-hide="phone,tablet" data-sort-ignore="true">EqTD</th>
 						<th>Effectué</th>
 					</tr>
 				</thead>

@@ -1544,7 +1544,6 @@ if ($seance_non_comptabilisee=='0')
 		}
 
 
-3+
 
 	//duree cr td tp
 

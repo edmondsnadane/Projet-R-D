@@ -14,7 +14,9 @@ function loadSeanceList() {
         success: function(data) {
             var json = JSON.parse(data);
             $("#tableContent").html(json.new_table);
-            $(".sortTable").trigger("update");
+            //$(".sortTable").trigger("update");
+			$(".footable").trigger("update");
+			
         },
         error: function(data) {
             console.log(data);

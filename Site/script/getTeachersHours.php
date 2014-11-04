@@ -46,7 +46,8 @@ if(isset($_GET["prof"]) && $_GET["prof"] != 0) {
 			seances.deleted='0' AND 
 			matieres.deleted='0' AND 
 			enseignements.deleted='0' AND 
-			seances.annulee='0'";
+			seances.annulee='0'
+		ORDER BY seances.dateSeance	";
 			
 	$req = $dbh->prepare($sql);
 	$req->execute(array(':codeProf' => $codeProf));
