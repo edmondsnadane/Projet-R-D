@@ -39,20 +39,28 @@
 								<form class="form-horizontal" role="form" method="post" action="#" id="teachConnect">
 									<div class="form-group">
 										<label for="inputLoginEnseignement" class="col-sm-2 control-label">Login</label>
-										<div class="col-sm-9">
+										<div class="col-sm-10">
 											<input type="text" name="teachLogin" class="form-control" id="inputLoginEnseignement" required="" placeholder="Login">
 										</div>
 									</div>
 									<div class="form-group">
 										<label for="inputPasswordEnseignement" class="col-sm-2 control-label">Mdp</label>
-										<div class="col-sm-9">
+										<div class="col-sm-10">
 											<input type="password" name="teachPwd" class="form-control" id="inputPasswordEnseignement" placeholder="Mot de passe" required="">
 										</div>
 									</div>
+									<!--
 									<div class="form-group last" id="teachButtons">
 										<button type="reset" class="btn btn-danger btn-md col-md-6">Annuler</button>
 										<button type="submit" class="btn btn-success btn-md col-md-6">Valider</button>
-									</div>									
+									</div>
+									-->
+									<div class="form-group" id="teachButtons">
+										<div class="btn-group col-xs-12">
+											<button type="reset" class="btn btn-danger col-xs-6" data-dismiss="modal">Annuler</button>
+											<button type="submit" class="btn btn-success col-xs-6">Valider</button>
+										</div>
+									</div>
 								</form>
 							</div>
 							<div class="panel-footer">
@@ -73,8 +81,8 @@
 							<div class="panel-body">
 								<form class="form-horizontal" role="form" method="post" action="#" id="studyConnect">
 									<div class="form-group">
-										<label for="inputLoginEtudiant" class="col-sm-3 control-label">Login</label>
-										<div class="col-sm-9">
+										<label for="inputLoginEtudiant" class="col-sm-2 control-label">Login</label>
+										<div class="col-sm-10">
 											<input type="text" name="studyLogin" class="form-control" id="inputLoginEtudiant" required="" placeholder="Login">
 										</div>
 									</div>
