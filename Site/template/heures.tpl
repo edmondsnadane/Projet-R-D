@@ -58,13 +58,14 @@
 					</div>
 				</div>
 			</div>		
+			{literal}
+			<a download="seances.csv" onClick ="this.href = $('#tableSeance').tableExportInline({type:'csv',escape:'false',separator:';',consoleLog:true}); return true;">export</a>
+			{/literal}
 			
-			
-			
-			<table class="table center-table col-sm-9 footable">
+			<table class="table-striped table center-table col-sm-9 footable" id="tableSeance">
 				<thead>
 					<tr>
-						<th data-hide="phone,tablet" data-sort-ignore="true">Formation</th>
+						<th data-sort-ignore="true">Formation</th>
 						<th>Code apogée</th>
 						<th>Matière</th>
 						<th data-hide="phone,tablet" data-sort-ignore="true">Date</th>
@@ -83,21 +84,16 @@
 				<tbody id="tableContent"> 
 						{foreach from=$allSeances item=seance}
 							{if $seance.type == 'cumul' }
-								<tr class="cumul">
+						<!--		<tr class="cumul">
 									<td></td>
 									<td></td>
-									<td>{$seance.nomMatiere}</td>
+									<td colspan="6">{$seance.nomMatiere} - cumul des seances : </td>
+									<td>{if $seance.dureeCM !=0}{$seance.dureeCM}{else} {/if} </td>
+									<td>{if $seance.dureeTD !=0}{$seance.dureeTD}{else} {/if} </td>
+									<td>{if $seance.dureeTP !=0}{$seance.dureeTP}{else} {/if} </td>
+									<td>{$seance.eqTD}</td>
 									<td></td>
-									<td></td>
-									<td></td>
-									<td></td>
-									<td> </td>
-									<td>{if $seance.dureeCM !=0}{$seance.dureeCM}{else} --------{/if} </td>
-									<td>{if $seance.dureeTD !=0}{$seance.dureeTD}{else} --------{/if} </td>
-									<td>{if $seance.dureeTP !=0}{$seance.dureeTP}{else} --------{/if} </td>
-									<td></td>
-									<td></td>
-								</tr>
+								</tr> -->
 							{else}
 								<tr>
 									<td>{$seance.nomFormation}</td>
@@ -108,10 +104,10 @@
 									<td>{$seance.heureFin}</td>
 									<td>{if $seance.volumeReparti == 0} NON {else} OUI {/if}</td>
 									<td>{if $seance.forfaitaire == 0} NON {else} OUI {/if} </td>
-									<td>{if $seance.dureeCM !=0}{$seance.dureeCM}{else} --------{/if} </td>
-									<td>{if $seance.dureeTD !=0}{$seance.dureeTD}{else} --------{/if} </td>
-									<td>{if $seance.dureeTP !=0}{$seance.dureeTP}{else} --------{/if} </td>
-									<td>{$seance.codeSeance} {$seance.seancesDureeSeance}</td>
+									<td>{if $seance.dureeCM !=0}{$seance.dureeCM}{else} -{/if} </td>
+									<td>{if $seance.dureeTD !=0}{$seance.dureeTD}{else} -{/if} </td>
+									<td>{if $seance.dureeTP !=0}{$seance.dureeTP}{else} -{/if} </td>
+									<td>{$seance.eqTD}</td>
 									<td>{if $date_actuelle  >= $seance.dateSeanceFormatee } <span class='glyphicon glyphicon-ok-circle'></span> {else}{/if}</td>
 								</tr>
 							{/if}

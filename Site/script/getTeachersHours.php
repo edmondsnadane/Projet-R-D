@@ -60,11 +60,32 @@ function pad_zero($value) {
 	return sprintf("%02d", $value);
 }
 
-function pretty_hour($hour, $minutes) {
-	if ($hour == 0 && $minutes == 0) {
+function add_int_hour($int_hour1, $int_hour2) {
+	$minutes1 = $int_hour1 % 100;
+	$heure1 = floor($int_hour1 / 100) + floor($minutes1 / 60);
+	$minutes1 = $minutes1 % 60;
+	
+	$minutes2 = $int_hour2 % 100;
+	$heure2 = floor($int_hour2 / 100) + floor($minutes2 / 60);
+	$minutes2 = $minutes2 % 60;
+	
+	$heure = $heure1 + $heure2;
+	$minutes = $minutes1 + $minutes2;
+	
+	$heure_result = $heure + floor($minutes / 60);
+	$minutes_result = $minutes	% 60;
+	
+	return $heure_result * 100 + $minutes_result;
+}
+
+function pretty_hour($int_hour) {
+	$minutes = $int_hour % 100;
+	$heure = floor($int_hour / 100) + floor($minutes / 60);
+	$minutes = $minutes % 60;
+	if ($heure == 0 && $minutes == 0) {
 		return "";
 	} else {
-		return pad_zero($hour).'h'.pad_zero($minutes);
+		return pad_zero($heure).'h'.pad_zero($minutes);
 	}
 }
 
@@ -77,41 +98,46 @@ while($ligne = $req->fetch())
 	
 	// Calcul heure Fin avec Heure Début et Durée 
 	$heureFin = $ligne["heureSeance"] + $ligne["seancesDureeSeance"];
-	$minutes = $heureFin % 100;
-	$heure = floor($heureFin / 100) + floor($minutes / 60);
-	$minutes = $minutes % 60;
 	
-	$ligne["heureFin"] = pretty_hour($heure, $minutes);
-	$ligne["heureDebut"] = pretty_hour(floor($ligne["heureSeance"] / 100), floor($ligne["heureSeance"] % 100));
+	$ligne["heureFin"] = pretty_hour($heureFin);
+	$ligne["heureDebut"] = pretty_hour($ligne["heureSeance"]);
 	
 	$dureeCM = $taux_type_ens[$ligne["codeTypeActivite"]][0] * $ligne["seancesDureeSeance"];
 	$dureeTD = $taux_type_ens[$ligne["codeTypeActivite"]][1] * $ligne["seancesDureeSeance"];
 	$dureeTP = $taux_type_ens[$ligne["codeTypeActivite"]][2] * $ligne["seancesDureeSeance"];
+	$eqTD = ($dureeCM > 0 ? $dureeCM + 130 : 0) + $dureeTD + $dureeTP; 
 	
 	if(array_key_exists($ligne["nomMatiere"], $cumuls)) {
-		$cumulsMatiere = $cumuls[$ligne["nomMatiere"]];
-		$cumulsMatiere["dureeCM"] += $dureeCM;
-		$cumulsMatiere["dureeTD"] += $dureeTD;
-		$cumulsMatiere["dureeTP"] += $dureeTP;
+		$cumuls[$ligne["nomMatiere"]]["dureeCM"] = add_int_hour($cumuls[$ligne["nomMatiere"]]["dureeCM"], $dureeCM);
+		$cumuls[$ligne["nomMatiere"]]["dureeTD"] = add_int_hour($cumuls[$ligne["nomMatiere"]]["dureeTD"], $dureeTD);
+		$cumuls[$ligne["nomMatiere"]]["dureeTP"] = add_int_hour($cumuls[$ligne["nomMatiere"]]["dureeTP"], $dureeTP);
+		$cumuls[$ligne["nomMatiere"]]["eqTD"] = add_int_hour($cumuls[$ligne["nomMatiere"]]["eqTD"], $eqTD);
 	} else {
 	    $cumuls[$ligne["nomMatiere"]] = array(
 			"type" => "cumul",
 			"nomMatiere" => $ligne["nomMatiere"],
 			"dureeCM" => $dureeCM, 
 			"dureeTD" => $dureeTD, 
-			"dureeTP" => $dureeTP
+			"dureeTP" => $dureeTP,
+			"eqTD" => $eqTD
 		);
 	}
 	
-	$ligne["dureeCM"] = pretty_hour(floor($dureeCM / 100), floor($dureeCM % 100));
-	$ligne["dureeTD"] = pretty_hour(floor($dureeTD / 100), floor($dureeTD % 100));
-	$ligne["dureeTP"] = pretty_hour(floor($dureeTP / 100), floor($dureeTP % 100));
+	$ligne["dureeCM"] = pretty_hour($dureeCM);
+	$ligne["dureeTD"] = pretty_hour($dureeTD);
+	$ligne["dureeTP"] = pretty_hour($dureeTP);
+	$ligne["eqTD"] = pretty_hour($eqTD);
 	$ligne["type"] = "normal";
 	
 	array_push($allSeances, $ligne);
 }
 
 foreach($cumuls as $cumul) {
+	$cumul["dureeCM"] = pretty_hour($cumul["dureeCM"]);
+	$cumul["dureeTD"] = pretty_hour($cumul["dureeTD"]);
+	$cumul["dureeTP"] = pretty_hour($cumul["dureeTP"]);
+	$cumul["eqTD"] = pretty_hour($cumul["eqTD"]);
+	
 	array_push($allSeances, $cumul);
 }
 
