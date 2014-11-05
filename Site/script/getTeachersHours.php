@@ -68,11 +68,12 @@ function pretty_hour($hour, $minutes) {
 	}
 }
 
+$cumuls = array();
 while($ligne = $req->fetch())
 {
 	// On retourne le sens de  la date de la séance
-	//$ligne["dateSeance"] = date("d-m-Y", strtotime($ligne["dateSeance"]));
-	$ligne["dateSeance"] = date("Y-m-d", strtotime($ligne["dateSeance"]));
+	$ligne["dateSeance"] = date("d-m-Y", strtotime($ligne["dateSeance"]));
+	$ligne["dateSeanceFormatee"] = date("Y-m-d", strtotime($ligne["dateSeance"]));
 	
 	// Calcul heure Fin avec Heure Début et Durée 
 	$heureFin = $ligne["heureSeance"] + $ligne["seancesDureeSeance"];
@@ -87,12 +88,31 @@ while($ligne = $req->fetch())
 	$dureeTD = $taux_type_ens[$ligne["codeTypeActivite"]][1] * $ligne["seancesDureeSeance"];
 	$dureeTP = $taux_type_ens[$ligne["codeTypeActivite"]][2] * $ligne["seancesDureeSeance"];
 	
+	if(array_key_exists($ligne["nomMatiere"], $cumuls)) {
+		$cumulsMatiere = $cumuls[$ligne["nomMatiere"]];
+		$cumulsMatiere["dureeCM"] += $dureeCM;
+		$cumulsMatiere["dureeTD"] += $dureeTD;
+		$cumulsMatiere["dureeTP"] += $dureeTP;
+	} else {
+	    $cumuls[$ligne["nomMatiere"]] = array(
+			"type" => "cumul",
+			"nomMatiere" => $ligne["nomMatiere"],
+			"dureeCM" => $dureeCM, 
+			"dureeTD" => $dureeTD, 
+			"dureeTP" => $dureeTP
+		);
+	}
+	
 	$ligne["dureeCM"] = pretty_hour(floor($dureeCM / 100), floor($dureeCM % 100));
 	$ligne["dureeTD"] = pretty_hour(floor($dureeTD / 100), floor($dureeTD % 100));
 	$ligne["dureeTP"] = pretty_hour(floor($dureeTP / 100), floor($dureeTP % 100));
-
+	$ligne["type"] = "normal";
+	
 	array_push($allSeances, $ligne);
+}
 
+foreach($cumuls as $cumul) {
+	array_push($allSeances, $cumul);
 }
 
 $req->closeCursor();

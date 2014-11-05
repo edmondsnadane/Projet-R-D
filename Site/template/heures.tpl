@@ -4,8 +4,6 @@
 		<meta name="viewport" content="width = device-width, initial-scale = 1.0, minimum-scale = 1.0, maximum-scale = 1.0, user-scalable = no" charset="utf-8"/>
 		<title>VT Calendar - Mes heures</title>
 		<link rel="stylesheet" href="API/bootstrap/css/bootstrap.min.css"/>
-		<link rel="stylesheet" href="css/common.css"/>
-		<link rel="stylesheet" href="css/login.css"/>
 		<link rel="stylesheet" href="css/dialogueGestion.css"/>
 		<link href="API/footable/css/footable.core.css?v=2-0-1" rel="stylesheet" type="text/css">
 		<script type="text/javascript" src="API/bootstrap/js/bootstrap.min.js"></script>
@@ -16,6 +14,10 @@
 		<script type="text/javascript" src="js/heure.js"></script>
 		<script type="text/javascript" src="API/footable/js/footable.js"></script>
 		<script src="API/footable/js/footable.sort.js?v=2-0-1" type="text/javascript"></script>
+		<script type="text/javascript" src="API/tableExport/tableExport.js"></script>
+		<script type="text/javascript" src="API/tableExport/jquery.base64.js"></script>
+		<link rel="stylesheet" href="css/common.css"/>
+		<link rel="stylesheet" href="css/login.css"/>
 		
 	</head>
 	
@@ -56,47 +58,67 @@
 					</div>
 				</div>
 			</div>		
-
-			<table class="table-striped table center-table col-sm-9">
+			
+			
+			
+			<table class="table center-table col-sm-9 footable">
 				<thead>
 					<tr>
-						<th>Formation</th>
+						<th data-hide="phone,tablet" data-sort-ignore="true">Formation</th>
 						<th>Code apogée</th>
 						<th>Matière</th>
-						<th>Date</th>
-						<th>Heure début</th>
-						<th>Heure fin</th>
+						<th data-hide="phone,tablet" data-sort-ignore="true">Date</th>
+						<th data-hide="phone,tablet" data-sort-ignore="true">Heure début</th>
+						<th data-hide="phone,tablet" data-sort-ignore="true">Heure fin</th>
 						<th data-hide="phone,tablet" data-sort-ignore="true">Horaire réparti / nb profs</th>
 						<th data-hide="phone,tablet" data-sort-ignore="true">Forfait</th>
 						<th data-hide="phone,tablet" data-sort-ignore="true">CM</th>
 						<th data-hide="phone,tablet" data-sort-ignore="true">TD</th>
 						<th data-hide="phone,tablet" data-sort-ignore="true">TP</th>
 						<th data-hide="phone,tablet" data-sort-ignore="true">EqTD</th>
-						<th>Effectué</th>
+						<th data-hide="phone,tablet" data-sort-ignore="true">Effectué</th>
 					</tr>
 				</thead>
 				
 				<tbody id="tableContent"> 
 						{foreach from=$allSeances item=seance}
-							<tr>
-								<td>{$seance.nomFormation}</td>
-								<td>{$seance.codeApogee}</td>
-								<td>{$seance.nomMatiere}</td>
-								<td>{$seance.dateSeance}</td>
-								<td>{$seance.heureDebut}</td>
-								<td>{$seance.heureFin}</td>
-								<td>{if $seance.volumeReparti == 0} NON {else} OUI {/if}</td>
-								<td>{if $seance.forfaitaire == 0} NON {else} OUI {/if} </td>
-								<td>{if $seance.dureeCM !=0}{$seance.dureeCM}{else} --------{/if} </td>
-								<td>{if $seance.dureeTD !=0}{$seance.dureeTD}{else} --------{/if} </td>
-								<td>{if $seance.dureeTP !=0}{$seance.dureeTP}{else} --------{/if} </td>
-								<td>{$seance.codeSeance} {$seance.seancesDureeSeance}</td>
-								<td><td>{if $date_actuelle  >= $seance.dateSeance } <span class='glyphicon glyphicon-ok-circle'></span> {else}{/if}</td>
-							</tr>	
+							{if $seance.type == 'cumul' }
+								<tr class="cumul">
+									<td></td>
+									<td></td>
+									<td>{$seance.nomMatiere}</td>
+									<td></td>
+									<td></td>
+									<td></td>
+									<td></td>
+									<td> </td>
+									<td>{if $seance.dureeCM !=0}{$seance.dureeCM}{else} --------{/if} </td>
+									<td>{if $seance.dureeTD !=0}{$seance.dureeTD}{else} --------{/if} </td>
+									<td>{if $seance.dureeTP !=0}{$seance.dureeTP}{else} --------{/if} </td>
+									<td></td>
+									<td></td>
+								</tr>
+							{else}
+								<tr>
+									<td>{$seance.nomFormation}</td>
+									<td>{$seance.codeApogee}</td>
+									<td>{$seance.nomMatiere}</td>
+									<td>{$seance.dateSeance}</td>
+									<td>{$seance.heureDebut}</td>
+									<td>{$seance.heureFin}</td>
+									<td>{if $seance.volumeReparti == 0} NON {else} OUI {/if}</td>
+									<td>{if $seance.forfaitaire == 0} NON {else} OUI {/if} </td>
+									<td>{if $seance.dureeCM !=0}{$seance.dureeCM}{else} --------{/if} </td>
+									<td>{if $seance.dureeTD !=0}{$seance.dureeTD}{else} --------{/if} </td>
+									<td>{if $seance.dureeTP !=0}{$seance.dureeTP}{else} --------{/if} </td>
+									<td>{$seance.codeSeance} {$seance.seancesDureeSeance}</td>
+									<td>{if $date_actuelle  >= $seance.dateSeanceFormatee } <span class='glyphicon glyphicon-ok-circle'></span> {else}{/if}</td>
+								</tr>
+							{/if}
 						{/foreach}
 
 				</tbody>
-
+				
 			</table>
 		</div>
 		

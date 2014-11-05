@@ -51,6 +51,10 @@ table {
     background-color: white !important;
 }
 
+.cumul {
+	background-color: #90EE90;
+}
+
 /*@media (max-width: 770px) {
 	.navbar-toggle{
 		
