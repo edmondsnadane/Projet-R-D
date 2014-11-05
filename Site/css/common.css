@@ -27,7 +27,7 @@ body {
 .form-group.last {
     margin-bottom: 0px;
 }
-a {
+a, #footerText span {
     cursor: pointer;
 }
 #bs-example-navbar-collapse-1 ul li {
@@ -54,35 +54,3 @@ table {
 .cumul {
 	background-color: #90EE90;
 }
-
-/*@media (max-width: 770px) {
-	.navbar-toggle{
-		
-	}
-}*/
-/*
-@media (min-width: 1030px){
-.navbar-nav>li>a {
-padding-top: 15px;
-padding-bottom: 15px;
-}
-}
-@media (min-width: 1030px){
-	.navbar-toggle {
-	display: none;
-	}
-}*/
-
-/*
-@media (min-height: 776px){
-	#footerB{
-		display: none !important;
-	}
-}
-@media screen and (device-height: 768px ){
-  #footerB {
-		display: none!important;
-		background-color: black;
-	}
-}*/
-
