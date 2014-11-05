@@ -10,17 +10,26 @@ include('../config/config.php');
 $start = $_REQUEST['from'] / 1000;
 $end   = $_REQUEST['to'] / 1000;
 $loginUtilisateur = "";
-      
- if (isset($_SESSION['teachLogin']))
+     
+if (isset($_SESSION['teachLogin']))
 {
     $loginUtilisateur = $_SESSION['teachLogin'];
 }
-else
+else if (isset($_COOKIE['teachLogin']))
 {
     $loginUtilisateur = $_COOKIE['teachLogin'];
 }
+else if (isset($_SESSION['studyLogin'])){
+    $loginUtilisateur = $_SESSION['studyLogin'];
+}
+else if (isset($_COOKIE['studyLogin']))
+{
+    $loginUtilisateur = $_SESSION['studyLogin'];
+}
 
 $out = array();
+//si l'utilisateur est un prof
+if(($loginUtilisateur == isset($_SESSION['teachLogin'])) || ($loginUtilisateur == isset($_COOKIE['teachLogin']))) {
 $sql=sprintf('SELECT seances.dateSeance, seances.heureSeance, seances.dureeSeance,
                 enseignements.nom, enseignements.couleurFond,enseignements.alias,
                 enseignements.codeTypeSalle, types_activites.codeTypeActivite, types_activites.alias,
@@ -34,10 +43,45 @@ $sql=sprintf('SELECT seances.dateSeance, seances.heureSeance, seances.dureeSeanc
                 WHERE seances_profs.deleted =  "0"
                 AND seances.deleted =  "0"
                 AND matieres.deleted =  "0"
-                AND matieres.deleted =  "0"
                 AND seances.annulee =  "0"
                 AND login_prof.login = '.$dbh->quote($loginUtilisateur, PDO::PARAM_STR));
-
+ 
+}
+else if (($loginUtilisateur == isset($_SESSION['studyLogin'])) || ($loginUtilisateur == isset($_COOKIE['studyLogin']))) { //si l'utilisateur est un etudiant
+    $sql=sprintf('SELECT seances.dateSeance, seances.heureSeance, seances.dureeSeance,
+                enseignements.nom, enseignements.couleurFond,enseignements.alias,
+                enseignements.codeTypeSalle, types_activites.codeTypeActivite, types_activites.alias,
+                matieres.couleurFond, matieres.nom, login_prof.login
+                FROM seances
+                inner join seances_groupes on seances.codeSeance=seances_groupes.codeSeance
+                LEFT JOIN seances_profs ON seances.codeSeance = seances_profs.codeSeance
+                LEFT JOIN enseignements ON seances.codeEnseignement = enseignements.codeEnseignement
+                inner join ressources_groupes on seances_groupes.codeRessource = ressources_groupes.codeGroupe
+                inner join ressources_groupes_etudiants on ressources_groupes.codeGroupe = ressources_groupes_etudiants.codeGroupe
+                inner join ressources_etudiants on ressources_groupes_etudiants.codeEtudiant = ressources_etudiants.codeEtudiant
+                RIGHT JOIN matieres ON matieres.codeMatiere = enseignements.codeMatiere
+                LEFT JOIN login_prof ON login_prof.codeprof = seances_profs.codeRessource
+                INNER JOIN types_activites on enseignements.codeTypeActivite = types_activites.codeTypeActivite
+                WHERE seances_profs.deleted =  "0"
+                AND seances.deleted =  "0"
+                AND matieres.deleted =  "0"
+                AND seances.annulee =  "0"
+                AND seances_groupes.deleted = "0"
+                AND ressources_groupes.deleted = "0"
+                AND ressources_etudiants.deleted = "0"
+                AND ressources_etudiants.nom = '.$dbh->quote($loginUtilisateur, PDO::PARAM_STR));
+                    /*SELECT * 
+FROM seances
+inner join seances_groupes on seances.codeSeance=seances_groupes.codeSeance
+inner join enseignements on seances.codeEnseignement=enseignements.codeEnseignement
+inner join ressources_groupes
+on seances_groupes.codeRessource = ressources_groupes.codeGroupe
+inner join ressources_groupes_etudiants
+on ressources_groupes.codeGroupe = ressources_groupes_etudiants.codeGroupe
+inner join ressources_etudiants
+on ressources_groupes_etudiants.codeEtudiant = ressources_etudiants.codeEtudiant
+             */  
+}
 $req = $dbh->prepare($sql);
 $req->execute();
 
@@ -129,6 +173,7 @@ while($ligneCode = $req->fetch()) {
         'end' => $timeFin*1000
     );
 }
+
 echo json_encode(array('success' => 1, 'result' => $out));
 $req->closeCursor();
 exit;
