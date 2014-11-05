@@ -7,6 +7,6 @@
 	$req_modif_config=$dbh->prepare($sql);
 	$req_modif_config->execute(array(':weekend'=>$_POST['weekend'],':heureDebut'=>$_POST['beginTime'],':heureFin'=>$_POST['endTime'],':login'=>$_SESSION['teachLogin']));
 
-	echo "configuration modifiée";
+	echo "configuration modifiÃ©e";
 	
 ?>

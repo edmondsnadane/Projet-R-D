@@ -1,28 +1,37 @@
-function modifyConfig()
+$(document).ready(function()
 {
-    var weekend = $('#weekend :selected').val();
-	var beginTime = $('#beginTime :selected').val();
-	var endTime = $('#endTime :selected').val();
 
-    $.ajax({
-        type: "POST",
-        url: "./script/modifyConfig.php",
-        data: {
-            weekend: weekend,
-			beginTime: benginTime,
-			endTime : endTime
-        },
-        cache: false,
-        dateType: 'text',
-        success: function(data)
-		{
-            $("#retourLoginJs")
-                .html(data)
-                .addClass('alert alert-success col-md-4 col-centered alert-dismissible');
-        },
-        error: function(data)
-		{
-            alert(data);
-        }
+    // connexion teacher
+    $('#modifyConfigForm').submit(function(event)
+	{
+
+		var weekendVal = $('#weekend :selected').val();
+		var beginTimeVal = $('#beginTime :selected').val();
+		var endTimeVal = $('#endTime :selected').val();
+		
+        event.preventDefault();
+
+        $.ajax({
+                type: "POST",
+				url: "./script/modifyConfig.php",
+				data: {
+					weekend: weekendVal,
+					beginTime: beginTimeVal,
+					endTime : endTimeVal
+				},
+				cache: false,
+				dateType: 'text'
+            })
+            .done(function(elem)
+			{
+                // connexion échouée
+                $("#retourLoginJs")
+                    .html(elem)
+                    .addClass('alert alert-success col-centered alert-dismissible')
+            })
+            .fail(function(elem)
+			{
+                alert("Appel AJAX impossible");
+            });
     });
-}
+});

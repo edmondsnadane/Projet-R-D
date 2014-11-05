@@ -24,7 +24,7 @@
 						<strong class="">Modifier votre configuration</strong>
 					</div>
 					<div class="panel-body">
-						<form class="form-horizontal" role="form" method="post" action="#" onSubmit="return modifyConfig();">
+						<form class="form-horizontal" id="modifyConfigForm" role="form" method="post" action="#">
 							<div class="form-group">
 								<label for="weekend" class="col-sm-3 control-label">Weekend ?</label>
 								<div class="col-sm-9">
