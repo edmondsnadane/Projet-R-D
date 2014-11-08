@@ -15,15 +15,19 @@
 		<script type="text/javascript" src="API/footable/js/footable.js"></script>
 		<script src="API/footable/js/footable.sort.js?v=2-0-1" type="text/javascript"></script>
 		<script type="text/javascript" src="js/filterTable.js"></script>
+		<script type="text/javascript" src="API/tableExport/tableExport.js"></script>
+		<script type="text/javascript" src="API/tableExport/jquery.base64.js"></script>
 	</head>
 	<body>
 		
 		{include file='template/include/header.tpl'}
 		
 		<div class="container">
-			<a role="button" class="btn">Exporter vers EXCEL</a>
+			{literal}
+				<a download="OccupationSalle.csv" onClick ="this.href = $('#tableOccSalle').tableExportInline({type:'csv',escape:'false',separator:';',consoleLog:true}); return true;">Exporter vers Excel</a>
+			{/literal}
 			<br>
-			<table class="table center-table col-sm-9 footable">
+			<table class="table center-table col-sm-9 footable" id="tableOccSalle">
 				<thead>
 					<tr>
 						<th>Salle</th>
