@@ -80,6 +80,7 @@
 		{if isset($teachLogin)}
 			<li onClick="loadConfig()"><a><span class="glyphicon glyphicon-wrench"></span> Configuration</a></li>
 		{/if}
+		<li onClick="loadHelp()"><a><span class="glyphicon glyphicon-question-sign"></span> Aide</a></li>
 		<li onClick="deconnect()"><a><span class="glyphicon glyphicon-off"></span> Déconnexion</a></li>
       </ul>
     </div><!-- /.navbar-collapse -->

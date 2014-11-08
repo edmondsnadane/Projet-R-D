@@ -27,7 +27,7 @@ $(document).ready(function()
 				{
                     // connexion échouée
                     $("#retourLoginJs")
-                        .html(elem.message)
+                        .html("<span class='glyphicon glyphicon-warning-sign'></span> "  + elem.message)
                         .addClass('alert alert-danger col-md-4 col-centered alert-dismissible')
                         .show();
                 }
@@ -64,7 +64,7 @@ $(document).ready(function()
 				{
                     // connexion échouée
                     $("#retourLoginJs")
-                        .html(elem.message)
+                        .html("<span class='glyphicon glyphicon-warning-sign'></span> "  + elem.message)
                         .addClass('alert alert-danger col-md-4 col-centered alert-dismissible')
                         .show();
                 }
@@ -98,7 +98,7 @@ $(document).ready(function()
 				{
                     // connexion réussie
                     $("#retourLoginJs")
-                        .html(elem.message)
+                        .html("<span class='glyphicon glyphicon-ok-circle'></span> "  + elem.message)
                         .addClass('alert alert-success col-md-4 col-centered alert-dismissible')
                         .show();
 						
@@ -108,7 +108,7 @@ $(document).ready(function()
 				{
                     // connexion échouée
                     $("#modifyMdpRetour")
-                        .html(elem.message)
+                        .html("<span class='glyphicon glyphicon-warning-sign'></span> "  + elem.message)
                         .addClass('alert alert-danger alert-dismissible')
                         .show();
                 }

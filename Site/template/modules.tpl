@@ -85,7 +85,7 @@
 								<div class="col-sm-9">
 									<select name="profs" class="form-control" id="profs" required="" onChange="loadModuleList()">
 										{foreach from=$profs item=prof}
-											<option value={$prof.codeProf}>{$prof.prenom} {$prof.nom}</option>
+											<option value={$prof.codeProf}>{$prof.nom} {$prof.prenom}</option>
 										{/foreach}
 									</select>
 								</div>

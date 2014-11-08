@@ -26,7 +26,7 @@ $(document).ready(function()
 			{
                 // connexion échouée
                 $("#retourLoginJs")
-                    .html(elem)
+                    .html("<span class='glyphicon glyphicon-ok-circle'></span> "  + elem)
                     .addClass('alert alert-success col-centered alert-dismissible')
             })
             .fail(function(elem)
