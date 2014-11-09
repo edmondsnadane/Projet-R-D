@@ -61,3 +61,16 @@ table {
     padding: 0!important;
   }
 }
+
+#aAccueil, #aConfig, #aAide {
+    padding-right: 0!important;
+}
+
+#cal-day-box .day-event {
+    position: absolute!important;
+    margin-left: 20px!important;
+}
+
+.cal-hours {
+    display: none;
+}

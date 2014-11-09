@@ -76,11 +76,11 @@
         </li>
       </ul>
 	  <ul class="nav navbar-nav navbar-right">
-		<li onClick="loadIndex()"><a><span class="glyphicon glyphicon-home"></span> Accueil</a></li>
+		<li onClick="loadIndex()"><a id="aAccueil"><span class="glyphicon glyphicon-home"></span> Accueil</a></li>
 		{if isset($teachLogin)}
-			<li onClick="loadConfig()"><a><span class="glyphicon glyphicon-wrench"></span> Configuration</a></li>
+			<li onClick="loadConfig()"><a id="aConfig"><span class="glyphicon glyphicon-wrench"></span> Configuration</a></li>
 		{/if}
-		<li onClick="loadHelp()"><a><span class="glyphicon glyphicon-question-sign"></span> Aide</a></li>
+		<li onClick="loadHelp()"><a id="aAide"><span class="glyphicon glyphicon-question-sign"></span> Aide</a></li>
 		<li onClick="deconnect()"><a><span class="glyphicon glyphicon-off"></span> Déconnexion</a></li>
       </ul>
     </div><!-- /.navbar-collapse -->
