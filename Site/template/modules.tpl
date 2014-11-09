@@ -13,6 +13,8 @@
 		<script src="js/module.js"></script>
 		<script type="text/javascript" src="API/footable/js/footable.js"></script>
 		<script type="text/javascript" src="js/filterTable.js"></script>
+		<script type="text/javascript" src="API/tableExport/tableExport.js"></script>
+		<script type="text/javascript" src="API/tableExport/jquery.base64.js"></script>
 	</head>
 	<body>
 		
@@ -102,11 +104,16 @@
 							</div>
 						</form>
 					</div>
+					<div class="panel-footer">
+						{literal}
+							<a download="modules.csv" onClick ="this.href = $('#tableModule').tableExportInline({type:'csv',escape:'false',separator:';',consoleLog:true}); return true;">Export vers Excel</a>
+						{/literal}
+					</div>
 				</div>
 			</div>
 		{/if}
 		
-		<table class="table center-table col-sm-9 footable">
+		<table class="table center-table col-sm-9 footable" id="tableModule">
 			<thead>
 				<tr>
 					<th>Date</th>
