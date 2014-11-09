@@ -13,6 +13,7 @@
 		<script src="js/module.js"></script>
 		<script type="text/javascript" src="API/footable/js/footable.js"></script>
 		<script type="text/javascript" src="js/filterTable.js"></script>
+		
 		<script type="text/javascript" src="API/tableExport/tableExport.js"></script>
 		<script type="text/javascript" src="API/tableExport/jquery.base64.js"></script>
 	</head>
@@ -106,7 +107,7 @@
 					</div>
 					<div class="panel-footer">
 						{literal}
-							<a download="modules.csv" onClick ="this.href = $('#tableModule').tableExportInline({type:'csv',escape:'false',separator:';',consoleLog:true}); return true;">Export vers Excel</a>
+							<a download="module.csv" onClick ="this.href = $('#tableModule').tableExportInline({type:'csv',escape:'false',separator:';',consoleLog:true}); return true;">Export vers Excel</a>
 						{/literal}
 					</div>
 				</div>

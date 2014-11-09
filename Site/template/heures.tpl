@@ -11,12 +11,12 @@
 		<script type="text/javascript" src="API/jquery/jquery.js"></script>
 		<script type="text/javascript" src="API/bootstrap/js/bootstrap.js"></script>		
 		<script type="text/javascript" src="js/filterTable.js"></script>
+		<script type="text/javascript" src="API/googleCharts/googleCharts.js"></script>
 		<script type="text/javascript" src="js/heure.js"></script>
 		<script type="text/javascript" src="API/footable/js/footable.js"></script>
 		<script src="API/footable/js/footable.sort.js?v=2-0-1" type="text/javascript"></script>
 		<script type="text/javascript" src="API/tableExport/tableExport.js"></script>
 		<script type="text/javascript" src="API/tableExport/jquery.base64.js"></script>
-		<script type="text/javascript" src="API/googleCharts/googleCharts.js"></script>
 		<link rel="stylesheet" href="css/common.css"/>
 		<link rel="stylesheet" href="css/login.css"/>
 		
@@ -58,17 +58,13 @@
 						</form>
 					</div>
 					<div class="panel-footer">
-						{literal}
-							<a download="seances.csv" onClick ="this.href = $('#tableSeance').tableExportInline({type:'csv',escape:'false',separator:';',consoleLog:true}); return true;">Exporter vers Excel</a>
-						{/literal}
+							<a download="seances.csv" {literal}onClick ="this.href = $('#tableSeance').tableExportInline({type:'csv',escape:'false',separator:';',consoleLog:true}); return true;"{/literal}>Exporter vers Excel</a>
 					</div>
-					
 				</div>
-				
 			</div>		
 			
 			
-			<table class="table-striped table center-table col-sm-9 footable" id="tableSeance">
+			<table class="table-striped table center-table footable" id="tableSeance">
 				<thead>
 					<tr>
 						<th data-sort-ignore="true">Formation</th>
@@ -83,18 +79,18 @@
 						<th data-hide="phone,tablet" data-sort-ignore="true">TD</th>
 						<th data-hide="phone,tablet" data-sort-ignore="true">TP</th>
 						<th data-hide="phone,tablet" data-sort-ignore="true">EqTD</th>
-						<th data-hide="phone,tablet" data-sort-ignore="true">Effectué</th>
+						<th data-sort-ignore="true">Effectué</th>
 					</tr>
 				</thead>
 				
 				<tbody id="tableContent">
 					{include file='template/heures_tab.tpl'}
 				</tbody>
-				
 			</table>
-			
-			<br>
-			<div id="chart_div" class="hidden-xs hidden-sm"></div>
+
+			<div id="chart_div" class="hidden-xs hidden-sm">
+
+
 		</div>
 		
 		{include file='template/include/footer.tpl'}

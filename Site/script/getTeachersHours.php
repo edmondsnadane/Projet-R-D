@@ -90,14 +90,18 @@ function pretty_hour($int_hour) {
 }
 
 $cumuls = array();
+$heuresParMois = array(9 => 0, 10 => 0, 11 => 0, 12 => 0, 1 => 0, 2 => 0, 3 => 0, 4 => 0, 5 => 0, 6 => 0, 7 => 0, 8 => 0);
 while($ligne = $req->fetch())
 {
 	// On retourne le sens de  la date de la séance
 	$ligne["dateSeance"] = date("d-m-Y", strtotime($ligne["dateSeance"]));
 	$ligne["dateSeanceFormatee"] = date("Y-m-d", strtotime($ligne["dateSeance"]));
 	
+	$currMonth = (int)date("m", strtotime($ligne["dateSeance"]));
+	$heuresParMois[$currMonth] = add_int_hour($heuresParMois[$currMonth], $ligne["seancesDureeSeance"]);
+	
 	// Calcul heure Fin avec Heure Début et Durée 
-	$heureFin = $ligne["heureSeance"] + $ligne["seancesDureeSeance"];
+	$heureFin = add_int_hour($ligne["heureSeance"], $ligne["seancesDureeSeance"]);
 	
 	$ligne["heureFin"] = pretty_hour($heureFin);
 	$ligne["heureDebut"] = pretty_hour($ligne["heureSeance"]);
@@ -139,6 +143,14 @@ foreach($cumuls as $cumul) {
 	$cumul["eqTD"] = pretty_hour($cumul["eqTD"]);
 	
 	array_push($allSeances, $cumul);
+}
+
+
+setlocale (LC_TIME, 'fr_FR','fra'); 
+
+foreach($heuresParMois as $month => $cumulHeures) {
+	$strMonth = date('F', mktime(0, 0, 0, $month, 10));
+	$heuresParMois[$month] = array("num" => $cumulHeures, "str" => pretty_hour($cumulHeures), "mois" => $strMonth);
 }
 
 $req->closeCursor();
