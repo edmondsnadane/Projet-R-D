@@ -126,8 +126,8 @@ if (isset($_SESSION['studyLogin']) || isset($_SESSION['teachLogin']))
 				include('script/getTeachersHours.php');
 				$smarty->assign("allSeances", $allSeances);
 				$smarty->assign("codeProf", $codeProf);
-				if(isset($_GET['json'])) {
-					$smarty->display("template/heures_json.tpl");
+				if(isset($_GET['ajax'])) {
+					$smarty->display("template/heures_tab.tpl");
 				} else {
 					$smarty->display("template/heures.tpl");
 				}
