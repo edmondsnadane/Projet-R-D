@@ -24,7 +24,7 @@
 			<td>{if $seance.dureeTD !=0}{$seance.dureeTD}{else} - {/if} </td>
 			<td>{if $seance.dureeTP !=0}{$seance.dureeTP}{else} - {/if} </td>
 			<td>{$seance.eqTD}</td>
-			<td>{if $date_actuelle  >= $seance.dateSeanceFormatee } <span value="+" class='glyphicon glyphicon-ok-circle'></span> {else}{/if}</td>
+			<td>{if $date_actuelle  >= $seance.dateSeanceFormatee } <span class='glyphicon glyphicon-ok-circle'></span><span class="hide">+</span> {/if}</td>
 		</tr>
 	{/if}
 {/foreach}
