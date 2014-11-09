@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" id="calendarContainer">
 	<div class="page-header" id="groupeFiltre">
 		<div class="row">
 			<div class="col-sm-6" id="rowFiltreleft">
@@ -63,3 +63,17 @@
 </div>
 
 <script type="text/javascript" src="API/bootstrap-calendar-master/js/app.js"></script>
+<script>
+	
+$(window).resize(function(){
+   console.log('resize called');
+   var width = $(window).width();
+   if(width <= 1200){
+       $('#calendarContainer').removeClass('container').addClass('container-fluid');
+   }
+   else{
+       $('#calendarContainer').removeClass('container-fluid').addClass('container');
+   }
+})
+.resize();
+</script>
