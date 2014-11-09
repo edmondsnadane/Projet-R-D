@@ -378,25 +378,6 @@ if(!String.prototype.formatNum) {
 		}
 	}
 	
-//LBR	
-//Calendar.prototype.defautModal = function(){
-//console.log(this._update_modal());
-	//this._update_modal();
-//}	
-	//var defautModal = document.geteElementById("calendar");
-//defautModal._update_modal();
-	//calendar._update_modal();
-/*
-Calendar.prototype.setOptions = function(object) {
-		$.extend(this.options, object);
-		if('language' in object) {
-			this.setLanguage(object.language);
-		}
-		if('modal' in object) {
-			this._update_modal();
-		}
-	}*/
-
 	Calendar.prototype.setLanguage = function(lang) {
 		if(window.calendar_languages && (lang in window.calendar_languages)) {
 			this.locale = $.extend(true, {}, strings, calendar_languages[lang]);
