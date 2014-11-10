@@ -65,3 +65,7 @@ function loadBilanFormation() {
 function loadQuiSommesNous() {
 	window.location.replace('index.php?page=nous');
 }
+
+function loadHelp() {
+	window.location.replace('config/aide.pdf');
+ }
