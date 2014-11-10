@@ -373,7 +373,7 @@ if(!String.prototype.formatNum) {
 			this.setLanguage(object.language);
 		}
 		if('modal' in object) {
-			console.log(this);
+			//console.log(this);
 			this._update_modal();
 		}
 	}
@@ -806,7 +806,7 @@ if(!String.prototype.formatNum) {
 
 	Calendar.prototype.getTitle = function() {
 		var p = this.options.position.start;
-		console.log(p);
+		//console.log(p);
 		switch(this.options.view) {
 			case 'year':
 				return this.locale.title_year.format(p.getFullYear());
@@ -830,7 +830,7 @@ if(!String.prototype.formatNum) {
 	
 	Calendar.prototype.getSemaine = function() {
 		var p = this.options.position.start;
-		console.log(p);
+		//console.log(p);
 		return this.locale.title_week.format(p.getWeek(), p.getFullYear());
 	};
 
@@ -962,7 +962,7 @@ if(!String.prototype.formatNum) {
 
 	Calendar.prototype._update_modal = function() {
 		var self = this;
-		console.log("test calendar.js _update_modal : ");console.log(self);
+		//console.log("test calendar.js _update_modal : ");console.log(self);
 
 		$('a[data-event-id]', this.context).unbind('click');
 

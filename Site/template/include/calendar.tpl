@@ -63,17 +63,4 @@
 </div>
 
 <script type="text/javascript" src="API/bootstrap-calendar-master/js/app.js"></script>
-<script>
-	
-$(window).resize(function(){
-   console.log('resize called');
-   var width = $(window).width();
-   if(width <= 1200){
-       $('#calendarContainer').removeClass('container').addClass('container-fluid');
-   }
-   else{
-       $('#calendarContainer').removeClass('container-fluid').addClass('container');
-   }
-})
-.resize();
-</script>
+<script type="text/javascript" src="js/CalendarResize.js"></script>
