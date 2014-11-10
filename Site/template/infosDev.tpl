@@ -30,65 +30,74 @@
 			
 			<!-- LISTE DES INTERVENANTS -->
 			<h3>LISTE DES INTERVENANTS</h3>
-			<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
-				<!-- Indicators -->
-				<ol class="carousel-indicators">
-					<li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-					<li data-target="#carousel-example-generic" data-slide-to="1"></li>
-					<li data-target="#carousel-example-generic" data-slide-to="2"></li>
-					<li data-target="#carousel-example-generic" data-slide-to="3"></li>
-					<li data-target="#carousel-example-generic" data-slide-to="4"></li>
-					<li data-target="#carousel-example-generic" data-slide-to="5"></li>
-					<li data-target="#carousel-example-generic" data-slide-to="6"></li>
-				</ol>
-
-				<!-- Wrapper for slides -->
-				<div class="carousel-inner">
-					<div class="item active">
-					  <a><img src="img/infosDev/luis.jpg" class="img-responsive"></a>
-					  <div class="carousel-caption">
-						Bruno MILLION : co-créateur des versions antérieurs de VTCalendar
-					  </div>
-					</div>
-					<div class="item">
-					  <a><img src="img/infosDev/luis.jpg"></a>
-					  <div class="carousel-caption">
-						Gaëtan COLOMBIER : co-créateur des versions antérieurs de VTCalendar
-					  </div>
-					</div>
-					<div class="item">
-					  <a><img src="img/infosDev/luis.jpg"></a>
-					  <div class="carousel-caption">
-						Didier COURTAUD : responsable du projet VT2
-					  </div>
-					</div>
-					<div class="item">
-					  <a><img src="img/infosDev/luis.jpg"></a>
-					  <div class="carousel-caption">
-						Luis BRAGA : étudiant de l'université d'EVRY
-					  </div>
-					</div>
-					<div class="item">
-					  <a><img src="img/infosDev/edmond.jpg"></a>
-					  <div class="carousel-caption">
-						Edmond S'NADANE : étudiant de l'université d'EVRY
-					  </div>
-					</div>
-					<div class="item">
-					 <a><img src="img/infosDev/pieck.jpg"></a>
-					  <div class="carousel-caption">
-						Pierrick MOREAU : étudiant de l'université d'EVRY
-					  </div>
-					</div>
+			<br>
+			
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<h3 class="panel-title">Bruno MILLION & Gaëtan COLOMBIER</h3>
 				</div>
-
-				<!-- Controls -->
-				<a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
-					<span class="glyphicon glyphicon-chevron-left"></span>
-				</a>
-				<a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
-					<span class="glyphicon glyphicon-chevron-right"></span>
-				</a>
+				<div class="panel-body">
+					<ul>
+						<li>Réalisation des premières versions de VTAgenda</li>
+					</ul>
+				</div>
+			</div>
+			
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<h3 class="panel-title">Didier COURTAUD</h3>
+				</div>
+				<div class="panel-body">
+					<ul>
+						<li>Encadrement du projet VT2</li>
+					</ul>
+				</div>
+			</div>
+			
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<h3 class="panel-title">Luis BRAGA - Apprenti M2 MIAGE</h3>
+				</div>
+				<div class="panel-body">
+					<ul>
+						<li>Réalisation du calendrier avec la librairie bootstrap-calendar</li>
+						<li>Insertion des données dans le calendrier</li>
+						<li>Système de filtrage des événements</li>
+						<li>Optimisation CSS des pages</li>
+						<li>Page index</li>
+						<li>...</li>
+					</ul>
+				</div>
+			</div>
+			
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<h3 class="panel-title">Pierrick MOREAU  - Apprenti M2 MIAGE</h3>
+				</div>
+				<div class="panel-body">
+					<ul>
+						<li>Architecture du projet</li>
+						<li>Réalisation des templates de pages</li>
+						<li>Page Modules, QuiSommesNous, Login, ...</li>
+						<li>Entretien du Github</li>
+						<li>...</li>
+					</ul>
+				</div>
+			</div>
+			
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<h3 class="panel-title">Edmond S'NADANE  - Apprenti M2 MIAGE</h3>
+				</div>
+				<div class="panel-body">
+					<ul>
+						<li>Réalisation de la page de consultation des heures</li>
+						<li>Développement de la page de consultation des versions de VTAgenda</li>
+						<li>Developpement de la page d'export PDF, GISEH</li>
+						<li>Script d'export EXCEL</li>
+						<li>...</li>
+					</ul>
+				</div>
 			</div>
 		</div>
 		
