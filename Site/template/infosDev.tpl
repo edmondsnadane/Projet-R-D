@@ -78,7 +78,7 @@
 					<ul>
 						<li>Architecture du projet</li>
 						<li>Réalisation des templates de pages</li>
-						<li>Page Modules, QuiSommesNous, Login, ...</li>
+						<li>Page Modules, QuiSommesNous, Login, DialogueGestion, Droits, Admin, Config, mesDS, OccupationSalle</li>
 						<li>Entretien du Github</li>
 						<li>...</li>
 					</ul>
