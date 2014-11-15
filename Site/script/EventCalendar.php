@@ -105,16 +105,16 @@ $sql=sprintf('SELECT seances.dateSeance, seances.heureSeance, seances.dureeSeanc
 }
 //si l'utilisateur est un etudiant
 else if (($loginUtilisateur == isset($_SESSION['studyLogin'])) || ($loginUtilisateur == isset($_COOKIE['studyLogin']))) {
-    $sql=sprintf('SELECT seances.dateSeance, seances.heureSeance, seances.dureeSeance,
+    $sql=sprintf('SELECT distinct seances.dateSeance, seances.heureSeance, seances.dureeSeance,
                 enseignements.nom, enseignements.couleurFond,enseignements.alias,
                 enseignements.codeTypeSalle, types_activites.codeTypeActivite, types_activites.alias,
                 matieres.couleurFond, matieres.nom
                 FROM seances
                 inner join seances_groupes on seances.codeSeance=seances_groupes.codeSeance
-                inner join enseignements ON seances.codeEnseignement = enseignements.codeEnseignement
                 inner join ressources_groupes on seances_groupes.codeRessource = ressources_groupes.codeGroupe
                 inner join ressources_groupes_etudiants on ressources_groupes.codeGroupe = ressources_groupes_etudiants.codeGroupe
                 inner join ressources_etudiants on ressources_groupes_etudiants.codeEtudiant = ressources_etudiants.codeEtudiant
+                inner join enseignements ON seances.codeEnseignement = enseignements.codeEnseignement
                 inner join matieres ON matieres.codeMatiere = enseignements.codeMatiere
                 inner join types_activites on enseignements.codeTypeActivite = types_activites.codeTypeActivite
                 WHERE seances.deleted =  "0"
@@ -123,6 +123,7 @@ else if (($loginUtilisateur == isset($_SESSION['studyLogin'])) || ($loginUtilisa
                 AND seances_groupes.deleted = "0"
                 AND ressources_groupes.deleted = "0"
                 AND ressources_groupes_etudiants.deleted = "0"
+                AND enseignements.deleted = "0"
                 AND ressources_etudiants.deleted = "0"
                 AND ressources_etudiants.nom = '.$dbh->quote($loginUtilisateur, PDO::PARAM_STR));
 }
@@ -131,45 +132,20 @@ $req->execute();
 
 $out = array();
 while($ligneCode = $req->fetch()) {
-    $date = explode("-",$ligneCode['dateSeance']);
-        
     if(strlen($ligneCode['heureSeance']) > 3)
     {
         $debut = $ligneCode['dateSeance']." ".substr($ligneCode['heureSeance'],0,2).":".substr($ligneCode['heureSeance'],2,2).":00.0";
-        if($ligneCode['dureeSeance'] == "130")
-        {
-            $fHeure = substr($ligneCode['heureSeance'],0,2)+substr($ligneCode['dureeSeance'],0,1);
-            $fin = $ligneCode['dateSeance']." ".$fHeure.":".substr($ligneCode['heureSeance'],2,2)+substr($ligneCode['dureeSeance'],1,2).":00.0";
-            $temps = substr($ligneCode['heureSeance'],0,2)+substr($ligneCode['dureeSeance'],0,1);
-        }
-        else
-        {
-            $fHeure = substr($ligneCode['heureSeance'],0,2)+substr($ligneCode['dureeSeance'],0,1);
-            $fin = $ligneCode['dateSeance']." ".$fHeure.":".substr($ligneCode['heureSeance'],2,2).":00.0"; 
-            $temps = substr($ligneCode['heureSeance'],0,2)+substr($ligneCode['dureeSeance'],0,1);
-        }
+        $heureDebut = substr($ligneCode['heureSeance'],0,2).":".substr($ligneCode['heureSeance'],2,2).":00.0";
     }
     else
     {
-        $debut = $ligneCode['dateSeance']." ".substr($ligneCode['heureSeance'],0,1).":".substr($ligneCode['heureSeance'],1,2).":00.0"; 
-        if($ligneCode['dureeSeance'] == "130")
-        {
-            $fHeure = substr($ligneCode['heureSeance'],0,1)+substr($ligneCode['dureeSeance'],0,1);
-            $fin = $ligneCode['dateSeance']." ".$fHeure.":".substr($ligneCode['heureSeance'],2,2)+substr($ligneCode['dureeSeance'],1,2).":00.0";
-            $temps = substr($ligneCode['heureSeance'],0,1)+substr($ligneCode['dureeSeance'],0,1);
-            }
-        else
-        {
-            $fHeure = substr($ligneCode['heureSeance'],0,1)+substr($ligneCode['dureeSeance'],0,1);
-            $fin = $ligneCode['dateSeance']." ".$fHeure.":".substr($ligneCode['heureSeance'],2,2).":00.0";
-            $temps = substr($ligneCode['heureSeance'],0,1)+substr($ligneCode['dureeSeance'],0,1);
-        }
+        $debut = $ligneCode['dateSeance']." ".substr($ligneCode['heureSeance'],0,1).":".substr($ligneCode['heureSeance'],1,2).":00.0";
+        $heureDebut = substr($ligneCode['heureSeance'],0,1).":".substr($ligneCode['heureSeance'],1,2).":00.0";
     }
-        
-    $timeDebut = strtotime($debut);
-    $newFormatDebut = date('Y-m-d H:i:s', $timeDebut);
-    $timeFin = strtotime($fin);
-    $newFormatFin = date('Y-m-d H:i:s', $timeFin);
+    $heureDuree = ((int)substr($ligneCode['dureeSeance'],0,1)*60)*60+((int)substr($ligneCode['dureeSeance'],1,2)*60); //on convertie la durée en seconde
+    
+    $timeDebut = strtotime($debut); // on convertie la du date de debut en seconde
+    $timeFin = $timeDebut + $heureDuree;
 
     if($ligneCode['codeTypeActivite'] == 1) //CM
     {
