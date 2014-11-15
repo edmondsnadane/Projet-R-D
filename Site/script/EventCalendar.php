@@ -185,27 +185,27 @@ while($ligneCode = $req->fetch()) {
     }
     else if($ligneCode['codeTypeActivite'] == 4) //PRO
     {
-       $eventC = 'event-success';
+       $eventC = 'event-simple';
     }
-    else if($ligneCode['codeTypeActivite'] == 5) //STA
+    else if($ligneCode['codeTypeActivite'] == 6) //STA
     {
         $eventC = 'event-info';
     }
-    else if($ligneCode['codeTypeActivite'] == 6) //ADM
+    else if($ligneCode['codeTypeActivite'] == 7) //ADM
     {
         $eventC = 'event-special';
     }
-    else if($ligneCode['codeTypeActivite'] == 7) //TUT
+    else if($ligneCode['codeTypeActivite'] == 8) //TUT
     {
-        $eventC = 'event-special';
+        $eventC = 'event-inverse';
     }
-    else if($ligneCode['codeTypeActivite'] == 8) //DS
+    else if($ligneCode['codeTypeActivite'] == 9) //DS
     {
-        $eventC = 'event-3';
+        $eventC = 'event-important';
     }
-    else if($ligneCode['codeTypeActivite'] == 9) //TP APP
+    else if($ligneCode['codeTypeActivite'] == 11) //TP APP
     {
-        $eventC = 'event-special';
+        $eventC = 'event-success';
     }
        
     $out[] = array(
