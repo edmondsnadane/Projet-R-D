@@ -53,22 +53,11 @@ h4 {
 }
 
 /* Les légendes */
-#calendarLegende {
-    margin-top: 40px;
-}
-
 .cercleLegende {
     border-radius:50%;
     width:20px;
     height:20px;
     border:2px solid white;
-    /*width:200px;
-	height:200px;
-	background:#069;
-	-webkit-border-radius:100px;
-	-moz-border-radius:100px;
-	-o-border-radius:100px;
-	border-radius:100px;*/
 }
 
 #cercleCM {
@@ -113,4 +102,11 @@ h4 {
     text-align: left;
     padding-bottom: 10px;
     padding-left: 15px;
+}
+
+#collapseTitleLegende {
+    text-decoration: none;
+}
+#headingOne:hover {
+    cursor: pointer;
 }

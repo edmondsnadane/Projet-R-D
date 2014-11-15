@@ -45,157 +45,58 @@
 		<div class="col-md-12">
 			<div id="calendar"></div>
 		</div>
-		
-		<!-- Début légende -->
-		<div class="col-md-12" id="calendarLegende">
-			<div id="textLegende">Légende des événements: </div>
-			<div class="row">
-				
-				<div class="col-xs-12 col-md-12">
-					<div class="col-xs-3 col-md-2">
-						<div class="cercleLegende" id="cercleCM"></div>
-						<div class="textLegende">Cours</div>
-					</div>
-					<div class="col-xs-3 col-md-2">
-						<div class="cercleLegende" id="cercleTD"></div>
-						<div class="textLegende">TD</div>
-					</div>
-					<div class="col-xs-3 col-md-2">
-						<div class="cercleLegende" id="cercleTP"></div>
-						<div class="textLegende">TP</div>
-					</div>
-					<div class="col-xs-3 col-md-2">
-						<div class="cercleLegende" id="cercleDS"></div>
-						<div class="textLegende">DS</div>
-					</div>
-					<div class="col-xs-3 col-md-2">
-						<div class="cercleLegende" id="cercleTUT"></div>
-						<div class="textLegende">Tutorat</div>
-					</div>
-					<div class="col-xs-3 col-md-2">
-						<div class="cercleLegende" id="cerclePRO"></div>
-						<div class="textLegende">PRO</div>
-					</div>
-					<div class="col-xs-6 col-md-3">
-						<div class="cercleLegende" id="cercleADM"></div>
-						<div class="textLegende">Administration</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		<!--
-		<div class="col-md-12" id="calendarLegende">
-			<span>Légende des événements: </span>
-			<div class="row">
-				<div class="col-xs-2 col-md-3">
-					
-				</div>
-				<div class="col-xs-4 col-md-8">
-					<div class="col-md-2">
-						<div class="cercleLegende" id="cercleCM"></div>
-						<div class="textLegende">Cours</div>
-					</div>
-					<div class="col-md-2">
-						<div class="cercleLegende" id="cercleTD"></div>
-						<div class="textLegende">TD</div>
-					</div>
-					<div class="col-md-2">
-						<div class="cercleLegende" id="cercleTP"></div>
-						<div class="textLegende">TP</div>
-					</div>
-					<div class="col-md-2">
-						<div class="cercleLegende" id="cercleDS"></div>
-						<div class="textLegende">DS</div>
-					</div>
-					<div class="col-md-3">
-						<div class="cercleLegende" id="cercleADM"></div>
-						<div class="textLegende">Administration</div>
-					</div>
-					<div class="col-md-2">
-						<div class="cercleLegende" id="cercleTUT"></div>
-						<div class="textLegende">Tutorat</div>
-					</div>
-					<div class="col-md-2">
-						<div class="cercleLegende" id="cerclePRO"></div>
-						<div class="textLegende">PRO</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		-->
-		
-		<!--
-		<div class="col-md-12" id="calendarLegende">
-			<div class="row">
-				<div class="col-md-3">
-					<span>Légende des événements: </span>
-				</div>
-				<div class="col-md-8">
-					<div class="col-md-2">
-						<div class="cercleLegende" id="cercleCM"></div>
-						<div id="lol">Cours</div>
-					</div>
-					<div class="col-md-2">
-						<div class="cercleLegende" id="cercleTD"></div>
-						<div id="lol">TD</div>
-					</div>
-					<div class="col-md-2">
-						<div class="cercleLegende" id="cercleTP"></div>
-						<span>TP</span>
-					</div>
-					<div class="col-md-2">
-						<div class="cercleLegende" id="cercleDS"></div>
-						<span>DS</span>
-					</div>
-					<div class="col-md-3">
-						<div class="cercleLegende" id="cercleADM"></div>
-						<span>Administration</span>
-					</div>
-					<div class="col-md-2">
-						<div class="cercleLegende" id="cercleTUT"></div>
-						<span>Tutorat</span>
-					</div>
-					<div class="col-md-2">
-						<div class="cercleLegende" id="cerclePRO"></div>
-						<span>PRO</span>
-					</div>
-				</div>
-			</div>
-		</div>
-		-->
-		<!--
-		<div class="col-md-12" id="calendarLegende">
-			<span>Légende des événements: </span>
-			<div class="row">
-				<div class="col-md-2">
-					<div class="cercleLegende" id="cercleCM"></div><span>Cours</span>
-				</div>
-				<div class="col-md-2">
-					<div class="cercleLegende" id="cercleTD"></div><span>TD</span>
-				</div>
-				<div class="col-md-2">
-					<div class="cercleLegende" id="cercleTP"></div><span>TP</span>
-				</div>
-				<div class="col-md-2">
-					<div class="cercleLegende" id="cercleDS"></div><span>DS</span>
-				</div>
-				<div class="col-md-2">
-					<div class="cercleLegende" id="cercleADM"></div><span>Administration</span>
-				</div>
-				<div class="col-md-2">
-					<div class="cercleLegende" id="cercleTUT"></div><span>Tutorat</span>
-				</div>
-				<div class="col-md-2">
-					<div class="cercleLegende" id="cerclePRO"></div><span>PRO</span>
-				</div>
-			</div>
-		</div>
-		-->
-		<!-- Fin légende -->
 	</div>
 	<!-- Fin Calendar -->
 	
+	<!-- Debut légende -->
+	<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+		<div class="panel panel-default">
+			<div data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne" class="panel-heading" role="tab" id="headingOne">
+				<h4 class="panel-title">
+					<a id="collapseTitleLegende">Légende des événements</a>
+				</h4>
+			</div>
+			<div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+				<div class="panel-body">   
+					<div class="col-md-12" id="calendarLegende">
+						<div class="row">
+							<div class="col-xs-12 col-md-12">
+								<div class="col-xs-3 col-md-2">
+									<div class="cercleLegende" id="cercleCM"></div>
+									<div class="textLegende">Cours</div>
+								</div>
+								<div class="col-xs-3 col-md-2">
+									<div class="cercleLegende" id="cercleTD"></div>
+									<div class="textLegende">TD</div>
+								</div>
+								<div class="col-xs-3 col-md-2">
+									<div class="cercleLegende" id="cercleTP"></div>
+									<div class="textLegende">TP</div>
+								</div>
+								<div class="col-xs-3 col-md-2">
+									<div class="cercleLegende" id="cercleDS"></div>
+									<div class="textLegende">DS</div>
+								</div>
+								<div class="col-xs-3 col-md-2">
+									<div class="cercleLegende" id="cercleTUT"></div>
+									<div class="textLegende">Tutorat</div>
+								</div>
+								<div class="col-xs-3 col-md-2">
+									<div class="cercleLegende" id="cerclePRO"></div>
+									<div class="textLegende">PRO</div>
+								</div>
+								<div class="col-xs-6 col-md-3">
+									<div class="cercleLegende" id="cercleADM"></div>
+									<div class="textLegende">Administration</div>
+								</div>
+							</div>
+						</div>
+					</div>   
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- Fin légende -->
 	<!-- Début Modal -->
 	<div class="clearfix"></div>
 	<div class="modal fade" id="events-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
