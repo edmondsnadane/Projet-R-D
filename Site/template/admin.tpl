@@ -32,16 +32,6 @@
 									</select>
 								</div>
 							</div>
-						</form>
-					</div>
-				</div>
-					
-				<div class="panel panel-default">
-					<div class="panel-heading"> 
-						<strong class="">Résumé des droits</strong>
-					</div>
-					<div class="panel-body">
-						<form class="form-horizontal" role="form">
 							<div class="form-group">
 								<label for="admin" class="col-sm-3 control-label">Admin </label>
 								<div class="col-sm-9">
