@@ -14,119 +14,119 @@ function displayDroits()
 		{
 			if (elem.admin == 1)
 			{
-				$("#admin").addClass("checked");
+				$("#admin").addClass("active");
 			}
 			else
 			{
-				$("#admin").removeClass("checked");
+				$("#admin").removeClass("active");
 			}
 			
 			if (elem.giseh == 1)
 			{
-				$("#giseh").addClass("checked");
+				$("#giseh").addClass("active");
 			}
 			else
 			{
-				$("#giseh").removeClass("checked");
+				$("#giseh").removeClass("active");
 			}
 			
 			if (elem.bilan_formation == 1)
 			{
-				$("#bilan_formation").addClass("checked");
+				$("#bilan_formation").addClass("active");
 			}
 			else
 			{
-				$("#bilan_formation").removeClass("checked");
+				$("#bilan_formation").removeClass("active");
 			}
 			
-			if (elem.bilan_salle == 1)
+			if (elem.salle == 1)
 			{
-				$("#bilan_salle").addClass("checked");
+				$("#bilan_salle").addClass("active");
 			}
 			else
 			{
-				$("#bilan_salle").removeClass("checked");
-			}
-			
-			if (elem.bilan_salle == 1)
-			{
-				$("#bilan_salle").addClass("checked");
-			}
-			else
-			{
-				$("#bilan_salle").removeClass("checked");
+				$("#bilan_salle").removeClass("active");
 			}
 			
 			if (elem.mes_droits == 1)
 			{
-				$("#droits").addClass("checked");
+				$("#droits").addClass("active");
 			}
 			else
 			{
-				$("#droits").removeClass("checked");
+				$("#droits").removeClass("active");
 			}
 			
-			if (elem.bilan_heure == 1)
+			if (elem.bilan_heure_global == 1)
 			{
-				$("#heures").addClass("checked");
+				$("#bilan_heure").addClass("active");
 			}
 			else
 			{
-				$("#heures").removeClass("checked");
+				$("#bilan_heure").removeClass("active");
 			}
 			
 			if (elem.pdf == 1)
 			{
-				$("#pdf").addClass("checked");
+				$("#pdf").addClass("active");
 			}
 			else
 			{
-				$("#pdf").removeClass("checked");
+				$("#pdf").removeClass("active");
 			}
 			
 			if (elem.rss == 1)
 			{
-				$("#rss").addClass("checked");
+				$("#rss").addClass("active");
 			}
 			else
 			{
-				$("#rss").removeClass("checked");
+				$("#rss").removeClass("active");
 			}
 			
 			if (elem.configuration == 1)
 			{
-				$("#configuration").addClass("checked");
+				$("#config").addClass("active");
 			}
 			else
 			{
-				$("#configuration").removeClass("checked");
+				$("#config").removeClass("active");
 			}
 			
 			if (elem.reservation == 1)
 			{
-				$("#reservation").addClass("checked");
+				$("#reservation").addClass("active");
 			}
 			else
 			{
-				$("#reservation").removeClass("checked");
+				$("#reservation").removeClass("active");
 			}
-			
+	
 			if (elem.module == 1)
 			{
-				$("#module").addClass("checked");
+				$("#modules").addClass("active");
 			}
 			else
 			{
-				$("#module").removeClass("checked");
+				$("#modules").removeClass("active");
 			}
 			
 			if (elem.dialogue == 1)
 			{
-				$("#dialogue").addClass("checked");
+				$("#dialogue").addClass("active");
 			}
 			else
 			{
-				$("#dialogue").removeClass("checked");
+				$("#dialogue").removeClass("active");
+			}
+			
+			if (elem.bilan_heure == 1)
+			{
+				$("#heures").addClass("active");
+			}
+			else
+			{
+				$("#heures").removeClass("active");
 			}
 		})
 		.fail(function(elem)
@@ -149,28 +149,28 @@ $(document).ready(function()
                 url: "./script/updateDroits.php",
                 data: {
                     code: $('#profs :selected').val(),
-					admin: $('#admin').val(),
-					reservation: $('#reservation').val(),
-					mes_droits : $('#droits').val(),
-                    modules  : $('#modules').val(),
-					bilan_heure : $("#bilan_heure").val(),
-					configuration : $("#config").val(),
-					rss : $("#rss").val(),
-					bilan_heure_global : $("#bilan_heure_global").val(),
-					bilan_formation : $("#bilan_formation").val(),
-					pdf : $("#pdf").val(),
-					giseh : $("#giseh").val(),
-					dialogue : $("#dialogue").val(),
-					salle : $("#bilan_salle").val()
+					admin: $('#admin :active'),
+					reservation: $('#reservation :active'),
+					mes_droits : $('#droits :active'),
+                    modules  : $('#modules :active'),
+					bilan_heure_global : $("#bilan_heure :active"),
+					bilan_heure : $("#heures :active"),
+					configuration : $("#config :active"),
+					rss : $("#rss :active"),
+					bilan_formation : $("#bilan_formation :active"),
+					pdf : $("#pdf :active"),
+					giseh : $("#giseh :active"),
+					dialogue : $("#dialogue :active"),
+					salle : $("#bilan_salle :active")
                 },
-                dataType: "json"
+                dataType: "text"
             })
             .done(function(elem)
 			{
                 // connexion échouée
                 $("#retourLoginJs")
                     .html("<span class='glyphicon glyphicon-ok-circle'></span> "  + elem)
-                    .addClass('alert alert-success col-centered alert-dismissible')
+                    .addClass('alert alert-success col-centered alert-dismissible');
             })
             .fail(function(elem)
 			{

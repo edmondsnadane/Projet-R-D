@@ -12,9 +12,9 @@
 			mes_droits=".$_POST['mes_droits'].",
 			module=".$_POST['modules'].",
 			bilan_heure=".$_POST['bilan_heure'].",
+			bilan_heure_global=".$_POST['bilan_heure_global'].",
 			configuration=".$_POST['configuration'].",
 			rss=".$_POST['rss'].",
-			bilan_heure_global=".$_POST['bilan_heure_global'].",
 			bilan_formation=".$_POST['bilan_formation'].",
 			pdf=".$_POST['pdf'].",
 			giseh=".$_POST['giseh'].",
@@ -25,6 +25,6 @@
 	$req=$dbh->prepare($sql);
 	$req->execute();
 	
-	echo "Les droits ont été modifiés";
+	echo "Les droits ont Ã©tÃ© modifiÃ©s";
 
 ?>
