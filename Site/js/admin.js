@@ -147,4 +147,43 @@ function displayDroits()
 $(document).ready(function()
 {
 	displayDroits();
+	
+	$('#modifyConfigForm').submit(function(event)
+	{
+
+        event.preventDefault();
+
+        $.ajax({
+                type: "POST",
+                url: "./script/updateDroits.php",
+                data: {
+                    code: $('#profs :selected').val(),
+					admin: $('#admin').val(),
+					reservation: $('#reservation').val(),
+					mes_droits : $('#droits').val(),
+                    module  : $('#module').val(),
+					bilan_heure : $("#heures").val(),
+					configuration : $("#configuration").val(),
+					rss : $("#rss").val(),
+					bilan_heure_global : $("#bilan_heure_global").val(),
+					bilan_formation : $("#bilan_formation").val(),
+					pdf : $("#pdf").val(),
+					giseh : $("#giseh").val(),
+					dialogue : $("#dialogue").val(),
+					salle : $("#salle").val()
+                },
+                dataType: "json"
+            })
+            .done(function(elem)
+			{
+                // connexion échouée
+                $("#retourLoginJs")
+                    .html("<span class='glyphicon glyphicon-ok-circle'></span> "  + elem)
+                    .addClass('alert alert-success col-centered alert-dismissible')
+            })
+            .fail(function(elem)
+			{
+                alert("Appel AJAX impossible");
+            });
+    });
 });
