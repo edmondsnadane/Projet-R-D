@@ -11,6 +11,8 @@
 		<script type="text/javascript" src="API/bootstrap/js/bootstrap.js"></script>
 		<script type="text/javascript" src="js/loadPage.js"></script>
 		<script type="text/javascript" src="js/customCheck.js"></script>
+		<script type="text/javascript" src="API/tableExport/tableExport.js"></script>
+		<script type="text/javascript" src="API/tableExport/jquery.base64.js"></script>
 	</head>
 	<body>
 		{include file='template/include/header.tpl'}

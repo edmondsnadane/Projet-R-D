@@ -15,7 +15,7 @@
 			<td>{$seance.nomFormation}</td>
 			<td>{$seance.codeApogee}</td>
 			<td>{$seance.nomMatiere}</td>
-			<td>{$seance.dateSeance}</td>
+			<td>{$seance.dateSeance}  </td>
 			<td>{$seance.heureDebut}</td>
 			<td>{$seance.heureFin}</td>
 			<td>{if $seance.volumeReparti == 0} NON {else} OUI {/if}</td>
