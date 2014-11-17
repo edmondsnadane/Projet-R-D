@@ -36,12 +36,6 @@
 						<li onClick="loadHeures()"><a href="#"><span class="glyphicon glyphicon-time"></span> Mes Heures</a></li>
 					{/if}
 
-					<!-- 
-					{if $droits.bilan_formation == 1}
-						<li onClick="loadBilanFormation()"><a href="#"><span class="glyphicon glyphicon-stats"></span> Bilan par formation</a></li>
-					{/if}
-					-->
-
 					{if $droits.dialogue == 1}
 						<li onClick="loadDialogue()"><a href="#"><span class="glyphicon glyphicon-comment"></span> Dialogue de gestion</a></li>
 					{/if}

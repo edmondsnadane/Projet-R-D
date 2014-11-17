@@ -66,7 +66,6 @@ $(document).ready(function()
 					bilan_heure : $("#heures :active"),
 					configuration : $("#config :active"),
 					rss : $("#rss :active"),
-					bilan_formation : $("#bilan_formation :active"),
 					pdf : $("#pdf :active"),
 					giseh : $("#giseh :active"),
 					dialogue : $("#dialogue :active"),

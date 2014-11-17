@@ -35,45 +35,42 @@
 									</select>
 								</div>
 							</div>
-							<div data-toggle="buttons">
+							<div data-toggle="buttons" id="userDroits">
 								<label class="btn btn-primary"  name="admin" id="admin">
-									<input type="checkbox" autocomplete="off"> Admin
+									<input type="checkbox" autocomplete="off"><span class="glyphicon glyphicon-eye-open"></span> Admin
 								</label>
 								<label class="btn btn-primary" name="giseh" id="giseh">
-									<input type="checkbox" autocomplete="off"> Giseh
+									<input type="checkbox" autocomplete="off"><span class="glyphicon glyphicon-send"></span> Giseh
 								</label>
 								<label class="btn btn-primary" name="bilan_salle" id="bilan_salle">
-									<input type="checkbox" autocomplete="off"> Bilan Salles
+									<input type="checkbox" autocomplete="off"><span class="glyphicon glyphicon-home"></span> Bilan Salles
 								</label>
 								<label class="btn btn-primary" name="bilan_heure" id="bilan_heure">
-									<input type="checkbox" autocomplete="off"> Bilan Heures
-								</label>
-								<label class="btn btn-primary" name="bilan_formation" id="bilan_formation">
-									<input type="checkbox" autocomplete="off"> Bilan Formation
+									<input type="checkbox" autocomplete="off"><span class="glyphicon glyphicon-dashboard"></span> Bilan Heures
 								</label>
 								<label class="btn btn-primary" name="droits" id="droits">
-									<input type="checkbox" autocomplete="off"> Mes Droits
+									<input type="checkbox" autocomplete="off"><span class="glyphicon glyphicon-lock"></span> Mes Droits
 								</label>
 								<label class="btn btn-primary" name="heures" id="heures">
-									<input type="checkbox" autocomplete="off"> Mes Heures
+									<input type="checkbox" autocomplete="off"><span class="glyphicon glyphicon-time"></span> Mes Heures
 								</label>
 								<label class="btn btn-primary" name="pdf" id="pdf">
-									<input type="checkbox" autocomplete="off"> PDF
+									<input type="checkbox" autocomplete="off"><span class="glyphicon glyphicon-file"></span> PDF
 								</label>
 								<label class="btn btn-primary" name="rss" id="rss">
-									<input type="checkbox" autocomplete="off"> RSS
+									<input type="checkbox" autocomplete="off"><span class="glyphicon glyphicon-transfer"></span> RSS
 								</label>
 								<label class="btn btn-primary" name="config" id="config">
-									<input type="checkbox" autocomplete="off"> Configuration
+									<input type="checkbox" autocomplete="off"><span class="glyphicon glyphicon-cog"></span> Configuration
 								</label>
 								<label class="btn btn-primary" name="reservation" id="reservation">
-									<input type="checkbox" autocomplete="off"> Reservation
+									<input type="checkbox" autocomplete="off"><span class="glyphicon glyphicon-shopping-cart"></span> Reservation
 								</label>
 								<label class="btn btn-primary" name="modules" id="modules">
-									<input type="checkbox" autocomplete="off"> Modules
+									<input type="checkbox" autocomplete="off"><span class="glyphicon glyphicon-th-large"></span> Modules
 								</label>
 								<label class="btn btn-primary" name="dialogue" id="dialogue">
-									<input type="checkbox" autocomplete="off"> Dialogue
+									<input type="checkbox" autocomplete="off"><span class="glyphicon glyphicon-comment"></span> Dialogue
 								</label>
 							</div>
 						</div>

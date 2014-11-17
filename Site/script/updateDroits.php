@@ -15,7 +15,6 @@
 			bilan_heure_global=".$_POST['bilan_heure_global'].",
 			configuration=".$_POST['configuration'].",
 			rss=".$_POST['rss'].",
-			bilan_formation=".$_POST['bilan_formation'].",
 			pdf=".$_POST['pdf'].",
 			giseh=".$_POST['giseh'].",
 			dialogue=".$_POST['dialogue'].",
