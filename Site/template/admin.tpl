@@ -23,8 +23,8 @@
 				
 				
 				<div class="panel panel-default">
-					<div class="panel-body">
-						<form class="form-horizontal" role="form">
+					<form class="form-horizontal" role="form" id="modifyConfigForm">
+						<div class="panel-body">
 							<div class="form-group">
 								<label for="profs" class="col-sm-3 control-label">Enseignent </label>
 								<div class="col-sm-9">
@@ -76,11 +76,11 @@
 									<input type="checkbox" autocomplete="off"> Dialogue
 								</label>
 							</div>
-						</form>
-					</div>
-					<div class="panel-footer">
-						<button type="button" class="btn" name="modify" id="modify">Modifier les droits</button>
-					</div>
+						</div>
+						<div class="panel-footer">
+							<button type="submit" class="btn btn-success" name="modify" id="modify">Modifier les droits</button>
+						</div>
+					</form>
 				</div>
 			</div>
 		</div>
