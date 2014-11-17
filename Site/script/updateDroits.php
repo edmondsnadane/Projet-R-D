@@ -10,7 +10,7 @@
 			admin=".$_POST['admin']." ,
 			reservation=".$_POST['reservation'].",
 			mes_droits=".$_POST['mes_droits'].",
-			module=".$_POST['module'].",
+			module=".$_POST['modules'].",
 			bilan_heure=".$_POST['bilan_heure'].",
 			configuration=".$_POST['configuration'].",
 			rss=".$_POST['rss'].",

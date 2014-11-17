@@ -30,15 +30,6 @@ function displayDroits()
 				$("#giseh").removeClass("checked");
 			}
 			
-			if (elem.salle == 1)
-			{
-				$("#bilan_salle").addClass("checked");
-			}
-			else
-			{
-				$("#bilan_salle").removeClass("checked");
-			}
-			
 			if (elem.bilan_formation == 1)
 			{
 				$("#bilan_formation").addClass("checked");
@@ -161,16 +152,16 @@ $(document).ready(function()
 					admin: $('#admin').val(),
 					reservation: $('#reservation').val(),
 					mes_droits : $('#droits').val(),
-                    module  : $('#module').val(),
-					bilan_heure : $("#heures").val(),
-					configuration : $("#configuration").val(),
+                    modules  : $('#modules').val(),
+					bilan_heure : $("#bilan_heure").val(),
+					configuration : $("#config").val(),
 					rss : $("#rss").val(),
 					bilan_heure_global : $("#bilan_heure_global").val(),
 					bilan_formation : $("#bilan_formation").val(),
 					pdf : $("#pdf").val(),
 					giseh : $("#giseh").val(),
 					dialogue : $("#dialogue").val(),
-					salle : $("#salle").val()
+					salle : $("#bilan_salle").val()
                 },
                 dataType: "json"
             })

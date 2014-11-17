@@ -41,87 +41,89 @@
 							<div class="form-group">
 								<label for="admin" class="col-sm-3 control-label">Admin </label>
 								<div class="col-sm-9">
-									<input type="checkbox" name="admin" id="admin" required="">
+									<input type="checkbox" name="admin" id="admin">
 								</div>
 							</div>
 							<div class="form-group">
 								<label for="giseh" class="col-sm-3 control-label">Giseh </label>
 								<div class="col-sm-9">
-									<input type="checkbox" name="giseh" id="giseh" required="">
+									<input type="checkbox" name="giseh" id="giseh">
 								</div>
 							</div>
 							<div class="form-group">
 								<label for="bilan_salle" class="col-sm-3 control-label">Bilan Salles </label>
 								<div class="col-sm-9">
-									<input type="checkbox" name="bilan_salle" id="bilan_salle" required="">
+									<input type="checkbox" name="bilan_salle" id="bilan_salle">
 								</div>
 							</div>
 							<div class="form-group">
 								<label for="bilan_heure" class="col-sm-3 control-label">Bilan Heures </label>
 								<div class="col-sm-9">
-									<input type="checkbox" name="bilan_heure" id="bilan_heure" required="">
+									<input type="checkbox" name="bilan_heure" id="bilan_heure">
 								</div>
 							</div>
 							<div class="form-group">
 								<label for="bilan_formation" class="col-sm-3 control-label">Bilan Formation </label>
 								<div class="col-sm-9">
-									<input type="checkbox" name="bilan_formation" id="bilan_formation" required="">
+									<input type="checkbox" name="bilan_formation" id="bilan_formation">
 								</div>
 							</div>
 							<div class="form-group">
 								<label for="droits" class="col-sm-3 control-label">Mes droits </label>
 								<div class="col-sm-9">
-									<input type="checkbox" name="droits" id="droits" required="">
+									<input type="checkbox" name="droits" id="droits">
 								</div>
 							</div>
 							<div class="form-group">
 								<label for="heures" class="col-sm-3 control-label">Mes Heures </label>
 								<div class="col-sm-9">
-									<input type="checkbox" name="heures" id="heures" required="">
+									<input type="checkbox" name="heures" id="heures">
 								</div>
 							</div>
 							<div class="form-group">
 								<label for="pdf" class="col-sm-3 control-label">PDF </label>
 								<div class="col-sm-9">
-									<input type="checkbox" name="pdf" id="pdf" required="">
+									<input type="checkbox" name="pdf" id="pdf">
 								</div>
 							</div>
 							<div class="form-group">
 								<label for="rss" class="col-sm-3 control-label">RSS </label>
 								<div class="col-sm-9">
-									<input type="checkbox" name="rss" id="rss" required="">
+									<input type="checkbox" name="rss" id="rss">
 								</div>
 							</div>
 							<div class="form-group">
 								<label for="config" class="col-sm-3 control-label">Configuration </label>
 								<div class="col-sm-9">
-									<input type="checkbox" name="config" id="config" required="">
+									<input type="checkbox" name="config" id="config">
 								</div>
 							</div>
 							<div class="form-group">
 								<label for="reservation" class="col-sm-3 control-label">Reservation </label>
 								<div class="col-sm-9">
-									<input name="reservation" id="reservation" required="" type="checkbox">
+									<input name="reservation" id="reservation" type="checkbox">
 								</div>
 							</div>
 							<div class="form-group">
 								<label for="modules" class="col-sm-3 control-label">Modules </label>
 								<div class="col-sm-9">
-									<input type="checkbox" name="modules" id="modules" required="">
+									<input type="checkbox" name="modules" id="modules">
 								</div>
 							</div>
 							<div class="form-group">
 								<label for="dialogue" class="col-sm-3 control-label">Dialogue de gestion </label>
 								<div class="col-sm-9">
-									<input type="checkbox" name="dialogue"  id="dialogue" required="">
+									<input type="checkbox" name="dialogue"  id="dialogue">
 								</div>
 							</div>
-							<div class="form-group">
-								<label for="agenda" class="col-sm-3 control-label">Agenda ICS </label>
-								<div class="col-sm-9">
-									<input type="checkbox" checked name="agenda" id="agenda" required="">
+							<fieldset disabled>
+								<div class="form-group">
+									<label for="agenda" class="col-sm-3 control-label">Agenda ICS </label>
+									<div class="col-sm-9">
+										<input type="checkbox" checked name="agenda" id="agenda">
+									</div>
 								</div>
-							</div>
+							</fieldset>
 							
 							<button type="submit" class="btn btn-default">Sauvegarder</button>
 						</form>
