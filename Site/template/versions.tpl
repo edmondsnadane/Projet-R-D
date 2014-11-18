@@ -24,9 +24,9 @@
 			</div>
 			<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
 				<div class="panel panel-default">
-					<div class="panel-heading" role="tab" id="heading1">
+					<div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#collapse1" aria-expanded="true" aria-controls="collapse1" role="tab" id="heading1">
 						<h4 class="panel-title">
-							<a data-toggle="collapse" data-parent="#accordion" href="#collapse1" aria-expanded="true" aria-controls="collapse1">
+							<a>
 								Version 6.0.0
 							</a>
 						</h4>
@@ -45,9 +45,9 @@
 					</div>
 				</div>
 				<div class="panel panel-default">
-					<div class="panel-heading" role="tab" id="heading2">
+					<div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#collapse2" aria-expanded="true" aria-controls="collapse2" role="tab" id="heading2">
 						<h4 class="panel-title">
-							<a data-toggle="collapse" data-parent="#accordion" href="#collapse2" aria-expanded="true" aria-controls="collapse2">
+							<a>
 								Version 5.1.9
 							</a>
 						</h4>
@@ -63,9 +63,9 @@
 					</div>
 				</div>
 				<div class="panel panel-default">
-					<div class="panel-heading" role="tab" id="heading3">
+					<div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#collapse3" aria-expanded="true" aria-controls="collapse3" role="tab" id="heading3">
 						<h4 class="panel-title">
-							<a data-toggle="collapse" data-parent="#accordion" href="#collapse3" aria-expanded="true" aria-controls="collapse3">
+							<a>
 								Version 5.1.8
 							</a>
 						</h4>
@@ -80,9 +80,9 @@
 					</div>
 				</div>
 				<div class="panel panel-default">
-					<div class="panel-heading" role="tab" id="heading4">
+					<div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#collapse4" aria-expanded="true" aria-controls="collapse4" role="tab" id="heading4">
 						<h4 class="panel-title">
-							<a data-toggle="collapse" data-parent="#accordion" href="#collapse4" aria-expanded="true" aria-controls="collapse4">
+							<a>
 								Version 5.1.7
 							</a>
 						</h4>
@@ -99,9 +99,9 @@
 					</div>
 				</div>
 				<div class="panel panel-default">
-					<div class="panel-heading" role="tab" id="heading5">
+					<div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#collapse5" aria-expanded="true" aria-controls="collapse5" role="tab" id="heading5">
 						<h4 class="panel-title">
-							<a data-toggle="collapse" data-parent="#accordion" href="#collapse5" aria-expanded="true" aria-controls="collapse5">
+							<a>
 								Version 5.1.6
 							</a>
 						</h4>
@@ -121,9 +121,9 @@
 					</div>
 				</div>
 				<div class="panel panel-default">
-					<div class="panel-heading" role="tab" id="heading6">
+					<div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#collapse6" aria-expanded="true" aria-controls="collapse6" role="tab" id="heading6">
 						<h4 class="panel-title">
-							<a data-toggle="collapse" data-parent="#accordion" href="#collapse6" aria-expanded="true" aria-controls="collapse6">
+							<a>
 								Version 5.1.5
 							</a>
 						</h4>
@@ -138,9 +138,9 @@
 					</div>
 				</div>
 				<div class="panel panel-default">
-					<div class="panel-heading" role="tab" id="heading7">
+					<div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#collapse7" aria-expanded="true" aria-controls="collapse7" role="tab" id="heading7">
 						<h4 class="panel-title">
-							<a data-toggle="collapse" data-parent="#accordion" href="#collapse7" aria-expanded="true" aria-controls="collapse7">
+							<a>
 								Version 5.1.4
 							</a>
 						</h4>
@@ -160,9 +160,9 @@
 					</div>
 				</div>
 				<div class="panel panel-default">
-					<div class="panel-heading" role="tab" id="heading8">
+					<div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#collapse8" aria-expanded="true" aria-controls="collapse8" role="tab" id="heading8">
 						<h4 class="panel-title">
-							<a data-toggle="collapse" data-parent="#accordion" href="#collapse8" aria-expanded="true" aria-controls="collapse8">
+							<a>
 								Version 5.1.3
 							</a>
 						</h4>
@@ -178,9 +178,9 @@
 					</div>
 				</div>
 				<div class="panel panel-default">
-					<div class="panel-heading" role="tab" id="heading9">
+					<div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#collapse9" aria-expanded="true" aria-controls="collapse9" role="tab" id="heading9">
 						<h4 class="panel-title">
-							<a data-toggle="collapse" data-parent="#accordion" href="#collapse9" aria-expanded="true" aria-controls="collapse9">
+							<a>
 								Version 5.1.2
 							</a>
 						</h4>
@@ -199,9 +199,9 @@
 					</div>
 				</div>
 				<div class="panel panel-default">
-					<div class="panel-heading" role="tab" id="heading10">
+					<div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#collapse10" aria-expanded="true" aria-controls="collapse10" role="tab" id="heading10">
 						<h4 class="panel-title">
-							<a data-toggle="collapse" data-parent="#accordion" href="#collapse10" aria-expanded="true" aria-controls="collapse10">
+							<a>
 								Version 5.1.1
 							</a>
 						</h4>
@@ -216,9 +216,9 @@
 					</div>
 				</div>
 				<div class="panel panel-default">
-					<div class="panel-heading" role="tab" id="heading11">
+					<div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#collapse11" aria-expanded="true" aria-controls="collapse11" role="tab" id="heading11">
 						<h4 class="panel-title">
-							<a data-toggle="collapse" data-parent="#accordion" href="#collapse11" aria-expanded="true" aria-controls="collapse11">
+							<a>
 								Version 5.1.0
 							</a>
 						</h4>
@@ -233,9 +233,9 @@
 					</div>
 				</div>
 				<div class="panel panel-default">
-					<div class="panel-heading" role="tab" id="heading12">
+					<div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#collapse12" aria-expanded="true" aria-controls="collapse12" role="tab" id="heading12">
 						<h4 class="panel-title">
-							<a data-toggle="collapse" data-parent="#accordion" href="#collapse12" aria-expanded="true" aria-controls="collapse12">
+							<a>
 								Version 5.0.9
 							</a>
 						</h4>
@@ -254,9 +254,9 @@
 					</div>
 				</div>
 				<div class="panel panel-default">
-					<div class="panel-heading" role="tab" id="heading13">
+					<div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#collapse13" aria-expanded="true" aria-controls="collapse13" role="tab" id="heading13">
 						<h4 class="panel-title">
-							<a data-toggle="collapse" data-parent="#accordion" href="#collapse13" aria-expanded="true" aria-controls="collapse13">
+							<a>
 								Version 5.0.8
 							</a>
 						</h4>
@@ -274,9 +274,9 @@
 					</div>
 				</div>
 				<div class="panel panel-default">
-					<div class="panel-heading" role="tab" id="heading14">
+					<div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#collapse14" aria-expanded="true" aria-controls="collapse14" role="tab" id="heading14">
 						<h4 class="panel-title">
-							<a data-toggle="collapse" data-parent="#accordion" href="#collapse14" aria-expanded="true" aria-controls="collapse14">
+							<a>
 								Version 5.0.7
 							</a>
 						</h4>
@@ -291,9 +291,9 @@
 					</div>
 				</div>
 				<div class="panel panel-default">
-					<div class="panel-heading" role="tab" id="heading15">
+					<div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#collapse15" aria-expanded="true" aria-controls="collapse15" role="tab" id="heading15">
 						<h4 class="panel-title">
-							<a data-toggle="collapse" data-parent="#accordion" href="#collapse15" aria-expanded="true" aria-controls="collapse15">
+							<a>
 								Version 5.0.6
 							</a>
 						</h4>
@@ -311,9 +311,9 @@
 					</div>
 				</div>
 				<div class="panel panel-default">
-					<div class="panel-heading" role="tab" id="heading16">
+					<div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#collapse16" aria-expanded="true" aria-controls="collapse16" role="tab" id="heading16">
 						<h4 class="panel-title">
-							<a data-toggle="collapse" data-parent="#accordion" href="#collapse16" aria-expanded="true" aria-controls="collapse16">
+							<a>
 								Version 5.0.5
 							</a>
 						</h4>
@@ -329,9 +329,9 @@
 					</div>
 				</div>
 				<div class="panel panel-default">
-					<div class="panel-heading" role="tab" id="heading17">
+					<div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#collapse17" aria-expanded="true" aria-controls="collapse17" role="tab" id="heading17">
 						<h4 class="panel-title">
-							<a data-toggle="collapse" data-parent="#accordion" href="#collapse17" aria-expanded="true" aria-controls="collapse17">
+							<a>
 								Version 5.0.4
 							</a>
 						</h4>
@@ -346,9 +346,9 @@
 					</div>
 				</div>
 				<div class="panel panel-default">
-					<div class="panel-heading" role="tab" id="heading18">
+					<div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#collapse18" aria-expanded="true" aria-controls="collapse18" role="tab" id="heading18">
 						<h4 class="panel-title">
-							<a data-toggle="collapse" data-parent="#accordion" href="#collapse18" aria-expanded="true" aria-controls="collapse18">
+							<a>
 								Version 5.0.3
 							</a>
 						</h4>
@@ -363,9 +363,9 @@
 					</div>
 				</div>
 				<div class="panel panel-default">
-					<div class="panel-heading" role="tab" id="heading19">
+					<div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#collapse19" aria-expanded="true" aria-controls="collapse19" role="tab" id="heading19">
 						<h4 class="panel-title">
-							<a data-toggle="collapse" data-parent="#accordion" href="#collapse19" aria-expanded="true" aria-controls="collapse19">
+							<a>
 								Version 5.0.2
 							</a>
 						</h4>
@@ -382,9 +382,9 @@
 					</div>
 				</div>
 				<div class="panel panel-default">
-					<div class="panel-heading" role="tab" id="heading20">
+					<div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#collapse20" aria-expanded="true" aria-controls="collapse20" role="tab" id="heading20">
 						<h4 class="panel-title">
-							<a data-toggle="collapse" data-parent="#accordion" href="#collapse20" aria-expanded="true" aria-controls="collapse20">
+							<a>
 								Version 5.0.1
 							</a>
 						</h4>
@@ -400,9 +400,9 @@
 					</div>
 				</div>
 				<div class="panel panel-default">
-					<div class="panel-heading" role="tab" id="heading21">
+					<div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#collapse21" aria-expanded="true" aria-controls="collapse21" role="tab" id="heading21">
 						<h4 class="panel-title">
-							<a data-toggle="collapse" data-parent="#accordion" href="#collapse21" aria-expanded="true" aria-controls="collapse21">
+							<a>
 								Version 5.0.0
 							</a>
 						</h4>
@@ -431,9 +431,9 @@
 					</div>
 				</div>
 				<div class="panel panel-default">
-					<div class="panel-heading" role="tab" id="heading22">
+					<div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#collapse22" aria-expanded="true" aria-controls="collapse22" role="tab" id="heading22">
 						<h4 class="panel-title">
-							<a data-toggle="collapse" data-parent="#accordion" href="#collapse22" aria-expanded="true" aria-controls="collapse22">
+							<a>
 								Version 4.4.8
 							</a>
 						</h4>
@@ -450,9 +450,9 @@
 					</div>
 				</div>
 				<div class="panel panel-default">
-					<div class="panel-heading" role="tab" id="heading23">
+					<div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#collapse23" aria-expanded="true" aria-controls="collapse23" role="tab" id="heading23">
 						<h4 class="panel-title">
-							<a data-toggle="collapse" data-parent="#accordion" href="#collapse23" aria-expanded="true" aria-controls="collapse23">
+							<a>
 								Version 4.4.7
 							</a>
 						</h4>
@@ -469,9 +469,9 @@
 					</div>
 				</div>
 				<div class="panel panel-default">
-					<div class="panel-heading" role="tab" id="heading24">
+					<div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#collapse24" aria-expanded="true" aria-controls="collapse24" role="tab" id="heading24">
 						<h4 class="panel-title">
-							<a data-toggle="collapse" data-parent="#accordion" href="#collapse24" aria-expanded="true" aria-controls="collapse24">
+							<a>
 								Version 4.4.6
 							</a>
 						</h4>
@@ -493,9 +493,9 @@
 					</div>
 				</div>
 				<div class="panel panel-default">
-					<div class="panel-heading" role="tab" id="heading25">
+					<div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#collapse25" aria-expanded="true" aria-controls="collapse25" role="tab" id="heading25">
 						<h4 class="panel-title">
-							<a data-toggle="collapse" data-parent="#accordion" href="#collapse25" aria-expanded="true" aria-controls="collapse25">
+							<a>
 								Version 4.4.5
 							</a>
 						</h4>
@@ -510,9 +510,9 @@
 					</div>
 				</div>
 				<div class="panel panel-default">
-					<div class="panel-heading" role="tab" id="heading26">
+					<div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#collapse26" aria-expanded="true" aria-controls="collapse26" role="tab" id="heading26">
 						<h4 class="panel-title">
-							<a data-toggle="collapse" data-parent="#accordion" href="#collapse26" aria-expanded="true" aria-controls="collapse26">
+							<a>
 								Version 4.4.4
 							</a>
 						</h4>
@@ -534,9 +534,9 @@
 					</div>
 				</div>
 				<div class="panel panel-default">
-					<div class="panel-heading" role="tab" id="heading27">
+					<div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#collapse27" aria-expanded="true" aria-controls="collapse27" role="tab" id="heading27">
 						<h4 class="panel-title">
-							<a data-toggle="collapse" data-parent="#accordion" href="#collapse27" aria-expanded="true" aria-controls="collapse27">
+							<a>
 								Version 4.4.3
 							</a>
 						</h4>
@@ -557,9 +557,9 @@
 					</div>
 				</div>
 				<div class="panel panel-default">
-					<div class="panel-heading" role="tab" id="heading28">
+					<div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#collapse28" aria-expanded="true" aria-controls="collapse28" role="tab" id="heading28">
 						<h4 class="panel-title">
-							<a data-toggle="collapse" data-parent="#accordion" href="#collapse28" aria-expanded="true" aria-controls="collapse28">
+							<a>
 								Version 4.4.2
 							</a>
 						</h4>
@@ -578,9 +578,9 @@
 					</div>
 				</div>
 				<div class="panel panel-default">
-					<div class="panel-heading" role="tab" id="heading29">
+					<div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#collapse29" aria-expanded="true" aria-controls="collapse29" role="tab" id="heading29">
 						<h4 class="panel-title">
-							<a data-toggle="collapse" data-parent="#accordion" href="#collapse29" aria-expanded="true" aria-controls="collapse29">
+							<a>
 								Version 4.4.1
 							</a>
 						</h4>
@@ -599,9 +599,9 @@
 					</div>
 				</div>
 				<div class="panel panel-default">
-					<div class="panel-heading" role="tab" id="heading30">
+					<div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#collapse30" aria-expanded="true" aria-controls="collapse30" role="tab" id="heading30">
 						<h4 class="panel-title">
-							<a data-toggle="collapse" data-parent="#accordion" href="#collapse30" aria-expanded="true" aria-controls="collapse30">
+							<a>
 								Version 4.4.0
 							</a>
 						</h4>
@@ -627,9 +627,9 @@
 					</div>
 				</div>
 				<div class="panel panel-default">
-					<div class="panel-heading" role="tab" id="heading31">
+					<div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#collapse31" aria-expanded="true" aria-controls="collapse31" role="tab" id="heading31">
 						<h4 class="panel-title">
-							<a data-toggle="collapse" data-parent="#accordion" href="#collapse31" aria-expanded="true" aria-controls="collapse31">
+							<a>
 								Version 4.3.9
 							</a>
 						</h4>
@@ -649,9 +649,9 @@
 					</div>
 				</div>
 				<div class="panel panel-default">
-					<div class="panel-heading" role="tab" id="heading32">
+					<div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#collapse32" aria-expanded="true" aria-controls="collapse32" role="tab" id="heading32">
 						<h4 class="panel-title">
-							<a data-toggle="collapse" data-parent="#accordion" href="#collapse32" aria-expanded="true" aria-controls="collapse32">
+							<a>
 								Version 4.3.8
 							</a>
 						</h4>
@@ -682,9 +682,9 @@
 					</div>
 				</div>
 				<div class="panel panel-default">
-					<div class="panel-heading" role="tab" id="heading33">
+					<div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#collapse33" aria-expanded="true" aria-controls="collapse33" role="tab" id="heading33">
 						<h4 class="panel-title">
-							<a data-toggle="collapse" data-parent="#accordion" href="#collapse33" aria-expanded="true" aria-controls="collapse33">
+							<a>
 								Version 4.3.7
 							</a>
 						</h4>
@@ -718,9 +718,9 @@
 					</div>
 				</div>
 				<div class="panel panel-default">
-					<div class="panel-heading" role="tab" id="heading34">
+					<div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#collapse34" aria-expanded="true" aria-controls="collapse34" role="tab" id="heading34">
 						<h4 class="panel-title">
-							<a data-toggle="collapse" data-parent="#accordion" href="#collapse34" aria-expanded="true" aria-controls="collapse34">
+							<a>
 								Version 4.3.6
 							</a>
 						</h4>
@@ -736,9 +736,9 @@
 					</div>
 				</div>
 				<div class="panel panel-default">
-					<div class="panel-heading" role="tab" id="heading35">
+					<div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#collapse35" aria-expanded="true" aria-controls="collapse35" role="tab" id="heading35">
 						<h4 class="panel-title">
-							<a data-toggle="collapse" data-parent="#accordion" href="#collapse35" aria-expanded="true" aria-controls="collapse35">
+							<a>
 								Version 4.3.5
 							</a>
 						</h4>
@@ -760,9 +760,9 @@
 					</div>
 				</div>
 				<div class="panel panel-default">
-					<div class="panel-heading" role="tab" id="heading36">
+					<div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#collapse36" aria-expanded="true" aria-controls="collapse36" role="tab" id="heading36">
 						<h4 class="panel-title">
-							<a data-toggle="collapse" data-parent="#accordion" href="#collapse36" aria-expanded="true" aria-controls="collapse36">
+							<a>
 								Version 4.3.4
 							</a>
 						</h4>
@@ -779,9 +779,9 @@
 					</div>
 				</div>
 				<div class="panel panel-default">
-					<div class="panel-heading" role="tab" id="heading37">
+					<div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#collapse37" aria-expanded="true" aria-controls="collapse37" role="tab" id="heading37">
 						<h4 class="panel-title">
-							<a data-toggle="collapse" data-parent="#accordion" href="#collapse37" aria-expanded="true" aria-controls="collapse37">
+							<a>
 								Version 4.3.3
 							</a>
 						</h4>
@@ -801,9 +801,9 @@
 					</div>
 				</div>
 				<div class="panel panel-default">
-					<div class="panel-heading" role="tab" id="heading38">
+					<div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#collapse38" aria-expanded="true" aria-controls="collapse38" role="tab" id="heading38">
 						<h4 class="panel-title">
-							<a data-toggle="collapse" data-parent="#accordion" href="#collapse38" aria-expanded="true" aria-controls="collapse38">
+							<a>
 								Version 4.3.2
 							</a>
 						</h4>
@@ -818,9 +818,9 @@
 					</div>
 				</div>
 				<div class="panel panel-default">
-					<div class="panel-heading" role="tab" id="heading39">
+					<div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#collapse39" aria-expanded="true" aria-controls="collapse39" role="tab" id="heading39">
 						<h4 class="panel-title">
-							<a data-toggle="collapse" data-parent="#accordion" href="#collapse39" aria-expanded="true" aria-controls="collapse39">
+							<a>
 								Version 4.3.1
 							</a>
 						</h4>
@@ -837,9 +837,9 @@
 					</div>
 				</div>
 				<div class="panel panel-default">
-					<div class="panel-heading" role="tab" id="heading40">
+					<div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#collapse40" aria-expanded="true" aria-controls="collapse40" role="tab" id="heading40">
 						<h4 class="panel-title">
-							<a data-toggle="collapse" data-parent="#accordion" href="#collapse40" aria-expanded="true" aria-controls="collapse40">
+							<a>
 								Version 4.3.0
 							</a>
 						</h4>
@@ -854,9 +854,9 @@
 					</div>
 				</div>
 				<div class="panel panel-default">
-					<div class="panel-heading" role="tab" id="heading41">
+					<div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#collapse41" aria-expanded="true" aria-controls="collapse41" role="tab" id="heading41">
 						<h4 class="panel-title">
-							<a data-toggle="collapse" data-parent="#accordion" href="#collapse41" aria-expanded="true" aria-controls="collapse41">
+							<a>
 								Version 4.2.9
 							</a>
 						</h4>
@@ -883,9 +883,9 @@
 					</div>
 				</div>
 				<div class="panel panel-default">
-					<div class="panel-heading" role="tab" id="heading42">
+					<div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#collapse42" aria-expanded="true" aria-controls="collapse42" role="tab" id="heading42">
 						<h4 class="panel-title">
-							<a data-toggle="collapse" data-parent="#accordion" href="#collapse42" aria-expanded="true" aria-controls="collapse42">
+							<a>
 								Version 4.2.8
 							</a>
 						</h4>
@@ -907,9 +907,9 @@
 					</div>
 				</div>
 				<div class="panel panel-default">
-					<div class="panel-heading" role="tab" id="heading43">
+					<div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#collapse43" aria-expanded="true" aria-controls="collapse43" role="tab" id="heading43">
 						<h4 class="panel-title">
-							<a data-toggle="collapse" data-parent="#accordion" href="#collapse43" aria-expanded="true" aria-controls="collapse43">
+							<a>
 								Version 4.2.7
 							</a>
 						</h4>
@@ -926,9 +926,9 @@
 					</div>
 				</div>
 				<div class="panel panel-default">
-					<div class="panel-heading" role="tab" id="heading44">
+					<div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#collapse44" aria-expanded="true" aria-controls="collapse44" role="tab" id="heading44">
 						<h4 class="panel-title">
-							<a data-toggle="collapse" data-parent="#accordion" href="#collapse44" aria-expanded="true" aria-controls="collapse44">
+							<a>
 								Version 4.2.6
 							</a>
 						</h4>
@@ -950,9 +950,9 @@
 					</div>
 				</div>
 				<div class="panel panel-default">
-					<div class="panel-heading" role="tab" id="heading45">
+					<div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#collapse45" aria-expanded="true" aria-controls="collapse45" role="tab" id="heading45">
 						<h4 class="panel-title">
-							<a data-toggle="collapse" data-parent="#accordion" href="#collapse45" aria-expanded="true" aria-controls="collapse45">
+							<a>
 								Version 4.2.5
 							</a>
 						</h4>
@@ -968,9 +968,9 @@
 					</div>
 				</div>
 				<div class="panel panel-default">
-					<div class="panel-heading" role="tab" id="heading46">
+					<div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#collapse46" aria-expanded="true" aria-controls="collapse46" role="tab" id="heading46">
 						<h4 class="panel-title">
-							<a data-toggle="collapse" data-parent="#accordion" href="#collapse46" aria-expanded="true" aria-controls="collapse46">
+							<a>
 								Version 4.2.4
 							</a>
 						</h4>
@@ -985,9 +985,9 @@
 					</div>
 				</div>
 				<div class="panel panel-default">
-					<div class="panel-heading" role="tab" id="heading47">
+					<div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#collapse47" aria-expanded="true" aria-controls="collapse47" role="tab" id="heading47">
 						<h4 class="panel-title">
-							<a data-toggle="collapse" data-parent="#accordion" href="#collapse47" aria-expanded="true" aria-controls="collapse47">
+							<a>
 								Version 4.2.3
 							</a>
 						</h4>
@@ -1002,9 +1002,9 @@
 					</div>
 				</div>
 				<div class="panel panel-default">
-					<div class="panel-heading" role="tab" id="heading48">
+					<div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#collapse48" aria-expanded="true" aria-controls="collapse48" role="tab" id="heading48">
 						<h4 class="panel-title">
-							<a data-toggle="collapse" data-parent="#accordion" href="#collapse48" aria-expanded="true" aria-controls="collapse48">
+							<a>
 								Version 4.2.2
 							</a>
 						</h4>
@@ -1023,9 +1023,9 @@
 					</div>
 				</div>
 				<div class="panel panel-default">
-					<div class="panel-heading" role="tab" id="heading49">
+					<div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#collapse49" aria-expanded="true" aria-controls="collapse49" role="tab" id="heading49">
 						<h4 class="panel-title">
-							<a data-toggle="collapse" data-parent="#accordion" href="#collapse49" aria-expanded="true" aria-controls="collapse49">
+							<a>
 								Version 4.2.1
 							</a>
 						</h4>
@@ -1040,9 +1040,9 @@
 					</div>
 				</div>
 				<div class="panel panel-default">
-					<div class="panel-heading" role="tab" id="heading50">
+					<div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#collapse50" aria-expanded="true" aria-controls="collapse50" role="tab" id="heading50">
 						<h4 class="panel-title">
-							<a data-toggle="collapse" data-parent="#accordion" href="#collapse50" aria-expanded="true" aria-controls="collapse50">
+							<a>
 								Version 4.2.0
 							</a>
 						</h4>
@@ -1057,9 +1057,9 @@
 					</div>
 				</div>
 				<div class="panel panel-default">
-					<div class="panel-heading" role="tab" id="heading51">
+					<div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#collapse51" aria-expanded="true" aria-controls="collapse51" role="tab" id="heading51">
 						<h4 class="panel-title">
-							<a data-toggle="collapse" data-parent="#accordion" href="#collapse51" aria-expanded="true" aria-controls="collapse51">
+							<a>
 								Version 4.1.9
 							</a>
 						</h4>
@@ -1075,9 +1075,9 @@
 					</div>
 				</div>
 				<div class="panel panel-default">
-					<div class="panel-heading" role="tab" id="heading52">
+					<div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#collapse52" aria-expanded="true" aria-controls="collapse52" role="tab" id="heading52">
 						<h4 class="panel-title">
-							<a data-toggle="collapse" data-parent="#accordion" href="#collapse52" aria-expanded="true" aria-controls="collapse52">
+							<a>
 								Version 4.1.8
 							</a>
 						</h4>
@@ -1096,9 +1096,9 @@
 					</div>
 				</div>
 				<div class="panel panel-default">
-					<div class="panel-heading" role="tab" id="heading53">
+					<div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#collapse53" aria-expanded="true" aria-controls="collapse53" role="tab" id="heading53">
 						<h4 class="panel-title">
-							<a data-toggle="collapse" data-parent="#accordion" href="#collapse53" aria-expanded="true" aria-controls="collapse53">
+							<a>
 								Version 4.1.7
 							</a>
 						</h4>
@@ -1113,9 +1113,9 @@
 					</div>
 				</div>
 				<div class="panel panel-default">
-					<div class="panel-heading" role="tab" id="heading54">
+					<div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#collapse54" aria-expanded="true" aria-controls="collapse54" role="tab" id="heading54">
 						<h4 class="panel-title">
-							<a data-toggle="collapse" data-parent="#accordion" href="#collapse54" aria-expanded="true" aria-controls="collapse54">
+							<a>
 								Version 4.1.6
 							</a>
 						</h4>
@@ -1130,9 +1130,9 @@
 					</div>
 				</div>
 				<div class="panel panel-default">
-					<div class="panel-heading" role="tab" id="heading55">
+					<div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#collapse55" aria-expanded="true" aria-controls="collapse55" role="tab" id="heading55">
 						<h4 class="panel-title">
-							<a data-toggle="collapse" data-parent="#accordion" href="#collapse55" aria-expanded="true" aria-controls="collapse55">
+							<a>
 								Version 4.1.5
 							</a>
 						</h4>
@@ -1151,9 +1151,9 @@
 					</div>
 				</div>
 				<div class="panel panel-default">
-					<div class="panel-heading" role="tab" id="heading56">
+					<div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#collapse56" aria-expanded="true" aria-controls="collapse56" role="tab" id="heading56">
 						<h4 class="panel-title">
-							<a data-toggle="collapse" data-parent="#accordion" href="#collapse56" aria-expanded="true" aria-controls="collapse56">
+							<a>
 								Version 4.1.4
 							</a>
 						</h4>
@@ -1173,9 +1173,9 @@
 					</div>
 				</div>
 				<div class="panel panel-default">
-					<div class="panel-heading" role="tab" id="heading57">
+					<div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#collapse57" aria-expanded="true" aria-controls="collapse57" role="tab" id="heading57">
 						<h4 class="panel-title">
-							<a data-toggle="collapse" data-parent="#accordion" href="#collapse57" aria-expanded="true" aria-controls="collapse57">
+							<a>
 								Version 4.1.3
 							</a>
 						</h4>
@@ -1190,9 +1190,9 @@
 					</div>
 				</div>
 				<div class="panel panel-default">
-					<div class="panel-heading" role="tab" id="heading58">
+					<div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#collapse58" aria-expanded="true" aria-controls="collapse58" role="tab" id="heading58">
 						<h4 class="panel-title">
-							<a data-toggle="collapse" data-parent="#accordion" href="#collapse58" aria-expanded="true" aria-controls="collapse58">
+							<a>
 								Version 4.1.2
 							</a>
 						</h4>
@@ -1207,9 +1207,9 @@
 					</div>
 				</div>
 				<div class="panel panel-default">
-					<div class="panel-heading" role="tab" id="heading59">
+					<div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#collapse59" aria-expanded="true" aria-controls="collapse59" role="tab" id="heading59">
 						<h4 class="panel-title">
-							<a data-toggle="collapse" data-parent="#accordion" href="#collapse59" aria-expanded="true" aria-controls="collapse59">
+							<a>
 								Version 4.1.1
 							</a>
 						</h4>
@@ -1224,9 +1224,9 @@
 					</div>
 				</div>
 				<div class="panel panel-default">
-					<div class="panel-heading" role="tab" id="heading60">
+					<div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#collapse60" aria-expanded="true" aria-controls="collapse60" role="tab" id="heading60">
 						<h4 class="panel-title">
-							<a data-toggle="collapse" data-parent="#accordion" href="#collapse60" aria-expanded="true" aria-controls="collapse60">
+							<a>
 								Version 4.1.0
 							</a>
 						</h4>
@@ -1241,9 +1241,9 @@
 					</div>
 				</div>
 				<div class="panel panel-default">
-					<div class="panel-heading" role="tab" id="heading61">
+					<div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#collapse61" aria-expanded="true" aria-controls="collapse61" role="tab" id="heading61">
 						<h4 class="panel-title">
-							<a data-toggle="collapse" data-parent="#accordion" href="#collapse61" aria-expanded="true" aria-controls="collapse61">
+							<a>
 								Version 4.0.2
 							</a>
 						</h4>
@@ -1260,9 +1260,9 @@
 					</div>
 				</div>
 				<div class="panel panel-default">
-					<div class="panel-heading" role="tab" id="heading62">
+					<div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#collapse62" aria-expanded="true" aria-controls="collapse62" role="tab" id="heading62">
 						<h4 class="panel-title">
-							<a data-toggle="collapse" data-parent="#accordion" href="#collapse62" aria-expanded="true" aria-controls="collapse62">
+							<a>
 								Version 4.0.1
 							</a>
 						</h4>
@@ -1283,9 +1283,9 @@
 					</div>
 				</div>
 				<div class="panel panel-default">
-					<div class="panel-heading" role="tab" id="heading63">
+					<div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#collapse63" aria-expanded="true" aria-controls="collapse63" role="tab" id="heading63">
 						<h4 class="panel-title">
-							<a data-toggle="collapse" data-parent="#accordion" href="#collapse63" aria-expanded="true" aria-controls="collapse63">
+							<a>
 								Version 4.0.0
 							</a>
 						</h4>
@@ -1317,9 +1317,9 @@
 					</div>
 				</div>
 				<div class="panel panel-default">
-					<div class="panel-heading" role="tab" id="heading64">
+					<div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#collapse64" aria-expanded="true" aria-controls="collapse64" role="tab" id="heading64">
 						<h4 class="panel-title">
-							<a data-toggle="collapse" data-parent="#accordion" href="#collapse64" aria-expanded="true" aria-controls="collapse64">
+							<a>
 								Version 3.1.3
 							</a>
 						</h4>
@@ -1338,9 +1338,9 @@
 					</div>
 				</div>
 				<div class="panel panel-default">
-					<div class="panel-heading" role="tab" id="heading65">
+					<div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#collapse65" aria-expanded="true" aria-controls="collapse65" role="tab" id="heading65">
 						<h4 class="panel-title">
-							<a data-toggle="collapse" data-parent="#accordion" href="#collapse65" aria-expanded="true" aria-controls="collapse65">
+							<a>
 								Version 3.1.2
 							</a>
 						</h4>
@@ -1356,9 +1356,9 @@
 					</div>
 				</div>
 				<div class="panel panel-default">
-					<div class="panel-heading" role="tab" id="heading66">
+					<div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#collapse66" aria-expanded="true" aria-controls="collapse66" role="tab" id="heading66">
 						<h4 class="panel-title">
-							<a data-toggle="collapse" data-parent="#accordion" href="#collapse66" aria-expanded="true" aria-controls="collapse66">
+							<a>
 								Version 3.1.1
 							</a>
 						</h4>
@@ -1373,9 +1373,9 @@
 					</div>
 				</div>
 				<div class="panel panel-default">
-					<div class="panel-heading" role="tab" id="heading67">
+					<div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#collapse67" aria-expanded="true" aria-controls="collapse67" role="tab" id="heading67">
 						<h4 class="panel-title">
-							<a data-toggle="collapse" data-parent="#accordion" href="#collapse67" aria-expanded="true" aria-controls="collapse67">
+							<a>
 								Version 3.1.0
 							</a>
 						</h4>
@@ -1391,9 +1391,9 @@
 					</div>
 				</div>
 				<div class="panel panel-default">
-					<div class="panel-heading" role="tab" id="heading68">
+					<div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#collapse68" aria-expanded="true" aria-controls="collapse68" role="tab" id="heading68">
 						<h4 class="panel-title">
-							<a data-toggle="collapse" data-parent="#accordion" href="#collapse68" aria-expanded="true" aria-controls="collapse68">
+							<a>
 								Version 3.0.3
 							</a>
 						</h4>
@@ -1408,9 +1408,9 @@
 					</div>
 				</div>
 				<div class="panel panel-default">
-					<div class="panel-heading" role="tab" id="heading69">
+					<div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#collapse69" aria-expanded="true" aria-controls="collapse69" role="tab" id="heading69">
 						<h4 class="panel-title">
-							<a data-toggle="collapse" data-parent="#accordion" href="#collapse69" aria-expanded="true" aria-controls="collapse69">
+							<a>
 								Version 3.0.2
 							</a>
 						</h4>
@@ -1429,9 +1429,9 @@
 					</div>
 				</div>
 				<div class="panel panel-default">
-					<div class="panel-heading" role="tab" id="heading70">
+					<div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#collapse70" aria-expanded="true" aria-controls="collapse70" role="tab" id="heading70">
 						<h4 class="panel-title">
-							<a data-toggle="collapse" data-parent="#accordion" href="#collapse70" aria-expanded="true" aria-controls="collapse70">
+							<a>
 								Version 3.0.1
 							</a>
 						</h4>
@@ -1446,9 +1446,9 @@
 					</div>
 				</div>
 				<div class="panel panel-default">
-					<div class="panel-heading" role="tab" id="heading71">
+					<div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#collapse71" aria-expanded="true" aria-controls="collapse71" role="tab" id="heading71">
 						<h4 class="panel-title">
-							<a data-toggle="collapse" data-parent="#accordion" href="#collapse71" aria-expanded="true" aria-controls="collapse71">
+							<a>
 								Version 3.0.0
 							</a>
 						</h4>
@@ -1467,9 +1467,9 @@
 					</div>
 				</div>
 				<div class="panel panel-default">
-					<div class="panel-heading" role="tab" id="heading72">
+					<div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#collapse72" aria-expanded="true" aria-controls="collapse72" role="tab" id="heading72">
 						<h4 class="panel-title">
-							<a data-toggle="collapse" data-parent="#accordion" href="#collapse72" aria-expanded="true" aria-controls="collapse72">
+							<a>
 								Version 2.8
 							</a>
 						</h4>
@@ -1491,9 +1491,9 @@
 					</div>
 				</div>
 				<div class="panel panel-default">
-					<div class="panel-heading" role="tab" id="heading73">
+					<div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#collapse73" aria-expanded="true" aria-controls="collapse73" role="tab" id="heading73">
 						<h4 class="panel-title">
-							<a data-toggle="collapse" data-parent="#accordion" href="#collapse73" aria-expanded="true" aria-controls="collapse73">
+							<a>
 								Version 2.7
 							</a>
 						</h4>
@@ -1508,9 +1508,9 @@
 					</div>
 				</div>
 				<div class="panel panel-default">
-					<div class="panel-heading" role="tab" id="heading74">
+					<div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#collapse74" aria-expanded="true" aria-controls="collapse74" role="tab" id="heading74">
 						<h4 class="panel-title">
-							<a data-toggle="collapse" data-parent="#accordion" href="#collapse74" aria-expanded="true" aria-controls="collapse74">
+							<a>
 								Version 2.6
 							</a>
 						</h4>
@@ -1537,9 +1537,9 @@
 					</div>
 				</div>
 				<div class="panel panel-default">
-					<div class="panel-heading" role="tab" id="heading75">
+					<div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#collapse75" aria-expanded="true" aria-controls="collapse75" role="tab" id="heading75">
 						<h4 class="panel-title">
-							<a data-toggle="collapse" data-parent="#accordion" href="#collapse75" aria-expanded="true" aria-controls="collapse75">
+							<a>
 								Version 2.5
 							</a>
 						</h4>
@@ -1558,9 +1558,9 @@
 					</div>
 				</div>
 				<div class="panel panel-default">
-					<div class="panel-heading" role="tab" id="heading76">
+					<div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#collapse76" aria-expanded="true" aria-controls="collapse76" role="tab" id="heading76">
 						<h4 class="panel-title">
-							<a data-toggle="collapse" data-parent="#accordion" href="#collapse76" aria-expanded="true" aria-controls="collapse76">
+							<a>
 								Version 2.4
 							</a>
 						</h4>
@@ -1575,9 +1575,9 @@
 					</div>
 				</div>
 				<div class="panel panel-default">
-					<div class="panel-heading" role="tab" id="heading77">
+					<div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#collapse77" aria-expanded="true" aria-controls="collapse77" role="tab" id="heading77">
 						<h4 class="panel-title">
-							<a data-toggle="collapse" data-parent="#accordion" href="#collapse77" aria-expanded="true" aria-controls="collapse77">
+							<a>
 								Version 2.3
 							</a>
 						</h4>
@@ -1591,9 +1591,9 @@
 					</div>
 				</div>
 				<div class="panel panel-default">
-					<div class="panel-heading" role="tab" id="heading78">
+					<div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#collapse78" aria-expanded="true" aria-controls="collapse78" role="tab" id="heading78">
 						<h4 class="panel-title">
-							<a data-toggle="collapse" data-parent="#accordion" href="#collapse78" aria-expanded="true" aria-controls="collapse78">
+							<a>
 								Version 2.2
 							</a>
 						</h4>
@@ -1618,9 +1618,9 @@
 					</div>
 				</div>
 				<div class="panel panel-default">
-					<div class="panel-heading" role="tab" id="heading79">
+					<div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#collapse79" aria-expanded="true" aria-controls="collapse79" role="tab" id="heading79">
 						<h4 class="panel-title">
-							<a data-toggle="collapse" data-parent="#accordion" href="#collapse79" aria-expanded="true" aria-controls="collapse79">
+							<a>
 								Version 2.1
 							</a>
 						</h4>
