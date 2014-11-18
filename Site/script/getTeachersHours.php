@@ -23,12 +23,13 @@ $codeProf = 0;
 if(isset($_GET["prof"]) && $_GET["prof"] != 0) {
 	$codeProf = $_GET["prof"];
 	$sql = "
-		SELECT 
+		SELECT
 			*,
 			seances.dureeSeance as seancesDureeSeance,
 			ressources_groupes.nom as nomFormation, 
 			enseignements.identifiant as codeApogee, 
-			matieres.nom as nomMatiere
+			matieres.nom as nomMatiere,
+			seances.codeSeance as codeSeance
 		FROM 
 			seances_profs,
 			seances,
@@ -47,7 +48,7 @@ if(isset($_GET["prof"]) && $_GET["prof"] != 0) {
 			matieres.deleted='0' AND 
 			enseignements.deleted='0' AND 
 			seances.annulee='0'
-		ORDER BY seances.dateSeance	";
+			ORDER BY seances.dateSeance	";
 			
 	$req = $dbh->prepare($sql);
 	$req->execute(array(':codeProf' => $codeProf));
@@ -146,17 +147,14 @@ foreach($cumuls as $cumul) {
 }
 
 
-//setlocale (LC_TIME, 'fr_FR','fra'); 
-
 foreach($heuresParMois as $month => $cumulHeures) {
 	$strEngMois = array('January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December');
 	$strFrMois = array('Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Août',	'Septembre', 'Octobre', 'Novembre',	'Décembre');
 
 	$strMonth = str_ireplace($strEngMois, $strFrMois, date('F', mktime(0, 0, 0, $month, 10)));
 	
-	
-	$pretty=$cumulHeures;
-	$heuresParMois[$month] = array("num" => $pretty, "str" => pretty_hour($cumulHeures), "mois" => $strMonth);
+	//$heuresParMois["heure"]=pretty_hour($cumulHeures);
+	$heuresParMois[$month] = array("num" => $cumulHeures, "str" => pretty_hour($cumulHeures), "mois" => $strMonth);
 	
 }
 

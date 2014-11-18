@@ -10,9 +10,12 @@
 		<script src="API/jquery/jquery.js"></script>
 		<script type="text/javascript" src="API/bootstrap/js/bootstrap.js"></script>
 		<script type="text/javascript" src="js/loadPage.js"></script>
+		<script type="text/javascript" src="js/bootstrap-datepicker.js"></script>
+		<script type="text/javascript" src="js/myproj.js"></script>
 		<script type="text/javascript" src="js/customCheck.js"></script>
 		<script type="text/javascript" src="API/tableExport/tableExport.js"></script>
 		<script type="text/javascript" src="API/tableExport/jquery.base64.js"></script>
+		
 	</head>
 	<body>
 		{include file='template/include/header.tpl'}
@@ -41,7 +44,10 @@
 										<div class="form-group">
 											<label for="beginDate" class="col-sm-3 control-label">Début</label>
 											<div class="col-sm-9">
-												<input type="date" name="beginDate" class="form-control" id="beginDate" placeholder="Début">
+												<div class="input-append date" id="dp3" data-date="12-02-2012" data-date-format="dd-mm-yyyy">
+												<input class="span2" size="16" type="text" value="12-02-2012">
+												<span class="add-on"><i class="icon-th"></i></span>
+											</div>
 											</div>
 										</div>
 										<div class="form-group">
@@ -59,6 +65,7 @@
 												</select>
 											</div>
 										</div>
+										    
 										<div class="form-group last" id="pdfButtons">
 											<button type="submit" class="btn btn-success">Exporter</button>
 										</div>
