@@ -5,13 +5,13 @@
 			<div class="col-sm-6" id="rowFiltreleft">
 				<div class="btn-group btn-group-justified" id="filtreToday">
 					<div class="btn-group" >
-						<button class="btn btn-primary" data-calendar-nav="prev"> << </button>
+						<button class="btn btn-primary" id="prevButton" data-calendar-nav="prev"> << </button>
 					</div>	
 					<div class="btn-group" >	
 						<button class="btn btn-default" data-calendar-nav="today"> Aujourd'hui </button>
 					</div>	
 					<div class="btn-group" >	
-						<button class="btn btn-primary" data-calendar-nav="next"> >> </button>
+						<button class="btn btn-primary" id="nextButton" data-calendar-nav="next"> >> </button>
 					</div>	
 				</div>
 			</div>		
@@ -117,3 +117,4 @@
 
 <script type="text/javascript" src="API/bootstrap-calendar-master/js/app.js"></script>
 <script type="text/javascript" src="js/CalendarResize.js"></script>
+<script type="text/javascript" src="js/MobileSwipeCalendar.js"></script>
