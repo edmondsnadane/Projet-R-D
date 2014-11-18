@@ -6,7 +6,7 @@
     hammertime.get('swipe').set({ direction: Hammer.DIRECTION_HORIZONTAL });
     
     hammertime.on('swipe', function(ev) {
-        console.log(ev);
+        //console.log(ev);
         if (ev.velocityX < 0) // < 0 -> vers la droite
         {
             $('#nextButton').click();            
