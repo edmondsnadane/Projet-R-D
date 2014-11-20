@@ -15,7 +15,6 @@
 			<td>{$seance.nomFormation}</td>
 			<td>{$seance.codeApogee}</td>
 			<td>{$seance.nomMatiere}</td>
-			<td>{$seance.codeSeance}</td>
 			<td>{$seance.dateSeance}  </td>
 			<td>{$seance.heureDebut}</td>
 			<td>{$seance.heureFin}</td>

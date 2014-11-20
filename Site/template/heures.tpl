@@ -70,7 +70,6 @@
 						<th data-sort-ignore="true">Formation</th>
 						<th data-hide="phone,tablet">Code apogée</th>
 						<th >Matière</th>
-						<th >Code Seance</th>
 						<th data-hide="phone,tablet" data-sort-ignore="true">Date</th>
 						<th data-hide="phone,tablet" data-sort-ignore="true">Heure début</th>
 						<th data-hide="phone,tablet" data-sort-ignore="true">Heure fin</th>

@@ -24,12 +24,15 @@ if(isset($_GET["prof"]) && $_GET["prof"] != 0) {
 	$codeProf = $_GET["prof"];
 	$sql = "
 		SELECT
-			*,
 			seances.dureeSeance as seancesDureeSeance,
-			ressources_groupes.nom as nomFormation, 
+			GROUP_CONCAT(ressources_groupes.nom SEPARATOR ' / ') as nomFormation, 
 			enseignements.identifiant as codeApogee, 
 			matieres.nom as nomMatiere,
-			seances.codeSeance as codeSeance
+			seances.dateSeance,
+			seances.heureSeance,
+			codeTypeActivite,
+			volumeReparti,
+			forfaitaire
 		FROM 
 			seances_profs,
 			seances,
@@ -48,6 +51,7 @@ if(isset($_GET["prof"]) && $_GET["prof"] != 0) {
 			matieres.deleted='0' AND 
 			enseignements.deleted='0' AND 
 			seances.annulee='0'
+			GROUP BY seances.codeSeance
 			ORDER BY seances.dateSeance	";
 			
 	$req = $dbh->prepare($sql);
