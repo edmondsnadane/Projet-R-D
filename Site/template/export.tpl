@@ -7,14 +7,16 @@
 		<link rel="stylesheet" href="API/bootstrap/css/bootstrap.min.css"/>
 		<link rel="stylesheet" href="css/common.css"/>
 		<link rel="stylesheet" href="css/export.css"/>
+		<link rel="stylesheet" href="css/jquery-ui.css"/>
 		<script src="API/jquery/jquery.js"></script>
 		<script type="text/javascript" src="API/bootstrap/js/bootstrap.js"></script>
 		<script type="text/javascript" src="js/loadPage.js"></script>
-		<script type="text/javascript" src="js/bootstrap-datepicker.js"></script>
-		<script type="text/javascript" src="js/myproj.js"></script>
 		<script type="text/javascript" src="js/customCheck.js"></script>
 		<script type="text/javascript" src="API/tableExport/tableExport.js"></script>
 		<script type="text/javascript" src="API/tableExport/jquery.base64.js"></script>
+		<script type="text/javascript" src="API/jquery/jquery-ui.js"></script>
+		<script type="text/javascript" src="js/datePicker.js"></script>
+		
 		
 	</head>
 	<body>
@@ -44,16 +46,13 @@
 										<div class="form-group">
 											<label for="beginDate" class="col-sm-3 control-label">Début</label>
 											<div class="col-sm-9">
-												<div class="input-append date" id="dp3" data-date="12-02-2012" data-date-format="dd-mm-yyyy">
-												<input class="span2" size="16" type="text" value="12-02-2012">
-												<span class="add-on"><i class="icon-th"></i></span>
-											</div>
+												<input type="text" id="datePickerDeb">	
 											</div>
 										</div>
 										<div class="form-group">
 											<label for="endDate" class="col-sm-3 control-label">Fin</label>
 											<div class="col-sm-9">
-												<input type="date" name="endDate" class="form-control" id="endDate" placeholder="Fin">
+												<input type="text" id="datePickerFin">
 											</div>
 										</div>
 										<div class="form-group">
