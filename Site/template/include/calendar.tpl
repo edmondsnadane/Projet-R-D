@@ -27,7 +27,7 @@
 						<button class="btn btn-warning" data-calendar-view="week">Semaine</button>
 					</div>
 					<div class="btn-group" >	
-						<button class="btn btn-warning" data-calendar-view="day">Jour</button>
+						<button class="btn btn-warning" id="vueJour" data-calendar-view="day">Jour</button>
 					</div>		
 				</div>
 			</div>
@@ -51,7 +51,7 @@
 	<!-- Debut légende -->
 	<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
 		<div class="panel panel-default">
-			<div data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne" class="panel-heading" role="tab" id="headingOne">
+			<div data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne" class="panel-heading" role="tab" id="headingOne">
 				<h4 class="panel-title">
 					<a id="collapseTitleLegende">Légende des événements</a>
 				</h4>
