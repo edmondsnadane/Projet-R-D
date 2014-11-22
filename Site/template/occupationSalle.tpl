@@ -27,7 +27,7 @@
 				<a download="OccupationSalle.csv" onClick ="this.href = $('#tableOccSalle').tableExportInline({type:'csv',escape:'false',separator:';',consoleLog:true}); return true;">Exporter vers Excel</a>
 			{/literal}
 			<br>
-			<table class="table center-table col-sm-9 footable" id="tableOccSalle">
+			<table class="table-striped table center-table footable" id="tableOccSalle">
 				<thead>
 					<tr>
 						<th>Salle</th>
