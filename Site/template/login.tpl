@@ -1,6 +1,7 @@
 <html>
 	<head>
-		<meta name="viewport" content="width = device-width, initial-scale = 1.0, minimum-scale = 1.0, maximum-scale = 1.0, user-scalable = no" charset="utf-8"/>
+		<meta name="viewport" content="width = device-width, initial-scale = 1.0, minimum-scale = 1.0, maximum-scale = 1.0, user-scalable = no">
+		<meta charset="utf-8">
 		<title>VT Agenda - Login</title>
 		<link rel="icon" type="image/png" href="img/glyphicons_calendar_title.png"/>
 		<link rel="stylesheet" href="API/bootstrap/css/bootstrap.min.css"/>
@@ -65,7 +66,7 @@
 							</div>
 							<div class="panel-footer">
 								<a role="button" class="btn" data-toggle="modal" data-target="#modifyMdp">Modifier le mot de passe</a>
-								<a href="config/aide.pdf" role="button" class="btn" class="">Mode d'emploi</a>
+								<a href="config/aide.pdf" role="button" class="btn">Mode d'emploi</a>
 							</div>
 						</div>
 					</div>
@@ -115,31 +116,30 @@
 					<h4 class="modal-title" id="modifyMdpLabel">Modification de mot de passe</h4>
 				  </div>
 				  <div class="modal-body">
-						<div class="form-group">
-							<label for="inputLogin" class="col-sm-3 control-label">Login</label>
-							<div class="col-sm-9">
-								<input type="text" name="loginTeach" class="form-control" id="inputLogin" placeholder="Login" required="">
-							</div>
+					<div class="form-group">
+						<label for="inputLogin" class="col-sm-3 control-label">Login</label>
+						<div class="col-sm-9">
+							<input type="text" name="loginTeach" class="form-control" id="inputLogin" placeholder="Login" required="">
 						</div>
-						<div class="form-group">
-							<label for="inputOldPassword" class="col-sm-3 control-label">Ancien Mdp</label>
-							<div class="col-sm-9">
-								<input type="text" name="oldMdp" class="form-control" id="inputOldPassword" placeholder="Ancien Mot de passe" required="">
-							</div>
+					</div>
+					<div class="form-group">
+						<label for="inputOldPassword" class="col-sm-3 control-label">Ancien Mdp</label>
+						<div class="col-sm-9">
+							<input type="text" name="oldMdp" class="form-control" id="inputOldPassword" placeholder="Ancien Mot de passe" required="">
 						</div>
-						<div class="form-group">
-							<label for="inputNewPassword1" class="col-sm-3 control-label">Nouveau Mdp</label>
-							<div class="col-sm-9">
-								<input type="password" name="newMdp1" class="form-control" id="inputNewPassword1" placeholder="Nouveau Mot de passe" required="">
-							</div>
+					</div>
+					<div class="form-group">
+						<label for="inputNewPassword1" class="col-sm-3 control-label">Nouveau Mdp</label>
+						<div class="col-sm-9">
+							<input type="password" name="newMdp1" class="form-control" id="inputNewPassword1" placeholder="Nouveau Mot de passe" required="">
 						</div>
-						<div class="form-group">
-							<label for="inputNewPassword2" class="col-sm-3 control-label">Retappez Mdp</label>
-							<div class="col-sm-9">
-								<input type="password" name="newMdp2" class="form-control" id="inputNewPassword2" placeholder="Nouveau Mot de passe" required="">
-							</div>
+					</div>
+					<div class="form-group">
+						<label for="inputNewPassword2" class="col-sm-3 control-label">Retappez Mdp</label>
+						<div class="col-sm-9">
+							<input type="password" name="newMdp2" class="form-control" id="inputNewPassword2" placeholder="Nouveau Mot de passe" required="">
 						</div>
-					</form>
+					</div>
 				  </div>
 				  <div class="modal-footer">
 					<button type="button" class="btn btn-danger" data-dismiss="modal">Annuler</button>

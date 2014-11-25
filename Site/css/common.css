@@ -76,3 +76,9 @@ table {
     display: none;
 }
 
+/** FOOTER */
+
+#logoResponsive {
+	width: 40px;
+	height: auto;
+}
