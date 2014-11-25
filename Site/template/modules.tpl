@@ -1,6 +1,7 @@
 <html>
 	<head>
-		<meta name="viewport" content="width = device-width, initial-scale = 1.0, minimum-scale = 1.0, maximum-scale = 1.0, user-scalable = no" charset="utf-8"/>
+		<meta name="viewport" content="width = device-width, initial-scale = 1.0, minimum-scale = 1.0, maximum-scale = 1.0, user-scalable = no">
+		<meta charset="utf-8">
 		<title>VT Agenda - Mes modules</title>
 		<link rel="icon" type="image/png" href="img/glyphicons_calendar_title.png"/>
 		<link rel="stylesheet" href="API/bootstrap/css/bootstrap.min.css"/>
@@ -67,7 +68,7 @@
 								<div class="col-sm-9">
 									<select name="anneeProf" class="form-control" id="anneeProf" required="">
 										{foreach from=$annees item=annee}
-											<option value=0>{$annees[0]}</option>
+											<option value=0 selected>{$annees[0]}</option>
 										{/foreach}
 									</select>
 								</div>
@@ -76,7 +77,7 @@
 								<label for="departements" class="col-sm-3 control-label">Departement </label>
 								<div class="col-sm-9">
 									<select name="departements" class="form-control" id="departements" required="" onChange="loadProfsList()">
-										<option value="all">TOUS</option>
+										<option value="all" selected>TOUS</option>
 										{foreach from=$composantes item=composante}
 											<option value={$composante.codeComposante}>{$composante.nom}</option>
 										{/foreach}
@@ -94,12 +95,9 @@
 								</div>
 							</div>
 							<div class="form-group">
-								<label for="modules" class="col-sm-3 control-label">Modules </label>
+								<label for="module" class="col-sm-3 control-label">Modules </label>
 								<div class="col-sm-9">
 									<select name="module" class="form-control" id="module" required="" onChange="loadSeanceList()">
-										{foreach from=$liste_enseignement item=enseignement}
-											<option>{$enseignement}</option>
-										{/foreach}
 									</select>
 								</div>
 							</div>
