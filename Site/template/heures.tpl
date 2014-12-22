@@ -57,7 +57,7 @@
 						</form>
 					</div>
 					<div class="panel-footer">
-							<a download="seances.csv" {literal}onClick ="this.href = $('#tableSeance').tableExportInline({type:'csv',escape:'false',separator:';',consoleLog:true}); return true;"{/literal}>Exporter vers Excel</a>
+							<a download="seances.csv" {literal}onClick ="this.href = $('#hiddenTableSeance').tableExportInline({type:'csv',escape:'false',separator:';',consoleLog:true}); return true;"{/literal}>Exporter vers Excel</a>
 					</div>
 				</div>
 			</div>
@@ -86,7 +86,7 @@
 				</tbody>
 			</table>
 
-			<table id="hiddenTableSeance" style="visibilty: collapse;">
+			<table id="hiddenTableSeance" style="visibility:collapse;">
 				<thead>
 					<tr>
 						<th>Formation</th>

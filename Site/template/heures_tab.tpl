@@ -1,10 +1,10 @@
 {foreach from=$allSeances item=seance}
 	{if $seance.type == 'cumul' }
-		<tr class="cumul">
+		<tr class="cumul success">
 			<td></td>
 			<td></td>
-			<td colspan="4">{$seance.nomMatiere} - cumul des seances : </td>
-			<td colspan="4">
+			<td colspan="5">{$seance.nomMatiere} - cumul des seances : </td>
+			<td colspan="3">
 				{if $seance.dureeTP !=0}<span><b>TP:</b> {$seance.dureeTP}</span>{else} {/if}
 				{if $seance.dureeCM !=0}<span><b>CM:</b> {$seance.dureeCM}</span>{else} {/if}
 			  {if $seance.dureeTD !=0}<span><b>TD:</b> {$seance.dureeTD}</span>{else} {/if}
