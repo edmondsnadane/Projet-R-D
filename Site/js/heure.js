@@ -1,5 +1,4 @@
 function loadSeanceList() {
-    console.log("test");
 
     var annee_scolaire = $("#annee_scolaire").val();
     var composante = $("#composante").val();
@@ -13,7 +12,8 @@ function loadSeanceList() {
         dateType: 'html',
         success: function(data) {
             $("#tableContent").html(data);
-			drawChart();
+            $("#hiddenTableContent").html(data);
+            drawChart();
         },
         error: function(data) {
             console.log(data);

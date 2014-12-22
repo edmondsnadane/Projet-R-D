@@ -367,6 +367,7 @@ THE SOFTWARE.*/
 						type:'csv',
 						pdfFontSize:14,
 						pdfLeftMargin:20,
+						pdfColumns: undefined,
 						escape:'true',
 						htmlContent:'false',
 						consoleLog:'false'
@@ -626,16 +627,22 @@ THE SOFTWARE.*/
 					});		
 				}else if(defaults.type == 'pdf'){
 	
-					var doc = new jsPDF('p','pt', 'a4', true);
+					var doc = new jsPDF('landscape','pt', 'a4', true);
 					doc.setFontSize(defaults.pdfFontSize);
 					
 					// Header
 					var startColPosition=defaults.pdfLeftMargin;
+					var currPos = 0;
 					$(el).find('thead').find('tr').each(function() {
 						$(this).filter(':visible').find('th').each(function(index,data) {
 							if ($(this).css('display') != 'none'){					
 								if(defaults.ignoreColumn.indexOf(index) == -1){
-									var colPosition = startColPosition+ (index * 50);									
+									var width = 60;
+									if(options.pdfColumns && options.pdfColumns[index]) {
+										width = options.pdfColumns[index];
+									}
+									var colPosition = startColPosition+ (currPos);
+									currPos += width;
 									doc.text(colPosition,20, parseString($(this)));
 								}
 							}
@@ -653,12 +660,18 @@ THE SOFTWARE.*/
 						page++;
 						startRowPosition=startRowPosition+10;
 					}
+					var currPos = 0;
 					rowPosition=(startRowPosition + (rowCalc * 10)) - ((page -1) * 280);
 						
 						$(this).filter(':visible').find('td').each(function(index,data) {
 							if ($(this).css('display') != 'none'){	
 								if(defaults.ignoreColumn.indexOf(index) == -1){
-									var colPosition = startColPosition+ (index * 50);									
+									var width = 60;
+									if(options.pdfColumns && options.pdfColumns[index]) {
+										width = options.pdfColumns[index];
+									}
+									var colPosition = startColPosition+ (currPos);
+									currPos += width;									
 									doc.text(colPosition,rowPosition, parseString($(this)));
 								}
 							}
@@ -668,7 +681,7 @@ THE SOFTWARE.*/
 					});					
 										
 					// Output as Data URI
-					doc.output('datauri');
+					return doc.output('datauristring');
 	
 				}
 				

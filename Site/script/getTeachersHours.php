@@ -150,7 +150,6 @@ foreach($cumuls as $cumul) {
 	array_push($allSeances, $cumul);
 }
 
-
 foreach($heuresParMois as $month => $cumulHeures) {
 	$strEngMois = array('January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December');
 	$strFrMois = array('Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Août',	'Septembre', 'Octobre', 'Novembre',	'Décembre');
@@ -163,5 +162,6 @@ foreach($heuresParMois as $month => $cumulHeures) {
 }
 
 $req->closeCursor();
+
 
 ?>

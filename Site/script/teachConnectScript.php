@@ -9,6 +9,7 @@ include('../config/config.php');
 // tableau suivant l'état de la connexion
 $tableau = array("message"	 => "En attente",
 				 "connexion" => false);
+$ligne = array();
 
 // script
 if (isset($_POST['teachLogin']) && isset($_POST['teachPwd']) && !empty($_POST['teachLogin']) && !empty($_POST['teachPwd']))
@@ -43,6 +44,7 @@ if (isset($_POST['teachLogin']) && isset($_POST['teachPwd']) && !empty($_POST['t
 	else
 	{
 		$_SESSION['teachLogin'] = $_POST['teachLogin'];
+		$_SESSION['teachCodeProf'] = $ligne['codeProf'];
 
 		$tableau["message"]	  	= "Connexion en cours";
 		$tableau["connexion"] 	= true;

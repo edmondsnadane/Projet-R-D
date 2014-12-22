@@ -14,6 +14,9 @@
 		<script type="text/javascript" src="js/customCheck.js"></script>
 		<script type="text/javascript" src="API/tableExport/tableExport.js"></script>
 		<script type="text/javascript" src="API/tableExport/jquery.base64.js"></script>
+		<script type="text/javascript" src="API/tableExport/jspdf/libs/adler32cs.js"></script>
+		<script type="text/javascript" src="API/tableExport/jspdf/libs/deflate.js"></script>
+		<script type="text/javascript" src="API/tableExport/jspdf/jspdf.js"></script>
 		<script type="text/javascript" src="API/jquery/jquery-ui.js"></script>
 		<script type="text/javascript" src="js/datePicker.js"></script>
 		
@@ -64,14 +67,63 @@
 												</select>
 											</div>
 										</div>
-										    
+													<table class="table-striped table center-table footable" id="tableSeance">
+				<thead>
+					<tr>
+						<th data-sort-ignore="true">Formation</th>
+						<th data-hide="phone,tablet">Code apogée</th>
+						<th >Matière</th>
+						<th data-hide="phone,tablet" data-sort-ignore="true">Date</th>
+						<th data-hide="phone,tablet" data-sort-ignore="true">Heure début</th>
+						<th data-hide="phone,tablet" data-sort-ignore="true">Heure fin</th>
+						<th data-hide="phone,tablet" data-sort-ignore="true">Horaire réparti / nb profs</th>
+						<th data-hide="phone,tablet" data-sort-ignore="true">Forfait</th>
+						<th data-hide="phone,tablet" data-sort-ignore="true">CM</th>
+						<th data-hide="phone,tablet" data-sort-ignore="true">TD</th>
+						<th data-hide="phone,tablet" data-sort-ignore="true">TP</th>
+						<th data-hide="phone,tablet" data-sort-ignore="true">EqTD</th>
+						<th data-sort-ignore="true">Effectué</th>
+					</tr>
+				</thead>
+				
+				<tbody id="tableContent">
+				</tbody>
+			</table>
+										<script type="text/javascript">
+											function loadSeanceList() {
+    console.log("test");
+
+    var annee_scolaire = $("#annee_scolaire").val();
+    var composante = $("#composante").val();
+    var prof = $("#prof").val();
+    var url = "index.php?page=heure&annee_scolaire=2013-2014&composante=all&prof={$smarty.session.teachCodeProf}&ajax&" + Math.random();
+
+    $.ajax( {
+        type: "GET",
+        url: url,
+        cache: false,
+        dateType: 'html',
+        success: function(data) {
+            $("#tableContent").html(data);
+        },
+        error: function(data) {
+            console.log(data);
+        }
+    } );
+
+    return false;
+}
+
+loadSeanceList();
+										</script>
+
 										<div class="form-group last" id="pdfButtons">
-											<button type="submit" class="btn btn-success">Exporter</button>
+										<a class="btn btn-success" download="seances.pdf" {literal}onClick ="this.href = $('#tableSeance').tableExportInline({type:'pdf',pdfFontSize:'5', escape: false, pdfColumns : [70, 50, 170, 70, 30, 30, 30, 30, 30, 20, 20, 20, 20]}); return true;"{/literal}>Exporter</a>
 										</div>
 									</form>
 								</div>
 								<div class="panel-footer">
-									<a role="button" class="btn">Exporter vers EXCEL</a>
+<a download="seances.csv" {literal}onClick ="this.href = $('#tableSeance').tableExportInline({type:'csv',escape:'false',separator:';',consoleLog:true}); return true;"{/literal}>Exporter vers Excel</a>
 								</div>
 							</div>
 						</div>
