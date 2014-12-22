@@ -86,7 +86,7 @@
 				</tbody>
 			</table>
 
-			<table id="hiddenTableSeance" style="visibility:collapse;">
+			<table id="hiddenTableSeance" style="position: absolute; top: -10000px;">
 				<thead>
 					<tr>
 						<th>Formation</th>
