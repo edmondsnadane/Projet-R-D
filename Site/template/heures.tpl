@@ -1,7 +1,7 @@
 <html>
 	<head>
-
-		<meta name="viewport" content="width = device-width, initial-scale = 1.0, minimum-scale = 1.0, maximum-scale = 1.0, user-scalable = no" charset="utf-8"/>
+		<meta name="viewport" content="width = device-width, initial-scale = 1.0, minimum-scale = 1.0, maximum-scale = 1.0, user-scalable = no">
+		<meta charset="utf-8">
 		<title>VT Calendar - Mes heures</title>
 		<link rel="stylesheet" href="API/bootstrap/css/bootstrap.min.css"/>
 		<link rel="stylesheet" href="css/dialogueGestion.css"/>
@@ -18,7 +18,6 @@
 		<script type="text/javascript" src="API/tableExport/jquery.base64.js"></script>
 		<link rel="stylesheet" href="css/common.css"/>
 		<link rel="stylesheet" href="css/login.css"/>
-
 	</head>
 
 	<body>
@@ -46,7 +45,7 @@
 								{foreach from=$composantes item=composante}
 									<option {if $composante.codeComposante == $code}selected="selected"{/if} value="{$composante.codeComposante}">{$composante.nom}</option>
 								{/foreach}
-							</select></p><br>
+							</select><br>
 
 							<label>Choix du professeur :</label>
 							<select name="prof" class="form-control" id="prof" required="">
@@ -109,7 +108,7 @@
 			</table>
 
 
-			<div id="chart_div" class="hidden-xs hidden-sm">
+			<div id="chart_div" class="hidden-xs hidden-sm"></div>
 
 
 		</div>
