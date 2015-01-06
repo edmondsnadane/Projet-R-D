@@ -183,10 +183,6 @@ if (isset($_SESSION['studyLogin']) || isset($_SESSION['teachLogin']))
 			{
 				$smarty->display("template/versions.tpl");
 			}
-			else if ($_GET['page'] == "bilanFormation")
-			{
-				$smarty->display("template/bilanFormation.tpl");
-			}
 			else if ($_GET['page'] == "nous")
 			{
 				$smarty->display("template/infosDev.tpl");
