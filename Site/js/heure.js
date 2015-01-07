@@ -52,7 +52,8 @@ function drawChart() {
 
     var options = {
         title: "Répartition des heures sur l'année ( en Heure )",
-		vAxis:{ minValue : 0 , ticks:[{v:0, f:"00h"},{v:1000, f:"10h"}, {v:2000, f:"20h"}, {v:3000, f:"30h"}, {v:4000, f:"40h"} ]}
+		vAxis:{ minValue : 0 , ticks:[{v:0, f:"00h"},{v:1000, f:"10h"}, {v:2000, f:"20h"}, {v:3000, f:"30h"}, {v:4000, f:"40h"} ]},
+		isStacked: true,
     };
 
     // Instantiate and draw our chart, passing in some options.
