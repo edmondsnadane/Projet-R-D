@@ -1,7 +1,7 @@
 <html>
 	<head>
-
-		<meta name="viewport" content="width = device-width, initial-scale = 1.0, minimum-scale = 1.0, maximum-scale = 1.0, user-scalable = no" charset="utf-8"/>
+		<meta name="viewport" content="width = device-width, initial-scale = 1.0, minimum-scale = 1.0, maximum-scale = 1.0, user-scalable = no">
+		<meta charset="utf-8">
 		<title>VT Agenda - Export</title>
 		<link rel="icon" type="image/png" href="img/glyphicons_calendar_title.png"/>
 		<link rel="stylesheet" href="css/jquery-ui.css"/>
@@ -19,8 +19,6 @@
 		<script type="text/javascript" src="API/tableExport/jspdf/jspdf.js"></script>
 		<script type="text/javascript" src="API/jquery/jquery-ui.js"></script>
 		<script type="text/javascript" src="js/datePicker.js"></script>
-
-
 	</head>
 	<body>
 		{include file='template/include/header.tpl'}
@@ -152,24 +150,24 @@
 										<div class="form-group">
 											<label for="beginDate" class="col-sm-3 control-label">Début</label>
 											<div class="col-sm-9">
-												<input type="date" name="beginDate" class="form-control" id="beginDate" placeholder="Début">
+												<input type="date" name="beginDate" class="form-control" id="beginDate">
 											</div>
 										</div>
 										<div class="form-group">
 											<label for="endDate" class="col-sm-3 control-label">Fin</label>
 											<div class="col-sm-9">
-												<input type="date" name="endDate" class="form-control" id="endDate" placeholder="Fin">
+												<input type="date" name="endDate" class="form-control" id="endDate">
 											</div>
 										</div>
 										<div class="form-group myCheck">
 											<label for="tptd" class="col-sm-3 control-label">TP en TD</label>
-											<div class="col-sm-9 class="form-control"" style="background: #F5F5F6; margin-bottom: 10px;">
+											<div class="col-sm-9 form-control" style="background: #F5F5F6; margin-bottom: 10px;">
 												<input type="checkbox" checked name="tptd" id="tptd" class="checkbox">
 											</div>
 										</div>
 										<div class="form-group myCheck">
 											<label for="exportForfait" class="col-sm-3 control-label">Exporter forfaits</label>
-											<div class="col-sm-9 class="form-control"" style="background: #F5F5F6;">
+											<div class="col-sm-9 form-control" style="background: #F5F5F6;">
 												<input type="checkbox" checked name="exportForfait" id="exportForfait" class="checkbox">
 											</div>
 										</div>

@@ -4,10 +4,18 @@ function displayDroits()
 		{
 			if (state == 1)
 			{
+				if (id == "#admin")
+				{
+					$(id).attr('disabled', 'disabled');
+				}
 				$(id).addClass("active");
 			}
 			else
 			{
+				if (id == "#admin")
+				{
+					$(id).removeAttr('disabled');
+				}
 				$(id).removeClass("active");
 			}
 		}
@@ -58,7 +66,7 @@ $(document).ready(function()
                 url: "./script/updateDroits.php",
                 data: {
                     code: $('#profs :selected').val(),
-					admin: $('#admin :active'),
+					admin: $('#admin :active').val(),
 					reservation: $('#reservation :active'),
 					mes_droits : $('#droits :active'),
                     modules  : $('#modules :active'),
