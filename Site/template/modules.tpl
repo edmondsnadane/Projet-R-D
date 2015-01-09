@@ -105,7 +105,7 @@
 					</div>
 					<div class="panel-footer">
 						{literal}
-							<a download="module.csv" onClick ="this.href = $('#tableModule').tableExportInline({type:'csv',escape:'false',separator:';',consoleLog:true}); return true;">Export vers Excel</a>
+							<a download="module.csv" onClick ="this.href = $('#hiddenTableModule').tableExportInline({type:'csv',escape:'false',separator:';',consoleLog:true}); return true;">Export vers Excel</a>
 						{/literal}
 					</div>
 				</div>
@@ -129,6 +129,25 @@
 			<tbody id="tableContent">
 			</tbody>
 		</table>
+		
+		<table id="hiddenTableModule" style="position: absolute; top: -10000px;">
+			<thead>
+				<tr>
+					<th>Date</th>
+					<th>Groupes</th>
+					<th>Type</th>
+					<th>Enseignement</th>
+					<th>Profs</th>
+					<th>Salles</th>
+					<th>Heure de début</th>
+					<th>Durée</th>
+					<th>Effectuée</th>
+				</tr>
+			</thead>
+			<tbody id="hiddenTableContent">
+			</tbody>
+		</table>
+		
 		</div>
 		{include file='template/include/footer.tpl'}
 	

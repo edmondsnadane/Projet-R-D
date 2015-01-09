@@ -68,67 +68,72 @@ function loadModuleList()
     });
 }
 
+function buildSeanceTable(id, seance)
+{
+	$(id).empty();
+	if (seance.length)
+	{
+		for (i = 0; i < seance.length; i++)
+		{
+			var ligne = "<tr>";
+			var seanceInfo = seance[i].split("#");
+			for (j = 0; j < seanceInfo.length; j++)
+			{
+				ligne += "<td ";
+				if (j == 2)
+				{
+					if (seanceInfo[j] == "CM")
+					{
+						ligne += "class='info'";
+					}
+					else if (seanceInfo[j] == "TD")
+					{
+						ligne += "class='success'";
+					}
+					else if (seanceInfo[j] == "TP")
+					{
+						ligne += "class='warning'";
+					}
+					else 
+					{
+						ligne += "class='danger'";
+					}
+				}
+
+				ligne += ">";
+				if (j == (seanceInfo.length - 1))
+				{
+					if (seanceInfo[j] == 1)
+					{
+						ligne += "<span class='glyphicon glyphicon-ok-circle'></span><span class='hide'>1</span>";
+					}
+					else ligne+="<span class='hide'>0</span>";
+				}
+				else
+				{
+					ligne += seanceInfo[j];
+				}
+				ligne += "</td>";
+			}
+			ligne += "</tr>";
+
+			$(id).append(ligne);
+		}
+	}
+	else
+	{
+		$(id).append("<tr class='danger'><td colspan=9>Aucun resultats trouvés</td></tr>");
+	}
+}
+
 function loadSeanceList()
 {
     var codeModule = $('#module :selected').text();
 
     /* fonction recuperant la liste des groupe dans lequel n'est pas un utilisateur */
-    createSeanceTable = function(seance)
-	{
-        $('#tableContent').empty();
-        if (seance.length)
-		{
-            for (i = 0; i < seance.length; i++)
-			{
-                var ligne = "<tr>";
-                var seanceInfo = seance[i].split("#");
-                for (j = 0; j < seanceInfo.length; j++)
-				{
-					ligne += "<td ";
-					if (j == 2)
-					{
-						if (seanceInfo[j] == "CM")
-						{
-							ligne += "class='info'";
-						}
-						else if (seanceInfo[j] == "TD")
-						{
-							ligne += "class='success'";
-						}
-						else if (seanceInfo[j] == "TP")
-						{
-							ligne += "class='warning'";
-						}
-						else 
-						{
-							ligne += "class='danger'";
-						}
-					}
-
-					ligne += ">";
-					if (j == (seanceInfo.length - 1))
-					{
-						if (seanceInfo[j] == 1)
-						{
-							ligne += "<span class='glyphicon glyphicon-ok-circle'></span><span class='hide'>1</span>";
-						}
-						else ligne+="<span class='hide'>0</span>";
-					}
-					else
-					{
-						ligne += seanceInfo[j];
-					}
-					ligne += "</td>";
-				}
-                ligne += "</tr>";
-
-                $('#tableContent').append(ligne);
-            }
-        }
-		else
-		{
-            $('#tableContent').append("<tr class='danger'><td colspan=9>Aucun resultats trouvés</td></tr>");
-        }
+    createSeanceTable = function(seance) {
+		buildSeanceTable('#tableContent', seance);
+		buildSeanceTable('#hiddenTableContent', seance);
     };
 
     $.ajax({
