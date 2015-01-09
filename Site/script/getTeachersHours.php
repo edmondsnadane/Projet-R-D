@@ -1,23 +1,40 @@
 <?php
 
 // TODO : put in config.php
-$taux_type_ens = array(   
-	1 => array(1,0,0),
-    2 => array(0,1,0),
-    3 => array(0,0,1),
-	4 => array(0,1,0),
-	5 => array(0,1,0),
-	6 => array(0,1,0),
-	7 => array(0,1,0),
-	8 => array(0,1,0),
-	9 => array(0,1,0),
-	10 => array(0,1,0),
-	11 => array(0,1,0),
-	12 => array(0,1,0),
-	13 => array(0,1,0),
-	14 => array(0,1,0),
-	15 => array(0,1,0)
+$type_ens = array(   
+	1 => "CM",
+    2 => "TD",
+    3 => "TP",
+	4 => "4",
+	5 => "5",
+	6 => "6",
+	7 => "ADM",
+	8 => "8",
+	9 => "DS",
+	10 => "10",
+	11 => "11",
+	12 => "12",
+	13 => "13",
+	14 => "14",
+	15 => "15"
 );
+
+$type_ens_class_table = array(
+	1 => "info",
+	2 => "success",
+	3 => "warning",
+	4 => "danger"
+);
+
+function type_ens_class($type_ens) {
+	global $type_ens_class_table;
+	if(0 < $type_ens && $type_ens < 4) {
+		return $type_ens_class_table[$type_ens];
+	} else {
+		return $type_ens_class_table[4];
+	}
+}
+
 
 $codeProf = 0;
 if(isset($_GET["prof"]) && $_GET["prof"] != 0) {
@@ -108,45 +125,49 @@ while($ligne = $req->fetch())
 	// Calcul heure Fin avec Heure Début et Durée 
 	$heureFin = add_int_hour($ligne["heureSeance"], $ligne["seancesDureeSeance"]);
 	
+	$typeEnsCourant = $ligne["codeTypeActivite"];
 	$ligne["heureFin"] = pretty_hour($heureFin);
 	$ligne["heureDebut"] = pretty_hour($ligne["heureSeance"]);
+	$ligne["typeEnsName"] = $type_ens[$typeEnsCourant];
+	$ligne["typeEnsClass"] = type_ens_class($typeEnsCourant);
 	
-	$dureeCM = $taux_type_ens[$ligne["codeTypeActivite"]][0] * $ligne["seancesDureeSeance"];
-	$dureeTD = $taux_type_ens[$ligne["codeTypeActivite"]][1] * $ligne["seancesDureeSeance"];
-	$dureeTP = $taux_type_ens[$ligne["codeTypeActivite"]][2] * $ligne["seancesDureeSeance"];
-	$eqTD = ($dureeCM > 0 ? $dureeCM + 130 : 0) + $dureeTD + $dureeTP; 
+	$dureeSeance = $ligne["seancesDureeSeance"];
+	$eqTD =  $typeEnsCourant == 1 && $dureeSeance > 0 ? $dureeSeance + 130 : $dureeSeance; 
 	
 	if(array_key_exists($ligne["nomMatiere"], $cumuls)) {
-		$cumuls[$ligne["nomMatiere"]]["dureeCM"] = add_int_hour($cumuls[$ligne["nomMatiere"]]["dureeCM"], $dureeCM);
-		$cumuls[$ligne["nomMatiere"]]["dureeTD"] = add_int_hour($cumuls[$ligne["nomMatiere"]]["dureeTD"], $dureeTD);
-		$cumuls[$ligne["nomMatiere"]]["dureeTP"] = add_int_hour($cumuls[$ligne["nomMatiere"]]["dureeTP"], $dureeTP);
+		if(array_key_exists($typeEnsCourant, $cumuls[$ligne["nomMatiere"]]) != true) {
+			$cumuls[$ligne["nomMatiere"]][$typeEnsCourant] = $dureeSeance;
+		} else { 
+			$cumuls[$ligne["nomMatiere"]][$typeEnsCourant] = add_int_hour($cumuls[$ligne["nomMatiere"]][$typeEnsCourant], $dureeSeance);
+		}
 		$cumuls[$ligne["nomMatiere"]]["eqTD"] = add_int_hour($cumuls[$ligne["nomMatiere"]]["eqTD"], $eqTD);
 	} else {
 	    $cumuls[$ligne["nomMatiere"]] = array(
 			"type" => "cumul",
 			"nomMatiere" => $ligne["nomMatiere"],
-			"dureeCM" => $dureeCM, 
-			"dureeTD" => $dureeTD, 
-			"dureeTP" => $dureeTP,
+			$typeEnsCourant => $dureeSeance,
 			"eqTD" => $eqTD
 		);
 	}
 	
-	$ligne["dureeCM"] = pretty_hour($dureeCM);
-	$ligne["dureeTD"] = pretty_hour($dureeTD);
-	$ligne["dureeTP"] = pretty_hour($dureeTP);
+	$ligne["dureeSeance"] = pretty_hour($dureeSeance);
 	$ligne["eqTD"] = pretty_hour($eqTD);
 	$ligne["type"] = "normal";
 	
 	array_push($allSeances, $ligne);
 }
 
+function extractCumul($typeEns, $cumul) {
+	return 	pretty_hour(array_key_exists($typeEns, $cumul) ? $cumul[$typeEns] : 0);
+}
+
 foreach($cumuls as $cumul) {
-	$cumul["dureeCM"] = pretty_hour($cumul["dureeCM"]);
-	$cumul["dureeTD"] = pretty_hour($cumul["dureeTD"]);
-	$cumul["dureeTP"] = pretty_hour($cumul["dureeTP"]);
+	$cumul["cumulCM"] = extractCumul(1, $cumul);
+	$cumul["cumulTD"] = extractCumul(2, $cumul);
+	$cumul["cumulTP"] = extractCumul(3, $cumul);
+	$cumul["cumulDS"] = extractCumul(9, $cumul);
+	$cumul["cumulADM"] = extractCumul(7, $cumul);
 	$cumul["eqTD"] = pretty_hour($cumul["eqTD"]);
-	
 	array_push($allSeances, $cumul);
 }
 

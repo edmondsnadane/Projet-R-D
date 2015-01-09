@@ -1,13 +1,15 @@
 {foreach from=$allSeances item=seance}
 	{if $seance.type == 'cumul' }
-		<tr class="cumul success">
+		<tr class="cumul">
 			<td></td>
 			<td></td>
 			<td colspan="5">{$seance.nomMatiere} - cumul des seances : </td>
 			<td colspan="3">
-				{if $seance.dureeTP !=0}<span><b>TP:</b> {$seance.dureeTP}</span>{else} {/if}
-				{if $seance.dureeCM !=0}<span><b>CM:</b> {$seance.dureeCM}</span>{else} {/if}
-			  {if $seance.dureeTD !=0}<span><b>TD:</b> {$seance.dureeTD}</span>{else} {/if}
+				{if $seance.cumulTP !=0}<span><b>TP:</b> {$seance.cumulTP}</span>{else} {/if}
+				{if $seance.cumulCM !=0}<span><b>CM:</b> {$seance.cumulCM}</span>{else} {/if}
+				{if $seance.cumulTD !=0}<span><b>TD:</b> {$seance.cumulTD}</span>{else} {/if}
+				{if $seance.cumulDS !=0}<span><b>DS:</b> {$seance.cumulDS}</span>{else} {/if}
+				{if $seance.cumulADM !=0}<span><b>ADM:</b> {$seance.cumulADM}</span>{else} {/if}
 			</td>
 			<td>{$seance.eqTD}</td>
 			<td></td>
@@ -22,16 +24,8 @@
 			<td>{$seance.heureFin}</td>
 			<td>{if $seance.volumeReparti == 0} NON {else} OUI {/if}</td>
 			<td>{if $seance.forfaitaire == 0} NON {else} OUI {/if} </td>
-			{if $seance.dureeCM !=0}<td class="info">CM</td>{else}
-			{if $seance.dureeTD !=0}<td class="success">TD</td>{else}
-			{if $seance.dureeTP !=0}<td class="warning">TP</td>{else}
-			{/if}{/if}{/if}
-			<td>
-				{if $seance.dureeCM !=0}{$seance.dureeCM}{else}
-				{if $seance.dureeTD !=0}{$seance.dureeTD}{else}
-				{if $seance.dureeTP !=0}{$seance.dureeTP}{else}
-				{/if}{/if}{/if}
-			</td>
+			<td class="{$seance.typeEnsClass}">{$seance.typeEnsName}</td>
+			<td>{$seance.dureeSeance}</td>
 			<td>{$seance.eqTD}</td>
 			<td>{if $date_actuelle  >= $seance.dateSeanceFormatee } <span class='glyphicon glyphicon-ok-circle'></span><span class="hide">1</span>{else}<span class="hide">0</span> {/if}</td>
 		</tr>

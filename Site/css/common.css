@@ -70,6 +70,14 @@ table {
     display: none;
 }
 
+.table-striped>tbody>tr.cumul:nth-child(odd) >td,.cumul {
+	background-color: #D6EFF9;
+}
+
+.date_column {
+	width: 100px;
+}
+
 /** FOOTER */
 
 #logoResponsive {
