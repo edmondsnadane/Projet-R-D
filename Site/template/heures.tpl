@@ -4,7 +4,6 @@
 		<meta charset="utf-8">
 		<title>VT Calendar - Mes heures</title>
 		<link rel="stylesheet" href="API/bootstrap/css/bootstrap.min.css"/>
-		<link rel="stylesheet" href="css/dialogueGestion.css"/>
 		<link href="API/footable/css/footable.core.css?v=2-0-1" rel="stylesheet" type="text/css">
 		<script type="text/javascript" src="js/loadPage.js"></script>
 		<script type="text/javascript" src="API/jquery/jquery.js"></script>
@@ -99,7 +98,7 @@
 						<th>Type</th>
 						<th>Durée</th>
 						<th>EqTD</th>
-						<th>Effectué</th>
+						<th>Effectuée</th>
 					</tr>
 				</thead>
 				<tbody id="hiddenTableContent">

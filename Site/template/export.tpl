@@ -56,15 +56,7 @@
 												<input type="text" id="datePickerFin">
 											</div>
 										</div>
-										<div class="form-group">
-											<label for="formatPDF" class="col-sm-3 control-label">Format</label>
-											<div class="col-sm-9">
-												<select name="formatPDF" class="form-control" id="formatPDF">
-													<option value="A4" selected>A4</option>
-													<option value="A3">A3</option>
-												</select>
-											</div>
-										</div>
+
 										<table style="position:absolute; top: -10000px;" id="tableSeance">
 											<thead>
 												<tr>
@@ -76,11 +68,10 @@
 													<th>Heure fin</th>
 													<th>Horaire réparti / nb profs</th>
 													<th>Forfait</th>
-													<th>CM</th>
-													<th>TD</th>
-													<th>TP</th>
+													<th>Type</th>
+													<th>Durée</th>
 													<th>EqTD</th>
-													<th>Effectué</th>
+													<th>Effectuée</th>
 												</tr>
 											</thead>
 
@@ -128,6 +119,8 @@
 					</div>
 				</div>
 
+				
+				
 				<div id="gisehContainer" class="container tab-pane fade in">
 					<div class="row">
 						<div class="col-md-4 col-centered">

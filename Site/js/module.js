@@ -110,8 +110,9 @@ function loadSeanceList()
 					{
 						if (seanceInfo[j] == 1)
 						{
-							ligne += "<span class='glyphicon glyphicon-ok-circle'></span>";
+							ligne += "<span class='glyphicon glyphicon-ok-circle'></span><span class='hide'>1</span>";
 						}
+						else ligne+="<span class='hide'>0</span>";
 					}
 					else
 					{

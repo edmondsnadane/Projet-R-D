@@ -33,7 +33,7 @@
 				{/if}{/if}{/if}
 			</td>
 			<td>{$seance.eqTD}</td>
-			<td>{if $date_actuelle  >= $seance.dateSeanceFormatee } <span class='glyphicon glyphicon-ok-circle'></span><span class="hide">+</span> {/if}</td>
+			<td>{if $date_actuelle  >= $seance.dateSeanceFormatee } <span class='glyphicon glyphicon-ok-circle'></span><span class="hide">1</span>{else}<span class="hide">0</span> {/if}</td>
 		</tr>
 	{/if}
 {/foreach}
