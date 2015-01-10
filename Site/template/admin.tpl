@@ -81,6 +81,36 @@
 					</form>
 				</div>
 			</div>
+			
+			<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+				<div class="panel panel-default">
+					<div data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne" class="panel-heading" role="tab" id="headingOne">
+						<h4 class="panel-title">
+							<a id="collapseTitleLegende">Légende</a>
+						</h4>
+					</div>
+					<div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+						<div class="panel-body">   
+							<div id="droitLegende">
+								<div class="row">
+									<div class="col-xs-3 col-md-2">
+										<div class="cercleLegende" id="active"></div>
+										<div class="textLegende">Activé</div>
+									</div>
+									<div class="col-xs-3 col-md-2">
+										<div class="cercleLegende" id="nonactive"></div>
+										<div class="textLegende">Désactivé</div>
+									</div>
+									<div class="col-xs-3 col-md-2">
+										<div class="cercleLegende" id="disabled"></div>
+										<div class="textLegende">Bloqué</div>
+									</div>
+								</div>
+							</div>   
+						</div>
+					</div>
+				</div>
+			</div>
 		</div>
 		{include file='template/include/footer.tpl'}
 	</body>
