@@ -66,18 +66,18 @@ $(document).ready(function()
                 url: "./script/updateDroits.php",
                 data: {
                     code: $('#profs :selected').val(),
-					admin: $('#admin :active').val(),
-					reservation: $('#reservation :active'),
-					mes_droits : $('#droits :active'),
-                    modules  : $('#modules :active'),
-					bilan_heure_global : $("#bilan_heure :active"),
-					bilan_heure : $("#heures :active"),
-					configuration : $("#config :active"),
-					rss : $("#rss :active"),
-					pdf : $("#pdf :active"),
-					giseh : $("#giseh :active"),
-					dialogue : $("#dialogue :active"),
-					salle : $("#bilan_salle :active")
+					admin: $('#admin').hasClass('active'),
+					reservation: $('#reservation').hasClass('active'),
+					mes_droits : $('#droits').hasClass('active'),
+                    modules  : $('#modules').hasClass('active'),
+					bilan_heure_global : $('#bilan_heure').hasClass('active'),
+					bilan_heure : $('#heures').hasClass('active'),
+					configuration : $('#config').hasClass('active'),
+					rss : $('#rss').hasClass('active'),
+					pdf : $('#pdf').hasClass('active'),
+					giseh : $('#giseh').hasClass('active'),
+					dialogue : $('#dialogue').hasClass('active'),
+					salle : $('#bilan_salle').hasClass('active')
                 },
                 dataType: "text"
             })
