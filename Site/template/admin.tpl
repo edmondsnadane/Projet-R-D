@@ -44,13 +44,13 @@
 									<input type="checkbox"><span class="glyphicon glyphicon-send"></span> Giseh
 								</label>
 								<label class="btn btn-primary" id="bilan_salle">
-									<input type="checkbox"><span class="glyphicon glyphicon-home"></span> Bilan Salles
+									<input type="checkbox"><span class="glyphicon glyphicon-home"></span> Salles
 								</label>
 								<label class="btn btn-primary" id="bilan_heure">
 									<input type="checkbox"><span class="glyphicon glyphicon-dashboard"></span> Bilan Heures
 								</label>
 								<label class="btn btn-primary" id="droits">
-									<input type="checkbox"><span class="glyphicon glyphicon-lock"></span> Mes Droits
+									<input type="checkbox"><span class="glyphicon glyphicon-lock"></span> Droits
 								</label>
 								<label class="btn btn-primary" id="heures">
 									<input type="checkbox"><span class="glyphicon glyphicon-time"></span> Mes Heures
@@ -62,13 +62,13 @@
 									<input type="checkbox"><span class="glyphicon glyphicon-transfer"></span> RSS
 								</label>
 								<label class="btn btn-primary" id="config">
-									<input type="checkbox"><span class="glyphicon glyphicon-cog"></span> Configuration
+									<input type="checkbox"><span class="glyphicon glyphicon-cog"></span> Config
 								</label>
 								<label class="btn btn-primary" id="reservation">
-									<input type="checkbox"><span class="glyphicon glyphicon-shopping-cart"></span> Reservation
+									<input type="checkbox"><span class="glyphicon glyphicon-shopping-cart"></span> Reserver
 								</label>
 								<label class="btn btn-primary" id="modules">
-									<input type="checkbox"><span class="glyphicon glyphicon-th-large"></span> Modules
+									<input type="checkbox"><span class="glyphicon glyphicon-th-large"></span> Module
 								</label>
 								<label class="btn btn-primary" id="dialogue">
 									<input type="checkbox"><span class="glyphicon glyphicon-comment"></span> Dialogue
