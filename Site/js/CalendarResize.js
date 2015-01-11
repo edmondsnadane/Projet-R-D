@@ -1,4 +1,4 @@
-(function($) {
+(function($) { 
     $(window).resize(function(){
        //console.log('resize called');
        var width = $(window).width();

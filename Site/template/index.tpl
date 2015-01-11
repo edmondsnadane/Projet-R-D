@@ -11,6 +11,7 @@
 		<link rel="stylesheet" href="css/common.css"/>
 
 		<script type="text/javascript" src="js/loadPage.js"></script>
+		<script type="text/javascript" src="js/loadSite.js"></script>
 		<script type="text/javascript" src="API/bootstrap-calendar-master/components/jquery/jquery.min.js"></script>
 		<script type="text/javascript" src="API/bootstrap-calendar-master/components/underscore/underscore-min.js"></script>
 		<script type="text/javascript" src="API/bootstrap/js/bootstrap.min.js"></script>
@@ -22,12 +23,12 @@
 		<script type="text/javascript" src="API/hammer.js-master/hammer.js"></script>
 		<script type="text/javascript" src="API/hammer.js-master/jquery.hammer.js"></script>
 		<script type="text/javascript" src="js/MobileSwipeCalendar.js"></script>
+		<script type="text/javascript" src="js/module.js"></script>
 	</head>
 	<body>
 		{include file='template/include/panelFilter.tpl'}
 		{include file='template/include/header.tpl'}
 		{include file='template/include/calendar.tpl'}
 		{include file='template/include/footer.tpl'}
-
 	</body>
 </html>
