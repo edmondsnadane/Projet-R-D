@@ -110,3 +110,15 @@ h4 {
 #headingOne:hover {
     cursor: pointer;
 }
+
+/** Panel filtres**/
+#panelFilter {
+    height: 100%;
+    width: 300px;
+    z-index: 100!important;
+    background: #FAFAFA;
+    position: absolute;
+    top: 0;
+    left: -500;
+    padding: 15px 0 15px 0;
+}

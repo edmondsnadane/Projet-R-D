@@ -7,51 +7,6 @@
 session_start();
 include('../config/config.php');
 
-/*
-if (!isset($_SESSION['week'])) {
-    $_SESSION['week'] = array();
-}
-array_push($_SESSION['week'], $_POST['weekArray']);
-*/
-
-//create object/array from json data 
-//$theArray = json_decode($_POST['jsonArray']); 
-//$theArray is now the array you had on the client side! 
-//echo $theArray;
-
-//$some_object = doSomething($theArray); 
-
-//prepare the response object/array to the client 
-//$response = json_encode($some_object); 
-//echo $_SERVER['PHP_SELF'];
-//echo $response;
-/*
-if(empty($_SERVER['CONTENT_TYPE'])){
- 
-     $type = "application/x-www-form-urlencoded";
- 
-     $_SERVER['CONTENT_TYPE'] = $type;
- 
-}
-
-print_r($_GET);
-print_r($_POST["var1"]);
-*/
-
-/*if (!isset($_SESSION['week'])) {
-    $_SESSION['week'] = array();
-}
-if (isset($_POST['weekArray'])) {
-	array_push($_SESSION['week'], $_POST['weekArray']);
-}
-print_r($_SESSION['week']);*/
-//echo "</br>";
-
-/*$myarray = &$_POST ; 
-$var1=$myarray["var1"];
-$var2=$myarray["var2"];
-print_r($myarray);*/
-
 
 $start = $_REQUEST['from'] / 1000;
 $end   = $_REQUEST['to'] / 1000;
@@ -72,15 +27,6 @@ else if (isset($_COOKIE['studyLogin']))
 {
     $loginUtilisateur = $_SESSION['studyLogin'];
 }
-
-//$data = json_decode(stripslashes($_POST['data']));
-
-//$we = json_decode(stripslashes($_POST['data']));
-//unserialize($_POST["we"]);
-//echo $_POST['data'];
-/*$myArray = $_POST['weekArray'];
-print_r($myArray);*/
-
 
 
 $out = array();

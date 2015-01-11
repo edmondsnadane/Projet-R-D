@@ -1,3 +1,7 @@
+<!--
+div id="panelFilter">
+</div>
+-->
 <div class="container" id="calendarContainer">
 	<!-- Début navigation calendar -->
 	<div class="page-header" id="groupeFiltre">

@@ -34,6 +34,10 @@ a, #footerText span {
     text-align: left;
 }
 
+#headerProjet {
+    z-index: 200!important;
+}
+
 footer{
     position: absolute;
     left: 0;
@@ -41,6 +45,7 @@ footer{
     height: 40px;
     width: 100%;
     background-color: #FBFBFB;
+    z-index: 200!important;
 }
 
 #footerText {
