@@ -16,7 +16,7 @@
 		<div class="page-header">
 			<h2><span class="glyphicon glyphicon-calendar"></span>
 				VT AGENDA 
-				<small>consultation des emplois du temps faits avec VT</small><br>
+				<small>consultation des emplois du temps faits avec VT</small>
 			</h2>
 		</div>
 		<div id="loginTabContent" class="tab-content container">
