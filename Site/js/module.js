@@ -148,3 +148,5 @@ function loadSeanceList()
 
     return false;
 }
+
+loadModuleList();

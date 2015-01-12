@@ -11,7 +11,6 @@
 		<script src="API/jquery/jquery.js"></script>
 		<script type="text/javascript" src="API/bootstrap/js/bootstrap.js"></script>
 		<script type="text/javascript" src="js/loadPage.js"></script>
-		<script src="js/module.js"></script>
 		<script type="text/javascript" src="API/footable/js/footable.js"></script>
 		<script type="text/javascript" src="js/filterTable.js"></script>
 		
@@ -89,7 +88,7 @@
 								<div class="col-sm-9">
 									<select name="profs" class="form-control" id="profs" required="" onChange="loadModuleList()">
 										{foreach from=$profs item=prof}
-											<option value={$prof.codeProf}>{$prof.nom} {$prof.prenom}</option>
+											<option value={$prof.codeProf} {if $prof.codeProf == $code}selected{/if}>{$prof.nom} {$prof.prenom}</option>
 										{/foreach}
 									</select>
 								</div>
@@ -150,6 +149,6 @@
 		
 		</div>
 		{include file='template/include/footer.tpl'}
-	
+		<script src="js/module.js"></script>
 	</body>
 </html>

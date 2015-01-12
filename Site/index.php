@@ -116,6 +116,7 @@ if (isset($_SESSION['studyLogin']) || isset($_SESSION['teachLogin']))
 				$smarty->assign("composantes", $composantes);
 				include('script/getAllTeacherInfos.php');
 				$smarty->assign("profs", $allTeachers);
+				$smarty->assign("code", $codeProf);
 				$smarty->display("template/modules.tpl");
 			}
 			else if ($_GET['page' ] == "heure")
