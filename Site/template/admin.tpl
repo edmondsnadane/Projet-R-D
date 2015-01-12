@@ -40,9 +40,6 @@
 								<label class="btn btn-primary"  id="admin">
 									<input type="checkbox"><span class="glyphicon glyphicon-eye-open"></span> Admin
 								</label>
-								<label class="btn btn-primary" id="giseh">
-									<input type="checkbox"><span class="glyphicon glyphicon-send"></span> Giseh
-								</label>
 								<label class="btn btn-primary" id="bilan_salle">
 									<input type="checkbox"><span class="glyphicon glyphicon-home"></span> Salles
 								</label>

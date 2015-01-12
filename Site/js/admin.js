@@ -32,7 +32,6 @@ function displayDroits()
 		.done(function(elem)
 		{
 			manageDroitState("#admin", elem.admin);
-			manageDroitState("#giseh", elem.giseh);
 			manageDroitState("#bilan_formation", elem.bilan_formation);
 			manageDroitState("#bilan_salle", elem.salle);
 			manageDroitState("#droits", elem.mes_droits);
@@ -75,7 +74,6 @@ $(document).ready(function()
 					configuration : $('#config').hasClass('active'),
 					rss : $('#rss').hasClass('active'),
 					pdf : $('#pdf').hasClass('active'),
-					giseh : $('#giseh').hasClass('active'),
 					dialogue : $('#dialogue').hasClass('active'),
 					salle : $('#bilan_salle').hasClass('active')
                 },

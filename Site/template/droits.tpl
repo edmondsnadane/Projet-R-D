@@ -40,16 +40,6 @@
 					</td>
 			    </tr>
 				<tr>
-				   <td id="thdroittable">Export vers Giseh (Université Paris Ouest uniquement)</td>
-				   <td>
-						{if $droits.giseh == 1}
-							<span class="glyphicon glyphicon-ok-circle"></span>
-						{else}
-							<span class="glyphicon glyphicon-ban-circle"></span>
-						{/if}
-					</td>
-			    </tr>
-				<tr>
 				   <td id="thdroittable">Export PDF</td>
 				   <td>
 						{if $droits.pdf == 1}

@@ -45,7 +45,7 @@
 						<li onClick="loadOccupationSalle()"><a href="#"><span class="glyphicon glyphicon-home"></span> Occupation de salles</a></li>
 					{/if}
 
-					{if $droits.pdf == 1 || $droits.giseh == 1 || isset($studyLogin)}
+					{if $droits.pdf == 1}
 						<li onClick="loadExport()"><a href="#"><span class="glyphicon glyphicon-file"></span> Export </a></li>
 					{/if}
 
