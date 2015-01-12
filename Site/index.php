@@ -67,7 +67,9 @@ if (isset($_SESSION['studyLogin']) || isset($_SESSION['teachLogin']))
 			}
 			else if ($_GET['page'] == "RSS")
 			{
-				header('Location: http://ufrsitec.u-paris10.fr/edtpst/RSSetudiant/rss.php?codeEtudiant='.$userCode);
+				include('RSSetudiant/rss.php');
+				$smarty->assign("xml",$xml);
+				$smarty->display("template/rss.tpl");
 			}
 			else if ($_GET['page'] == "mesDS")
 			{
@@ -158,7 +160,9 @@ if (isset($_SESSION['studyLogin']) || isset($_SESSION['teachLogin']))
 			}
 			else if ($_GET['page'] == "RSS")
 			{
-				header('Location: http://ufrsitec.u-paris10.fr/edtpst/RSS/rss.php?codeProf='.$userCode);
+				include('RSS/rss.php');
+				$smarty->assign("xml",$xml);
+				$smarty->display("template/rss.tpl");
 			}
 			else if ($_GET['page'] == "droits")
 			{
