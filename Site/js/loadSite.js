@@ -3,10 +3,10 @@
 
      var url = $(location).attr('href');
      var res = url.split("/");
-     
+     console.log(res);
      if (res.length == 6)
      {
-          if (res[4] == "Site" && res[5] == "index.php")
+          if (res[4] == "Site" && (res[5] == "index.php" || res[5] == ""))
                $('#panelCalendar').show();
           else
                $('#panelCalendar').hide();
