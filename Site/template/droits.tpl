@@ -7,6 +7,8 @@
 		<link rel="stylesheet" href="API/bootstrap/css/bootstrap.min.css"/>
 		<link rel="stylesheet" href="css/common.css"/>
 		<link rel="stylesheet" href="css/droits.css"/>
+		<script type="text/javascript" src="API/bootstrap-calendar-master/components/jquery/jquery.min.js"></script>
+		<script type="text/javascript" src="API/bootstrap/js/bootstrap.js"></script>
 		<script type="text/javascript" src="js/loadPage.js"></script>
 	</head>
 	<body>
@@ -133,8 +135,5 @@
 		</div>
 		</div>
 		{include file='template/include/footer.tpl'}
-		
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-		<script type="text/javascript" src="API/bootstrap/js/bootstrap.js"></script>
 	</body>
 </html>

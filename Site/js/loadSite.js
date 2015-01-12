@@ -1,15 +1,17 @@
-//(function($) {              
-$(window).load(function() {
-    
-     if ($(location).attr('href') != "http://localhost/Projet-R-D/Site/index.php")
-            {
-                $('#panelCalendar').style.visibility = 'hidden';
-                document.getElementById('panelCalendar').style.visibility = 'hidden';
-                $('#panelCalendar').hide();
-            }
-            else
-            {
-                $('#panelCalendar').show();
-            }
+(function($) { 
+    $(window).load(function() {
+
+     var url = $(location).attr('href');
+     var res = url.split("/");
+     
+     if (res.length == 6)
+     {
+          if (res[4] == "Site" && res[5] == "index.php")
+               $('#panelCalendar').show();
+          else
+               $('#panelCalendar').hide();
+     }
+     else
+          $('#panelCalendar').hide();
 });
-//}(jQuery));
+}(jQuery));

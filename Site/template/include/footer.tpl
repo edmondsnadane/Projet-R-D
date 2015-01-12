@@ -6,6 +6,7 @@
 		Site responsive <img src="img/responsive.png" id="logoResponsive" alt="logoResponsive">
 	</div>
 </footer>
+<script type="text/javascript" src="js/loadSite.js"></script>
 
 
 
