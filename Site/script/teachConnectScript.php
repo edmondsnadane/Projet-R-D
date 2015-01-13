@@ -20,12 +20,13 @@ if (isset($_POST['teachLogin']) && isset($_POST['teachPwd']) && !empty($_POST['t
 	$sql = "SELECT * FROM login_prof WHERE login = ".$dbh->quote($_POST['teachLogin'], PDO::PARAM_STR);
 	$req = $dbh->prepare($sql);
 	$req->execute();
-		   
+
 	// Si oui, on continue le script...
 	while($find == FALSE && $ligne = $req->fetch())
-	{    
+	{
 		// Si le mot de passe entré à la même valeur que celui de la base de données, on l'autorise a se connecter...
-		if(md5($_POST["teachPwd"]) == $ligne['motPasse'])
+		// MD5 vers CRYTPT : https://github.com/edmondsnadane/Projet-R-D/issues/44
+		if(crypt($_POST['teachPwd'], base64_encode($_POST['teachPwd'])) == $ligne['motPasse'])
 		{
 			$find = TRUE;
 			$sql="UPDATE compteur SET valeur=valeur+1 WHERE id_compteur='1'";
@@ -33,7 +34,7 @@ if (isset($_POST['teachLogin']) && isset($_POST['teachPwd']) && !empty($_POST['t
 		}
 	}
 
-	$req->closeCursor();	
+	$req->closeCursor();
 
 	// Sinon on lui affiche un message d'erreur.
 	if($find == FALSE)
