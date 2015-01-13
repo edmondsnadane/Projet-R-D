@@ -7,6 +7,7 @@
 	</div>
 </footer>
 <script type="text/javascript" src="js/loadSite.js"></script>
+<script type="text/javascript" src="js/panelFilter.js"></script>
 
 
 
