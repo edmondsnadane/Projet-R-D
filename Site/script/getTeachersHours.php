@@ -39,6 +39,11 @@ function type_ens_class($type_ens) {
 $codeProf = 0;
 if(isset($_GET["prof"]) && $_GET["prof"] != 0) {
 	$codeProf = $_GET["prof"];
+} else if (isset($_SESSION["teachCodeProf"])) {
+	$codeProf = $_SESSION["teachCodeProf"];
+}
+
+if($codeProf != 0) {
 	$sql = "
 		SELECT
 			seances.dureeSeance as seancesDureeSeance,

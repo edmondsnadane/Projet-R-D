@@ -14,9 +14,23 @@
 		<script type="text/javascript" src="js/customCheck.js"></script>
 		<script type="text/javascript" src="API/tableExport/tableExport.js"></script>
 		<script type="text/javascript" src="API/tableExport/jquery.base64.js"></script>
-		<script type="text/javascript" src="API/tableExport/jspdf/libs/adler32cs.js"></script>
-		<script type="text/javascript" src="API/tableExport/jspdf/libs/deflate.js"></script>
-		<script type="text/javascript" src="API/tableExport/jspdf/jspdf.js"></script>
+		
+		<script type="text/javascript" src="API/jspdf/jspdf.js"></script>
+		<script type="text/javascript" src="API/jspdf/libs/FileSaver.js/FileSaver.js"></script>
+		<script type="text/javascript" src="API/jspdf/libs/Blob.js/Blob.js"></script>
+		<!-- <script type="text/javascript" src="./libs/Blob.js/BlobBuilder.js"></script> -->
+
+		<script type="text/javascript" src="API/jspdf/libs/deflate.js"></script>
+		<script type="text/javascript" src="API/jspdf/libs/adler32cs.js/adler32cs.js"></script>
+
+		<script type="text/javascript" src="API/jspdf/jspdf.plugin.addimage.js"></script>
+		<script type="text/javascript" src="API/jspdf/jspdf.plugin.cell.js"></script>
+		<script type="text/javascript" src="API/jspdf/jspdf.plugin.from_html.js"></script>
+		<script type="text/javascript" src="API/jspdf/jspdf.plugin.ie_below_9_shim.js"></script>
+		<script type="text/javascript" src="API/jspdf/jspdf.plugin.sillysvgrenderer.js"></script>
+		<script type="text/javascript" src="API/jspdf/jspdf.plugin.split_text_to_size.js"></script>
+		<script type="text/javascript" src="API/jspdf/jspdf.plugin.standard_fonts_metrics.js"></script>		
+		
 		<script type="text/javascript" src="API/jquery/jquery-ui.js"></script>
 		<script type="text/javascript" src="js/datePicker.js"></script>
 	</head>
@@ -53,58 +67,59 @@
 												<input type="text" id="datePickerFin">
 											</div>
 										</div>
-
-										<table style="position:absolute; top: -10000px;" id="tableSeance">
-											<thead>
-												<tr>
-													<th>Formation</th>
-													<th>Code apogée</th>
-													<th>Matière</th>
-													<th>Date</th>
-													<th>Heure début</th>
-													<th>Heure fin</th>
-													<th>Horaire réparti / nb profs</th>
-													<th>Forfait</th>
-													<th>Type</th>
-													<th>Durée</th>
-													<th>EqTD</th>
-													<th>Effectuée</th>
-												</tr>
-											</thead>
-
-											<tbody id="tableContent">
-											</tbody>
-										</table>
 										<script type="text/javascript">
 											function loadSeanceList() {
-										    console.log("test");
+												console.log("test");
 
-										    var annee_scolaire = $("#annee_scolaire").val();
-										    var composante = $("#composante").val();
-										    var prof = $("#prof").val();
-										    var url = "index.php?page=heure&annee_scolaire=2013-2014&composante=all&prof={$smarty.session.teachCodeProf}&ajax&" + Math.random();
+												var annee_scolaire = $("#annee_scolaire").val();
+												var composante = $("#composante").val();
+												var prof = $("#prof").val();
+												var url = "index.php?page=heure&annee_scolaire=2013-2014&composante=all&prof={$smarty.session.teachCodeProf}&ajax&" + Math.random();
 
-										    $.ajax( {
-										        type: "GET",
-										        url: url,
-										        cache: false,
-										        dateType: 'html',
-										        success: function(data) {
-										            $("#tableContent").html(data);
-										        },
-										        error: function(data) {
-										            console.log(data);
-										        }
-										    } );
+												$.ajax( {
+													type: "GET",
+													url: url,
+													cache: false,
+													dateType: 'html',
+													success: function(data) {
+														$("#tableContent").html(data);
+													},
+													error: function(data) {
+														console.log(data);
+													}
+												} );
 
-										    return false;
+												return false;
 											}
 
 											loadSeanceList();
+											
+											
+
+											function downloadPdf() {
+												var doc = new jsPDF('l');
+
+												// All units are in the set measurement for the document
+												// This can be changed to "pt" (points), "mm" (Default), "cm", "in"
+												doc.fromHTML($('#tableContainer').get(0), 15, 15, { 'width': 210 } );
+											
+												if (typeof doc !== 'undefined') try {
+													if (navigator.msSaveBlob) {
+														// var string = doc.output('datauristring');
+														string = 'http://microsoft.com/thisdoesnotexists';
+														console.error('Sorry, we cannot show live PDFs in MSIE')
+														} else {
+															var string = doc.output('bloburi');
+														}
+														$('#download-button').attr('href', string);
+													} catch(e) {
+														alert('Error ' + e);
+													}
+											}
 										</script>
 
 										<div class="form-group last" id="pdfButtons">
-										<a class="btn btn-success" download="seances.pdf" {literal}onClick ="this.href = $('#tableSeance').tableExportInline({type:'pdf',pdfFontSize:'5', escape: false, pdfColumns : [70, 50, 170, 70, 30, 30, 30, 30, 30, 20, 20, 20, 20]}); return true;"{/literal}>Exporter</a>
+										<a id="download-button" class="btn btn-success" download="seances.pdf" {literal}onClick ="downloadPdf(); return true;"{/literal}>Exporter</a>
 										</div>
 									</form>
 								</div>
@@ -116,6 +131,30 @@
 					</div>
 				</div>
 			</div>
+			<div id="tableContainer">
+				<table style-disabled="position:absolute; top: -10000px;" id="tableSeance">
+					<thead>
+						<tr>
+							<th>Date</th>
+							<th>Formation</th>
+							<th>Type</th>
+							<th>Matière</th>
+							<th style="width: 100px;">Heure début</th>
+							<th style="width: 100px;">Heure fin</th>
+							<th>Effectuée</th>
+							<th></th>
+							<th></th>
+							<th></th>
+							<th></th>
+							<th></th>
+						</tr>
+					</thead>
+
+					<tbody id="tableContent">
+					</tbody>
+				</table>
+			</div>
+
 		{include file='template/include/footer.tpl'}
 	</body>
 </html>
