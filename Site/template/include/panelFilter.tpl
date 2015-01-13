@@ -72,7 +72,7 @@
 		    <div class="form-group">
 			<label for="departementFilter" class="col-md-12">Salles</label>
 			    <div class="col-md-12">
-				<select name="departementFilter" class="form-control" id="departementFilter" required="">
+				<select name="departementFilter" class="form-control" id="departementFilter" required="" onChange="loadSallesListFilter()">
 				    <option value="all" selected>TOUS</option>
                                     {foreach from=$departements item=departement}
 					<option value={$departement.codeZoneSalle}>{$departement.nom_zone}</option>
@@ -86,9 +86,9 @@
 		<form class="form-horizontal" role="form">
 		    <div class="form-group">
 			<div class="col-md-12">
-			    <select name="anneeProf" class="form-control" id="anneeProf" required="">
-				{foreach from=$annees item=annee}
-                                    <option value=0 selected>{$annees[0]}</option>
+			    <select name="salleFilter" class="form-control" id="salleFilter" required="">
+				{foreach from=$salles item=salle}
+                                    <option value={$salle.codeSalle}>{$salle.nom}</option>
 				{/foreach}
 			    </select>
 			</div>

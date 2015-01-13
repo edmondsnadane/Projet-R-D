@@ -68,3 +68,38 @@ function loadProfsListFilter()
         }
     });
 }
+
+function loadSallesListFilter()
+{
+    var codeSalle = $('#departementFilter :selected').val();
+
+    addSallesToOptions = function(salles)
+	{
+        $('#salleFilter').empty();
+        if (salles.length) {
+            for (i = 0; i < salles.length; i++)
+	    {
+                sallesInfos = salles[i].split("#");
+                $('#salleFilter').append("<option value=" + sallesInfos[0] + ">" + sallesInfos[1] + "</option>");
+            }
+        }
+    };
+
+    $.ajax({
+        type: "POST",
+        url: "./script/getSallesByDepartements.php",
+        data: {
+            code: codeSalle
+        },
+        cache: false,
+        dateType: 'text',
+        success: function(data)
+		{
+            addSallesToOptions(data.split("~"));
+        },
+        error: function(data)
+		{
+            alert(data);
+        }
+    });
+}

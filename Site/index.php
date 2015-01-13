@@ -217,6 +217,8 @@ if (isset($_SESSION['studyLogin']) || isset($_SESSION['teachLogin']))
 		$smarty->assign("code", $codeProf);
 		include('script/getAllDepartementInfo.php');
 		$smarty->assign("departements", $allDepartements);
+		include('script/getAllSallesInfo.php');
+		$smarty->assign("salles", $allSalles);
 		include('script/getAllMaterielsInfo.php');
 		$smarty->assign("materiels", $allMateriels);
 		$smarty->display("template/index.tpl");
