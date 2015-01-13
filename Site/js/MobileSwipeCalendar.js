@@ -18,20 +18,20 @@
         {
             panel.animate({
                 left: "0px"
-              }, 1000 );
+              }, 250 );
             calendarContainer.animate({
                 opacity: "0.5"
-              }, 1000 );
+              }, 250 );
             count = 1;
         }
         else
         {
             panel.animate({
                 left: "-300px"
-              }, 1000 );
+              }, 250 );
             calendarContainer.animate({
                 opacity: "1"
-              }, 1000 );
+              }, 250 );
             count = 0;
         }
     });
@@ -41,10 +41,10 @@
         if( (!$(e.target).is(boutonPanel) && !$.contains(boutonPanel[0],e.target)) && ( !$(e.target).is(panel) && !$.contains(panel[0],e.target))  ) {
             panel.animate({
                 left: "-300px"
-              }, 1000 );
+              }, 250 );
             calendarContainer.animate({
                 opacity: "1"
-              }, 1000 );
+              }, 250 );
             count = 0;
         }
     });
