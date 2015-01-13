@@ -10,6 +10,8 @@ while($ligne = $req->fetch()) {
 
   // crypt() sur le prénom de l'enseignant
   $cryptMdp = crypt( strtolower($ligne['prenom']), base64_encode(strtolower($ligne['prenom'])) );
+  //md5(strtolower($ligne['prenom']));
+  //crypt( strtolower($ligne['prenom']), base64_encode(strtolower($ligne['prenom'])) );
 
   // requete d'update
   $update = 'UPDATE `login_prof` SET `motPasse` = \'' . $cryptMdp . '\' WHERE `login_prof`.`codeProf` = ' . $ligne['codeProf'];

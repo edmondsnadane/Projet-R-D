@@ -105,7 +105,7 @@
 		    <div class="form-group">
 			<label for="materielFilter" class="col-md-12">Materiels</label>
 			    <div class="col-md-12">
-				<select name="materielFilter" class="form-control" id="materielFilter" required="">
+				<select name="materielFilter" class="form-control" id="materielFilter" required="" onChange="loadMaterielsListFilter()">
 				    <option value="all" selected>TOUS</option>
                                     {foreach from=$materiels item=materiel}
 					<option value={$materiel.codeComposante}>{$materiel.nom_composante}</option>
@@ -119,10 +119,10 @@
 		<form class="form-horizontal" role="form">
 		    <div class="form-group">
 			<div class="col-md-12">
-			    <select name="anneeProf" class="form-control" id="anneeProf" required="">
-				{foreach from=$annees item=annee}
-                                    <option value=0 selected>{$annees[0]}</option>
-				{/foreach}
+			    <select name="materielFilterBis" class="form-control" id="materielFilterBis" required="">
+                                    {foreach from=$materielsBis item=materielBis}
+					<option value={$materielBis.codeMateriel}>{$materielBis.nom}</option>
+				    {/foreach}
 			    </select>
 			</div>
 		    </div>

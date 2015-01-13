@@ -103,3 +103,38 @@ function loadSallesListFilter()
         }
     });
 }
+
+function loadMaterielsListFilter()
+{
+    var codeMateriel = $('#departementFilter :selected').val();
+
+    addMaterielsToOptions = function(materiels)
+	{
+        $('#materielFilter').empty();
+        if (materiels.length) {
+            for (i = 0; i < materiels.length; i++)
+	    {
+                materielFilterBis = materiels[i].split("#");
+                $('#salleFilter').append("<option value=" + materielsInfos[0] + ">" + materielsInfos[1] + "</option>");
+            }
+        }
+    };
+
+    $.ajax({
+        type: "POST",
+        url: "./script/getMaterielsByComposantes.php",
+        data: {
+            code: codeMateriel
+        },
+        cache: false,
+        dateType: 'text',
+        success: function(data)
+		{
+            addMaterielsToOptions(data.split("~"));
+        },
+        error: function(data)
+		{
+            alert(data);
+        }
+    });
+}
