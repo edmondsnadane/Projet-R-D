@@ -7,13 +7,12 @@
 		<link rel="stylesheet" href="API/bootstrap/css/bootstrap.min.css"/>
 		<link rel="stylesheet" href="css/common.css"/>
 		<link href="API/footable/css/footable.core.css?v=2-0-1" rel="stylesheet" type="text/css">
-		
-		<script src="API/jquery/jquery.js"></script>
-		<script type="text/javascript" src="API/bootstrap/js/bootstrap.js"></script>
 		<script type="text/javascript" src="js/loadPage.js"></script>
+		<script src="API/jquery/jquery.js"></script>
 		<script type="text/javascript" src="API/footable/js/footable.js"></script>
-		<script type="text/javascript" src="js/filterTable.js"></script>
-		
+		<script src="API/footable/js/footable.sort.js?v=2-0-1" type="text/javascript"></script>
+		<script src="js/module.js"></script>
+		<script type="text/javascript" src="API/bootstrap/js/bootstrap.js"></script>
 		<script type="text/javascript" src="API/tableExport/tableExport.js"></script>
 		<script type="text/javascript" src="API/tableExport/jquery.base64.js"></script>
 	</head>
@@ -111,18 +110,18 @@
 			</div>
 		{/if}
 		
-		<table class="table center-table col-sm-9 footable" id="tableModule">
+		<table class="table-striped table center-table footable" id="tableModule">
 			<thead>
 				<tr>
 					<th>Date</th>
 					<th>Groupes</th>
-					<th data-hide="phone,tablet">Type</th>
+					<th data-hide="phone,tablet" data-sort-ignore="true">Type</th>
 					<th data-hide="phone,tablet">Enseignement</th>
-					<th data-hide="phone,tablet">Profs</th>
-					<th data-hide="phone,tablet">Salles</th>
-					<th>Heure de début</th>
-					<th data-hide="phone,tablet">Durée</th>
-					<th data-hide="phone,tablet">Effectuée</th>
+					<th data-hide="phone,tablet" data-sort-ignore="true">Profs</th>
+					<th data-hide="phone,tablet" data-sort-ignore="true">Salles</th>
+					<th data-sort-ignore="true">Heure de début</th>
+					<th data-hide="phone,tablet" data-sort-ignore="true">Durée</th>
+					<th data-hide="phone,tablet" data-sort-ignore="true">Effectuée</th>
 				</tr>
 			</thead>
 			<tbody id="tableContent">
@@ -149,6 +148,5 @@
 		
 		</div>
 		{include file='template/include/footer.tpl'}
-		<script src="js/module.js"></script>
 	</body>
 </html>

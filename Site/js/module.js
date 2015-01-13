@@ -70,12 +70,11 @@ function loadModuleList()
 
 function buildSeanceTable(id, seance)
 {
-	$(id).empty();
 	if (seance.length)
 	{
+		var ligne = "<tr>";
 		for (i = 0; i < seance.length; i++)
 		{
-			var ligne = "<tr>";
 			var seanceInfo = seance[i].split("#");
 			for (j = 0; j < seanceInfo.length; j++)
 			{
@@ -116,13 +115,12 @@ function buildSeanceTable(id, seance)
 				ligne += "</td>";
 			}
 			ligne += "</tr>";
-
-			$(id).append(ligne);
 		}
+		$(id).html(ligne);
 	}
 	else
 	{
-		$(id).append("<tr class='danger'><td colspan=9>Aucun resultats trouvés</td></tr>");
+		$(id).html("<tr class='danger'><td colspan=9>Aucun resultats trouvés</td></tr>");
 	}
 }
 
@@ -134,6 +132,7 @@ function loadSeanceList()
     createSeanceTable = function(seance) {
 		buildSeanceTable('#tableContent', seance);
 		buildSeanceTable('#hiddenTableContent', seance);
+		$('#tableContent').trigger('footable_initialize');
     };
 
     $.ajax({
@@ -149,4 +148,17 @@ function loadSeanceList()
     return false;
 }
 
-loadModuleList();
+$(document).ready(function() {
+   loadModuleList();
+   
+   $('.footable').footable();
+   
+   $('.sort-column').click(function (e) {
+		e.preventDefault();
+		//get the footable sort object
+        var footableSort = $('table').data('footable-sort');
+		//get the index we are wanting to sort by
+		var index = $(this).data('index');
+		footableSort.doSort(index, 'toggle');
+	});
+});
