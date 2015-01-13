@@ -205,6 +205,20 @@ if (isset($_SESSION['studyLogin']) || isset($_SESSION['teachLogin']))
 	}
 	else
 	{
+
+		include('script/getAllFormation.php');
+		$smarty->assign("formations", $formations);
+		include('script/getAllGroupesInfo.php');
+		$smarty->assign("groupes", $allGroupes);
+		include('script/getComposantes.php');
+		$smarty->assign("composantes", $composantes);
+		include('script/getAllTeacherInfos.php');
+		$smarty->assign("profs", $allTeachers);
+		$smarty->assign("code", $codeProf);
+		include('script/getAllDepartementInfo.php');
+		$smarty->assign("departements", $allDepartements);
+		include('script/getAllMaterielsInfo.php');
+		$smarty->assign("materiels", $allMateriels);
 		$smarty->display("template/index.tpl");
 	}
 }

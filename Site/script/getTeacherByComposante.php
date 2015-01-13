@@ -14,7 +14,7 @@
 			include('getAllTeacherInfos.php');
 			foreach ($allTeachers as $teacher)
 			{
-				array_push($teachers, implode('#', array($teacher['codeProf'], $teacher['prenom'], $teacher['nom'])));
+				array_push($teachers, implode('#', array($teacher['codeProf'], $teacher['prenom'], $teacher['nom'])));	
 			}
 		}
 		else

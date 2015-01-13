@@ -18,33 +18,33 @@
         {
             panel.animate({
                 left: "0px"
-              }, 500 );
+              }, 1000 );
             calendarContainer.animate({
                 opacity: "0.5"
-              }, 500 );
+              }, 1000 );
             count = 1;
         }
         else
         {
             panel.animate({
                 left: "-300px"
-              }, 500 );
+              }, 1000 );
             calendarContainer.animate({
                 opacity: "1"
-              }, 500 );
+              }, 1000 );
             count = 0;
         }
     });
     
     $(document.body).click(function(e) {
         // Si ce n'est pas #boutonPanel ni un de ses enfants
-        if( !$(e.target).is(boutonPanel) && !$.contains(boutonPanel[0],e.target) ) {
+        if( (!$(e.target).is(boutonPanel) && !$.contains(boutonPanel[0],e.target)) && ( !$(e.target).is(panel) && !$.contains(panel[0],e.target))  ) {
             panel.animate({
                 left: "-300px"
-              }, 500 );
+              }, 1000 );
             calendarContainer.animate({
                 opacity: "1"
-              }, 500 );
+              }, 1000 );
             count = 0;
         }
     });
