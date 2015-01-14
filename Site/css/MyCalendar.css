@@ -53,6 +53,11 @@ h4 {
 }
 
 /* Les légendes */
+
+#accordion {
+	margin-bottom: 40px;
+}
+
 .cercleLegende {
     border-radius:50%;
     width:20px;

@@ -22,7 +22,6 @@
 		<script type="text/javascript" src="API/hammer.js-master/hammer.js"></script>
 		<script type="text/javascript" src="API/hammer.js-master/jquery.hammer.js"></script>
 		<script type="text/javascript" src="js/MobileSwipeCalendar.js"></script>
-		<script type="text/javascript" src="js/module.js"></script>
 	</head>
 	<body>
 		{include file='template/include/panelFilter.tpl'}
