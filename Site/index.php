@@ -149,9 +149,9 @@ if (isset($_SESSION['studyLogin']) || isset($_SESSION['teachLogin']))
 				$smarty->assign("codeProf", $codeProf);
 				$smarty->assign("heuresParMois", $heuresParMois);
 				if(isset($_GET['ajax'])) {
-					$smarty->display("template/heures_tab.tpl");
+					$smarty->display("template/include/heures_tab.tpl");
 				} else if (isset($_GET['json'])) {
-					$smarty->display("template/heures_chart_data.tpl");
+					$smarty->display("template/include/heures_chart_data.tpl");
 				} else {
 					$smarty->display("template/heures.tpl");
 				}

@@ -80,7 +80,7 @@
 				</thead>
 
 				<tbody id="tableContent">
-					{include file='template/heures_tab.tpl'}
+					{include file='template/include/heures_tab.tpl'}
 				</tbody>
 			</table>
 
@@ -102,7 +102,7 @@
 					</tr>
 				</thead>
 				<tbody id="hiddenTableContent">
-					{include file='template/heures_tab.tpl'}
+					{include file='template/include/heures_tab.tpl'}
 				</tbody>
 			</table>
 

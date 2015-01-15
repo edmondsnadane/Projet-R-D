@@ -123,9 +123,7 @@
 										</div>
 									</form>
 								</div>
-								<div class="panel-footer">
-									<a download="seances.csv" {literal}onClick ="this.href = $('#tableSeance').tableExportInline({type:'csv',escape:'false',separator:';',consoleLog:true}); return true;"{/literal}>Exporter vers Excel</a>
-								</div>
+
 							</div>
 						</div>
 					</div>
