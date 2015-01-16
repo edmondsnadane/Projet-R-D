@@ -3,14 +3,9 @@
 
      var url = $(location).attr('href');
      var res = url.split("/");
-     
-     if (res.length == 6)
-     {
-          if (res[4] == "Site" && (res[5] == "index.php" || res[5] == ""))
-               $('#panelCalendar').show();
-          else
-               $('#panelCalendar').hide();
-     }
+
+     if (res[res.length-1] == "index.php" || res[res.length-1] == "")
+          $('#panelCalendar').show();
      else
           $('#panelCalendar').hide();
 });
