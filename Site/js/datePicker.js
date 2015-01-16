@@ -1,5 +1,5 @@
 $(function() {
 	$.datepicker.setDefaults( $.datepicker.regional[ "fr" ] );
-	$( "#datePickerDeb" ).datepicker({ dateFormat: "dd-mm-yy" });;
-	$( "#datePickerFin" ).datepicker({ dateFormat: "dd-mm-yy" });;
+	$( "#datePickerDeb" ).datepicker({ dateFormat: "yy-mm-dd" });;
+	$( "#datePickerFin" ).datepicker({ dateFormat: "yy-mm-dd" });;
 });

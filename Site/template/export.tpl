@@ -69,12 +69,15 @@
 										</div>
 										<script type="text/javascript">
 											function loadSeanceList() {
+												$("#pdfButton").attr("disabled", "disabled");
 												console.log("test");
 
 												var annee_scolaire = $("#annee_scolaire").val();
 												var composante = $("#composante").val();
 												var prof = $("#prof").val();
-												var url = "index.php?page=heure&annee_scolaire=2013-2014&composante=all&prof={$smarty.session.teachCodeProf}&ajax_pdf&" + Math.random();
+												var minDate = $("#datePickerDeb").val();
+												var maxDate = $("#datePickerFin").val();
+												var url = "index.php?page=heure&annee_scolaire=2013-2014&composante=all&prof={$smarty.session.teachCodeProf}&ajax_pdf&minDate=" + minDate + "&maxDate=" + maxDate + "&" + Math.random();
 
 												$.ajax( {
 													type: "GET",
@@ -83,6 +86,9 @@
 													dateType: 'html',
 													success: function(data) {
 														$("#tableContent").html(data);
+														$("#dateDebutLabel").text(minDate);
+														$("#dateFinLabel").text(maxDate);
+														$("#pdfButton").removeAttr("disabled");
 													},
 													error: function(data) {
 														console.log(data);
@@ -91,10 +97,9 @@
 
 												return false;
 											}
-
-											loadSeanceList();
 											
-											
+											$("#datePickerDeb").change(loadSeanceList);
+											$("#datePickerFin").change(loadSeanceList);
 
 											function downloadPdf() {
 												var doc = new jsPDF('l');
@@ -129,8 +134,8 @@
 					</div>
 				</div>
 			</div>
-			<div id="tableContainer">
-				<table style-disabled="position:absolute; top: -10000px;" id="tableSeance">
+			<div id="tableContainer" style="text-align:left; position:absolute; top: -10000px;" id="tableSeance"">
+				<table >
 					<thead>
 						<tr>
 							<th>Date</th>

@@ -43,6 +43,15 @@ if(isset($_GET["prof"]) && $_GET["prof"] != 0) {
 	$codeProf = $_SESSION["teachCodeProf"];
 }
 
+$dateFilter = '0';
+$minDate = '';
+$maxDate = '';
+if(isset($_GET["minDate"]) && isset($_GET["maxDate"])) {
+	$minDate = $_GET["minDate"];
+	$maxDate = $_GET["maxDate"];
+	$dateFilter = '1';
+}
+
 if($codeProf != 0) {
 	$sql = "
 		SELECT
@@ -72,12 +81,13 @@ if($codeProf != 0) {
 			seances.deleted='0' AND 
 			matieres.deleted='0' AND 
 			enseignements.deleted='0' AND 
-			seances.annulee='0'
+			seances.annulee='0' AND
+			(:dateFilter='0' OR (:minDate <= seances.dateSeance AND seances.dateSeance <= :maxDate)) 
 			GROUP BY seances.codeSeance
 			ORDER BY seances.dateSeance	";
 			
 	$req = $dbh->prepare($sql);
-	$req->execute(array(':codeProf' => $codeProf));
+	$req->execute(array(':codeProf' => $codeProf, ':dateFilter' => $dateFilter, ':minDate' => $minDate, ':maxDate' => $maxDate));
 } 
 
 
