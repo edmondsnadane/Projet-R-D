@@ -13,7 +13,13 @@
     var calendarContainer= $('#calendarContainer');
     var count = 0;
     
-    boutonPanel.click(function(){  
+    var navBar = $('#bs-example-navbar-collapse-1');
+    
+    boutonPanel.click(function(){
+        if (navBar.hasClass("in")) {
+            $('#boutonNavBar').click();
+        }
+        
         if (count == 0)
         {
             panel.animate({
