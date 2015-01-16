@@ -206,7 +206,7 @@
         //set up defaults. If a value is provided in config, defaults will be overwritten:
            autoSize        = false,
            printHeaders    = true,
-           fontSize        = 12,
+           fontSize        = 9,
            margins         = NO_MARGINS;
 
            margins.width = this.internal.pageSize.width;
@@ -292,17 +292,32 @@
 			}
         }
 		*/
-
+		var maxWidths = {};
+		console.log(" bar ");
+		for (i = 0, ln = headerNames.length; i < ln; i += 1) {
+			header = headerNames[i];
+			maxWidths[header] = header.length * 3;
+		}
+		for (i = 0, ln = data.length; i < ln; i += 1) {
+			model = data[i];
+			for (j = 0, jln = headerNames.length; j < jln; j += 1) {
+				header = headerNames[j];
+				var cellLength = model[header].length * 2.5;
+				console.log(" foo : " + maxWidths[header]);
+				maxWidths[header] = Math.max(maxWidths[header] || 0, cellLength);
+			 }
+		}
+		
         // -- Construct the table
 
         if (printHeaders) {
-            var lineHeight =  20;// this.calculateLineHeight(headerNames, columnWidths, headerPrompts.length?headerPrompts:headerNames);
+            var lineHeight =  12;// this.calculateLineHeight(headerNames, columnWidths, headerPrompts.length?headerPrompts:headerNames);
 
             // Construct the header row
             for (i = 0, ln = headerNames.length; i < ln; i += 1) {
                 header = headerNames[i];
                 console.log("h : " + header);
-                tableHeaderConfigs.push([x, y, header.length * 5, lineHeight, String(headerPrompts.length ? headerPrompts[i] : header)]);
+                tableHeaderConfigs.push([x, y, maxWidths[header] || header.length * 3, lineHeight, String(headerPrompts.length ? headerPrompts[i] : header)]);
             }
 
             // Store the table header config
@@ -316,11 +331,11 @@
         for (i = 0, ln = data.length; i < ln; i += 1) {
             var lineHeight;
             model = data[i];
-            lineHeight = 20;// this.calculateLineHeight(headerNames, columnWidths, model);
+            lineHeight = 12;// this.calculateLineHeight(headerNames, columnWidths, model);
 
             for (j = 0, jln = headerNames.length; j < jln; j += 1) {
                 header = headerNames[j];
-                this.cell(x, y, header.length * 5, lineHeight, model[header], i + 2, header.align);
+                this.cell(x, y, maxWidths[header] || header.length * 3, lineHeight, model[header], i + 2, header.align);
             }
         }
         this.lastCellPos = lastCellPos;

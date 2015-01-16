@@ -150,6 +150,8 @@ if (isset($_SESSION['studyLogin']) || isset($_SESSION['teachLogin']))
 				$smarty->assign("heuresParMois", $heuresParMois);
 				if(isset($_GET['ajax'])) {
 					$smarty->display("template/include/heures_tab.tpl");
+				} else if (isset($_GET['ajax_pdf'])) {
+				    $smarty->display("template/include/heures_tab_pdf.tpl");
 				} else if (isset($_GET['json'])) {
 					$smarty->display("template/include/heures_chart_data.tpl");
 				} else {

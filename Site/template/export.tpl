@@ -74,7 +74,7 @@
 												var annee_scolaire = $("#annee_scolaire").val();
 												var composante = $("#composante").val();
 												var prof = $("#prof").val();
-												var url = "index.php?page=heure&annee_scolaire=2013-2014&composante=all&prof={$smarty.session.teachCodeProf}&ajax&" + Math.random();
+												var url = "index.php?page=heure&annee_scolaire=2013-2014&composante=all&prof={$smarty.session.teachCodeProf}&ajax_pdf&" + Math.random();
 
 												$.ajax( {
 													type: "GET",
@@ -140,11 +140,6 @@
 							<th style="width: 100px;">Heure début</th>
 							<th style="width: 100px;">Heure fin</th>
 							<th>Effectuée</th>
-							<th></th>
-							<th></th>
-							<th></th>
-							<th></th>
-							<th></th>
 						</tr>
 					</thead>
 
