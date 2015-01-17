@@ -1,11 +1,10 @@
 function reset(code) {
+        console.log(code);
         $('#groupesFilter').val('all');
-        loadGroupesListFilter();
         $('#profsComposantesFilter').val('all');
-        loadProfsListFilter();
-        $('#profsFilter').val(code);
         $('#departementFilter').val('all');
+        loadGroupesListFilter();
+        loadProfsListFilter(code);
         loadSallesListFilter();
-        $('#materielFilter').val('all');
-        loadMaterielsListFilter()
+        $('#profsFilter').val(code);
 }

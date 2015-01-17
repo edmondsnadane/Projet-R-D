@@ -5,6 +5,7 @@ function loadGroupesListFilter()
     addGroupesToOptions = function(groupes)
 	{
         $('#groupesFormationsFilter').empty();
+	$('#groupesFormationsFilter').append('<option value="all" selected>TOUS</option>');
         if (groupes.length) {
             for (i = 0; i < groupes.length; i++)
 	    {
@@ -34,9 +35,10 @@ function loadGroupesListFilter()
 }
 
 
-function loadProfsListFilter()
+function loadProfsListFilter(code)
 {
     var codeComposante = $('#profsComposantesFilter :selected').val();
+    var selectedd = "";
 
     addProfsToOptions = function(profs)
 	{
@@ -45,8 +47,16 @@ function loadProfsListFilter()
             for (i = 0; i < profs.length; i++)
 	    {
                 profInfos = profs[i].split("#");
-                $('#profsFilter').append("<option value=" + profInfos[0] + ">" + profInfos[1] + " " + profInfos[2] + "</option>");
-            }
+		if(profInfos[0] == code)
+		{
+		    selectedd = "selected";
+		    $('#profsFilter').append("<option value=" + profInfos[0] +" "+ selectedd +">" + profInfos[1] + " " + profInfos[2] + "</option>");
+		}			 
+                else
+		    $('#profsFilter').append("<option value=" + profInfos[0] +">" + profInfos[1] + " " + profInfos[2] + "</option>");
+                
+		selectedd = "";
+	    }
         }
     };
 
@@ -76,6 +86,7 @@ function loadSallesListFilter()
     addSallesToOptions = function(salles)
 	{
         $('#salleFilter').empty();
+	$('#salleFilter').append('<option value="all" selected>TOUS</option>');
         if (salles.length) {
             for (i = 0; i < salles.length; i++)
 	    {
