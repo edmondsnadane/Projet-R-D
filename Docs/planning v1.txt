@@ -1,6 +1,0 @@
-pour semaine du 6 octobre:
-	- POC calendar api responsive 	--> Edmond, Luis
-	- Debut architecture		--> Pierrick
-	- idées maquettes + icones	--> Luis
-	- idées maquettes écran login	--> Edmond
-	- accès BDD			--> Attente
