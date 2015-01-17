@@ -40,6 +40,7 @@ div id="panelFilter">
 		<div class="col-md-6" id="h3MoisAnnee">
 			<h3 class=""></h3>
 			<h4 class="" id="petitH4"></h4>
+			<h4 class="" id="petitH4Bis"></h4>
 		</div>
 	</div>
 	<!-- Fin navigation calendar -->

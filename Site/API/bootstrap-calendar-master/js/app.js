@@ -28,7 +28,11 @@ function updateCalendar() {
 		},
 		onAfterViewLoad: function(view) {
 			$('.page-header h3').text(this.getTitle());
-			$('.page-header h4').text(this.getSemaine());
+			$('#petitH4').text(this.getSemaine());
+			var profLog = $('#profsFilter').find(":selected").text().split(" ");
+			var nom =profLog[0];
+			var prenom = profLog[1];
+			$('#petitH4Bis').text("(Agenda de "+prenom+" "+nom+")");
 			$('.btn-group button').removeClass('active');
 			$('button[data-calendar-view="' + view + '"]').addClass('active');
 		},
@@ -40,7 +44,6 @@ function updateCalendar() {
 	};
 
 	var calendar = $('#calendar').calendar(options);
-}
 	
 	//Par defaut le clic sur des events ouvre des modals
 	//calendar.setOptions({modal: "#events-modal"});	
@@ -81,5 +84,6 @@ function updateCalendar() {
 		//e.preventDefault();
 		//e.stopPropagation();
 	});
+}
 
 updateCalendar();
