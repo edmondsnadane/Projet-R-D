@@ -40,6 +40,7 @@ function updateCalendar() {
 	};
 
 	var calendar = $('#calendar').calendar(options);
+}
 	
 	//Par defaut le clic sur des events ouvre des modals
 	//calendar.setOptions({modal: "#events-modal"});	
@@ -80,6 +81,5 @@ function updateCalendar() {
 		//e.preventDefault();
 		//e.stopPropagation();
 	});
-}
 
 updateCalendar();

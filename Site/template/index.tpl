@@ -17,8 +17,6 @@
 		<script type="text/javascript" src="API/bootstrap-calendar-master/components/jstimezonedetect/jstz.min.js"></script>
 		<script type="text/javascript" src="API/bootstrap-calendar-master/js/calendar.js"></script>
 		<script type="text/javascript" src="API/bootstrap-calendar-master/js/app.js"></script>
-		<script type="text/javascript" src="API/zepto/zepto-min.js"></script>
-		<script type="text/javascript" src="API/zepto/zepto.fx.js"></script>
 		<script type="text/javascript" src="API/hammer.js-master/hammer.js"></script>
 		<script type="text/javascript" src="API/hammer.js-master/jquery.hammer.js"></script>
 		<script type="text/javascript" src="js/MobileSwipeCalendar.js"></script>

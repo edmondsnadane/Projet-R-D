@@ -26,7 +26,7 @@
 		<div class="container">
 			<!-- description du projet -->
 			<h3>DESCRIPTION DU PROJET</h3>
-			<p>Cet outil a été mis à jour par le biais d'un projet de master 2 MIAGE à l'université d'EVRY. L'objectif de ce projet était de faire une refonte graphique de VTCalendar afin de l'adapter aux téléphones et tablettes</p>
+			<p>Cet outil a été mis à jour par le biais d'un projet de master 2 MIAGE à l'université d'EVRY. L'objectif de ce projet était de faire une refonte graphique de VTAgenda afin de l'adapter aux téléphones et tablettes</p>
 			<br><br><br>
 			
 			<!-- LISTE DES INTERVENANTS -->
@@ -63,10 +63,10 @@
 					<ul>
 						<li>Réalisation du calendrier avec la librairie bootstrap-calendar</li>
 						<li>Insertion des données dans le calendrier</li>
-						<li>Système de filtrage des événements</li>
+						<li>Système de filtrage</li>
 						<li>Optimisation CSS des pages</li>
 						<li>Page index</li>
-						<li>...</li>
+						<li></li>
 					</ul>
 				</div>
 			</div>
@@ -81,7 +81,6 @@
 						<li>Réalisation des templates de pages</li>
 						<li>Page Modules, QuiSommesNous, Login, DialogueGestion, Droits, Admin, Config, mesDS, OccupationSalle</li>
 						<li>Entretien du Github</li>
-						<li>...</li>
 					</ul>
 				</div>
 			</div>
@@ -93,10 +92,9 @@
 				<div class="panel-body">
 					<ul>
 						<li>Réalisation de la page de consultation des heures</li>
-						<li>Développement de la page de consultation des versions de VTAgenda</li>
-						<li>Developpement de la page d'export PDF, GISEH</li>
+						<li>Développement de la page versions de VTAgenda</li>
+						<li>Developpement de la page d'export PDF</li>
 						<li>Script d'export EXCEL</li>
-						<li>...</li>
 					</ul>
 				</div>
 			</div>
