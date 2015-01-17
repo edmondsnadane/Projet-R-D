@@ -16,7 +16,7 @@
 		
 		{include file='template/include/header.tpl'}
 		<div class="container">
-			<div class="col-md-4 col-centered">
+			<div class="col-md-6 col-centered">
 			
 				<!-- div - retour login.js -->
 					<div id="retourLoginJs"></div>
@@ -37,37 +37,37 @@
 								</div>
 							</div>
 							<div data-toggle="buttons" id="userDroits">
-								<label class="btn btn-primary"  id="admin">
+								<label class="btn btn-primary col-xs-6 col-sm-4"  id="admin">
 									<input type="checkbox"><span class="glyphicon glyphicon-eye-open"></span> Admin
 								</label>
-								<label class="btn btn-primary" id="bilan_salle">
+								<label class="btn btn-primary col-xs-6 col-sm-4" id="bilan_salle">
 									<input type="checkbox"><span class="glyphicon glyphicon-home"></span> Salles
 								</label>
-								<label class="btn btn-primary" id="bilan_heure">
+								<label class="btn btn-primary col-xs-6 col-sm-4" id="bilan_heure">
 									<input type="checkbox"><span class="glyphicon glyphicon-dashboard"></span> Bilan Heures
 								</label>
-								<label class="btn btn-primary" id="droits">
+								<label class="btn btn-primary col-xs-6 col-sm-4" id="droits">
 									<input type="checkbox"><span class="glyphicon glyphicon-lock"></span> Droits
 								</label>
-								<label class="btn btn-primary" id="heures">
+								<label class="btn btn-primary col-xs-6 col-sm-4" id="heures">
 									<input type="checkbox"><span class="glyphicon glyphicon-time"></span> Mes Heures
 								</label>
-								<label class="btn btn-primary" id="pdf">
+								<label class="btn btn-primary col-xs-6 col-sm-4" id="pdf">
 									<input type="checkbox"><span class="glyphicon glyphicon-file"></span> PDF
 								</label>
-								<label class="btn btn-primary" id="rss">
+								<label class="btn btn-primary col-xs-6 col-sm-4" id="rss">
 									<input type="checkbox"><span class="glyphicon glyphicon-transfer"></span> RSS
 								</label>
-								<label class="btn btn-primary" id="config">
+								<label class="btn btn-primary col-xs-6 col-sm-4" id="config">
 									<input type="checkbox"><span class="glyphicon glyphicon-cog"></span> Config
 								</label>
-								<label class="btn btn-primary" id="reservation">
+								<label class="btn btn-primary col-xs-6 col-sm-4" id="reservation">
 									<input type="checkbox"><span class="glyphicon glyphicon-shopping-cart"></span> Reserver
 								</label>
-								<label class="btn btn-primary" id="modules">
+								<label class="btn btn-primary col-xs-6 col-sm-4" id="modules">
 									<input type="checkbox"><span class="glyphicon glyphicon-th-large"></span> Module
 								</label>
-								<label class="btn btn-primary" id="dialogue">
+								<label class="btn btn-primary col-xs-6 col-sm-4" id="dialogue">
 									<input type="checkbox"><span class="glyphicon glyphicon-comment"></span> Dialogue
 								</label>
 							</div>
@@ -90,15 +90,15 @@
 						<div class="panel-body">   
 							<div id="droitLegende">
 								<div class="row">
-									<div class="col-xs-3 col-md-2">
+									<div class="col-xs-6 col-md-2">
 										<div class="cercleLegende" id="active"></div>
 										<div class="textLegende">Activé</div>
 									</div>
-									<div class="col-xs-3 col-md-2">
+									<div class="col-xs-6 col-md-2">
 										<div class="cercleLegende" id="nonactive"></div>
 										<div class="textLegende">Désactivé</div>
 									</div>
-									<div class="col-xs-3 col-md-2">
+									<div class="col-xs-6 col-md-2">
 										<div class="cercleLegende" id="disabled"></div>
 										<div class="textLegende">Bloqué</div>
 									</div>
