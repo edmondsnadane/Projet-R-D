@@ -35,11 +35,11 @@
 						<div class="panel-body">
 							<ul>
 								<lh><em><strong>Interface prof :</strong></em></lh>
-								<li>Design et refonte de l'arbo en cours</li>
+								<li>Design et refonte graphique</li>
 							</ul>
 							<ul>
 								<lh><em><strong>Inferface étudiant :</strong></em></lh>
-								<li>Design et refonte de l'arbo en cours</li>
+								<li>Design et refonte graphique</li>
 							</ul>
 						</div>
 					</div>
