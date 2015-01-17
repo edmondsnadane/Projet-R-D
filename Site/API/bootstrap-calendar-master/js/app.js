@@ -1,10 +1,14 @@
-(function($) {
+function updateCalendar() {
 
 	"use strict";
 	
+	var codeSalle = $('#salleFilter :selected').val();
+	var codeProf = $('#profsFilter :selected').val();
+	var codeGroupe = $('#groupesFormationsFilter :selected').val();
+	
 	//Paramètre par défaut
 	var options = {
-		events_source: 'script/EventCalendar.php',//events.json.php',
+		events_source: 'script/EventCalendar.php?filterProf='+codeProf+"&filterSalle="+codeSalle+"&filterGroupe="+codeGroupe,//events.json.php',
 		view: 'month',
 		tmpl_path: 'tmpls/',
 		tmpl_cache: false,
@@ -76,4 +80,6 @@
 		//e.preventDefault();
 		//e.stopPropagation();
 	});
-}(jQuery));
+}
+
+updateCalendar();

@@ -11,46 +11,44 @@ include('../config/config.php');
 $start = $_REQUEST['from'] / 1000;
 $end   = $_REQUEST['to'] / 1000;
 $loginUtilisateur = "";
-     
-if (isset($_SESSION['teachLogin']))
-{
-    $loginUtilisateur = $_SESSION['teachLogin'];
-}
-else if (isset($_COOKIE['teachLogin']))
-{
-    $loginUtilisateur = $_COOKIE['teachLogin'];
-}
-else if (isset($_SESSION['studyLogin'])){
-    $loginUtilisateur = $_SESSION['studyLogin'];
-}
-else if (isset($_COOKIE['studyLogin']))
-{
-    $loginUtilisateur = $_SESSION['studyLogin'];
-}
-
 
 $out = array();
 //si l'utilisateur est un prof
-if(($loginUtilisateur == isset($_SESSION['teachLogin'])) || ($loginUtilisateur == isset($_COOKIE['teachLogin']))) {
-$sql=sprintf('SELECT seances.dateSeance, seances.heureSeance, seances.dureeSeance,
+if(isset($_SESSION['teachLogin']))
+{
+	$sql='SELECT distinct seances.dateSeance, seances.heureSeance, seances.dureeSeance,
                 enseignements.nom, enseignements.couleurFond,enseignements.alias,
                 enseignements.codeTypeSalle, types_activites.codeTypeActivite, types_activites.alias,
-                matieres.couleurFond, matieres.nom, login_prof.login
+                matieres.couleurFond, matieres.nom, login_prof.login, ressources_salles.nom as salle, ressources_groupes.codeGroupe, ressources_salles.codeSalle
                 FROM seances
                 LEFT JOIN seances_profs ON seances.codeSeance = seances_profs.codeSeance
+				LEFT JOIN seances_salles ON seances.codeSeance = seances_salles.codeSeance
+				LEFT JOIN seances_groupes ON seances.codeSeance = seances_groupes.codeSeance
                 LEFT JOIN enseignements ON seances.codeEnseignement = enseignements.codeEnseignement
                 RIGHT JOIN matieres ON matieres.codeMatiere = enseignements.codeMatiere
                 LEFT JOIN login_prof ON login_prof.codeprof = seances_profs.codeRessource
+				LEFT JOIN ressources_salles ON ressources_salles.codeSalle = seances_salles.codeRessource
+				LEFT JOIN ressources_groupes ON ressources_groupes.codeGroupe = seances_groupes.codeRessource
                 INNER JOIN types_activites on enseignements.codeTypeActivite = types_activites.codeTypeActivite
                 WHERE seances_profs.deleted =  "0"
                 AND seances.deleted =  "0"
                 AND matieres.deleted =  "0"
                 AND seances.annulee =  "0"
-                AND login_prof.login = '.$dbh->quote($loginUtilisateur, PDO::PARAM_STR));
- 
+				AND login_prof.codeProf = '.$dbh->quote($_GET['filterProf'], PDO::PARAM_STR);
+	
+	if (isset($_GET['filterGroupe']) && $_GET['filterGroupe'] != "all")
+	{
+		$sql += ' AND ressources_groupes.codeGroupe='.$_GET['filterGroupe'];
+	}
+	
+	if (isset($_GET['filterSalle'])&& $_GET['filterSalle'] != "all")
+	{
+		$sql += ' AND ressources_salles.codeSalle='.$_GET['filterSalle'];
+	}
 }
 //si l'utilisateur est un etudiant
-else if (($loginUtilisateur == isset($_SESSION['studyLogin'])) || ($loginUtilisateur == isset($_COOKIE['studyLogin']))) {
+else
+{
     $sql=sprintf('SELECT distinct seances.dateSeance, seances.heureSeance, seances.dureeSeance,
                 enseignements.nom, enseignements.couleurFond,enseignements.alias,
                 enseignements.codeTypeSalle, types_activites.codeTypeActivite, types_activites.alias,
@@ -73,11 +71,13 @@ else if (($loginUtilisateur == isset($_SESSION['studyLogin'])) || ($loginUtilisa
                 AND ressources_etudiants.deleted = "0"
                 AND ressources_etudiants.nom = '.$dbh->quote($loginUtilisateur, PDO::PARAM_STR));
 }
+
 $req = $dbh->prepare($sql);
 $req->execute();
 
 $out = array();
-while($ligneCode = $req->fetch()) {
+while($ligneCode = $req->fetch())
+{
     if(strlen($ligneCode['heureSeance']) > 3)
     {
         $debut = $ligneCode['dateSeance']." ".substr($ligneCode['heureSeance'],0,2).":".substr($ligneCode['heureSeance'],2,2).":00.0";
@@ -131,8 +131,8 @@ while($ligneCode = $req->fetch()) {
     }
        
     $out[] = array(
-        'id' => $ligneCode['nom'],
-        'title' =>$ligneCode['alias'] ." - ". str_replace(" ", "h",date("H i",$timeDebut)) ." - ". str_replace(" ", "h",date("H i",$timeFin)) ." ". $ligneCode['nom'],
+        'id' => $ligneCode['nom']." -TEST ". $ligneCode["salle"]. "et ".$ligneCode["codeGroupe"],
+        'title' =>$ligneCode['alias'] ." - ". str_replace(" ", "h",date("H i",$timeDebut)) ." - ". str_replace(" ", "h",date("H i",$timeFin)) ." ". $ligneCode['nom']." (".$ligneCode['salle'].")",
         'url' => "",
         'class' => $eventC,
         'start' => $timeDebut*1000,
