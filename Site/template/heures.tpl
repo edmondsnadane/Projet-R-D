@@ -61,7 +61,7 @@
 			</div>
 
 
-			<table class="table-striped table center-table footable" id="tableSeance">
+			<table class="table-striped table center-table footable" id="tableSeance" >
 				<thead>
 					<tr>
 						<th data-sort-ignore="true">Formation</th>
@@ -108,7 +108,6 @@
 
 
 			<div id="chart_div" class="hidden-xs hidden-sm"></div>
-
 
 		</div>
 

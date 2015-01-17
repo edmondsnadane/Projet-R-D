@@ -14,6 +14,7 @@ body {
     background-size: cover;
     margin: 0 0 40px; /* bottom = footer height */
     padding: 0 0 40px;
+	overflow-x:hidden;
 }
 
 .page-header {
@@ -60,6 +61,7 @@ footer{
 
 table {
     background-color: white !important;
+	
 }
 
 @media (max-width: 1200px) {
