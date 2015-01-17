@@ -1,6 +1,9 @@
 <div id="panelFilter">
-    <div class="col-md-12 col-centered" style="padding-top: 15px;">
-	<div class="panel panel-default">
+    
+    <button class="btn btn-primary" id="monPlanning" type="submit">Mon planning</button>
+  
+    <div class="col-md-12 col-centered">
+	<div class="panel panel-default" id="premierGroupeFiltre">
 	    <div class="panel-heading"> 
                 <form class="form-horizontal" role="form">
 		    <div class="form-group">

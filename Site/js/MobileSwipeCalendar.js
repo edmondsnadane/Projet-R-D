@@ -16,6 +16,7 @@
     var navBar = $('#bs-example-navbar-collapse-1');
     
     boutonPanel.click(function(){
+        
         if (navBar.hasClass("in")) {
             $('#boutonNavBar').click();
         }

@@ -127,3 +127,14 @@ h4 {
     left: -500;
     padding: 15px 0 15px 0;
 }
+
+#monPlanning {
+   
+    padding: 8px 90px 8px 90px;
+    margin: auto;
+    margin-top: 50px;
+}
+
+#premierGroupeFiltre {
+    margin-top: 15px;
+}

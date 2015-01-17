@@ -18,7 +18,7 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
         <li class="dropdown">
-			<a class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span><span>{if isset($firstName)} {$firstName} {/if} {$userName}</span><span class="caret"></span></a>
+			<a class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span><span id="spanProfHeader">{if isset($firstName)} {$firstName} {/if} {$userName}</span><span class="caret"></span></a>
 			{if isset($teachLogin)}
 				<!-- l'utilisateur connecté est un enseignant -->
 				<ul class="dropdown-menu" role="menu">
