@@ -16,7 +16,6 @@
 			configuration=".$_POST['configuration'].",
 			rss=".$_POST['rss'].",
 			pdf=".$_POST['pdf'].",
-			giseh=".$_POST['giseh'].",
 			dialogue=".$_POST['dialogue'].",
 			salle=".$_POST['salle']." 
 			WHERE codeProf=".$_POST['code'];

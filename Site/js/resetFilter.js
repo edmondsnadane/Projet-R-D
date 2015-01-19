@@ -7,4 +7,5 @@ function reset(code) {
         loadProfsListFilter(code);
         loadSallesListFilter();
         $('#profsFilter').val(code);
+		updateCalendar();
 }
