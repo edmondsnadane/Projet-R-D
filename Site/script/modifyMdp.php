@@ -16,8 +16,8 @@ if(isset($_POST['loginTeach']) && isset($_POST['oldMdp']) && isset($_POST['newMd
 	{
 		$login=$_POST['loginTeach'];
 		// MD5 vers CRYTPT : https://github.com/edmondsnadane/Projet-R-D/issues/44
-		$ancien_mot_passe=crypt($_POST['oldMdp'], base64_encode($_POST['oldMdp']));
-		$nouveau_mot_passe=crypt($_POST['oldMdp'], base64_encode($_POST['oldMdp']));
+		$ancien_mot_passe=md5($_POST['oldMdp']);
+		$nouveau_mot_passe=md5($_POST['newMdp1']);
 
 		$sql="SELECT * FROM login_prof WHERE login=".$dbh->quote($login, PDO::PARAM_STR)." AND motPasse=".$dbh->quote($ancien_mot_passe, PDO::PARAM_STR);
 		$req_login=$dbh->prepare($sql);

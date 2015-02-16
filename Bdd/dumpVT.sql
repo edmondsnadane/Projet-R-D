@@ -1,13 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 3.5.1
+-- version 4.2.10
 -- http://www.phpmyadmin.net
 --
--- Client: localhost
--- Généré le: Sam 17 Janvier 2015 à 21:40
--- Version du serveur: 5.5.24-log
--- Version de PHP: 5.4.3
+-- Client :  localhost:8889
+-- Généré le :  Lun 16 Février 2015 à 08:43
+-- Version du serveur :  5.5.38
+-- Version de PHP :  5.6.2
 
-SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
 
 
@@ -17,7 +17,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8 */;
 
 --
--- Base de données: `vt_agenda`
+-- Base de données :  `VT`
 --
 
 -- --------------------------------------------------------
@@ -26,8 +26,8 @@ SET time_zone = "+00:00";
 -- Structure de la table `absences`
 --
 
-CREATE TABLE IF NOT EXISTS `absences` (
-  `codeAbsence` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `absences` (
+`codeAbsence` int(11) NOT NULL,
   `codeRessource` int(11) NOT NULL,
   `commentaire` varchar(250) NOT NULL,
   `dateDebut` date NOT NULL,
@@ -38,10 +38,8 @@ CREATE TABLE IF NOT EXISTS `absences` (
   `codeProprietaire` int(11) NOT NULL,
   `dateCreation` datetime NOT NULL,
   `dateModif` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `justifiee` tinyint(1) NOT NULL,
-  PRIMARY KEY (`codeAbsence`),
-  KEY `idx_abs_ressource` (`codeRessource`) USING BTREE
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2003 ;
+  `justifiee` tinyint(1) NOT NULL
+) ENGINE=MyISAM AUTO_INCREMENT=2003 DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -49,7 +47,7 @@ CREATE TABLE IF NOT EXISTS `absences` (
 -- Structure de la table `absences_etudiants`
 --
 
-CREATE TABLE IF NOT EXISTS `absences_etudiants` (
+CREATE TABLE `absences_etudiants` (
   `codeEtudiant` int(11) NOT NULL,
   `codeSeance` int(11) NOT NULL,
   `commentaire` text NOT NULL,
@@ -58,15 +56,11 @@ CREATE TABLE IF NOT EXISTS `absences_etudiants` (
   `dateCreation` datetime NOT NULL,
   `dateModif` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `deleted` tinyint(1) NOT NULL,
-  `codeAbsence` int(11) NOT NULL AUTO_INCREMENT,
+`codeAbsence` int(11) NOT NULL,
   `dateInitiale` date NOT NULL,
   `heureInitiale` int(4) NOT NULL,
-  `dureeInitiale` int(4) NOT NULL,
-  PRIMARY KEY (`codeAbsence`),
-  KEY `IDX_absEtud_codeSeance` (`codeSeance`) USING BTREE,
-  KEY `IDX_absEtud_codeEtudiant` (`codeEtudiant`) USING BTREE,
-  KEY `IDX_absEtud_codeAbsence` (`codeAbsence`) USING BTREE
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+  `dureeInitiale` int(4) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -74,7 +68,7 @@ CREATE TABLE IF NOT EXISTS `absences_etudiants` (
 -- Structure de la table `bilans_profs`
 --
 
-CREATE TABLE IF NOT EXISTS `bilans_profs` (
+CREATE TABLE `bilans_profs` (
   `codeRessource` int(11) NOT NULL,
   `dateCreation` datetime NOT NULL,
   `dateModif` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
@@ -88,7 +82,7 @@ CREATE TABLE IF NOT EXISTS `bilans_profs` (
 -- Structure de la table `b_vers_mana`
 --
 
-CREATE TABLE IF NOT EXISTS `b_vers_mana` (
+CREATE TABLE `b_vers_mana` (
   `id` double DEFAULT NULL,
   `vers` varchar(765) DEFAULT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
@@ -99,7 +93,7 @@ CREATE TABLE IF NOT EXISTS `b_vers_mana` (
 -- Structure de la table `calendriers_commentaires`
 --
 
-CREATE TABLE IF NOT EXISTS `calendriers_commentaires` (
+CREATE TABLE `calendriers_commentaires` (
   `codeRessource` int(11) NOT NULL,
   `commentaire` varchar(100) NOT NULL,
   `deleted` int(1) NOT NULL,
@@ -114,19 +108,15 @@ CREATE TABLE IF NOT EXISTS `calendriers_commentaires` (
 -- Structure de la table `calendriers_enseignements`
 --
 
-CREATE TABLE IF NOT EXISTS `calendriers_enseignements` (
-  `code` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `calendriers_enseignements` (
+`code` int(11) NOT NULL,
   `codeRessource` int(11) NOT NULL DEFAULT '0',
   `date` date NOT NULL DEFAULT '0000-00-00',
   `etat` tinyint(2) NOT NULL DEFAULT '0',
   `dateModif` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `deleted` int(11) NOT NULL DEFAULT '0',
-  `codeProprietaire` bigint(20) NOT NULL DEFAULT '0',
-  PRIMARY KEY (`code`),
-  KEY `IDX_cal_ens_del` (`deleted`) USING BTREE,
-  KEY `IDX_cal_ens_prop` (`codeProprietaire`) USING BTREE,
-  KEY `IDX_cal_ens_dateModif` (`dateModif`) USING BTREE
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+  `codeProprietaire` bigint(20) NOT NULL DEFAULT '0'
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -134,19 +124,15 @@ CREATE TABLE IF NOT EXISTS `calendriers_enseignements` (
 -- Structure de la table `calendriers_filieres`
 --
 
-CREATE TABLE IF NOT EXISTS `calendriers_filieres` (
-  `code` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `calendriers_filieres` (
+`code` int(11) NOT NULL,
   `codeRessource` int(11) NOT NULL DEFAULT '0',
   `date` date NOT NULL DEFAULT '0000-00-00',
   `etat` int(11) NOT NULL DEFAULT '0',
   `dateModif` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `deleted` int(4) NOT NULL DEFAULT '0',
-  `codeProprietaire` int(11) NOT NULL DEFAULT '0',
-  PRIMARY KEY (`code`),
-  KEY `IDX_cal_fil_del` (`deleted`) USING BTREE,
-  KEY `IDX_cal_fil_prop` (`codeProprietaire`) USING BTREE,
-  KEY `IDX_cal_fil_dateModif` (`dateModif`) USING BTREE
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+  `codeProprietaire` int(11) NOT NULL DEFAULT '0'
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -154,19 +140,15 @@ CREATE TABLE IF NOT EXISTS `calendriers_filieres` (
 -- Structure de la table `calendriers_groupes`
 --
 
-CREATE TABLE IF NOT EXISTS `calendriers_groupes` (
-  `code` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `calendriers_groupes` (
+`code` int(11) NOT NULL,
   `codeRessource` int(11) NOT NULL DEFAULT '0',
   `date` date NOT NULL DEFAULT '0000-00-00',
   `etat` int(11) NOT NULL DEFAULT '0',
   `dateModif` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `deleted` int(11) NOT NULL DEFAULT '0',
-  `codeProprietaire` int(11) NOT NULL DEFAULT '0',
-  PRIMARY KEY (`code`),
-  KEY `IDX_cal_grs_del` (`deleted`) USING BTREE,
-  KEY `IDX_cal_grs_prop` (`codeProprietaire`) USING BTREE,
-  KEY `IDX_cal_grs_dateModif` (`dateModif`) USING BTREE
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+  `codeProprietaire` int(11) NOT NULL DEFAULT '0'
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 
 --
 -- Contenu de la table `calendriers_groupes`
@@ -181,19 +163,15 @@ INSERT INTO `calendriers_groupes` (`code`, `codeRessource`, `date`, `etat`, `dat
 -- Structure de la table `calendriers_materiels`
 --
 
-CREATE TABLE IF NOT EXISTS `calendriers_materiels` (
-  `code` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `calendriers_materiels` (
+`code` int(11) NOT NULL,
   `codeRessource` int(11) NOT NULL DEFAULT '0',
   `date` date NOT NULL DEFAULT '0000-00-00',
   `etat` int(11) NOT NULL DEFAULT '0',
   `dateModif` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `deleted` int(4) NOT NULL DEFAULT '0',
-  `codeProprietaire` int(11) NOT NULL DEFAULT '0',
-  PRIMARY KEY (`code`),
-  KEY `IDX_cal_mat_del` (`deleted`) USING BTREE,
-  KEY `IDX_cal_mat_prop` (`codeProprietaire`) USING BTREE,
-  KEY `IDX_cal_mat_dateModif` (`dateModif`) USING BTREE
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+  `codeProprietaire` int(11) NOT NULL DEFAULT '0'
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -201,19 +179,15 @@ CREATE TABLE IF NOT EXISTS `calendriers_materiels` (
 -- Structure de la table `calendriers_profs`
 --
 
-CREATE TABLE IF NOT EXISTS `calendriers_profs` (
-  `code` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `calendriers_profs` (
+`code` int(11) NOT NULL,
   `codeRessource` int(11) NOT NULL DEFAULT '0',
   `date` date NOT NULL DEFAULT '0000-00-00',
   `etat` int(11) NOT NULL DEFAULT '0',
   `dateModif` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `deleted` int(11) NOT NULL DEFAULT '0',
-  `codeProprietaire` int(11) NOT NULL DEFAULT '0',
-  PRIMARY KEY (`code`),
-  KEY `IDX_cal_prof_del` (`deleted`) USING BTREE,
-  KEY `IDX_cal_prof_prop` (`codeProprietaire`) USING BTREE,
-  KEY `IDX_cal_prof_dateModif` (`dateModif`) USING BTREE
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+  `codeProprietaire` int(11) NOT NULL DEFAULT '0'
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -221,19 +195,15 @@ CREATE TABLE IF NOT EXISTS `calendriers_profs` (
 -- Structure de la table `calendriers_salles`
 --
 
-CREATE TABLE IF NOT EXISTS `calendriers_salles` (
-  `code` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `calendriers_salles` (
+`code` int(11) NOT NULL,
   `codeRessource` int(11) NOT NULL DEFAULT '0',
   `date` date NOT NULL DEFAULT '0000-00-00',
   `etat` int(11) NOT NULL DEFAULT '0',
   `dateModif` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `deleted` int(11) NOT NULL DEFAULT '0',
-  `codeProprietaire` int(11) NOT NULL DEFAULT '0',
-  PRIMARY KEY (`code`),
-  KEY `IDX_cal_salle_del` (`deleted`) USING BTREE,
-  KEY `IDX_cal_salle_prop` (`codeProprietaire`) USING BTREE,
-  KEY `IDX_cal_salle_dateModif` (`dateModif`) USING BTREE
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+  `codeProprietaire` int(11) NOT NULL DEFAULT '0'
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -241,19 +211,15 @@ CREATE TABLE IF NOT EXISTS `calendriers_salles` (
 -- Structure de la table `cnu`
 --
 
-CREATE TABLE IF NOT EXISTS `cnu` (
-  `codeCNU` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `cnu` (
+`codeCNU` int(11) NOT NULL,
   `section` int(11) NOT NULL DEFAULT '0',
   `nom` varchar(150) NOT NULL DEFAULT 'CNU?',
   `dateModif` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `dateCreation` datetime NOT NULL,
   `deleted` tinyint(4) NOT NULL DEFAULT '0',
-  `codeProprietaire` int(11) NOT NULL DEFAULT '0',
-  PRIMARY KEY (`codeCNU`),
-  KEY `IDX_cnu_del` (`deleted`) USING BTREE,
-  KEY `IDX_cnu_prop` (`codeProprietaire`) USING BTREE,
-  KEY `IDX_cnu_dateModif` (`dateModif`) USING BTREE
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2023 ;
+  `codeProprietaire` int(11) NOT NULL DEFAULT '0'
+) ENGINE=InnoDB AUTO_INCREMENT=2023 DEFAULT CHARSET=latin1;
 
 --
 -- Contenu de la table `cnu`
@@ -346,8 +312,8 @@ INSERT INTO `cnu` (`codeCNU`, `section`, `nom`, `dateModif`, `dateCreation`, `de
 -- Structure de la table `composantes`
 --
 
-CREATE TABLE IF NOT EXISTS `composantes` (
-  `codeComposante` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `composantes` (
+`codeComposante` int(11) NOT NULL,
   `couleurFond` bigint(20) NOT NULL DEFAULT '0',
   `couleurPolice` bigint(20) NOT NULL DEFAULT '0',
   `nom` varchar(200) NOT NULL DEFAULT 'MATERIEL?',
@@ -358,13 +324,8 @@ CREATE TABLE IF NOT EXISTS `composantes` (
   `alias` varchar(30) NOT NULL DEFAULT '',
   `commentaire` varchar(150) NOT NULL,
   `identifiant` varchar(50) NOT NULL,
-  `typeComposante` tinyint(3) NOT NULL DEFAULT '2',
-  PRIMARY KEY (`codeComposante`),
-  KEY `IDX_comp_nom` (`nom`) USING BTREE,
-  KEY `IDX_comp_del` (`deleted`) USING BTREE,
-  KEY `IDX_comp_prop` (`codeProprietaire`) USING BTREE,
-  KEY `IDX_comp_dateModif` (`dateModif`) USING BTREE
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+  `typeComposante` tinyint(3) NOT NULL DEFAULT '2'
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 
 --
 -- Contenu de la table `composantes`
@@ -379,10 +340,9 @@ INSERT INTO `composantes` (`codeComposante`, `couleurFond`, `couleurPolice`, `no
 -- Structure de la table `compteur`
 --
 
-CREATE TABLE IF NOT EXISTS `compteur` (
+CREATE TABLE `compteur` (
   `id_compteur` int(2) NOT NULL,
-  `valeur` int(11) DEFAULT '0',
-  PRIMARY KEY (`id_compteur`)
+  `valeur` int(11) DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 --
@@ -390,7 +350,7 @@ CREATE TABLE IF NOT EXISTS `compteur` (
 --
 
 INSERT INTO `compteur` (`id_compteur`, `valeur`) VALUES
-(1, 1985);
+(1, 1696);
 
 -- --------------------------------------------------------
 
@@ -398,8 +358,8 @@ INSERT INTO `compteur` (`id_compteur`, `valeur`) VALUES
 -- Structure de la table `diplomes`
 --
 
-CREATE TABLE IF NOT EXISTS `diplomes` (
-  `codeDiplome` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `diplomes` (
+`codeDiplome` int(11) NOT NULL,
   `couleurFond` int(11) NOT NULL DEFAULT '0',
   `couleurPolice` int(11) NOT NULL DEFAULT '0',
   `nom` varchar(150) NOT NULL DEFAULT 'Diplome ?',
@@ -411,13 +371,8 @@ CREATE TABLE IF NOT EXISTS `diplomes` (
   `commentaire` varchar(200) NOT NULL,
   `identifiant` varchar(50) NOT NULL,
   `codeComposante` int(11) NOT NULL DEFAULT '0',
-  `codeNiveau` int(11) NOT NULL DEFAULT '0',
-  PRIMARY KEY (`codeDiplome`),
-  KEY `IDX_diplom_nom` (`nom`) USING BTREE,
-  KEY `IDX_diplom_del` (`deleted`) USING BTREE,
-  KEY `IDX_diplom_prop` (`codeProprietaire`) USING BTREE,
-  KEY `IDX_diplom_dateModif` (`dateModif`) USING BTREE
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+  `codeNiveau` int(11) NOT NULL DEFAULT '0'
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -425,8 +380,8 @@ CREATE TABLE IF NOT EXISTS `diplomes` (
 -- Structure de la table `enseignements`
 --
 
-CREATE TABLE IF NOT EXISTS `enseignements` (
-  `codeEnseignement` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `enseignements` (
+`codeEnseignement` int(11) NOT NULL,
   `nom` varchar(150) NOT NULL DEFAULT 'ENS?',
   `codeMatiere` int(11) NOT NULL DEFAULT '0',
   `dureeTotale` int(7) NOT NULL DEFAULT '0',
@@ -452,19 +407,15 @@ CREATE TABLE IF NOT EXISTS `enseignements` (
   `codeNiveau` int(11) NOT NULL,
   `dateDebut` date NOT NULL,
   `dateFin` date NOT NULL,
-  `article6` tinyint(1) NOT NULL DEFAULT '0',
-  PRIMARY KEY (`codeEnseignement`),
-  KEY `IDX_ens_del` (`deleted`) USING BTREE,
-  KEY `IDX_ens_prop` (`codeProprietaire`) USING BTREE,
-  KEY `IDX_ens_dateModif` (`dateModif`) USING BTREE
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=296 ;
+  `article6` tinyint(1) NOT NULL DEFAULT '0'
+) ENGINE=InnoDB AUTO_INCREMENT=301 DEFAULT CHARSET=latin1;
 
 --
 -- Contenu de la table `enseignements`
 --
 
 INSERT INTO `enseignements` (`codeEnseignement`, `nom`, `codeMatiere`, `dureeTotale`, `dureeSeance`, `couleurFond`, `couleurPolice`, `alias`, `codeTypeSalle`, `codeZoneSalle`, `nbSeancesHebdo`, `dateModif`, `dateCreation`, `deleted`, `codeProprietaire`, `commentaire`, `identifiant`, `typePublic`, `forfaitaire`, `dureeForfaitaire`, `volumeReparti`, `codeTypeActivite`, `codeComposante`, `codeNiveau`, `dateDebut`, `dateFin`, `article6`) VALUES
-(1, 'ADMINISTRATION RESEAUX (UEC 224 - ASR)_L2_INFO', 0, 99900, 130, 8421504, 16777215, 'ADMINISTRATION RESEAUX (UEC 224 - ASR)_L2_INFO', 0, 0, 1, '2014-06-17 09:05:50', '2014-06-05 16:52:51', 0, 103, '', '', 1, 0, 0, 0, 3, 0, 0, '2014-04-28', '2015-08-02', 0),
+(1, 'ADMINISTRATION RESEAUX (UEC 224 - ASR)_L2_INFO', 0, 99640, 130, 8421504, 16777215, 'ADMINISTRATION RESEAUX (UEC 224 - ASR)_L2_INFO', 0, 0, 1, '2015-01-19 08:24:58', '2014-06-05 16:52:51', 0, 103, '', '', 1, 0, 0, 0, 3, 0, 0, '2014-04-28', '2015-08-02', 0),
 (2, 'ALGORITHMIQUE DES GRAPHES (UEC 211)_L2_INFO', 0, 99900, 130, 8421504, 16777215, 'ALGORITHMIQUE DES GRAPHES (UEC 211)_L2_INFO', 0, 0, 1, '2014-06-17 09:05:49', '2014-06-10 16:02:36', 0, 103, '', '', 1, 0, 0, 0, 1, 0, 0, '2014-04-28', '2015-08-30', 0),
 (3, 'GENIE LOGICIEL 2 (UEC 223)_M2_INFO_APP', 0, 99900, 130, 8421504, 16777215, 'GENIE LOGICIEL 2 (UEC 223)_M2_INFO_APP', 0, 0, 1, '2014-06-17 09:05:54', '2014-06-11 10:49:18', 0, 3, '', '', 1, 0, 0, 0, 1, 0, 0, '2014-04-28', '2015-08-30', 0),
 (4, 'ALGORITHMIQUE EVOLUTIONNAIRE (ALEV)_M2_INFO_APP', 0, 99900, 130, 8421504, 16777215, 'ALGORITHMIQUE EVOLUTIONNAIRE (ALEV)_M2_INFO_APP', 0, 0, 1, '2014-06-17 09:05:48', '2014-06-11 11:28:18', 0, 3, '', '', 1, 0, 0, 0, 1, 0, 0, '2014-04-28', '2015-08-30', 0),
@@ -480,9 +431,9 @@ INSERT INTO `enseignements` (`codeEnseignement`, `nom`, `codeMatiere`, `dureeTot
 (14, 'MULTIMEDIA', 876, 2100, 115, 16777215, 0, 'MULTIMEDIA', 1789, 0, 0, '2014-06-13 06:39:07', '2014-06-12 09:56:08', 1, 777, '', '', 2, 0, 2100, 0, 1, 1, 27785306, '2014-04-28', '2015-08-30', 0),
 (15, 'MULTIMEDIA', 0, 2100, 115, 16777215, 0, 'MULTIMEDIA', 1789, 0, 0, '2014-06-17 09:11:02', '2014-06-13 08:40:45', 1, 777, '', '', 2, 0, 2100, 0, 1, 1, 27785305, '2014-04-28', '2015-08-30', 0),
 (16, 'ENSTEST', 0, 0, 15, 139, 16777215, '', 0, 0, 0, '2014-06-30 11:38:59', '2014-06-13 15:12:03', 0, 101, '', '', 1, 0, 0, 0, 3, 1, 27785318, '2014-04-28', '2015-08-30', 0),
-(17, 'M2_FOUILLE DE DONNEES_CM_ TEST', 1197, 3600, 130, 16711808, 16777215, 'FODO', 0, 0, 2, '2014-09-22 11:48:01', '2014-06-17 16:00:07', 1, 101, '', '', 2, 0, 0, 0, 1, 1, 27785305, '2014-07-22', '2015-08-30', 0),
+(17, 'M2_FOUILLE DE DONNEES_CM_ TEST', 1197, 3990, 130, 16711808, 16777215, 'FODO', 0, 0, 2, '2015-01-13 07:56:26', '2014-06-17 16:00:07', 1, 101, '', '', 2, 0, 0, 0, 1, 1, 27785305, '2014-07-22', '2015-08-30', 0),
 (18, 'CONFERENCE_TP_ 1', 951, 1200, 130, 8454143, 16777215, 'CONF1', 0, 0, 1, '2014-06-19 08:36:41', '2014-06-18 11:36:32', 1, 777, '', '', 1, 0, 0, 0, 3, 1, 27785304, '2014-06-23', '2015-08-30', 0),
-(19, 'M2_FOUILLE DE DONNEES_CM_ TEST2', 1197, 3600, 130, 16711808, 16777215, 'FODO2', 0, 0, 2, '2014-09-22 07:24:56', '2014-06-18 16:42:44', 1, 101, '', '', 2, 0, 0, 0, 1, 1, 27785305, '2014-07-22', '2015-08-30', 1),
+(19, 'M2_FOUILLE DE DONNEES_CM_ TEST2', 1197, 3860, 130, 16711808, 16777215, 'FODO2', 0, 0, 2, '2015-01-13 07:56:34', '2014-06-18 16:42:44', 1, 101, '', '', 2, 0, 0, 0, 1, 1, 27785305, '2014-07-22', '2015-08-30', 1),
 (20, 'M2_FOUILLE DE DONNEES_CM_S3', 1197, 3600, 130, 16711808, 16777215, 'FODOS3', 0, 0, 2, '2014-09-22 07:07:11', '2014-06-18 16:43:32', 1, 101, '', '', 2, 0, 0, 0, 2, 1, 27785305, '2014-07-22', '2015-08-30', 1),
 (21, 'M2_SECURITE DES SI ET DES BASES DE DONNEES_TD_ SECU', 1221, 19130, 1030, 33023, 16777215, 'SECURITE', 1845, 0, 2, '2014-09-22 11:48:40', '2014-06-18 16:50:33', 1, 101, '', '', 1, 0, 0, 0, 2, 1, 27785303, '2015-08-25', '2015-08-30', 0),
 (22, 'M2A_FOUILLE DE DONNEES_CM', 1246, 2100, 130, 8454143, 16777215, 'CONF1', 0, 0, 1, '2014-06-19 08:44:30', '2014-06-19 10:40:48', 1, 777, '', '', 1, 0, 0, 0, 1, 1, 27785304, '2014-10-06', '2014-11-03', 0),
@@ -498,8 +449,8 @@ INSERT INTO `enseignements` (`codeEnseignement`, `nom`, `codeMatiere`, `dureeTot
 (32, 'M2_ENTREPOTS_DE_DONNEES_CM', 1244, 2100, 130, 16777215, 0, 'ENT', 1789, 0, -1, '2014-06-20 10:02:35', '2014-06-20 11:56:44', 1, 777, '', 'ENTREPOTS DE DONNEES', 2, 0, 2100, 0, 1, 1, 27785321, '2014-09-29', '2015-02-22', 0),
 (33, 'M2_ENTREPOTS_DE_DONNEES_CM', 1244, 2100, 130, 16777215, 0, 'ENT', 1789, 0, -1, '2014-06-20 11:55:03', '2014-06-20 12:05:16', 1, 777, '', 'ENTREPOTS DE DONNEES', 2, 0, 2100, 0, 1, 1, 27785305, '2014-09-29', '2015-02-22', 0),
 (34, 'M2_ENTREPOTS_DE_DONNEES_CM', 1244, 2100, 130, 8388863, 0, 'ENTREPOTS DE DONNEES', 1789, 0, 2, '2014-09-22 07:06:52', '2014-06-20 13:56:51', 1, 112, '', 'ENTREPOTS DE DONNEES', 2, 0, 2100, 0, 1, 1, 27785321, '2014-09-29', '2015-02-22', 0),
-(35, 'M2_DROIT_CM', 1242, 2100, 130, 8421631, 16777215, 'DROIT', 1789, 0, 2, '2014-07-11 12:32:44', '2014-06-20 14:42:30', 1, 112, '', 'DROIT', 2, 0, 2100, 0, 1, 1, 27785305, '2014-09-29', '2014-12-07', 0),
-(36, 'M2_DEVELOPPEMENT DE LOGICIELS LIBRES_CM', 1189, 2100, 130, 139, 16777215, 'DLL', 0, 0, 2, '2014-09-22 07:06:32', '2014-06-23 11:18:10', 1, 112, '', '', 2, 0, 0, 0, 1, 1, 27785321, '2014-04-28', '2015-08-30', 0),
+(35, 'M2_DROIT_CM', 1242, 1840, 130, 8421631, 16777215, 'DROIT', 1789, 0, 2, '2015-01-18 19:57:28', '2014-06-20 14:42:30', 1, 112, '', 'DROIT', 2, 0, 2100, 0, 1, 1, 27785305, '2014-09-29', '2014-12-07', 0),
+(36, 'M2_DEVELOPPEMENT DE LOGICIELS LIBRES_CM', 1189, 2360, 130, 139, 16777215, 'DLL', 0, 0, 2, '2015-01-13 08:25:30', '2014-06-23 11:18:10', 1, 112, '', '', 2, 0, 0, 0, 1, 1, 27785321, '2014-04-28', '2015-08-30', 0),
 (37, 'M1_ANALYSE DES DONNEES_CM_ANDO ', 1088, 0, 15, 139, 16777215, 'ANDO', 0, 0, 0, '2014-09-10 12:58:14', '2014-06-26 16:04:55', 1, 101, '', '', 1, 0, 0, 0, 1, 1, 27785305, '2014-04-28', '2015-08-30', 0),
 (38, 'HISTOIRE DES FAITS ET DOCTRINES ECONOMIQUES_TD_TEST ', 1285, 0, 15, 139, 16777215, 'HISTOIRE', 0, 0, 0, '2014-06-30 13:54:10', '2014-06-30 15:27:40', 1, 777, 'TEST', '', 1, 0, 0, 0, 2, 1, 27785299, '2014-04-28', '2015-08-30', 0),
 (39, 'L1_ANGLAIS_TD', 1283, 1800, 130, 16777215, 0, 'ANG_TD', 1789, 0, -1, '2014-07-01 08:14:37', '2014-07-01 10:10:12', 1, 777, '', 'ANG_TD', 1, 0, 1800, 0, 2, 1, 27785299, '2014-09-08', '2015-01-18', 0),
@@ -747,7 +698,7 @@ INSERT INTO `enseignements` (`codeEnseignement`, `nom`, `codeMatiere`, `dureeTot
 (280, 'M2A_DROIT DES CONTRATS ET DES SOCIETES_DS', 1242, 300, 130, 16777215, 0, 'DROIT DES CONTRATS ET DES SOCIETES', 1789, 0, -1, '2014-10-02 09:27:00', '2014-09-25 10:38:20', 0, 112, '', 'M2_INFO_APP_19', 2, 0, 300, 0, 9, 1, 0, '2014-12-08', '2014-12-14', 0),
 (281, 'SOUTENANCES STAGE-ACTIVITE_ADM', 1277, 1200, 130, 16777215, 0, 'SOUTENANCES STAGE-ACTIVITE', 1789, 0, -1, '2014-10-02 09:27:00', '2014-09-25 10:38:20', 0, 112, '', 'M2_INFO_APP_20', 2, 0, 1200, 0, 7, 1, 0, '2014-09-15', '2014-09-21', 0),
 (282, 'RENTREE_ADM', 1269, 130, 130, 16777215, 0, 'RENTREE', 1789, 0, 0, '2014-10-02 09:27:00', '2014-09-25 10:38:20', 0, 112, '', 'M2_INFO_APP_21', 2, 0, 300, 0, 7, 1, 0, '2014-09-29', '2014-10-05', 0),
-(283, 'SOUTENANCE DE PROJET_ADM', 1275, 1200, 130, 16777215, 0, 'SOUTENANCE DE PROJET', 1789, 0, -1, '2014-10-02 09:27:00', '2014-09-25 10:38:20', 0, 112, '', 'M2_INFO_APP_22', 2, 0, 1200, 0, 7, 1, 0, '2015-05-25', '2015-06-07', 0),
+(283, 'SOUTENANCE DE PROJET_ADM', 1275, 1070, 130, 16777215, 0, 'SOUTENANCE DE PROJET', 1789, 0, -1, '2015-01-19 08:24:14', '2014-09-25 10:38:20', 0, 112, '', 'M2_INFO_APP_22', 2, 0, 1200, 0, 7, 1, 0, '2015-05-25', '2015-06-07', 0),
 (284, 'M2A_PROJETS FOUILLES DE DONNEES_ADM', 1300, 1500, 130, 16777215, 0, 'PROJETS FOUILLES DE DONNEES', 1789, 0, -1, '2014-10-02 09:27:00', '2014-09-25 10:38:20', 0, 112, '', 'M2_INFO_APP_23', 2, 0, 1500, 0, 7, 1, 0, '2015-05-11', '2015-06-07', 0),
 (285, 'CONFERENCE_ADM', 951, 1200, 130, 16777215, 0, 'CONFERENCE', 1789, 0, -1, '2014-10-02 09:27:00', '2014-09-25 10:38:21', 0, 112, '', 'M2_INFO_APP_24', 2, 0, 1200, 0, 7, 1, 0, '2014-11-24', '2015-04-19', 0),
 (286, 'M2A_DEVELOPPEMENT DE LOGICIELS LIBRES_TD', 1240, 900, 130, 16777215, 0, 'DEVELOPPEMENT DE LOGICIELS LIBRES', 1789, 0, -1, '2014-10-02 09:27:00', '2014-09-25 10:38:21', 0, 112, '', 'M2_INFO_APP_25', 2, 0, 900, 0, 2, 1, 0, '2015-01-12', '2015-02-01', 0),
@@ -756,10 +707,15 @@ INSERT INTO `enseignements` (`codeEnseignement`, `nom`, `codeMatiere`, `dureeTot
 (289, 'M2A_EMPLOI_TD', 1243, 2100, 130, 16777215, 0, 'EMPLOI', 1789, 0, -1, '2014-10-02 09:27:00', '2014-09-25 10:38:21', 0, 112, '', 'M2_INFO_APP_28', 2, 0, 2100, 0, 2, 1, 0, '2014-10-20', '2015-03-01', 0),
 (290, 'M2A_ANGLAIS_TD', 1238, 2400, 130, 16777215, 0, 'ANGLAIS', 1789, 0, -1, '2014-10-02 09:27:00', '2014-09-25 10:38:21', 0, 112, '', 'M2_INFO_APP_29', 2, 0, 2400, 0, 2, 1, 0, '2015-03-02', '2015-05-10', 0),
 (291, 'M2A_PROJET_TP', 1303, 1800, 130, 16777215, 0, 'PROJET', 1789, 0, -1, '2014-10-02 09:27:00', '2014-09-25 10:38:22', 0, 112, '', 'M2_INFO_APP_30', 2, 0, 1800, 0, 3, 1, 0, '2014-10-13', '2015-05-24', 0),
-(292, 'M2A_PROJETS RD_TP', 1254, 3000, 130, 16777215, 0, 'PROJETS RD', 1789, 0, 2, '2014-10-02 09:27:00', '2014-09-25 10:38:22', 0, 112, '', 'M2_INFO_APP_31', 2, 0, 3000, 0, 3, 1, 0, '2014-09-29', '2014-11-16', 0),
-(293, 'M2A_PROJET DLL_TP', 1250, 3000, 130, 16777215, 0, 'PROJET DLL', 1789, 0, -1, '2014-10-02 09:27:00', '2014-09-25 10:38:22', 0, 112, '', 'M2_INFO_APP_32', 2, 0, 3000, 0, 3, 1, 0, '2015-02-09', '2015-04-26', 0),
-(294, 'SOUTENANCE DE PROJET_TP', 1275, 600, 130, 16777215, 0, 'SOUTENANCE DE PROJET', 1789, 0, -1, '2014-10-02 09:27:00', '2014-09-25 10:38:22', 0, 112, '', 'M2_INFO_APP_33', 2, 0, 600, 0, 3, 1, 0, '2015-01-19', '2015-01-25', 0),
-(295, 'M2A_PROJETS FOUILLES DE DONNEES_TP', 1300, 3000, 130, 16777215, 0, 'PROJETS FOUILLES DE DONNEES', 1789, 0, -1, '2014-10-02 09:27:00', '2014-09-25 10:38:23', 0, 112, '', 'M2_INFO_APP_34', 2, 0, 3000, 0, 3, 1, 0, '2015-03-16', '2015-05-17', 0);
+(292, 'M2A_PROJETS RD_TP', 1254, 3000, 130, 16777215, 0, 'PROJETS RD', 1789, 0, 2, '2015-01-13 14:27:40', '2014-09-25 10:38:22', 0, 112, '', 'M2_INFO_APP_31', 2, 0, 3000, 0, 3, 1, 0, '2014-09-29', '2014-11-16', 0),
+(293, 'M2A_PROJET DLL_TP', 1250, 3000, 130, 16777215, 0, 'PROJET DLL', 1789, 0, -1, '2015-01-19 08:39:19', '2014-09-25 10:38:22', 0, 112, '', 'M2_INFO_APP_32', 2, 0, 3000, 0, 3, 1, 0, '2015-02-09', '2015-04-26', 0),
+(294, 'SOUTENANCE DE PROJET_TP', 1275, 900, 130, 16777215, 0, 'SOUTENANCE DE PROJET', 1789, 0, -1, '2015-01-18 00:58:36', '2014-09-25 10:38:22', 0, 112, '', 'M2_INFO_APP_33', 2, 0, 600, 0, 3, 1, 0, '2015-01-19', '2015-01-25', 0),
+(295, 'M2A_PROJETS FOUILLES DE DONNEES_TP', 1300, 3000, 130, 16777215, 0, 'PROJETS FOUILLES DE DONNEES', 1789, 0, -1, '2014-10-02 09:27:00', '2014-09-25 10:38:23', 0, 112, '', 'M2_INFO_APP_34', 2, 0, 3000, 0, 3, 1, 0, '2015-03-16', '2015-05-17', 0),
+(296, 'TEST', 157, 900, 300, 0, 0, 'test', 1789, 1, 4, '2015-01-19 08:51:52', '2015-01-19 09:51:52', 0, 777, '', 'dcourta1', 0, 0, 0, 0, 1, 1, 27785317, '2015-01-31', '2015-02-20', 0),
+(297, 'RAAIII', 1282, 999, 3, 0, 0, 'raiii', 1789, 1, 4, '2015-01-19 09:19:49', '2015-01-19 10:19:49', 0, 777, '', 'hahaaa', 0, 0, 0, 0, 4, 1, 27785317, '2015-01-20', '2015-02-04', 0),
+(298, 'pitie', 1283, 999, 3, 0, 0, 'pitie', 1789, 1, 3, '2015-01-19 09:26:38', '2015-01-19 10:26:38', 0, 777, '', 'pitieeeee', 0, 0, 0, 0, 4, 1, 27785317, '2015-01-19', '2015-02-20', 0),
+(299, 'DemoE', 1305, 996, 3, 0, 0, 'demoE', 1789, 1, 3, '2015-01-19 12:15:36', '2015-01-19 13:14:19', 0, 777, '', 'demo', 0, 0, 0, 0, 1, 1, 27785317, '2015-01-20', '2015-02-26', 0),
+(300, 'demo3', 1306, 900, 300, 0, 0, 'demo3', 1789, 1, 3, '2015-01-19 13:55:46', '2015-01-19 14:54:30', 0, 777, '', 'demo3', 0, 0, 0, 0, 1, 1, 27785317, '2015-01-20', '2015-01-23', 0);
 
 -- --------------------------------------------------------
 
@@ -767,17 +723,12 @@ INSERT INTO `enseignements` (`codeEnseignement`, `nom`, `codeMatiere`, `dureeTot
 -- Structure de la table `enseignements_groupes`
 --
 
-CREATE TABLE IF NOT EXISTS `enseignements_groupes` (
+CREATE TABLE `enseignements_groupes` (
   `codeEnseignement` int(11) NOT NULL DEFAULT '0',
   `codeRessource` int(11) NOT NULL DEFAULT '0',
   `dateModif` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `deleted` int(11) NOT NULL DEFAULT '0',
-  `codeProprietaire` int(11) NOT NULL DEFAULT '0',
-  KEY `IDX_ensgrs_code` (`codeEnseignement`) USING BTREE,
-  KEY `IDX_ensgrs_codegrs` (`codeRessource`) USING BTREE,
-  KEY `IDX_ensgrs_del` (`deleted`) USING BTREE,
-  KEY `IDX_ensgrs_prop` (`codeProprietaire`) USING BTREE,
-  KEY `IDX_ensgrs_dateModif` (`dateModif`) USING BTREE
+  `codeProprietaire` int(11) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -1167,7 +1118,7 @@ INSERT INTO `enseignements_groupes` (`codeEnseignement`, `codeRessource`, `dateM
 -- Structure de la table `enseignements_historique`
 --
 
-CREATE TABLE IF NOT EXISTS `enseignements_historique` (
+CREATE TABLE `enseignements_historique` (
   `codeEnseignement` int(11) NOT NULL DEFAULT '0',
   `nom` varchar(255) NOT NULL DEFAULT 'ENS?',
   `codeMatiere` int(11) NOT NULL DEFAULT '0',
@@ -1183,10 +1134,7 @@ CREATE TABLE IF NOT EXISTS `enseignements_historique` (
   `deleted` tinyint(4) NOT NULL DEFAULT '0',
   `codeProprietaire` int(11) NOT NULL DEFAULT '0',
   `commentaire` varchar(150) DEFAULT NULL,
-  `codeProprietaireModifieur` int(11) DEFAULT NULL,
-  KEY `IDX_ens_del` (`deleted`) USING BTREE,
-  KEY `IDX_ens_prop` (`codeProprietaire`) USING BTREE,
-  KEY `IDX_ens_dateModif` (`dateModif`) USING BTREE
+  `codeProprietaireModifieur` int(11) DEFAULT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -1195,17 +1143,12 @@ CREATE TABLE IF NOT EXISTS `enseignements_historique` (
 -- Structure de la table `enseignements_materiels`
 --
 
-CREATE TABLE IF NOT EXISTS `enseignements_materiels` (
+CREATE TABLE `enseignements_materiels` (
   `codeEnseignement` int(11) NOT NULL DEFAULT '0',
   `codeRessource` int(11) NOT NULL DEFAULT '0',
   `dateModif` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `deleted` tinyint(4) NOT NULL DEFAULT '0',
-  `codeProprietaire` int(11) NOT NULL DEFAULT '0',
-  KEY `IDX_ensmts_code` (`codeEnseignement`) USING BTREE,
-  KEY `IDX_ensmts_codesls` (`codeRessource`) USING BTREE,
-  KEY `IDX_ensmts_del` (`deleted`) USING BTREE,
-  KEY `IDX_ensmts_prop` (`codeProprietaire`) USING BTREE,
-  KEY `IDX_ensmts_dateModif` (`dateModif`) USING BTREE
+  `codeProprietaire` int(11) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -1214,18 +1157,13 @@ CREATE TABLE IF NOT EXISTS `enseignements_materiels` (
 -- Structure de la table `enseignements_prerequis`
 --
 
-CREATE TABLE IF NOT EXISTS `enseignements_prerequis` (
+CREATE TABLE `enseignements_prerequis` (
   `codeEnseignement` int(11) NOT NULL DEFAULT '0',
   `codePrerequis` int(11) NOT NULL DEFAULT '0',
   `dateModif` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `deleted` tinyint(4) NOT NULL DEFAULT '0',
   `codeProprietaire` int(11) NOT NULL DEFAULT '0',
-  `typePrerequis` tinyint(4) NOT NULL DEFAULT '1',
-  KEY `IDX_enspre_code` (`codeEnseignement`) USING BTREE,
-  KEY `IDX_enspre_codePre` (`codePrerequis`) USING BTREE,
-  KEY `IDX_enspre_del` (`deleted`) USING BTREE,
-  KEY `IDX_enspre_prop` (`codeProprietaire`) USING BTREE,
-  KEY `IDX_enspre_dateModif` (`dateModif`) USING BTREE
+  `typePrerequis` tinyint(4) NOT NULL DEFAULT '1'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -1234,17 +1172,12 @@ CREATE TABLE IF NOT EXISTS `enseignements_prerequis` (
 -- Structure de la table `enseignements_profs`
 --
 
-CREATE TABLE IF NOT EXISTS `enseignements_profs` (
+CREATE TABLE `enseignements_profs` (
   `codeEnseignement` int(11) NOT NULL DEFAULT '0',
   `codeRessource` int(11) NOT NULL DEFAULT '0',
   `dateModif` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `deleted` tinyint(4) NOT NULL DEFAULT '0',
-  `codeProprietaire` int(11) NOT NULL DEFAULT '0',
-  KEY `IDX_ensprs_code` (`codeEnseignement`) USING BTREE,
-  KEY `IDX_ensprs_codegrs` (`codeRessource`) USING BTREE,
-  KEY `IDX_ensprs_del` (`deleted`) USING BTREE,
-  KEY `IDX_ensprs_prop` (`codeProprietaire`) USING BTREE,
-  KEY `IDX_ensprs_dateModif` (`dateModif`) USING BTREE
+  `codeProprietaire` int(11) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -1384,7 +1317,11 @@ INSERT INTO `enseignements_profs` (`codeEnseignement`, `codeRessource`, `dateMod
 (292, 544, '2014-09-25 08:38:22', 0, 777),
 (293, 544, '2014-09-25 08:38:22', 0, 777),
 (294, 523, '2014-09-25 08:38:22', 0, 777),
-(294, 544, '2014-09-25 08:38:22', 0, 777);
+(294, 544, '2014-09-25 08:38:22', 0, 777),
+(0, 544, '2015-01-19 09:19:49', 0, 0),
+(298, 544, '2015-01-19 09:26:38', 0, 0),
+(299, 544, '2015-01-19 12:14:19', 0, 0),
+(300, 544, '2015-01-19 13:54:30', 0, 0);
 
 -- --------------------------------------------------------
 
@@ -1392,17 +1329,12 @@ INSERT INTO `enseignements_profs` (`codeEnseignement`, `codeRessource`, `dateMod
 -- Structure de la table `enseignements_salles`
 --
 
-CREATE TABLE IF NOT EXISTS `enseignements_salles` (
+CREATE TABLE `enseignements_salles` (
   `codeEnseignement` bigint(20) NOT NULL DEFAULT '0',
   `codeRessource` bigint(20) NOT NULL DEFAULT '0',
   `dateModif` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `deleted` tinyint(4) NOT NULL DEFAULT '0',
-  `codeProprietaire` bigint(20) NOT NULL DEFAULT '0',
-  KEY `IDX_enssls_code` (`codeEnseignement`) USING BTREE,
-  KEY `IDX_enssls_codesls` (`codeRessource`) USING BTREE,
-  KEY `IDX_enssls_del` (`deleted`) USING BTREE,
-  KEY `IDX_enssls_prop` (`codeProprietaire`) USING BTREE,
-  KEY `IDX_enssls_dateModif` (`dateModif`) USING BTREE
+  `codeProprietaire` bigint(20) NOT NULL DEFAULT '0'
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
@@ -1426,7 +1358,7 @@ INSERT INTO `enseignements_salles` (`codeEnseignement`, `codeRessource`, `dateMo
 -- Structure de la table `enseignements_type_materiels`
 --
 
-CREATE TABLE IF NOT EXISTS `enseignements_type_materiels` (
+CREATE TABLE `enseignements_type_materiels` (
   `codeEnseignement` bigint(20) NOT NULL DEFAULT '0',
   `codeMateriel` bigint(20) NOT NULL DEFAULT '0',
   `dateModif` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
@@ -1440,7 +1372,7 @@ CREATE TABLE IF NOT EXISTS `enseignements_type_materiels` (
 -- Structure de la table `essai`
 --
 
-CREATE TABLE IF NOT EXISTS `essai` (
+CREATE TABLE `essai` (
   `essai` float(5,4) NOT NULL,
   `xxx` decimal(5,4) NOT NULL,
   `yyy` double(5,4) NOT NULL
@@ -1452,15 +1384,13 @@ CREATE TABLE IF NOT EXISTS `essai` (
 -- Structure de la table `etudiants_diplomes`
 --
 
-CREATE TABLE IF NOT EXISTS `etudiants_diplomes` (
+CREATE TABLE `etudiants_diplomes` (
   `codeEtudiant` int(11) NOT NULL,
   `codeDiplome` int(11) NOT NULL,
   `codeProprietaire` int(11) NOT NULL,
   `dateModif` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `dateCreation` datetime NOT NULL,
-  `deleted` tinyint(1) NOT NULL,
-  KEY `IDX_etud_dip_del` (`deleted`) USING BTREE,
-  KEY `IDX_etud_dip_modif` (`dateModif`) USING BTREE
+  `deleted` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -1469,8 +1399,8 @@ CREATE TABLE IF NOT EXISTS `etudiants_diplomes` (
 -- Structure de la table `filieres`
 --
 
-CREATE TABLE IF NOT EXISTS `filieres` (
-  `codeFiliere` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `filieres` (
+`codeFiliere` int(11) NOT NULL,
   `nom` varchar(150) NOT NULL DEFAULT 'FILIERE?',
   `derniereConsultation` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
   `heureDebut` int(6) NOT NULL DEFAULT '0',
@@ -1484,9 +1414,8 @@ CREATE TABLE IF NOT EXISTS `filieres` (
   `largeurCellule` int(11) NOT NULL DEFAULT '15',
   `dateModif` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `deleted` tinyint(4) NOT NULL DEFAULT '0',
-  `codeProprietaire` int(11) NOT NULL DEFAULT '0',
-  PRIMARY KEY (`codeFiliere`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=64 ;
+  `codeProprietaire` int(11) NOT NULL DEFAULT '0'
+) ENGINE=InnoDB AUTO_INCREMENT=64 DEFAULT CHARSET=latin1;
 
 --
 -- Contenu de la table `filieres`
@@ -1501,7 +1430,7 @@ INSERT INTO `filieres` (`codeFiliere`, `nom`, `derniereConsultation`, `heureDebu
 -- Structure de la table `filieres_enseignements`
 --
 
-CREATE TABLE IF NOT EXISTS `filieres_enseignements` (
+CREATE TABLE `filieres_enseignements` (
   `codeFiliere` bigint(20) NOT NULL DEFAULT '0',
   `codeEnseignement` bigint(20) NOT NULL DEFAULT '0',
   `dateModif` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
@@ -1515,7 +1444,7 @@ CREATE TABLE IF NOT EXISTS `filieres_enseignements` (
 -- Structure de la table `filieres_etudiants`
 --
 
-CREATE TABLE IF NOT EXISTS `filieres_etudiants` (
+CREATE TABLE `filieres_etudiants` (
   `codeEtudiant` bigint(20) NOT NULL DEFAULT '0',
   `codeSeance` bigint(20) NOT NULL DEFAULT '0',
   `dateModif` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
@@ -1529,7 +1458,7 @@ CREATE TABLE IF NOT EXISTS `filieres_etudiants` (
 -- Structure de la table `filieres_matieres`
 --
 
-CREATE TABLE IF NOT EXISTS `filieres_matieres` (
+CREATE TABLE `filieres_matieres` (
   `codeFiliere` bigint(20) NOT NULL DEFAULT '0',
   `codeMatiere` bigint(20) NOT NULL DEFAULT '0',
   `dateModif` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
@@ -1543,7 +1472,7 @@ CREATE TABLE IF NOT EXISTS `filieres_matieres` (
 -- Structure de la table `filieres_modules`
 --
 
-CREATE TABLE IF NOT EXISTS `filieres_modules` (
+CREATE TABLE `filieres_modules` (
   `codeModule` bigint(20) NOT NULL DEFAULT '0',
   `codeSeance` bigint(20) NOT NULL DEFAULT '0',
   `dateModif` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
@@ -1557,7 +1486,7 @@ CREATE TABLE IF NOT EXISTS `filieres_modules` (
 -- Structure de la table `filieres_planning`
 --
 
-CREATE TABLE IF NOT EXISTS `filieres_planning` (
+CREATE TABLE `filieres_planning` (
   `codeFiliere` bigint(20) NOT NULL DEFAULT '0',
   `codeSeance` bigint(20) NOT NULL DEFAULT '0',
   `dateModif` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
@@ -1571,7 +1500,7 @@ CREATE TABLE IF NOT EXISTS `filieres_planning` (
 -- Structure de la table `filieres_ressources`
 --
 
-CREATE TABLE IF NOT EXISTS `filieres_ressources` (
+CREATE TABLE `filieres_ressources` (
   `codeFiliere` bigint(20) NOT NULL DEFAULT '0',
   `codeRessource` bigint(20) NOT NULL DEFAULT '0',
   `dateModif` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
@@ -1585,8 +1514,8 @@ CREATE TABLE IF NOT EXISTS `filieres_ressources` (
 -- Structure de la table `grades`
 --
 
-CREATE TABLE IF NOT EXISTS `grades` (
-  `codeGrade` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `grades` (
+`codeGrade` int(11) NOT NULL,
   `grade` varchar(150) NOT NULL DEFAULT 'GRADE?',
   `dateModif` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `dateCreation` datetime NOT NULL,
@@ -1596,9 +1525,8 @@ CREATE TABLE IF NOT EXISTS `grades` (
   `commentaire` varchar(200) NOT NULL,
   `identifiant` varchar(50) NOT NULL,
   `heuresStatutaires` int(6) NOT NULL DEFAULT '0',
-  `heuresComplementaires` int(6) NOT NULL DEFAULT '0',
-  PRIMARY KEY (`codeGrade`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=16000749 ;
+  `heuresComplementaires` int(6) NOT NULL DEFAULT '0'
+) ENGINE=MyISAM AUTO_INCREMENT=16000749 DEFAULT CHARSET=latin1;
 
 --
 -- Contenu de la table `grades`
@@ -1645,7 +1573,7 @@ INSERT INTO `grades` (`codeGrade`, `grade`, `dateModif`, `dateCreation`, `delete
 -- Structure de la table `grades_ponderations`
 --
 
-CREATE TABLE IF NOT EXISTS `grades_ponderations` (
+CREATE TABLE `grades_ponderations` (
   `codeGrade` int(11) NOT NULL,
   `codeTypeActivite` int(11) NOT NULL,
   `ponderation` float(10,9) NOT NULL,
@@ -1653,10 +1581,7 @@ CREATE TABLE IF NOT EXISTS `grades_ponderations` (
   `ponderationSUP` float(10,9) NOT NULL,
   `dateCreation` datetime NOT NULL,
   `dateModif` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `codeProprietaire` int(11) NOT NULL,
-  KEY `pondGrade` (`codeGrade`) USING BTREE,
-  KEY `pondTypActiv` (`codeTypeActivite`) USING BTREE,
-  KEY `pondDel` (`deleted`) USING BTREE
+  `codeProprietaire` int(11) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
@@ -2552,20 +2477,14 @@ INSERT INTO `grades_ponderations` (`codeGrade`, `codeTypeActivite`, `ponderation
 -- Structure de la table `hierarchies_composantes`
 --
 
-CREATE TABLE IF NOT EXISTS `hierarchies_composantes` (
-  `code` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `hierarchies_composantes` (
+`code` int(11) NOT NULL,
   `codeRessource` int(11) NOT NULL DEFAULT '0',
   `codeRessourceFille` int(11) NOT NULL DEFAULT '0',
   `dateModif` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `deleted` tinyint(4) NOT NULL DEFAULT '0',
-  `codeProprietaire` int(11) NOT NULL DEFAULT '0',
-  PRIMARY KEY (`code`),
-  KEY `IDX_hiecps_codeRes` (`codeRessource`) USING BTREE,
-  KEY `IDX_hiecps_codeFille` (`codeRessourceFille`) USING BTREE,
-  KEY `IDX_hiecps_del` (`deleted`) USING BTREE,
-  KEY `IDX_hiecps_prop` (`codeProprietaire`) USING BTREE,
-  KEY `IDX_hiecps_dateModif` (`dateModif`) USING BTREE
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+  `codeProprietaire` int(11) NOT NULL DEFAULT '0'
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -2573,20 +2492,14 @@ CREATE TABLE IF NOT EXISTS `hierarchies_composantes` (
 -- Structure de la table `hierarchies_groupes`
 --
 
-CREATE TABLE IF NOT EXISTS `hierarchies_groupes` (
-  `code` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `hierarchies_groupes` (
+`code` int(11) NOT NULL,
   `codeRessource` int(11) NOT NULL DEFAULT '0',
   `codeRessourceFille` int(11) NOT NULL DEFAULT '0',
   `dateModif` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `deleted` tinyint(4) NOT NULL DEFAULT '0',
-  `codeProprietaire` int(11) NOT NULL DEFAULT '0',
-  PRIMARY KEY (`code`),
-  KEY `IDX_hiegrs_codeRes` (`codeRessource`) USING BTREE,
-  KEY `IDX_hiegrs_codeFille` (`codeRessourceFille`) USING BTREE,
-  KEY `IDX_hiegrs_del` (`deleted`) USING BTREE,
-  KEY `IDX_hiegrs_prop` (`codeProprietaire`) USING BTREE,
-  KEY `IDX_hiegrs_dateModif` (`dateModif`) USING BTREE
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=44 ;
+  `codeProprietaire` int(11) NOT NULL DEFAULT '0'
+) ENGINE=InnoDB AUTO_INCREMENT=44 DEFAULT CHARSET=latin1;
 
 --
 -- Contenu de la table `hierarchies_groupes`
@@ -2643,7 +2556,7 @@ INSERT INTO `hierarchies_groupes` (`code`, `codeRessource`, `codeRessourceFille`
 -- Structure de la table `hierarchies_profs`
 --
 
-CREATE TABLE IF NOT EXISTS `hierarchies_profs` (
+CREATE TABLE `hierarchies_profs` (
   `codeRessource` bigint(20) NOT NULL DEFAULT '0',
   `codeRessourceFille` bigint(20) NOT NULL DEFAULT '0',
   `dateModif` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
@@ -2657,7 +2570,7 @@ CREATE TABLE IF NOT EXISTS `hierarchies_profs` (
 -- Structure de la table `hierarchies_salles`
 --
 
-CREATE TABLE IF NOT EXISTS `hierarchies_salles` (
+CREATE TABLE `hierarchies_salles` (
   `codeRessource` bigint(20) NOT NULL DEFAULT '0',
   `codeRessourceFille` bigint(20) NOT NULL DEFAULT '0',
   `dateModif` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
@@ -2671,8 +2584,8 @@ CREATE TABLE IF NOT EXISTS `hierarchies_salles` (
 -- Structure de la table `lignes_budgetaires`
 --
 
-CREATE TABLE IF NOT EXISTS `lignes_budgetaires` (
-  `codeLigneBudgetaire` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `lignes_budgetaires` (
+`codeLigneBudgetaire` int(11) NOT NULL,
   `couleurFond` int(11) NOT NULL DEFAULT '0',
   `couleurPolice` int(11) NOT NULL DEFAULT '0',
   `nom` varchar(200) NOT NULL DEFAULT 'LIGNE?',
@@ -2682,12 +2595,8 @@ CREATE TABLE IF NOT EXISTS `lignes_budgetaires` (
   `deleted` tinyint(4) NOT NULL DEFAULT '0',
   `codeProprietaire` int(11) NOT NULL DEFAULT '0',
   `commentaire` varchar(200) NOT NULL,
-  `identifiant` varchar(50) NOT NULL,
-  PRIMARY KEY (`codeLigneBudgetaire`),
-  KEY `IDX_lignebudget_del` (`deleted`) USING BTREE,
-  KEY `IDX_lignebudget_prop` (`codeProprietaire`) USING BTREE,
-  KEY `IDX_lignebudget_dateModif` (`dateModif`) USING BTREE
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=27785327 ;
+  `identifiant` varchar(50) NOT NULL
+) ENGINE=MyISAM AUTO_INCREMENT=27785327 DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -2695,17 +2604,12 @@ CREATE TABLE IF NOT EXISTS `lignes_budgetaires` (
 -- Structure de la table `lignes_budgetaires_enseignements`
 --
 
-CREATE TABLE IF NOT EXISTS `lignes_budgetaires_enseignements` (
+CREATE TABLE `lignes_budgetaires_enseignements` (
   `codeLigneBudgetaire` int(11) NOT NULL DEFAULT '0',
   `codeRessource` int(11) NOT NULL DEFAULT '0',
   `dateModif` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `deleted` tinyint(4) NOT NULL DEFAULT '0',
-  `codeProprietaire` int(11) NOT NULL DEFAULT '0',
-  KEY `IDX_ligBud_code` (`codeLigneBudgetaire`) USING BTREE,
-  KEY `IDX_ligBud_codeRes` (`codeRessource`) USING BTREE,
-  KEY `IDX_ligBud_del` (`deleted`) USING BTREE,
-  KEY `IDX_ligBud_prop` (`codeProprietaire`) USING BTREE,
-  KEY `IDX_ligBud_dateModif` (`dateModif`) USING BTREE
+  `codeProprietaire` int(11) NOT NULL DEFAULT '0'
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -2714,17 +2618,12 @@ CREATE TABLE IF NOT EXISTS `lignes_budgetaires_enseignements` (
 -- Structure de la table `lignes_budgetaires_groupes`
 --
 
-CREATE TABLE IF NOT EXISTS `lignes_budgetaires_groupes` (
+CREATE TABLE `lignes_budgetaires_groupes` (
   `codeLigneBudgetaire` int(11) NOT NULL DEFAULT '0',
   `codeRessource` int(11) NOT NULL DEFAULT '0',
   `dateModif` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `deleted` tinyint(4) NOT NULL DEFAULT '0',
-  `codeProprietaire` int(11) NOT NULL DEFAULT '0',
-  KEY `IDX_ligBud_code` (`codeLigneBudgetaire`) USING BTREE,
-  KEY `IDX_ligBud_codeRes` (`codeRessource`) USING BTREE,
-  KEY `IDX_ligBud_del` (`deleted`) USING BTREE,
-  KEY `IDX_ligBud_prop` (`codeProprietaire`) USING BTREE,
-  KEY `IDX_ligBud_dateModif` (`dateModif`) USING BTREE
+  `codeProprietaire` int(11) NOT NULL DEFAULT '0'
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -2733,7 +2632,7 @@ CREATE TABLE IF NOT EXISTS `lignes_budgetaires_groupes` (
 -- Structure de la table `login_prof`
 --
 
-CREATE TABLE IF NOT EXISTS `login_prof` (
+CREATE TABLE `login_prof` (
   `codeProf` int(10) NOT NULL,
   `login` varchar(60) COLLATE utf8_bin DEFAULT NULL,
   `motPasse` varchar(60) COLLATE utf8_bin DEFAULT NULL,
@@ -2771,117 +2670,118 @@ CREATE TABLE IF NOT EXISTS `login_prof` (
   `mes_droits` int(2) DEFAULT '1',
   `admin` int(2) DEFAULT '0',
   `dialogue` int(2) DEFAULT '0',
-  PRIMARY KEY (`codeProf`)
+  `emailProf` varchar(80) COLLATE utf8_bin DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 --
 -- Contenu de la table `login_prof`
 --
 
-INSERT INTO `login_prof` (`codeProf`, `login`, `motPasse`, `horizontal`, `selecGroupe`, `selecProf`, `selecSalle`, `selecMateriel`, `weekend`, `couleur_groupe`, `couleur_prof`, `couleur_salle`, `couleur_materiel`, `heureDebut`, `heureFin`, `bouton1Debut`, `bouton1Fin`, `bouton2Debut`, `bouton2Fin`, `bouton3Debut`, `bouton3Fin`, `bouton4Debut`, `bouton4Fin`, `reservation`, `module`, `bilan_heure`, `configuration`, `rss`, `bilan_heure_global`, `bilan_formation`, `pdf`, `seance_clicable`, `giseh`, `salle`, `mes_droits`, `admin`, `dialogue`) VALUES
-(518, 'nagoulm1', 'bmc/wNbMtMGbw', 1, 'TOUS', 'TOUS', 'TOUS', 'TOUS', 2, 0, 0, 0, 0, 0, 19.5, 8, 8, 8, 8, 8, 8, 8, 8, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
-(519, 'eangel1', 'ZXARincO4afJU', 1, NULL, NULL, NULL, NULL, 1, 0, 0, 0, 0, 0, 0, 8, 10, 10, 12, 14, 16, 16, 18, 1, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0, 1, 0, 0),
-(520, 'tatmaca1', 'dHKRi32U6oquE', 1, NULL, NULL, NULL, NULL, 1, 0, 0, 0, 0, 0, 0, 8, 10, 10, 12, 14, 16, 16, 18, 1, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0, 1, 0, 0),
-(521, 'abaczko1', 'YWwvUL.ivAmW6', 1, NULL, NULL, NULL, NULL, 1, 0, 0, 0, 0, 0, 0, 8, 10, 10, 12, 14, 16, 16, 18, 1, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0, 1, 0, 0),
-(522, 'fbelard1', 'Znsu2UPOVTCSI', 1, NULL, NULL, NULL, NULL, 1, 0, 0, 0, 0, 0, 0, 8, 10, 10, 12, 14, 16, 16, 18, 1, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0, 1, 0, 0),
-(523, 'jbenzak1', 'antet0wRR4EgU', 1, 'TOUS', 'TOUS', 'TOUS', 'TOUS', 2, 0, 0, 0, 0, 0, 19.5, 8, 10, 10, 12, 14, 16, 16, 18, 1, 1, 1, 1, 1, 0, 0, 1, 1, 1, 0, 1, 0, 0),
-(524, 'xbernar1', 'eGUtW/d79Cvxg', 1, NULL, NULL, NULL, NULL, 1, 0, 0, 0, 0, 0, 0, 8, 10, 10, 12, 14, 16, 16, 18, 1, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0, 1, 0, 0),
-(525, 'lblin1', 'bG/3/M52BDTUA', 1, NULL, NULL, NULL, NULL, 1, 0, 0, 0, 0, 0, 0, 8, 10, 10, 12, 14, 16, 16, 18, 1, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0, 1, 0, 0),
-(526, 'oboloka1', 'b2cT/JcJDJlAM', 1, NULL, NULL, NULL, NULL, 1, 0, 0, 0, 0, 0, 0, 8, 10, 10, 12, 14, 16, 16, 18, 1, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0, 1, 0, 0),
-(527, 'sbourli1', 'c34JgXd0PaEv.', 1, 'TOUS', 'TOUS', 'TOUS', 'TOUS', 1, 0, 0, 0, 0, 0, 0, 8, 10, 10, 12, 14, 16, 16, 18, 1, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0, 1, 0, 0),
-(528, 'abradai1', 'YWd1pX9nhnBsk', 1, NULL, NULL, NULL, NULL, 1, 0, 0, 0, 0, 0, 0, 8, 10, 10, 12, 14, 16, 16, 18, 1, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0, 1, 0, 0),
-(529, 'rbrault1', 'cmEG7JH7HgBPo', 1, NULL, NULL, NULL, NULL, 1, 0, 0, 0, 0, 0, 0, 8, 10, 10, 12, 14, 16, 16, 18, 1, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0, 1, 0, 0),
-(530, 'pbrocha1', 'cGQNWvcNF7oV2', 1, NULL, NULL, NULL, NULL, 1, 0, 0, 0, 0, 0, 0, 8, 10, 10, 12, 14, 16, 16, 18, 1, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0, 1, 0, 0),
-(531, 'cbrouar1', 'Y28fZHQ5Q8aLI', 1, NULL, NULL, NULL, NULL, 1, 0, 0, 0, 0, 0, 0, 8, 10, 10, 12, 14, 16, 16, 18, 1, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0, 1, 0, 0),
-(532, 'nbrunel1', 'bm6osubS6pf9E', 1, NULL, NULL, NULL, NULL, 1, 0, 0, 0, 0, 0, 0, 8, 10, 10, 12, 14, 16, 16, 18, 1, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0, 1, 0, 0),
-(533, 'gburel1', 'Z3S2lVB9kgmXc', 1, NULL, NULL, NULL, NULL, 1, 0, 0, 0, 0, 0, 0, 8, 10, 10, 12, 14, 16, 16, 18, 1, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0, 1, 0, 0),
-(534, 'acavall1', 'YWV4hbMatNxS6', 1, NULL, NULL, NULL, NULL, 1, 0, 0, 0, 0, 0, 0, 8, 10, 10, 12, 14, 16, 16, 18, 1, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0, 1, 0, 0),
-(535, 'scerrit1', 'c2YgnSkTEL4T.', 1, NULL, NULL, NULL, NULL, 1, 0, 0, 0, 0, 0, 0, 8, 10, 10, 12, 14, 16, 16, 18, 1, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0, 1, 0, 0),
-(536, 'fchamme1', 'ZmH3CAe34U556', 1, NULL, NULL, NULL, NULL, 1, 0, 0, 0, 0, 0, 0, 8, 10, 10, 12, 14, 16, 16, 18, 1, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0, 1, 0, 0),
-(537, 'jchapel1', 'amgPw65MfHwys', 1, NULL, NULL, NULL, NULL, 1, 0, 0, 0, 0, 0, 0, 8, 10, 10, 12, 14, 16, 16, 18, 1, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0, 1, 0, 0),
-(538, 'vchau1', 'dmOpG1bl1kHsQ', 1, NULL, NULL, NULL, NULL, 1, 0, 0, 0, 0, 0, 0, 8, 10, 10, 12, 14, 16, 16, 18, 1, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0, 1, 0, 0),
-(539, 'echerka1', 'ZWPpQgRbWY0ng', 1, NULL, NULL, NULL, NULL, 1, 0, 0, 0, 0, 0, 0, 8, 10, 10, 12, 14, 16, 16, 18, 1, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0, 1, 0, 0),
-(540, 'cchetta1', 'Y2G8XFcTJYDs2', 1, NULL, NULL, NULL, NULL, 1, 0, 0, 0, 0, 0, 0, 8, 10, 10, 12, 14, 16, 16, 18, 1, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0, 1, 0, 0),
-(541, 'dcinzia1', 'ZGP0bOomztuTU', 1, NULL, NULL, NULL, NULL, 1, 0, 0, 0, 0, 0, 0, 8, 10, 10, 12, 14, 16, 16, 18, 1, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0, 1, 0, 0),
-(542, 'dconan1', 'ZGXC.8a4UmYiM', 1, NULL, NULL, NULL, NULL, 1, 0, 0, 0, 0, 0, 0, 8, 10, 10, 12, 14, 16, 16, 18, 1, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0, 1, 0, 0),
-(543, 'econdet1', 'ZXARincO4afJU', 1, NULL, NULL, NULL, NULL, 1, 0, 0, 0, 0, 0, 0, 8, 10, 10, 12, 14, 16, 16, 18, 1, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0, 1, 0, 0),
-(544, 'dcourta1', 'ZGNzsQgU6lU7Y', 1, 'TOUS', 'TOUS', 'TOUS', 'TOUS', 0, 0, 0, 0, 0, 8, 19.5, 8, 10, 10, 12, 14, 16, 16, 18, 1, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0, 1, 0, 0),
-(545, 'acox1', 'YWQe9jBpOGLtQ', 1, NULL, NULL, NULL, NULL, 1, 0, 0, 0, 0, 0, 0, 8, 10, 10, 12, 14, 16, 16, 18, 1, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0, 1, 0, 0),
-(546, 'fdalche1', 'ZmkHjnowMj.gs', 1, NULL, NULL, NULL, NULL, 1, 0, 0, 0, 0, 0, 0, 8, 10, 10, 12, 14, 16, 16, 18, 1, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0, 1, 0, 0),
-(547, 'adavid1', 'YW6T8ck6wN9Ns', 1, NULL, NULL, NULL, NULL, 1, 0, 0, 0, 0, 0, 0, 8, 10, 10, 12, 14, 16, 16, 18, 1, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0, 1, 0, 0),
-(548, 'pdecler1', 'cGIzqm2dd1d1Q', 1, NULL, NULL, NULL, NULL, 1, 0, 0, 0, 0, 0, 0, 8, 10, 10, 12, 14, 16, 16, 18, 1, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0, 1, 0, 0),
-(549, 'bdefude1', 'YnlKBlhKi2DwU', 1, NULL, NULL, NULL, NULL, 1, 0, 0, 0, 0, 0, 0, 8, 10, 10, 12, 14, 16, 16, 18, 1, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0, 1, 0, 0),
-(550, 'pdelann1', 'cGQNWvcNF7oV2', 1, NULL, NULL, NULL, NULL, 1, 0, 0, 0, 0, 0, 0, 8, 10, 10, 12, 14, 16, 16, 18, 1, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0, 1, 0, 0),
-(551, 'fdelapl1', 'ZnG.7nyvMDitQ', 1, NULL, NULL, NULL, NULL, 1, 0, 0, 0, 0, 0, 0, 8, 10, 10, 12, 14, 16, 16, 18, 1, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0, 1, 0, 0),
-(552, 'jdelosm1', 'amFPVnuKei99o', 1, NULL, NULL, NULL, NULL, 1, 0, 0, 0, 0, 0, 0, 8, 10, 10, 12, 14, 16, 16, 18, 1, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0, 1, 0, 0),
-(553, 'bdjafri1', 'YmbTqKm9BIbfc', 1, NULL, NULL, NULL, NULL, 1, 0, 0, 0, 0, 0, 0, 8, 10, 10, 12, 14, 16, 16, 18, 1, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0, 1, 0, 0),
-(554, 'pdossan1', 'cGQNWvcNF7oV2', 1, NULL, NULL, NULL, NULL, 1, 0, 0, 0, 0, 0, 0, 8, 10, 10, 12, 14, 16, 16, 18, 1, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0, 1, 0, 0),
-(555, 'cdubois1', 'Y26BEVgQmBF1Y', 1, NULL, NULL, NULL, NULL, 1, 0, 0, 0, 0, 0, 0, 8, 10, 10, 12, 14, 16, 16, 18, 1, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0, 1, 0, 0),
-(556, 'jdupas1', 'amEZg.bGbjnZw', 1, NULL, NULL, NULL, NULL, 1, 0, 0, 0, 0, 0, 0, 8, 10, 10, 12, 14, 16, 16, 18, 1, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0, 1, 0, 0),
-(557, 'ddupont1', 'ZGXC.8a4UmYiM', 1, NULL, NULL, NULL, NULL, 1, 0, 0, 0, 0, 0, 0, 8, 10, 10, 12, 14, 16, 16, 18, 1, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0, 1, 0, 0),
-(558, 'melati1', 'bWZKBLEhD7HHI', 1, NULL, NULL, NULL, NULL, 1, 0, 0, 0, 0, 0, 0, 8, 10, 10, 12, 14, 16, 16, 18, 1, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0, 1, 0, 0),
-(560, 'mguilla1', 'bWLLTXsL.Q2H2', 1, NULL, NULL, NULL, NULL, 1, 0, 0, 0, 0, 0, 0, 8, 10, 10, 12, 14, 16, 16, 18, 1, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0, 1, 0, 0),
-(561, 'dhanich1', 'ZGpRaYY/wfVio', 1, NULL, NULL, NULL, NULL, 1, 0, 0, 0, 0, 0, 0, 8, 10, 10, 12, 14, 16, 16, 18, 1, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0, 1, 0, 0),
-(562, 'lhannac1', 'bGBnXRhpgl8UA', 1, NULL, NULL, NULL, NULL, 1, 0, 0, 0, 0, 0, 0, 8, 10, 10, 12, 14, 16, 16, 18, 1, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0, 1, 0, 0),
-(563, 'hautre1', '$1$kV1.dT3.$t6wIO1fANiTgvnwpB3kCm/', 1, NULL, NULL, NULL, NULL, 1, 0, 0, 0, 0, 0, 0, 8, 10, 10, 12, 14, 16, 16, 18, 1, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0, 1, 0, 0),
-(564, 'ghutzle1', 'Z3S2lVB9kgmXc', 1, NULL, NULL, NULL, NULL, 1, 0, 0, 0, 0, 0, 0, 8, 10, 10, 12, 14, 16, 16, 18, 1, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0, 1, 0, 0),
-(565, 'jjanode1', 'amITSSV.BZH7E', 1, NULL, NULL, NULL, NULL, 1, 0, 0, 0, 0, 0, 0, 8, 10, 10, 12, 14, 16, 16, 18, 1, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0, 1, 0, 0),
-(566, 'ljouann1', 'bGi5Wi7LAxgCc', 1, NULL, NULL, NULL, NULL, 1, 0, 0, 0, 0, 0, 0, 8, 10, 10, 12, 14, 16, 16, 18, 1, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0, 1, 0, 0),
-(567, 'hklaude1', 'aGAJ41TJqfuTY', 1, NULL, NULL, NULL, NULL, 1, 0, 0, 0, 0, 0, 0, 8, 10, 10, 12, 14, 16, 16, 18, 1, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0, 1, 0, 0),
-(568, 'nkowals1', 'bm6osubS6pf9E', 1, NULL, NULL, NULL, NULL, 1, 0, 0, 0, 0, 0, 0, 8, 10, 10, 12, 14, 16, 16, 18, 1, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0, 1, 0, 0),
-(569, 'ylabord1', 'eX2P9UoE9y9A6', 1, NULL, NULL, NULL, NULL, 1, 0, 0, 0, 0, 0, 0, 8, 10, 10, 12, 14, 16, 16, 18, 1, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0, 1, 0, 0),
-(570, 'dlahbib1', 'ZGxBYBTvm7Z5o', 1, NULL, NULL, NULL, NULL, 1, 0, 0, 0, 0, 0, 0, 8, 10, 10, 12, 14, 16, 16, 18, 1, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0, 1, 0, 0),
-(571, 'tlavall1', 'dGC.WbWL26YPg', 1, NULL, NULL, NULL, NULL, 1, 0, 0, 0, 0, 0, 0, 8, 10, 10, 12, 14, 16, 16, 18, 1, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0, 1, 0, 0),
-(572, 'ylecorn1', 'eXMFjZMBzvuAE', 1, NULL, NULL, NULL, NULL, 1, 0, 0, 0, 0, 0, 0, 8, 10, 10, 12, 14, 16, 16, 18, 1, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0, 1, 0, 0),
-(573, 'cle1', 'Y2jlUlBoC8EOU', 1, NULL, NULL, NULL, NULL, 1, 0, 0, 0, 0, 0, 0, 8, 10, 10, 12, 14, 16, 16, 18, 1, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0, 1, 0, 0),
-(574, 'fledoux1', 'ZnG.7nyvMDitQ', 1, NULL, NULL, NULL, NULL, 1, 0, 0, 0, 0, 0, 0, 8, 10, 10, 12, 14, 16, 16, 18, 1, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0, 1, 0, 0),
-(575, 'ylegran1', 'eX2P9UoE9y9A6', 1, NULL, NULL, NULL, NULL, 1, 0, 0, 0, 0, 0, 0, 8, 10, 10, 12, 14, 16, 16, 18, 1, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0, 1, 0, 0),
-(576, 'bleland1', 'Ym8j6MTnmlnLk', 1, NULL, NULL, NULL, NULL, 1, 0, 0, 0, 0, 0, 0, 8, 10, 10, 12, 14, 16, 16, 18, 1, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0, 1, 0, 0),
-(577, 'sleland1', 'c34JgXd0PaEv.', 1, NULL, NULL, NULL, NULL, 1, 0, 0, 0, 0, 0, 0, 8, 10, 10, 12, 14, 16, 16, 18, 1, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0, 1, 0, 0),
-(578, 'nlim1', 'bmChpShPRc1w2', 1, NULL, NULL, NULL, NULL, 1, 0, 0, 0, 0, 0, 0, 8, 10, 10, 12, 14, 16, 16, 18, 1, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0, 1, 0, 0),
-(579, 'clouvea1', 'Y22FXbC46v6/k', 1, NULL, NULL, NULL, NULL, 1, 0, 0, 0, 0, 0, 0, 8, 10, 10, 12, 14, 16, 16, 18, 1, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0, 1, 0, 0),
-(580, 'dlubin1', 'ZGXC.8a4UmYiM', 1, NULL, NULL, NULL, NULL, 1, 0, 0, 0, 0, 0, 0, 8, 10, 10, 12, 14, 16, 16, 18, 1, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0, 1, 0, 0),
-(581, 'glucare1', 'Z2xFWXYWHPQMc', 1, NULL, NULL, NULL, NULL, 1, 0, 0, 0, 0, 0, 0, 8, 10, 10, 12, 14, 16, 16, 18, 1, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0, 1, 0, 0),
-(582, 'plucas1', 'cG1HHunOimEZA', 1, NULL, NULL, NULL, NULL, 1, 0, 0, 0, 0, 0, 0, 8, 10, 10, 12, 14, 16, 16, 18, 1, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0, 1, 0, 0),
-(583, 'rmacnam1', 'cmy9sDUHv6IIE', 1, NULL, NULL, NULL, NULL, 1, 0, 0, 0, 0, 0, 0, 8, 10, 10, 12, 14, 16, 16, 18, 1, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0, 1, 0, 0),
-(584, 'tmellit1', 'dGNdBxXVM8wHo', 1, NULL, NULL, NULL, NULL, 1, 0, 0, 0, 0, 0, 0, 8, 10, 10, 12, 14, 16, 16, 18, 1, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0, 1, 0, 0),
-(585, 'amezine1', 'YWgiHyTVl3Otk', 1, NULL, NULL, NULL, NULL, 1, 0, 0, 0, 0, 0, 0, 8, 10, 10, 12, 14, 16, 16, 18, 1, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0, 1, 0, 0),
-(586, 'dmillot1', 'ZGqQ79CkUrkEA', 1, NULL, NULL, NULL, NULL, 1, 0, 0, 0, 0, 0, 0, 8, 10, 10, 12, 14, 16, 16, 18, 1, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0, 1, 0, 0),
-(587, 'cmoulin1', 'Y2HbVsQ8./.og', 1, NULL, NULL, NULL, NULL, 1, 0, 0, 0, 0, 0, 0, 8, 10, 10, 12, 14, 16, 16, 18, 1, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0, 1, 0, 0),
-(588, 'amunier1', 'YWBqjiSN07sgA', 1, NULL, NULL, NULL, NULL, 1, 0, 0, 0, 0, 0, 0, 8, 10, 10, 12, 14, 16, 16, 18, 1, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0, 1, 0, 0),
-(589, 'jmunier1', 'am6YfuLOp3/Tk', 1, NULL, NULL, NULL, NULL, 1, 0, 0, 0, 0, 0, 0, 8, 10, 10, 12, 14, 16, 16, 18, 1, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0, 1, 0, 0),
-(590, 'enadam1', 'ZWBlLNNpf5jiQ', 1, NULL, NULL, NULL, NULL, 1, 0, 0, 0, 0, 0, 0, 8, 10, 10, 12, 14, 16, 16, 18, 1, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0, 1, 0, 0),
-(591, 'knguyen1', 'a2BOpCIlQpTa6', 1, NULL, NULL, NULL, NULL, 1, 0, 0, 0, 0, 0, 0, 8, 10, 10, 12, 14, 16, 16, 18, 1, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0, 1, 0, 0),
-(592, 'vnguyen1', 'dn6BZeLz0LDRk', 1, NULL, NULL, NULL, NULL, 1, 0, 0, 0, 0, 0, 0, 8, 10, 10, 12, 14, 16, 16, 18, 1, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0, 1, 0, 0),
-(593, 'cniermo1', 'Y2S1NqUCkA.1U', 1, NULL, NULL, NULL, NULL, 1, 0, 0, 0, 0, 0, 0, 8, 10, 10, 12, 14, 16, 16, 18, 1, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0, 1, 0, 0),
-(594, 'snollet1', 'c2RQFeMukmfPo', 1, NULL, NULL, NULL, NULL, 1, 0, 0, 0, 0, 0, 0, 8, 10, 10, 12, 14, 16, 16, 18, 1, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0, 1, 0, 0),
-(595, 'fpapado1', 'ZnWPM4eRz68zo', 1, NULL, NULL, NULL, NULL, 1, 0, 0, 0, 0, 0, 0, 8, 10, 10, 12, 14, 16, 16, 18, 1, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0, 1, 0, 0),
-(596, 'jperrau1', 'amH3uU2UTimkM', 1, NULL, NULL, NULL, NULL, 1, 0, 0, 0, 0, 0, 0, 8, 10, 10, 12, 14, 16, 16, 18, 1, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0, 1, 0, 0),
-(597, 'ppetit1', 'cGwZR4F6YjTlI', 1, NULL, NULL, NULL, NULL, 1, 0, 0, 0, 0, 0, 0, 8, 10, 10, 12, 14, 16, 16, 18, 1, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0, 1, 0, 0),
-(598, 'dploix1', 'ZGeM6Xfrw.ZcM', 1, NULL, NULL, NULL, NULL, 1, 0, 0, 0, 0, 0, 0, 8, 10, 10, 12, 14, 16, 16, 18, 1, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0, 1, 0, 0),
-(599, 'lpolign1', 'bGi5Wi7LAxgCc', 1, NULL, NULL, NULL, NULL, 1, 0, 0, 0, 0, 0, 0, 8, 10, 10, 12, 14, 16, 16, 18, 1, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0, 1, 0, 0),
-(600, 'fpommer1', 'ZnG.7nyvMDitQ', 1, NULL, NULL, NULL, NULL, 1, 0, 0, 0, 0, 0, 0, 8, 10, 10, 12, 14, 16, 16, 18, 1, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0, 1, 0, 0),
-(601, 'opons1', 'b2M20Wdt9JB7U', 1, NULL, NULL, NULL, NULL, 1, 0, 0, 0, 0, 0, 0, 8, 10, 10, 12, 14, 16, 16, 18, 1, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0, 1, 0, 0),
-(602, 'vprevos1', 'dmbnDdRgMj4fo', 1, NULL, NULL, NULL, NULL, 1, 0, 0, 0, 0, 0, 0, 8, 10, 10, 12, 14, 16, 16, 18, 1, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0, 1, 0, 0),
-(603, 'aprot1', 'YWkq8fvBe27KE', 1, NULL, NULL, NULL, NULL, 1, 0, 0, 0, 0, 0, 0, 8, 10, 10, 12, 14, 16, 16, 18, 1, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0, 1, 0, 0),
-(604, 'bprum1', 'YmRx3HeNtzuO.', 1, NULL, NULL, NULL, NULL, 1, 0, 0, 0, 0, 0, 0, 8, 10, 10, 12, 14, 16, 16, 18, 1, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0, 1, 0, 0),
-(605, 'mrahoua1', 'bWi3.aucciuFc', 1, NULL, NULL, NULL, NULL, 1, 0, 0, 0, 0, 0, 0, 8, 10, 10, 12, 14, 16, 16, 18, 1, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0, 1, 0, 0),
-(606, 'drajche1', 'ZGw9Lgn4YsnrE', 1, NULL, NULL, NULL, NULL, 1, 0, 0, 0, 0, 0, 0, 8, 10, 10, 12, 14, 16, 16, 18, 1, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0, 1, 0, 0),
-(607, 'dregnau1', 'ZGeM6Xfrw.ZcM', 1, NULL, NULL, NULL, NULL, 1, 0, 0, 0, 0, 0, 0, 8, 10, 10, 12, 14, 16, 16, 18, 1, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0, 1, 0, 0),
-(608, 'mrozenb1', 'bW0X.KmTFj83I', 1, NULL, NULL, NULL, NULL, 1, 0, 0, 0, 0, 0, 0, 8, 10, 10, 12, 14, 16, 16, 18, 1, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0, 1, 0, 0),
-(609, 'asayed1', 'YWpv78/b8uquU', 1, NULL, NULL, NULL, NULL, 1, 0, 0, 0, 0, 0, 0, 8, 10, 10, 12, 14, 16, 16, 18, 1, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0, 1, 0, 0),
-(610, 'jsignol1', 'anPVdFibUploo', 1, NULL, NULL, NULL, NULL, 1, 0, 0, 0, 0, 0, 0, 8, 10, 10, 12, 14, 16, 16, 18, 1, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0, 1, 0, 0),
-(611, 'tsimon1', 'dGhJFwCQXKRP.', 1, NULL, NULL, NULL, NULL, 1, 0, 0, 0, 0, 0, 0, 8, 10, 10, 12, 14, 16, 16, 18, 1, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0, 1, 0, 0),
-(612, 'gsoubri1', 'Z3kVTyXioxI/g', 1, NULL, NULL, NULL, NULL, 1, 0, 0, 0, 0, 0, 0, 8, 10, 10, 12, 14, 16, 16, 18, 1, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0, 1, 0, 0),
-(613, 'ysoulab1', 'eSLupL2QRw3Ok', 1, NULL, NULL, NULL, NULL, 1, 0, 0, 0, 0, 0, 0, 8, 10, 10, 12, 14, 16, 16, 18, 1, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0, 1, 0, 0),
-(614, 'ctacone1', 'Y2fz8Uhwr3GNo', 1, NULL, NULL, NULL, NULL, 1, 0, 0, 0, 0, 0, 0, 8, 10, 10, 12, 14, 16, 16, 18, 1, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0, 1, 0, 0),
-(615, 'ftahi1', 'ZmWktovUZCgOg', 1, 'TOUS', 'TOUS', 'TOUS', 'TOUS', 1, 0, 0, 0, 0, 0, 0, 8, 10, 10, 12, 14, 16, 16, 18, 1, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0, 1, 0, 0),
-(616, 'pthory1', 'cGQNWvcNF7oV2', 1, NULL, NULL, NULL, NULL, 1, 0, 0, 0, 0, 0, 0, 8, 10, 10, 12, 14, 16, 16, 18, 1, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0, 1, 0, 0),
-(617, 'fvermil1', 'ZnWPM4eRz68zo', 1, NULL, NULL, NULL, NULL, 1, 0, 0, 0, 0, 0, 0, 8, 10, 10, 12, 14, 16, 16, 18, 1, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0, 1, 0, 0),
-(618, 'oyedyny1', 'b2cT/JcJDJlAM', 1, NULL, NULL, NULL, NULL, 1, 0, 0, 0, 0, 0, 0, 8, 10, 10, 12, 14, 16, 16, 18, 1, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0, 1, 0, 0),
-(619, 'fzaidi1', 'Zm2jlUleN4KWI', 1, NULL, NULL, NULL, NULL, 1, 0, 0, 0, 0, 0, 0, 8, 10, 10, 12, 14, 16, 16, 18, 1, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0, 1, 0, 0),
-(620, 'fzehrao1', 'Zm2jlUleN4KWI', 1, NULL, NULL, NULL, NULL, 1, 0, 0, 0, 0, 0, 0, 8, 10, 10, 12, 14, 16, 16, 18, 1, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0, 1, 0, 0),
-(621, 'anicola1', 'YWLrZ2rh57dzE', 1, NULL, NULL, NULL, NULL, 1, 0, 0, 0, 0, 0, 0, 8, 10, 10, 12, 14, 16, 16, 18, 1, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0, 1, 0, 0);
+INSERT INTO `login_prof` (`codeProf`, `login`, `motPasse`, `horizontal`, `selecGroupe`, `selecProf`, `selecSalle`, `selecMateriel`, `weekend`, `couleur_groupe`, `couleur_prof`, `couleur_salle`, `couleur_materiel`, `heureDebut`, `heureFin`, `bouton1Debut`, `bouton1Fin`, `bouton2Debut`, `bouton2Fin`, `bouton3Debut`, `bouton3Fin`, `bouton4Debut`, `bouton4Fin`, `reservation`, `module`, `bilan_heure`, `configuration`, `rss`, `bilan_heure_global`, `bilan_formation`, `pdf`, `seance_clicable`, `giseh`, `salle`, `mes_droits`, `admin`, `dialogue`, `emailProf`) VALUES
+(0, 'nomtest', '2f3bc18c0d3e6b1b8a445075535d26e9', 1, NULL, NULL, NULL, NULL, 1, 0, 0, 0, 0, 0, 0, 8, 10, 10, 12, 14, 16, 16, 18, 1, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0, 1, 0, 0, 'christelle.ayangma@gmail.com'),
+(518, 'nagoulm1', '061e744a5b8b9b57b15266af05bbf68b', 1, NULL, NULL, NULL, NULL, 1, 0, 0, 0, 0, 0, 0, 8, 10, 10, 12, 14, 16, 16, 18, 1, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0, 1, 0, 0, NULL),
+(519, 'eangel1', '29988429c481f219b8c5ba8c071440e1', 1, NULL, NULL, NULL, NULL, 1, 0, 0, 0, 0, 0, 0, 8, 10, 10, 12, 14, 16, 16, 18, 1, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0, 1, 0, 0, NULL),
+(520, 'tatmaca1', '419ec1cf89c07ba4813d545e0134e6b6', 1, NULL, NULL, NULL, NULL, 1, 0, 0, 0, 0, 0, 0, 8, 10, 10, 12, 14, 16, 16, 18, 1, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0, 1, 0, 0, NULL),
+(521, 'abaczko1', '592db47d5ccc62700d6dfc9f16c1f862', 1, NULL, NULL, NULL, NULL, 1, 0, 0, 0, 0, 0, 0, 8, 10, 10, 12, 14, 16, 16, 18, 1, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0, 1, 0, 0, NULL),
+(522, 'fbelard1', 'fc5dcf7973e9b1b5d3fcd98d4e3e3d8f', 1, NULL, NULL, NULL, NULL, 1, 0, 0, 0, 0, 0, 0, 8, 10, 10, 12, 14, 16, 16, 18, 1, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0, 1, 0, 0, NULL),
+(523, 'jbenzak1', 'a908ba2c8127aca53c44ab71193b96bd', 1, NULL, NULL, NULL, NULL, 1, 0, 0, 0, 0, 0, 0, 8, 10, 10, 12, 14, 16, 16, 18, 1, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0, 1, 0, 0, NULL),
+(524, 'xbernar1', '0f5366b3b19afc3184d23bc73d8cd311', 1, NULL, NULL, NULL, NULL, 1, 0, 0, 0, 0, 0, 0, 8, 10, 10, 12, 14, 16, 16, 18, 1, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0, 1, 0, 0, NULL),
+(525, 'lblin1', 'b7fff17259179e70d0d75e36032586c6', 1, NULL, NULL, NULL, NULL, 1, 0, 0, 0, 0, 0, 0, 8, 10, 10, 12, 14, 16, 16, 18, 1, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0, 1, 0, 0, NULL),
+(526, 'oboloka1', '46929ec3d692ebf1607c23f53bfa566e', 1, NULL, NULL, NULL, NULL, 1, 0, 0, 0, 0, 0, 0, 8, 10, 10, 12, 14, 16, 16, 18, 1, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0, 1, 0, 0, NULL),
+(527, 'sbourli1', '719430328e11f79a55f4c95b2faccfec', 1, 'TOUS', 'TOUS', 'TOUS', 'TOUS', 1, 0, 0, 0, 0, 0, 0, 8, 10, 10, 12, 14, 16, 16, 18, 1, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0, 1, 0, 0, NULL),
+(528, 'abradai1', '0ae39049910b110bea964228da2c9faa', 1, NULL, NULL, NULL, NULL, 1, 0, 0, 0, 0, 0, 0, 8, 10, 10, 12, 14, 16, 16, 18, 1, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0, 1, 0, 0, NULL),
+(529, 'rbrault1', '5026bc63b5418ffdb54f238db245ec01', 1, NULL, NULL, NULL, NULL, 1, 0, 0, 0, 0, 0, 0, 8, 10, 10, 12, 14, 16, 16, 18, 1, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0, 1, 0, 0, NULL),
+(530, 'pbrocha1', '84675f2baf7140037b8f5afe54eef841', 1, NULL, NULL, NULL, NULL, 1, 0, 0, 0, 0, 0, 0, 8, 10, 10, 12, 14, 16, 16, 18, 1, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0, 1, 0, 0, NULL),
+(531, 'cbrouar1', 'dba7b8a81dc064a62919df57e69d0054', 1, NULL, NULL, NULL, NULL, 1, 0, 0, 0, 0, 0, 0, 8, 10, 10, 12, 14, 16, 16, 18, 1, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0, 1, 0, 0, NULL),
+(532, 'nbrunel1', 'deb97a759ee7b8ba42e02dddf2b412fe', 1, NULL, NULL, NULL, NULL, 1, 0, 0, 0, 0, 0, 0, 8, 10, 10, 12, 14, 16, 16, 18, 1, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0, 1, 0, 0, NULL),
+(533, 'gburel1', '0937d6b529933d0ef59ce458668013b9', 1, NULL, NULL, NULL, NULL, 1, 0, 0, 0, 0, 0, 0, 8, 10, 10, 12, 14, 16, 16, 18, 1, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0, 1, 0, 0, NULL),
+(534, 'acavall1', '276b6c4692e78d4799c12ada515bc3e4', 1, NULL, NULL, NULL, NULL, 1, 0, 0, 0, 0, 0, 0, 8, 10, 10, 12, 14, 16, 16, 18, 1, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0, 1, 0, 0, NULL),
+(535, 'scerrit1', 'a88d4a13b65c49cf68ffbac4db7fdc29', 1, NULL, NULL, NULL, NULL, 1, 0, 0, 0, 0, 0, 0, 8, 10, 10, 12, 14, 16, 16, 18, 1, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0, 1, 0, 0, NULL),
+(536, 'fchamme1', 'b86c05240e1a30474d980f7bee2b2d7c', 1, NULL, NULL, NULL, NULL, 1, 0, 0, 0, 0, 0, 0, 8, 10, 10, 12, 14, 16, 16, 18, 1, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0, 1, 0, 0, NULL),
+(537, 'jchapel1', '527bd5b5d689e2c32ae974c6229ff785', 1, NULL, NULL, NULL, NULL, 1, 0, 0, 0, 0, 0, 0, 8, 10, 10, 12, 14, 16, 16, 18, 1, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0, 1, 0, 0, NULL),
+(538, 'vchau1', 'b15ab3f829f0f897fe507ef548741afb', 1, NULL, NULL, NULL, NULL, 1, 0, 0, 0, 0, 0, 0, 8, 10, 10, 12, 14, 16, 16, 18, 1, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0, 1, 0, 0, NULL),
+(539, 'echerka1', '4e59c9bc4975a1b8fd4b12575363cdbe', 1, NULL, NULL, NULL, NULL, 1, 0, 0, 0, 0, 0, 0, 8, 10, 10, 12, 14, 16, 16, 18, 1, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0, 1, 0, 0, NULL),
+(540, 'cchetta1', '7c2b2017fa1972641674079ba5235e59', 1, NULL, NULL, NULL, NULL, 1, 0, 0, 0, 0, 0, 0, 8, 10, 10, 12, 14, 16, 16, 18, 1, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0, 1, 0, 0, NULL),
+(541, 'dcinzia1', '2096cdf120e2dba5f10fc6488b617574', 1, NULL, NULL, NULL, NULL, 1, 0, 0, 0, 0, 0, 0, 8, 10, 10, 12, 14, 16, 16, 18, 1, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0, 1, 0, 0, NULL),
+(542, 'dconan1', 'c3875d07f44c422f3b3bc019c23e16ae', 1, NULL, NULL, NULL, NULL, 1, 0, 0, 0, 0, 0, 0, 8, 10, 10, 12, 14, 16, 16, 18, 1, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0, 1, 0, 0, NULL),
+(543, 'econdet1', '29988429c481f219b8c5ba8c071440e1', 1, NULL, NULL, NULL, NULL, 1, 0, 0, 0, 0, 0, 0, 8, 10, 10, 12, 14, 16, 16, 18, 1, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0, 1, 0, 0, NULL),
+(544, 'dcourta1', 'a16b0ae55a23dcd02698c76d400445e3', 1, 'TOUS', 'TOUS', 'TOUS', 'TOUS', 0, 0, 0, 0, 0, 8, 19.5, 8, 10, 10, 12, 14, 16, 16, 18, 1, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0, 1, 0, 0, 'anandout.kevin@gmail.com'),
+(545, 'acox1', 'a70f9e38ff015afaa9ab0aacabee2e13', 1, NULL, NULL, NULL, NULL, 1, 0, 0, 0, 0, 0, 0, 8, 10, 10, 12, 14, 16, 16, 18, 1, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0, 1, 0, 0, NULL),
+(546, 'fdalche1', '062c148454b0db6e5a29547c0220a83e', 1, NULL, NULL, NULL, NULL, 1, 0, 0, 0, 0, 0, 0, 8, 10, 10, 12, 14, 16, 16, 18, 1, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0, 1, 0, 0, NULL),
+(547, 'adavid1', '5b4ac833a90cb6fe84ca5672deb5fb0e', 1, NULL, NULL, NULL, NULL, 1, 0, 0, 0, 0, 0, 0, 8, 10, 10, 12, 14, 16, 16, 18, 1, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0, 1, 0, 0, NULL),
+(548, 'pdecler1', '9a6663f1bf0c56043bff6efc2b6a2599', 1, NULL, NULL, NULL, NULL, 1, 0, 0, 0, 0, 0, 0, 8, 10, 10, 12, 14, 16, 16, 18, 1, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0, 1, 0, 0, NULL),
+(549, 'bdefude1', 'e3928a3bc4be46516aa33a79bbdfdb08', 1, NULL, NULL, NULL, NULL, 1, 0, 0, 0, 0, 0, 0, 8, 10, 10, 12, 14, 16, 16, 18, 1, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0, 1, 0, 0, NULL),
+(550, 'pdelann1', '84675f2baf7140037b8f5afe54eef841', 1, NULL, NULL, NULL, NULL, 1, 0, 0, 0, 0, 0, 0, 8, 10, 10, 12, 14, 16, 16, 18, 1, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0, 1, 0, 0, NULL),
+(551, 'fdelapl1', '6f31afdd1748f40493ce3d75a0d792f1', 1, NULL, NULL, NULL, NULL, 1, 0, 0, 0, 0, 0, 0, 8, 10, 10, 12, 14, 16, 16, 18, 1, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0, 1, 0, 0, NULL),
+(552, 'jdelosm1', '22043b5a5eba81f363218d375fb8e08a', 1, NULL, NULL, NULL, NULL, 1, 0, 0, 0, 0, 0, 0, 8, 10, 10, 12, 14, 16, 16, 18, 1, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0, 1, 0, 0, NULL),
+(553, 'bdjafri1', 'a452f8e8f18cd553499e9a3aa077f62d', 1, NULL, NULL, NULL, NULL, 1, 0, 0, 0, 0, 0, 0, 8, 10, 10, 12, 14, 16, 16, 18, 1, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0, 1, 0, 0, NULL),
+(554, 'pdossan1', '84675f2baf7140037b8f5afe54eef841', 1, NULL, NULL, NULL, NULL, 1, 0, 0, 0, 0, 0, 0, 8, 10, 10, 12, 14, 16, 16, 18, 1, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0, 1, 0, 0, NULL),
+(555, 'cdubois1', '5eb59a1c45ec8d0eafe705c45aa15ce1', 1, NULL, NULL, NULL, NULL, 1, 0, 0, 0, 0, 0, 0, 8, 10, 10, 12, 14, 16, 16, 18, 1, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0, 1, 0, 0, NULL),
+(556, 'jdupas1', '6f27a0611ef181adc21ce8c0610db66a', 1, NULL, NULL, NULL, NULL, 1, 0, 0, 0, 0, 0, 0, 8, 10, 10, 12, 14, 16, 16, 18, 1, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0, 1, 0, 0, NULL),
+(557, 'ddupont1', 'c3875d07f44c422f3b3bc019c23e16ae', 1, NULL, NULL, NULL, NULL, 1, 0, 0, 0, 0, 0, 0, 8, 10, 10, 12, 14, 16, 16, 18, 1, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0, 1, 0, 0, NULL),
+(558, 'melati1', 'd79cd06799863224b7324d969c1e2084', 1, NULL, NULL, NULL, NULL, 1, 0, 0, 0, 0, 0, 0, 8, 10, 10, 12, 14, 16, 16, 18, 1, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0, 1, 0, 0, NULL),
+(560, 'mguilla1', 'd780182f77b121450849c2b088a444f0', 1, NULL, NULL, NULL, NULL, 1, 0, 0, 0, 0, 0, 0, 8, 10, 10, 12, 14, 16, 16, 18, 1, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0, 1, 0, 0, NULL),
+(561, 'dhanich1', '23e8713a90b1585c2d7fbd6341fa3d8c', 1, NULL, NULL, NULL, NULL, 1, 0, 0, 0, 0, 0, 0, 8, 10, 10, 12, 14, 16, 16, 18, 1, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0, 1, 0, 0, NULL),
+(562, 'lhannac1', '754f9968bf5f5f68d7dea029889b7415', 1, NULL, NULL, NULL, NULL, 1, 0, 0, 0, 0, 0, 0, 8, 10, 10, 12, 14, 16, 16, 18, 1, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0, 1, 0, 0, NULL),
+(563, 'hautre1', 'd41d8cd98f00b204e9800998ecf8427e', 1, NULL, NULL, NULL, NULL, 1, 0, 0, 0, 0, 0, 0, 8, 10, 10, 12, 14, 16, 16, 18, 1, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0, 1, 0, 0, NULL),
+(564, 'ghutzle1', '0937d6b529933d0ef59ce458668013b9', 1, NULL, NULL, NULL, NULL, 1, 0, 0, 0, 0, 0, 0, 8, 10, 10, 12, 14, 16, 16, 18, 1, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0, 1, 0, 0, NULL),
+(565, 'jjanode1', '1cc155ed579a52f6c9d8feb361d21b20', 1, NULL, NULL, NULL, NULL, 1, 0, 0, 0, 0, 0, 0, 8, 10, 10, 12, 14, 16, 16, 18, 1, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0, 1, 0, 0, NULL),
+(566, 'ljouann1', '34a321664be49e31c2368f6f42798a98', 1, NULL, NULL, NULL, NULL, 1, 0, 0, 0, 0, 0, 0, 8, 10, 10, 12, 14, 16, 16, 18, 1, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0, 1, 0, 0, NULL),
+(567, 'hklaude1', '300bf52dd231262bc2b99237e727246d', 1, NULL, NULL, NULL, NULL, 1, 0, 0, 0, 0, 0, 0, 8, 10, 10, 12, 14, 16, 16, 18, 1, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0, 1, 0, 0, NULL),
+(568, 'nkowals1', 'deb97a759ee7b8ba42e02dddf2b412fe', 1, NULL, NULL, NULL, NULL, 1, 0, 0, 0, 0, 0, 0, 8, 10, 10, 12, 14, 16, 16, 18, 1, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0, 1, 0, 0, NULL),
+(569, 'ylabord1', 'afe3bd960b4c46a68580c4e564cca24e', 1, NULL, NULL, NULL, NULL, 1, 0, 0, 0, 0, 0, 0, 8, 10, 10, 12, 14, 16, 16, 18, 1, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0, 1, 0, 0, NULL),
+(570, 'dlahbib1', '9da0656bb92d8afe24a57fdbb1aec71e', 1, NULL, NULL, NULL, NULL, 1, 0, 0, 0, 0, 0, 0, 8, 10, 10, 12, 14, 16, 16, 18, 1, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0, 1, 0, 0, NULL),
+(571, 'tlavall1', '66aad1c91c97f583dcab2363a2bd3c6e', 1, NULL, NULL, NULL, NULL, 1, 0, 0, 0, 0, 0, 0, 8, 10, 10, 12, 14, 16, 16, 18, 1, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0, 1, 0, 0, NULL),
+(572, 'ylecorn1', '82740fe82ac14615e7961e78ede591cc', 1, NULL, NULL, NULL, NULL, 1, 0, 0, 0, 0, 0, 0, 8, 10, 10, 12, 14, 16, 16, 18, 1, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0, 1, 0, 0, NULL),
+(573, 'cle1', '1ffff115cb5250eb6099bad8e6d4a27c', 1, NULL, NULL, NULL, NULL, 1, 0, 0, 0, 0, 0, 0, 8, 10, 10, 12, 14, 16, 16, 18, 1, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0, 1, 0, 0, NULL),
+(574, 'fledoux1', '6f31afdd1748f40493ce3d75a0d792f1', 1, NULL, NULL, NULL, NULL, 1, 0, 0, 0, 0, 0, 0, 8, 10, 10, 12, 14, 16, 16, 18, 1, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0, 1, 0, 0, NULL),
+(575, 'ylegran1', 'afe3bd960b4c46a68580c4e564cca24e', 1, NULL, NULL, NULL, NULL, 1, 0, 0, 0, 0, 0, 0, 8, 10, 10, 12, 14, 16, 16, 18, 1, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0, 1, 0, 0, NULL),
+(576, 'bleland1', '0b36e58acc0a3c7f807b049c935f3b94', 1, NULL, NULL, NULL, NULL, 1, 0, 0, 0, 0, 0, 0, 8, 10, 10, 12, 14, 16, 16, 18, 1, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0, 1, 0, 0, NULL),
+(577, 'sleland1', '719430328e11f79a55f4c95b2faccfec', 1, NULL, NULL, NULL, NULL, 1, 0, 0, 0, 0, 0, 0, 8, 10, 10, 12, 14, 16, 16, 18, 1, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0, 1, 0, 0, NULL),
+(578, 'nlim1', '20dc69f8ab98afa59c8f72c9e2fe2da0', 1, NULL, NULL, NULL, NULL, 1, 0, 0, 0, 0, 0, 0, 8, 10, 10, 12, 14, 16, 16, 18, 1, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0, 1, 0, 0, NULL),
+(579, 'clouvea1', '723e1489a45d2cbaefec82eee410abd5', 1, NULL, NULL, NULL, NULL, 1, 0, 0, 0, 0, 0, 0, 8, 10, 10, 12, 14, 16, 16, 18, 1, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0, 1, 0, 0, NULL),
+(580, 'dlubin1', 'c3875d07f44c422f3b3bc019c23e16ae', 1, NULL, NULL, NULL, NULL, 1, 0, 0, 0, 0, 0, 0, 8, 10, 10, 12, 14, 16, 16, 18, 1, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0, 1, 0, 0, NULL),
+(581, 'glucare1', '16cdae1dc8f5ccc69c51eea2851bff68', 1, NULL, NULL, NULL, NULL, 1, 0, 0, 0, 0, 0, 0, 8, 10, 10, 12, 14, 16, 16, 18, 1, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0, 1, 0, 0, NULL),
+(582, 'plucas1', '7edeafe34b5b605589cdbb494218a998', 1, NULL, NULL, NULL, NULL, 1, 0, 0, 0, 0, 0, 0, 8, 10, 10, 12, 14, 16, 16, 18, 1, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0, 1, 0, 0, NULL),
+(583, 'rmacnam1', '07d571e9bc03a9b1abd8d8bf3e2de7da', 1, NULL, NULL, NULL, NULL, 1, 0, 0, 0, 0, 0, 0, 8, 10, 10, 12, 14, 16, 16, 18, 1, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0, 1, 0, 0, NULL),
+(584, 'tmellit1', '175076f9a90d14a4823d64c7728610ae', 1, NULL, NULL, NULL, NULL, 1, 0, 0, 0, 0, 0, 0, 8, 10, 10, 12, 14, 16, 16, 18, 1, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0, 1, 0, 0, NULL),
+(585, 'amezine1', '94c93d4f9686cfeae29e9cbc3230cbf9', 1, NULL, NULL, NULL, NULL, 1, 0, 0, 0, 0, 0, 0, 8, 10, 10, 12, 14, 16, 16, 18, 1, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0, 1, 0, 0, NULL),
+(586, 'dmillot1', 'aa47f8215c6f30a0dcdb2a36a9f4168e', 1, NULL, NULL, NULL, NULL, 1, 0, 0, 0, 0, 0, 0, 8, 10, 10, 12, 14, 16, 16, 18, 1, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0, 1, 0, 0, NULL),
+(587, 'cmoulin1', '60784186ea5b29f3f7e16238805ab329', 1, NULL, NULL, NULL, NULL, 1, 0, 0, 0, 0, 0, 0, 8, 10, 10, 12, 14, 16, 16, 18, 1, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0, 1, 0, 0, NULL),
+(588, 'amunier1', 'c47d0161b2496990ef5401a61be74552', 1, NULL, NULL, NULL, NULL, 1, 0, 0, 0, 0, 0, 0, 8, 10, 10, 12, 14, 16, 16, 18, 1, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0, 1, 0, 0, NULL),
+(589, 'jmunier1', 'e159363f980cf9517cee7acfa1a69aef', 1, NULL, NULL, NULL, NULL, 1, 0, 0, 0, 0, 0, 0, 8, 10, 10, 12, 14, 16, 16, 18, 1, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0, 1, 0, 0, NULL),
+(590, 'enadam1', '2c1d4d81d31b72725a1516a12a1d1f00', 1, NULL, NULL, NULL, NULL, 1, 0, 0, 0, 0, 0, 0, 8, 10, 10, 12, 14, 16, 16, 18, 1, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0, 1, 0, 0, NULL),
+(591, 'knguyen1', '71db7c5b430d30b74f94c5882622d970', 1, NULL, NULL, NULL, NULL, 1, 0, 0, 0, 0, 0, 0, 8, 10, 10, 12, 14, 16, 16, 18, 1, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0, 1, 0, 0, NULL),
+(592, 'vnguyen1', 'b8d23d645e33004631714bf299aa25ba', 1, NULL, NULL, NULL, NULL, 1, 0, 0, 0, 0, 0, 0, 8, 10, 10, 12, 14, 16, 16, 18, 1, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0, 1, 0, 0, NULL),
+(593, 'cniermo1', '7ff135854376850e9711bd75ce942e07', 1, NULL, NULL, NULL, NULL, 1, 0, 0, 0, 0, 0, 0, 8, 10, 10, 12, 14, 16, 16, 18, 1, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0, 1, 0, 0, NULL),
+(594, 'snollet1', '6988ec3aba1eaddf2435141bf10487ca', 1, NULL, NULL, NULL, NULL, 1, 0, 0, 0, 0, 0, 0, 8, 10, 10, 12, 14, 16, 16, 18, 1, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0, 1, 0, 0, NULL),
+(595, 'fpapado1', '01df32998cb49083a65574ea325d2c36', 1, NULL, NULL, NULL, NULL, 1, 0, 0, 0, 0, 0, 0, 8, 10, 10, 12, 14, 16, 16, 18, 1, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0, 1, 0, 0, NULL),
+(596, 'jperrau1', '8b38be0dc84c25d660b0f8f93e3eff96', 1, NULL, NULL, NULL, NULL, 1, 0, 0, 0, 0, 0, 0, 8, 10, 10, 12, 14, 16, 16, 18, 1, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0, 1, 0, 0, NULL),
+(597, 'ppetit1', '57c2877c1d84c4b49f3289657deca65c', 1, NULL, NULL, NULL, NULL, 1, 0, 0, 0, 0, 0, 0, 8, 10, 10, 12, 14, 16, 16, 18, 1, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0, 1, 0, 0, NULL),
+(598, 'dploix1', '5f31769db16ce3556b416de8d4fb2fff', 1, NULL, NULL, NULL, NULL, 1, 0, 0, 0, 0, 0, 0, 8, 10, 10, 12, 14, 16, 16, 18, 1, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0, 1, 0, 0, NULL),
+(599, 'lpolign1', '34a321664be49e31c2368f6f42798a98', 1, NULL, NULL, NULL, NULL, 1, 0, 0, 0, 0, 0, 0, 8, 10, 10, 12, 14, 16, 16, 18, 1, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0, 1, 0, 0, NULL),
+(600, 'fpommer1', '6f31afdd1748f40493ce3d75a0d792f1', 1, NULL, NULL, NULL, NULL, 1, 0, 0, 0, 0, 0, 0, 8, 10, 10, 12, 14, 16, 16, 18, 1, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0, 1, 0, 0, NULL),
+(601, 'opons1', 'd3ca5dde60f88db606021eeba2499c02', 1, NULL, NULL, NULL, NULL, 1, 0, 0, 0, 0, 0, 0, 8, 10, 10, 12, 14, 16, 16, 18, 1, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0, 1, 0, 0, NULL),
+(602, 'vprevos1', 'f75b8fabcdfbfbca150f760716d8b380', 1, NULL, NULL, NULL, NULL, 1, 0, 0, 0, 0, 0, 0, 8, 10, 10, 12, 14, 16, 16, 18, 1, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0, 1, 0, 0, NULL),
+(603, 'aprot1', '3d65fd70d95a4edfe9555d0ebeca2b17', 1, NULL, NULL, NULL, NULL, 1, 0, 0, 0, 0, 0, 0, 8, 10, 10, 12, 14, 16, 16, 18, 1, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0, 1, 0, 0, NULL),
+(604, 'bprum1', '78d6810e1299959f3a8db157045aa926', 1, NULL, NULL, NULL, NULL, 1, 0, 0, 0, 0, 0, 0, 8, 10, 10, 12, 14, 16, 16, 18, 1, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0, 1, 0, 0, NULL),
+(605, 'mrahoua1', '13d78dac7eea692d57ba98d1858cb5a9', 1, NULL, NULL, NULL, NULL, 1, 0, 0, 0, 0, 0, 0, 8, 10, 10, 12, 14, 16, 16, 18, 1, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0, 1, 0, 0, NULL),
+(606, 'drajche1', '172522ec1028ab781d9dfd17eaca4427', 1, NULL, NULL, NULL, NULL, 1, 0, 0, 0, 0, 0, 0, 8, 10, 10, 12, 14, 16, 16, 18, 1, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0, 1, 0, 0, NULL),
+(607, 'dregnau1', '5f31769db16ce3556b416de8d4fb2fff', 1, NULL, NULL, NULL, NULL, 1, 0, 0, 0, 0, 0, 0, 8, 10, 10, 12, 14, 16, 16, 18, 1, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0, 1, 0, 0, NULL),
+(608, 'mrozenb1', '97e1e59c0375e0f55c10d4314db20466', 1, NULL, NULL, NULL, NULL, 1, 0, 0, 0, 0, 0, 0, 8, 10, 10, 12, 14, 16, 16, 18, 1, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0, 1, 0, 0, NULL),
+(609, 'asayed1', '74efb8aac68e37c289dfcf260e19ab25', 1, NULL, NULL, NULL, NULL, 1, 0, 0, 0, 0, 0, 0, 8, 10, 10, 12, 14, 16, 16, 18, 1, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0, 1, 0, 0, NULL),
+(610, 'jsignol1', '30d69d863dde81562ce277fbc0a3cf18', 1, NULL, NULL, NULL, NULL, 1, 0, 0, 0, 0, 0, 0, 8, 10, 10, 12, 14, 16, 16, 18, 1, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0, 1, 0, 0, NULL),
+(611, 'tsimon1', 'ef6e65efc188e7dffd7335b646a85a21', 1, NULL, NULL, NULL, NULL, 1, 0, 0, 0, 0, 0, 0, 8, 10, 10, 12, 14, 16, 16, 18, 1, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0, 1, 0, 0, NULL),
+(612, 'gsoubri1', '92d06f151d61fc2d4e64dae37577d3d2', 1, NULL, NULL, NULL, NULL, 1, 0, 0, 0, 0, 0, 0, 8, 10, 10, 12, 14, 16, 16, 18, 1, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0, 1, 0, 0, NULL),
+(613, 'ysoulab1', '11fc3d25620edbaebea78565eaee7e97', 1, NULL, NULL, NULL, NULL, 1, 0, 0, 0, 0, 0, 0, 8, 10, 10, 12, 14, 16, 16, 18, 1, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0, 1, 0, 0, NULL),
+(614, 'ctacone1', '3bcb1019826b4ab2a9c84350a7dca708', 1, NULL, NULL, NULL, NULL, 1, 0, 0, 0, 0, 0, 0, 8, 10, 10, 12, 14, 16, 16, 18, 1, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0, 1, 0, 0, NULL),
+(615, 'ftahi1', 'd6e218fb280f4331b3db65a49008ed9f', 1, 'TOUS', 'TOUS', 'TOUS', 'TOUS', 1, 0, 0, 0, 0, 0, 0, 8, 10, 10, 12, 14, 16, 16, 18, 1, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0, 1, 0, 0, NULL),
+(616, 'pthory1', '84675f2baf7140037b8f5afe54eef841', 1, NULL, NULL, NULL, NULL, 1, 0, 0, 0, 0, 0, 0, 8, 10, 10, 12, 14, 16, 16, 18, 1, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0, 1, 0, 0, NULL),
+(617, 'fvermil1', '01df32998cb49083a65574ea325d2c36', 1, NULL, NULL, NULL, NULL, 1, 0, 0, 0, 0, 0, 0, 8, 10, 10, 12, 14, 16, 16, 18, 1, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0, 1, 0, 0, NULL),
+(618, 'oyedyny1', '46929ec3d692ebf1607c23f53bfa566e', 1, NULL, NULL, NULL, NULL, 1, 0, 0, 0, 0, 0, 0, 8, 10, 10, 12, 14, 16, 16, 18, 1, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0, 1, 0, 0, NULL),
+(619, 'fzaidi1', '41a6a36598a0acd0d0c3aac95edc7b35', 1, NULL, NULL, NULL, NULL, 1, 0, 0, 0, 0, 0, 0, 8, 10, 10, 12, 14, 16, 16, 18, 1, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0, 1, 0, 0, NULL),
+(620, 'fzehrao1', '41a6a36598a0acd0d0c3aac95edc7b35', 1, NULL, NULL, NULL, NULL, 1, 0, 0, 0, 0, 0, 0, 8, 10, 10, 12, 14, 16, 16, 18, 1, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0, 1, 0, 0, NULL),
+(621, 'anicola1', 'e3fb62ebfa4f36acf5cbff6a6ed0f2e0', 1, NULL, NULL, NULL, NULL, 1, 0, 0, 0, 0, 0, 0, 8, 10, 10, 12, 14, 16, 16, 18, 1, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0, 1, 0, 0, NULL);
 
 -- --------------------------------------------------------
 
@@ -2889,8 +2789,8 @@ INSERT INTO `login_prof` (`codeProf`, `login`, `motPasse`, `horizontal`, `selecG
 -- Structure de la table `matieres`
 --
 
-CREATE TABLE IF NOT EXISTS `matieres` (
-  `codeMatiere` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `matieres` (
+`codeMatiere` int(11) NOT NULL,
   `couleurFond` bigint(20) NOT NULL DEFAULT '0',
   `couleurPolice` bigint(20) NOT NULL DEFAULT '0',
   `nom` varchar(255) NOT NULL DEFAULT 'MATIERE?',
@@ -2902,12 +2802,8 @@ CREATE TABLE IF NOT EXISTS `matieres` (
   `deleted` tinyint(4) NOT NULL DEFAULT '0',
   `codeProprietaire` bigint(20) NOT NULL DEFAULT '0',
   `commentaire` varchar(150) NOT NULL,
-  `identifiant` varchar(50) NOT NULL,
-  PRIMARY KEY (`codeMatiere`),
-  KEY `IDX_matiere_del` (`deleted`) USING BTREE,
-  KEY `IDX_matiere_prop` (`codeProprietaire`) USING BTREE,
-  KEY `IDX_matiere_dateModif` (`dateModif`) USING BTREE
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1304 ;
+  `identifiant` varchar(50) NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=1308 DEFAULT CHARSET=latin1;
 
 --
 -- Contenu de la table `matieres`
@@ -4219,7 +4115,11 @@ INSERT INTO `matieres` (`codeMatiere`, `couleurFond`, `couleurPolice`, `nom`, `t
 (1300, 16777215, 0, 'M2A_PROJETS FOUILLES DE DONNEES', 0, 0, 'M2A_PROJETS FOUILLES DE DONNEES', '2014-09-19 14:26:55', '2014-09-19 16:26:55', 0, 777, '', ''),
 (1301, 16777215, 0, 'M2A_SECURITE DES SYSTEMES D INFORMATIONS', 0, 0, '', '2014-09-24 13:18:21', '2014-09-24 15:18:21', 0, 777, '', ''),
 (1302, 16777215, 0, 'M2A_URBANISATION DES SYSTEMES D INFORMATION', 0, 0, '', '2014-09-24 13:18:21', '2014-09-24 15:18:21', 0, 777, '', ''),
-(1303, 16777215, 0, 'M2A_PROJET', 0, 0, '', '2014-09-24 13:18:21', '2014-09-24 15:18:21', 0, 777, '', '');
+(1303, 16777215, 0, 'M2A_PROJET', 0, 0, '', '2014-09-24 13:18:21', '2014-09-24 15:18:21', 0, 777, '', ''),
+(1304, 0, 0, 'rejh', 0, 0, 'MATIERE?', '2015-01-17 15:01:05', '2015-01-17 16:01:05', 0, 777, '', ''),
+(1305, 0, 0, 'Demo', 0, 0, 'MATIERE?', '2015-01-19 12:12:16', '2015-01-19 13:12:16', 0, 777, '', ''),
+(1306, 0, 0, 'DEMO3', 0, 0, 'MATIERE?', '2015-01-19 13:51:53', '2015-01-19 14:51:53', 0, 777, '', ''),
+(1307, 0, 0, 'BLAAAAAA', 0, 0, 'MATIERE?', '2015-01-23 18:23:52', '2015-01-23 19:23:52', 0, 777, '', '');
 
 -- --------------------------------------------------------
 
@@ -4227,15 +4127,13 @@ INSERT INTO `matieres` (`codeMatiere`, `couleurFond`, `couleurPolice`, `nom`, `t
 -- Structure de la table `matieres_diplomes`
 --
 
-CREATE TABLE IF NOT EXISTS `matieres_diplomes` (
+CREATE TABLE `matieres_diplomes` (
   `codeMatiere` int(11) NOT NULL,
   `codeDiplome` int(11) NOT NULL,
   `codeProprietaire` int(11) NOT NULL,
   `dateModif` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `dateCreation` datetime NOT NULL,
-  `deleted` tinyint(1) NOT NULL,
-  KEY `IDX_matdip_del` (`deleted`) USING BTREE,
-  KEY `IDX_matdip_modif` (`dateModif`) USING BTREE
+  `deleted` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -4244,7 +4142,7 @@ CREATE TABLE IF NOT EXISTS `matieres_diplomes` (
 -- Structure de la table `matieres_types`
 --
 
-CREATE TABLE IF NOT EXISTS `matieres_types` (
+CREATE TABLE `matieres_types` (
   `codeTypeMatiere` int(11) NOT NULL,
   `nom` varchar(100) NOT NULL,
   `alias` varchar(50) NOT NULL,
@@ -4254,8 +4152,7 @@ CREATE TABLE IF NOT EXISTS `matieres_types` (
   `deleted` tinyint(1) NOT NULL,
   `commentaire` varchar(100) NOT NULL,
   `couleurFond` int(11) NOT NULL,
-  `couleurPolice` int(11) NOT NULL,
-  PRIMARY KEY (`codeTypeMatiere`)
+  `couleurPolice` int(11) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -4264,8 +4161,8 @@ CREATE TABLE IF NOT EXISTS `matieres_types` (
 -- Structure de la table `messages_ent`
 --
 
-CREATE TABLE IF NOT EXISTS `messages_ent` (
-  `codeMessage` int(10) unsigned NOT NULL AUTO_INCREMENT,
+CREATE TABLE `messages_ent` (
+`codeMessage` int(10) unsigned NOT NULL,
   `codeSeance` int(10) unsigned NOT NULL,
   `idAuteur` int(10) unsigned NOT NULL,
   `dateCreation` datetime NOT NULL,
@@ -4274,9 +4171,8 @@ CREATE TABLE IF NOT EXISTS `messages_ent` (
   `message` varchar(150) NOT NULL,
   `deleted` tinyint(1) NOT NULL,
   `accord` tinyint(1) NOT NULL,
-  `typeAuteur` int(2) unsigned NOT NULL,
-  PRIMARY KEY (`codeMessage`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+  `typeAuteur` int(2) unsigned NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -4284,7 +4180,7 @@ CREATE TABLE IF NOT EXISTS `messages_ent` (
 -- Structure de la table `modifications`
 --
 
-CREATE TABLE IF NOT EXISTS `modifications` (
+CREATE TABLE `modifications` (
   `code` int(11) NOT NULL,
   `dateModif` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `codeProprietaire` int(11) NOT NULL,
@@ -4301,8 +4197,8 @@ CREATE TABLE IF NOT EXISTS `modifications` (
 -- Structure de la table `modules`
 --
 
-CREATE TABLE IF NOT EXISTS `modules` (
-  `codeModule` bigint(20) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `modules` (
+`codeModule` bigint(20) NOT NULL,
   `couleurFond` bigint(20) NOT NULL DEFAULT '0',
   `couleurPolice` bigint(20) NOT NULL DEFAULT '0',
   `nom` varchar(50) NOT NULL DEFAULT 'MODULE?',
@@ -4312,12 +4208,8 @@ CREATE TABLE IF NOT EXISTS `modules` (
   `deleted` tinyint(4) NOT NULL DEFAULT '0',
   `codeProprietaire` bigint(20) NOT NULL DEFAULT '0',
   `identifiant` varchar(50) DEFAULT NULL,
-  `commentaire` varchar(50) DEFAULT NULL,
-  PRIMARY KEY (`codeModule`),
-  KEY `IDX_module_del` (`deleted`) USING BTREE,
-  KEY `IDX_module_prop` (`codeProprietaire`) USING BTREE,
-  KEY `IDX_module_dateModif` (`dateModif`) USING BTREE
-) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+  `commentaire` varchar(50) DEFAULT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -4325,17 +4217,12 @@ CREATE TABLE IF NOT EXISTS `modules` (
 -- Structure de la table `modules_etudiants`
 --
 
-CREATE TABLE IF NOT EXISTS `modules_etudiants` (
+CREATE TABLE `modules_etudiants` (
   `codeModule` bigint(20) NOT NULL DEFAULT '0',
   `codeEtudiant` bigint(20) NOT NULL DEFAULT '0',
   `dateModif` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `deleted` tinyint(4) NOT NULL DEFAULT '0',
-  `codeProprietaire` bigint(20) NOT NULL DEFAULT '0',
-  KEY `IDX_modetud_code` (`codeModule`) USING BTREE,
-  KEY `IDX_modetud_codeEtud` (`codeEtudiant`) USING BTREE,
-  KEY `IDX_modetud_del` (`deleted`) USING BTREE,
-  KEY `IDX_modetud_prop` (`codeProprietaire`) USING BTREE,
-  KEY `IDX_modetud_dateModif` (`dateModif`) USING BTREE
+  `codeProprietaire` bigint(20) NOT NULL DEFAULT '0'
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -4344,17 +4231,12 @@ CREATE TABLE IF NOT EXISTS `modules_etudiants` (
 -- Structure de la table `modules_groupes`
 --
 
-CREATE TABLE IF NOT EXISTS `modules_groupes` (
+CREATE TABLE `modules_groupes` (
   `codeModule` bigint(20) NOT NULL DEFAULT '0',
   `codeGroupe` bigint(20) NOT NULL DEFAULT '0',
   `dateModif` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `deleted` tinyint(4) NOT NULL DEFAULT '0',
-  `codeProprietaire` bigint(20) NOT NULL DEFAULT '0',
-  KEY `IDX_modetud_code` (`codeModule`) USING BTREE,
-  KEY `IDX_modetud_codeGroup` (`codeGroupe`) USING BTREE,
-  KEY `IDX_modetud_del` (`deleted`) USING BTREE,
-  KEY `IDX_modetud_prop` (`codeProprietaire`) USING BTREE,
-  KEY `IDX_modetud_dateModif` (`dateModif`) USING BTREE
+  `codeProprietaire` bigint(20) NOT NULL DEFAULT '0'
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -4363,17 +4245,12 @@ CREATE TABLE IF NOT EXISTS `modules_groupes` (
 -- Structure de la table `modules_matieres`
 --
 
-CREATE TABLE IF NOT EXISTS `modules_matieres` (
+CREATE TABLE `modules_matieres` (
   `codeMatiere` bigint(20) NOT NULL DEFAULT '0',
   `codeModule` bigint(20) NOT NULL DEFAULT '0',
   `dateModif` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `deleted` tinyint(4) NOT NULL DEFAULT '0',
-  `codeProprietaire` bigint(20) NOT NULL DEFAULT '0',
-  KEY `IDX_modmat_code` (`codeModule`) USING BTREE,
-  KEY `IDX_modmat_codeMat` (`codeMatiere`) USING BTREE,
-  KEY `IDX_modmat_del` (`deleted`) USING BTREE,
-  KEY `IDX_modmat_prop` (`codeProprietaire`) USING BTREE,
-  KEY `IDX_modmat_dateModif` (`dateModif`) USING BTREE
+  `codeProprietaire` bigint(20) NOT NULL DEFAULT '0'
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -4382,17 +4259,12 @@ CREATE TABLE IF NOT EXISTS `modules_matieres` (
 -- Structure de la table `modules_prerequis`
 --
 
-CREATE TABLE IF NOT EXISTS `modules_prerequis` (
+CREATE TABLE `modules_prerequis` (
   `codeModule` bigint(20) NOT NULL DEFAULT '0',
   `codePrerequis` bigint(20) NOT NULL DEFAULT '0',
   `dateModif` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `deleted` tinyint(4) NOT NULL DEFAULT '0',
-  `codeProprietaire` bigint(20) NOT NULL DEFAULT '0',
-  KEY `IDX_modpre_code` (`codeModule`) USING BTREE,
-  KEY `IDX_modpre_codePre` (`codePrerequis`) USING BTREE,
-  KEY `IDX_modpre_del` (`deleted`) USING BTREE,
-  KEY `IDX_modpre_prop` (`codeProprietaire`) USING BTREE,
-  KEY `IDX_modpre_dateModif` (`dateModif`) USING BTREE
+  `codeProprietaire` bigint(20) NOT NULL DEFAULT '0'
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -4401,8 +4273,8 @@ CREATE TABLE IF NOT EXISTS `modules_prerequis` (
 -- Structure de la table `niveaux`
 --
 
-CREATE TABLE IF NOT EXISTS `niveaux` (
-  `codeNiveau` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `niveaux` (
+`codeNiveau` int(11) NOT NULL,
   `couleurFond` bigint(20) NOT NULL DEFAULT '0',
   `couleurPolice` bigint(20) NOT NULL DEFAULT '0',
   `nom` varchar(200) NOT NULL DEFAULT 'MATIERE?',
@@ -4415,12 +4287,8 @@ CREATE TABLE IF NOT EXISTS `niveaux` (
   `identifiant` varchar(50) NOT NULL,
   `typeElement` tinyint(1) NOT NULL DEFAULT '0',
   `dateDebut` date NOT NULL,
-  `dateFin` date NOT NULL,
-  PRIMARY KEY (`codeNiveau`),
-  KEY `IDX_niveau_del` (`deleted`) USING BTREE,
-  KEY `IDX_niveau_prop` (`codeProprietaire`) USING BTREE,
-  KEY `IDX_niveau_dateModif` (`dateModif`) USING BTREE
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=27785325 ;
+  `dateFin` date NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=27785325 DEFAULT CHARSET=latin1;
 
 --
 -- Contenu de la table `niveaux`
@@ -4453,15 +4321,14 @@ INSERT INTO `niveaux` (`codeNiveau`, `couleurFond`, `couleurPolice`, `nom`, `ali
 -- Structure de la table `periodes`
 --
 
-CREATE TABLE IF NOT EXISTS `periodes` (
-  `codePeriode` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `periodes` (
+`codePeriode` int(11) NOT NULL,
   `codeProprietaire` int(11) NOT NULL,
   `nom` varchar(100) NOT NULL,
   `deleted` int(1) NOT NULL,
   `dateModif` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `dateCreation` datetime NOT NULL,
-  PRIMARY KEY (`codePeriode`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
+  `dateCreation` datetime NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 
 --
 -- Contenu de la table `periodes`
@@ -4478,7 +4345,7 @@ INSERT INTO `periodes` (`codePeriode`, `codeProprietaire`, `nom`, `deleted`, `da
 -- Structure de la table `periodes_dates`
 --
 
-CREATE TABLE IF NOT EXISTS `periodes_dates` (
+CREATE TABLE `periodes_dates` (
   `codePeriode` int(11) NOT NULL,
   `date` date NOT NULL,
   `dateModif` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
@@ -4545,8 +4412,8 @@ INSERT INTO `periodes_dates` (`codePeriode`, `date`, `dateModif`, `deleted`, `co
 -- Structure de la table `reservations`
 --
 
-CREATE TABLE IF NOT EXISTS `reservations` (
-  `codeReservation` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `reservations` (
+`codeReservation` int(11) NOT NULL,
   `commentaire` char(150) NOT NULL DEFAULT '',
   `dateDemande` date NOT NULL DEFAULT '0000-00-00',
   `heureDemande` bigint(5) NOT NULL DEFAULT '0',
@@ -4560,13 +4427,8 @@ CREATE TABLE IF NOT EXISTS `reservations` (
   `codeProprietaire` int(11) NOT NULL DEFAULT '0',
   `bloquee` tinyint(1) NOT NULL DEFAULT '0',
   `diffusable` tinyint(1) NOT NULL DEFAULT '1',
-  `indisponibilite` tinyint(1) NOT NULL DEFAULT '0',
-  PRIMARY KEY (`codeReservation`),
-  KEY `IDX_reserv_date` (`dateReservation`) USING BTREE,
-  KEY `IDX_reserv_del` (`deleted`) USING BTREE,
-  KEY `IDX_reserv_prop` (`codeProprietaire`) USING BTREE,
-  KEY `IDX_reserv_dateModif` (`dateModif`) USING BTREE
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+  `indisponibilite` tinyint(1) NOT NULL DEFAULT '0'
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -4574,14 +4436,12 @@ CREATE TABLE IF NOT EXISTS `reservations` (
 -- Structure de la table `reservations_enseignements`
 --
 
-CREATE TABLE IF NOT EXISTS `reservations_enseignements` (
+CREATE TABLE `reservations_enseignements` (
   `codeReservation` int(11) NOT NULL DEFAULT '0',
   `codeRessource` int(11) NOT NULL DEFAULT '0',
   `dateModif` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `deleted` tinyint(4) NOT NULL DEFAULT '0',
-  `codeProprietaire` int(11) NOT NULL DEFAULT '0',
-  KEY `IDX_reservEnseignements_codeSeance` (`codeReservation`) USING BTREE,
-  KEY `IDX_reservEnseignements_codeEnseignement` (`codeRessource`) USING BTREE
+  `codeProprietaire` int(11) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -4599,8 +4459,8 @@ INSERT INTO `reservations_enseignements` (`codeReservation`, `codeRessource`, `d
 -- Structure de la table `reservations_filieres`
 --
 
-CREATE TABLE IF NOT EXISTS `reservations_filieres` (
-  `codeReservation` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `reservations_filieres` (
+`codeReservation` int(11) NOT NULL,
   `commentaire` char(150) NOT NULL DEFAULT '',
   `dateDemande` date NOT NULL DEFAULT '0000-00-00',
   `heureDemande` bigint(5) NOT NULL DEFAULT '0',
@@ -4614,13 +4474,8 @@ CREATE TABLE IF NOT EXISTS `reservations_filieres` (
   `codeProprietaire` int(11) NOT NULL DEFAULT '0',
   `bloquee` tinyint(1) NOT NULL DEFAULT '0',
   `diffusable` tinyint(1) NOT NULL DEFAULT '1',
-  `indisponibilite` tinyint(1) NOT NULL DEFAULT '0',
-  PRIMARY KEY (`codeReservation`),
-  KEY `IDX_reserv_date` (`dateReservation`) USING BTREE,
-  KEY `IDX_reserv_del` (`deleted`) USING BTREE,
-  KEY `IDX_reserv_prop` (`codeProprietaire`) USING BTREE,
-  KEY `IDX_reserv_dateModif` (`dateModif`) USING BTREE
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+  `indisponibilite` tinyint(1) NOT NULL DEFAULT '0'
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -4628,15 +4483,12 @@ CREATE TABLE IF NOT EXISTS `reservations_filieres` (
 -- Structure de la table `reservations_groupes`
 --
 
-CREATE TABLE IF NOT EXISTS `reservations_groupes` (
+CREATE TABLE `reservations_groupes` (
   `codeReservation` int(11) NOT NULL DEFAULT '0',
   `codeRessource` int(11) NOT NULL DEFAULT '0',
   `dateModif` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `deleted` tinyint(4) NOT NULL DEFAULT '0',
-  `codeProprietaire` int(11) NOT NULL DEFAULT '0',
-  KEY `IDX_reservGroupes_codeSeance` (`codeReservation`) USING BTREE,
-  KEY `IDX_reservGroupes_codeGroupe` (`codeRessource`) USING BTREE,
-  KEY `IDX_reservGroupes_dateModif` (`dateModif`) USING BTREE
+  `codeProprietaire` int(11) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -4654,7 +4506,7 @@ INSERT INTO `reservations_groupes` (`codeReservation`, `codeRessource`, `dateMod
 -- Structure de la table `reservations_historique`
 --
 
-CREATE TABLE IF NOT EXISTS `reservations_historique` (
+CREATE TABLE `reservations_historique` (
   `codeReservation` bigint(20) NOT NULL DEFAULT '1',
   `commentaire` char(100) NOT NULL DEFAULT '',
   `dateReservation` date NOT NULL DEFAULT '0000-00-00',
@@ -4667,11 +4519,7 @@ CREATE TABLE IF NOT EXISTS `reservations_historique` (
   `bloquee` tinyint(2) NOT NULL DEFAULT '0',
   `diffusable` tinyint(2) NOT NULL,
   `codeProprietaireModifieur` int(11) DEFAULT NULL,
-  `indisponibilite` tinyint(1) NOT NULL DEFAULT '0',
-  KEY `IDX_reserv_date` (`dateReservation`) USING BTREE,
-  KEY `IDX_reserv_del` (`deleted`) USING BTREE,
-  KEY `IDX_reserv_prop` (`codeProprietaire`) USING BTREE,
-  KEY `IDX_reserv_dateModif` (`dateModif`) USING BTREE
+  `indisponibilite` tinyint(1) NOT NULL DEFAULT '0'
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -4680,15 +4528,12 @@ CREATE TABLE IF NOT EXISTS `reservations_historique` (
 -- Structure de la table `reservations_materiels`
 --
 
-CREATE TABLE IF NOT EXISTS `reservations_materiels` (
+CREATE TABLE `reservations_materiels` (
   `codeReservation` int(11) NOT NULL DEFAULT '0',
   `codeRessource` int(11) NOT NULL DEFAULT '0',
   `dateModif` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `deleted` tinyint(4) NOT NULL DEFAULT '0',
-  `codeProprietaire` int(11) NOT NULL DEFAULT '0',
-  KEY `IDX_reservMateriels_codeSeance` (`codeReservation`) USING BTREE,
-  KEY `IDX_reservMateriels_codeMateriel` (`codeRessource`) USING BTREE,
-  KEY `IDX_reservMateriels_dateModif` (`dateModif`) USING BTREE
+  `codeProprietaire` int(11) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -4697,15 +4542,12 @@ CREATE TABLE IF NOT EXISTS `reservations_materiels` (
 -- Structure de la table `reservations_profs`
 --
 
-CREATE TABLE IF NOT EXISTS `reservations_profs` (
+CREATE TABLE `reservations_profs` (
   `codeReservation` int(11) NOT NULL DEFAULT '0',
   `codeRessource` int(11) NOT NULL DEFAULT '0',
   `dateModif` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `deleted` tinyint(4) NOT NULL DEFAULT '0',
-  `codeProprietaire` int(11) NOT NULL DEFAULT '0',
-  KEY `IDX_reservProfs_codeSeance` (`codeReservation`) USING BTREE,
-  KEY `IDX_reservProfs_codeProf` (`codeRessource`) USING BTREE,
-  KEY `IDX_reservProfs_dateModif` (`dateModif`) USING BTREE
+  `codeProprietaire` int(11) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -4725,15 +4567,12 @@ INSERT INTO `reservations_profs` (`codeReservation`, `codeRessource`, `dateModif
 -- Structure de la table `reservations_salles`
 --
 
-CREATE TABLE IF NOT EXISTS `reservations_salles` (
+CREATE TABLE `reservations_salles` (
   `codeReservation` int(11) NOT NULL DEFAULT '0',
   `codeRessource` int(11) NOT NULL DEFAULT '0',
   `dateModif` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `deleted` tinyint(4) NOT NULL DEFAULT '0',
-  `codeProprietaire` int(11) NOT NULL DEFAULT '0',
-  KEY `IDX_reservSalles_codeSeance` (`codeReservation`) USING BTREE,
-  KEY `IDX_reservSalles_codeSalle` (`codeRessource`) USING BTREE,
-  KEY `IDX_reservSalles_dateModif` (`dateModif`) USING BTREE
+  `codeProprietaire` int(11) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -4742,8 +4581,8 @@ CREATE TABLE IF NOT EXISTS `reservations_salles` (
 -- Structure de la table `ressources_etudiants`
 --
 
-CREATE TABLE IF NOT EXISTS `ressources_etudiants` (
-  `codeEtudiant` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `ressources_etudiants` (
+`codeEtudiant` int(11) NOT NULL,
   `couleurFond` bigint(20) NOT NULL DEFAULT '0',
   `couleurPolice` bigint(20) NOT NULL DEFAULT '0',
   `nom` varchar(100) NOT NULL DEFAULT 'NOM?',
@@ -4760,13 +4599,8 @@ CREATE TABLE IF NOT EXISTS `ressources_etudiants` (
   `codeDiplome` int(11) NOT NULL,
   `boursier` tinyint(1) NOT NULL DEFAULT '0',
   `prenom2` varchar(100) NOT NULL,
-  `dateNaissance` date NOT NULL DEFAULT '1900-01-01',
-  PRIMARY KEY (`codeEtudiant`),
-  KEY `IDX_etuds_nom` (`nom`) USING BTREE,
-  KEY `IDX_etuds_del` (`deleted`) USING BTREE,
-  KEY `IDX_etuds_prop` (`codeProprietaire`) USING BTREE,
-  KEY `IDX_etuds_dateModif` (`dateModif`) USING BTREE
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=10 ;
+  `dateNaissance` date NOT NULL DEFAULT '1900-01-01'
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
 
 --
 -- Contenu de la table `ressources_etudiants`
@@ -4779,9 +4613,7 @@ INSERT INTO `ressources_etudiants` (`codeEtudiant`, `couleurFond`, `couleurPolic
 (4, 0, 0, 'ETUDIANT_M2_MIAGE_APP', 'GENERIQUE', '2014-10-02 13:19:47', '2014-10-02 10:44:17', 1, 'ETUDIANT_M2_MIAGE_APP', 777, '', '', 2, 1, 0, 0, '', '2014-10-02'),
 (5, 0, 0, 'ETUDIANT_M2_MIAGE_APP', 'GENERIQUE', '2014-10-03 08:22:05', '2014-10-02 15:21:14', 1, 'ETUDIANT_M2_MIAGE_APP', 777, '', '', 2, 1, 0, 0, '', '1994-10-07'),
 (6, 0, 0, 'ETUDIANT_L1_G3', 'GENERIQUE', '2014-10-03 08:18:50', '2014-10-03 10:18:50', 0, 'ETUDIANT_L1_G3', 777, '', '', 1, 1, 0, 0, '', '1994-10-08'),
-(7, 0, 0, 'ETUDIANT_M2_MIAGE_APP', 'GENERIQUE', '2014-10-03 08:23:10', '2014-10-03 10:23:10', 0, 'ETUDIANT_M2_MIAGE_APP', 777, '', '', 2, 1, 0, 0, '', '1994-10-08'),
-(8, 758757, 7822, 'ETUDIANT_M1_MIAGE_APP', 'GENERIQUE', '2014-11-02 23:00:00', '2014-11-03 00:00:00', 0, 'ETUDIANT_M1_MIAGE_APP', 777, '', '', 2, 1, 0, 0, '', '1900-01-20'),
-(9, 752252, 758728, 'ETUDIANT_L3_MIAGE_APP', 'GENERIQUE', '2014-11-02 23:00:00', '2014-11-03 00:00:00', 0, 'ETUDIANT_L3_MIAGE_APP', 777, '', '', 2, 1, 0, 0, '', '1900-01-01');
+(7, 0, 0, 'ETUDIANT_M2_MIAGE_APP', 'GENERIQUE', '2014-10-03 08:23:10', '2014-10-03 10:23:10', 0, 'ETUDIANT_M2_MIAGE_APP', 777, '', '', 2, 1, 0, 0, '', '1994-10-08');
 
 -- --------------------------------------------------------
 
@@ -4789,8 +4621,8 @@ INSERT INTO `ressources_etudiants` (`codeEtudiant`, `couleurFond`, `couleurPolic
 -- Structure de la table `ressources_groupes`
 --
 
-CREATE TABLE IF NOT EXISTS `ressources_groupes` (
-  `codeGroupe` bigint(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `ressources_groupes` (
+`codeGroupe` bigint(11) NOT NULL,
   `couleurFond` bigint(20) NOT NULL DEFAULT '0',
   `couleurPolice` bigint(20) NOT NULL DEFAULT '0',
   `nom` varchar(255) NOT NULL DEFAULT 'NOM?',
@@ -4805,15 +4637,8 @@ CREATE TABLE IF NOT EXISTS `ressources_groupes` (
   `typePublic` tinyint(1) NOT NULL DEFAULT '0',
   `codeComposante` int(11) NOT NULL DEFAULT '-1',
   `codeNiveau` int(11) NOT NULL,
-  `codeDiplome` int(11) NOT NULL,
-  PRIMARY KEY (`codeGroupe`),
-  KEY `IDX_grs_del` (`deleted`) USING BTREE,
-  KEY `IDX_grs_prop` (`codeProprietaire`) USING BTREE,
-  KEY `IDX_grs_dateModif` (`dateModif`) USING BTREE,
-  KEY `IDX_grs_composante` (`codeComposante`) USING BTREE,
-  KEY `IDX_grs_niveau` (`codeNiveau`) USING BTREE,
-  KEY `IDX_grs_diplome` (`codeDiplome`) USING BTREE
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=64 ;
+  `codeDiplome` int(11) NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=64 DEFAULT CHARSET=latin1;
 
 --
 -- Contenu de la table `ressources_groupes`
@@ -4890,19 +4715,14 @@ INSERT INTO `ressources_groupes` (`codeGroupe`, `couleurFond`, `couleurPolice`, 
 -- Structure de la table `ressources_groupes_etudiants`
 --
 
-CREATE TABLE IF NOT EXISTS `ressources_groupes_etudiants` (
-  `code` bigint(20) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `ressources_groupes_etudiants` (
+`code` bigint(20) NOT NULL,
   `codeGroupe` bigint(20) NOT NULL DEFAULT '0',
   `codeEtudiant` bigint(20) NOT NULL DEFAULT '0',
   `dateModif` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `deleted` tinyint(4) NOT NULL DEFAULT '0',
-  `codeProprietaire` bigint(20) NOT NULL DEFAULT '0',
-  PRIMARY KEY (`code`),
-  KEY `IDX_grs_etuds_codeEtudiant` (`codeEtudiant`) USING BTREE,
-  KEY `IDX_grs_etuds_codeGroupe` (`codeGroupe`) USING BTREE,
-  KEY `IDX_grs_etuds_dateModif` (`dateModif`) USING BTREE,
-  KEY `IDX_grs_etuds_del` (`deleted`) USING BTREE
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4323198 ;
+  `codeProprietaire` bigint(20) NOT NULL DEFAULT '0'
+) ENGINE=MyISAM AUTO_INCREMENT=4323198 DEFAULT CHARSET=latin1;
 
 --
 -- Contenu de la table `ressources_groupes_etudiants`
@@ -4932,7 +4752,7 @@ INSERT INTO `ressources_groupes_etudiants` (`code`, `codeGroupe`, `codeEtudiant`
 -- Structure de la table `ressources_groupes_etudiants_exceptions`
 --
 
-CREATE TABLE IF NOT EXISTS `ressources_groupes_etudiants_exceptions` (
+CREATE TABLE `ressources_groupes_etudiants_exceptions` (
   `codeEtudiant` int(11) NOT NULL,
   `codeGroupe` int(11) NOT NULL,
   `codeProprietaire` int(11) NOT NULL,
@@ -4946,8 +4766,8 @@ CREATE TABLE IF NOT EXISTS `ressources_groupes_etudiants_exceptions` (
 -- Structure de la table `ressources_materiels`
 --
 
-CREATE TABLE IF NOT EXISTS `ressources_materiels` (
-  `codeMateriel` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `ressources_materiels` (
+`codeMateriel` int(11) NOT NULL,
   `couleurFond` bigint(20) NOT NULL DEFAULT '0',
   `couleurPolice` bigint(20) NOT NULL DEFAULT '0',
   `nom` varchar(150) NOT NULL DEFAULT 'MATERIEL?',
@@ -4958,13 +4778,8 @@ CREATE TABLE IF NOT EXISTS `ressources_materiels` (
   `alias` varchar(50) NOT NULL DEFAULT '',
   `commentaire` varchar(150) NOT NULL,
   `identifiant` varchar(50) NOT NULL,
-  `codeComposante` int(11) NOT NULL DEFAULT '-1',
-  PRIMARY KEY (`codeMateriel`),
-  KEY `IDX_mat_nom` (`nom`) USING BTREE,
-  KEY `IDX_mat_del` (`deleted`) USING BTREE,
-  KEY `IDX_mat_prop` (`codeProprietaire`) USING BTREE,
-  KEY `IDX_mat_dateModif` (`dateModif`) USING BTREE
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=10 ;
+  `codeComposante` int(11) NOT NULL DEFAULT '-1'
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
 
 --
 -- Contenu de la table `ressources_materiels`
@@ -4987,8 +4802,8 @@ INSERT INTO `ressources_materiels` (`codeMateriel`, `couleurFond`, `couleurPolic
 -- Structure de la table `ressources_profs`
 --
 
-CREATE TABLE IF NOT EXISTS `ressources_profs` (
-  `codeProf` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `ressources_profs` (
+`codeProf` int(11) NOT NULL,
   `couleurFond` bigint(20) NOT NULL DEFAULT '0',
   `couleurPolice` bigint(20) NOT NULL DEFAULT '0',
   `nom` varchar(150) NOT NULL DEFAULT 'NOM?',
@@ -5020,14 +4835,8 @@ CREATE TABLE IF NOT EXISTS `ressources_profs` (
   `identifiantNational` varchar(50) NOT NULL,
   `adresseMAC` varchar(20) NOT NULL,
   `prenom2` varchar(150) NOT NULL,
-  `dateNaissance` date NOT NULL,
-  PRIMARY KEY (`codeProf`),
-  KEY `IDX_profs_code` (`codeProf`) USING BTREE,
-  KEY `IDX_profs_nom` (`nom`) USING BTREE,
-  KEY `IDX_profs_del` (`deleted`) USING BTREE,
-  KEY `IDX_profs_prop` (`codeProprietaire`) USING BTREE,
-  KEY `IDX_profs_dateModif` (`dateModif`) USING BTREE
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=622 ;
+  `dateNaissance` date NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=622 DEFAULT CHARSET=latin1;
 
 --
 -- Contenu de la table `ressources_profs`
@@ -5145,8 +4954,8 @@ INSERT INTO `ressources_profs` (`codeProf`, `couleurFond`, `couleurPolice`, `nom
 -- Structure de la table `ressources_salles`
 --
 
-CREATE TABLE IF NOT EXISTS `ressources_salles` (
-  `codeSalle` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `ressources_salles` (
+`codeSalle` int(11) NOT NULL,
   `couleurFond` bigint(20) NOT NULL DEFAULT '0',
   `couleurPolice` bigint(20) NOT NULL DEFAULT '0',
   `nom` varchar(255) NOT NULL DEFAULT 'NOM?',
@@ -5160,14 +4969,8 @@ CREATE TABLE IF NOT EXISTS `ressources_salles` (
   `surface` int(8) NOT NULL DEFAULT '0',
   `commentaire` varchar(150) NOT NULL,
   `identifiant` varchar(50) NOT NULL,
-  `codeComposante` int(11) NOT NULL DEFAULT '-1',
-  PRIMARY KEY (`codeSalle`),
-  KEY `IDX_salles_code` (`codeSalle`) USING BTREE,
-  KEY `IDX_salles_nom` (`nom`) USING BTREE,
-  KEY `IDX_salles_del` (`deleted`) USING BTREE,
-  KEY `IDX_salles_prop` (`codeProprietaire`) USING BTREE,
-  KEY `IDX_salles_dateModif` (`dateModif`) USING BTREE
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=409 ;
+  `codeComposante` int(11) NOT NULL DEFAULT '-1'
+) ENGINE=InnoDB AUTO_INCREMENT=409 DEFAULT CHARSET=latin1;
 
 --
 -- Contenu de la table `ressources_salles`
@@ -5589,8 +5392,8 @@ INSERT INTO `ressources_salles` (`codeSalle`, `couleurFond`, `couleurPolice`, `n
 -- Structure de la table `seances`
 --
 
-CREATE TABLE IF NOT EXISTS `seances` (
-  `codeSeance` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `seances` (
+`codeSeance` int(11) NOT NULL,
   `dateSeance` date NOT NULL DEFAULT '0000-00-00',
   `heureSeance` int(5) NOT NULL DEFAULT '800',
   `dureeSeance` int(5) NOT NULL DEFAULT '100',
@@ -5602,14 +5405,8 @@ CREATE TABLE IF NOT EXISTS `seances` (
   `commentaire` char(200) NOT NULL DEFAULT '',
   `bloquee` tinyint(1) NOT NULL DEFAULT '0',
   `diffusable` tinyint(1) NOT NULL DEFAULT '1',
-  `annulee` tinyint(1) NOT NULL DEFAULT '0',
-  PRIMARY KEY (`codeSeance`),
-  KEY `IDX_plan_codeEns` (`codeEnseignement`) USING BTREE,
-  KEY `IDX_plan_date` (`dateSeance`) USING BTREE,
-  KEY `IDX_plan_del` (`deleted`) USING BTREE,
-  KEY `IDX_plan_prop` (`codeProprietaire`) USING BTREE,
-  KEY `IDX_plan_dateModif` (`dateModif`) USING BTREE
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1811 ;
+  `annulee` tinyint(1) NOT NULL DEFAULT '0'
+) ENGINE=InnoDB AUTO_INCREMENT=1832 DEFAULT CHARSET=latin1;
 
 --
 -- Contenu de la table `seances`
@@ -5626,7 +5423,6 @@ INSERT INTO `seances` (`codeSeance`, `dateSeance`, `heureSeance`, `dureeSeance`,
 (433, '2014-09-11', 1330, 130, 17, '2014-09-22 11:45:28', '2014-06-17 16:51:11', 1, 777, 'materiels trop lourd', 0, 1, 0),
 (434, '2014-11-20', 1400, 130, 17, '2014-09-22 07:04:32', '2014-06-17 16:51:19', 1, 777, '', 0, 1, 0),
 (435, '2015-04-23', 1400, 130, 17, '2014-09-22 07:08:58', '2014-06-17 16:51:23', 1, 777, '', 0, 1, 0),
-(436, '2015-01-16', 945, 130, 17, '2014-09-22 07:04:33', '2014-06-17 16:51:27', 1, 777, '', 0, 1, 0),
 (437, '2015-03-06', 1415, 130, 17, '2014-09-22 07:08:58', '2014-06-17 16:51:32', 1, 777, '', 0, 1, 0),
 (438, '2015-04-17', 1100, 130, 17, '2014-09-22 07:08:58', '2014-06-17 16:51:35', 1, 777, '', 0, 1, 0),
 (439, '2015-03-04', 1015, 130, 17, '2014-09-22 07:08:58', '2014-06-17 16:53:00', 1, 777, '', 0, 1, 0),
@@ -5635,8 +5431,6 @@ INSERT INTO `seances` (`codeSeance`, `dateSeance`, `heureSeance`, `dureeSeance`,
 (442, '2014-12-23', 1230, 130, 17, '2014-09-22 07:04:32', '2014-06-17 16:53:40', 1, 777, '', 0, 1, 0),
 (443, '2014-12-30', 1230, 130, 17, '2014-09-22 07:04:32', '2014-06-17 16:53:40', 1, 777, '', 0, 1, 0),
 (444, '2015-01-06', 1230, 130, 17, '2014-09-22 07:04:32', '2014-06-17 16:53:40', 1, 777, '', 0, 1, 0),
-(445, '2015-01-13', 1230, 130, 17, '2014-09-22 07:04:32', '2014-06-17 16:53:40', 1, 777, '', 0, 1, 0),
-(446, '2015-01-20', 1230, 130, 17, '2014-09-22 07:04:33', '2014-06-17 16:53:41', 1, 777, '', 0, 1, 0),
 (447, '2015-01-27', 1230, 130, 17, '2014-09-22 07:04:33', '2014-06-17 16:53:41', 1, 777, '', 0, 1, 0),
 (448, '2015-02-03', 1230, 130, 17, '2014-09-22 07:04:33', '2014-06-17 16:53:41', 1, 777, '', 0, 1, 0),
 (449, '2015-02-10', 1230, 130, 17, '2014-09-22 07:04:33', '2014-06-17 16:53:41', 1, 777, '', 0, 1, 0),
@@ -5710,10 +5504,8 @@ INSERT INTO `seances` (`codeSeance`, `dateSeance`, `heureSeance`, `dureeSeance`,
 (517, '2014-12-08', 1000, 130, 36, '2014-09-22 07:04:47', '2014-06-23 12:25:22', 1, 777, '', 0, 1, 0),
 (518, '2014-12-15', 830, 130, 36, '2014-09-22 07:04:47', '2014-06-23 12:26:33', 1, 777, '', 0, 1, 0),
 (519, '2015-01-05', 830, 130, 36, '2014-09-22 07:04:47', '2014-06-23 12:26:33', 1, 777, '', 0, 1, 0),
-(520, '2015-01-12', 830, 130, 36, '2014-09-22 07:04:47', '2014-06-23 12:26:33', 1, 777, '', 0, 1, 0),
 (521, '2014-12-15', 1000, 130, 36, '2014-09-22 07:05:32', '2014-06-23 12:26:33', 1, 777, '', 0, 1, 0),
 (522, '2015-01-05', 1000, 130, 36, '2014-09-22 07:04:47', '2014-06-23 12:26:34', 1, 777, '', 0, 1, 0),
-(523, '2015-01-12', 1000, 130, 36, '2014-09-22 07:04:48', '2014-06-23 12:26:34', 1, 777, '', 0, 1, 0),
 (524, '2014-09-16', 815, 130, 19, '2014-09-22 07:24:43', '2014-06-24 14:28:49', 1, 777, '', 0, 1, 0),
 (525, '2014-09-23', 815, 130, 19, '2014-09-22 07:24:43', '2014-06-24 14:29:27', 1, 777, '', 0, 1, 0),
 (526, '2014-09-30', 815, 130, 19, '2014-09-22 07:02:51', '2014-06-24 14:29:27', 1, 777, '', 0, 1, 0),
@@ -5731,8 +5523,6 @@ INSERT INTO `seances` (`codeSeance`, `dateSeance`, `heureSeance`, `dureeSeance`,
 (538, '2014-12-23', 815, 130, 19, '2014-09-22 07:02:52', '2014-06-24 14:29:29', 1, 777, '', 0, 1, 0),
 (539, '2014-12-30', 815, 130, 19, '2014-09-22 07:02:52', '2014-06-24 14:29:29', 1, 777, '', 0, 1, 0),
 (540, '2015-01-06', 815, 130, 19, '2014-09-22 07:02:52', '2014-06-24 14:29:29', 1, 777, '', 0, 1, 0),
-(541, '2015-01-13', 815, 130, 19, '2014-09-22 07:02:52', '2014-06-24 14:29:29', 1, 777, '', 0, 1, 0),
-(542, '2015-01-20', 815, 130, 19, '2014-09-22 07:02:52', '2014-06-24 14:29:29', 1, 777, '', 0, 1, 0),
 (543, '2015-01-27', 815, 130, 19, '2014-09-22 07:02:53', '2014-06-24 14:29:29', 1, 777, '', 0, 1, 0),
 (544, '2015-02-03', 815, 130, 19, '2014-09-22 07:02:53', '2014-06-24 14:29:29', 1, 777, '', 0, 1, 0),
 (545, '2015-02-10', 815, 130, 19, '2014-09-22 07:02:53', '2014-06-24 14:29:29', 1, 777, '', 0, 1, 0),
@@ -6107,15 +5897,15 @@ INSERT INTO `seances` (`codeSeance`, `dateSeance`, `heureSeance`, `dureeSeance`,
 (914, '2014-12-23', 830, 300, 115, '2014-07-01 17:24:09', '2014-07-01 19:23:21', 1, 777, '', 0, 1, 0),
 (915, '2014-12-30', 830, 300, 115, '2014-07-01 17:24:09', '2014-07-01 19:23:21', 1, 777, '', 0, 1, 0),
 (916, '2014-09-09', 830, 300, 115, '2014-07-01 17:25:19', '2014-07-01 19:25:19', 0, 777, '', 0, 1, 0),
-(917, '2014-09-16', 830, 300, 115, '2014-07-01 17:25:27', '2014-07-01 19:25:27', 0, 777, '', 0, 1, 0);
-INSERT INTO `seances` (`codeSeance`, `dateSeance`, `heureSeance`, `dureeSeance`, `codeEnseignement`, `dateModif`, `dateCreation`, `deleted`, `codeProprietaire`, `commentaire`, `bloquee`, `diffusable`, `annulee`) VALUES
+(917, '2014-09-16', 830, 300, 115, '2014-07-01 17:25:27', '2014-07-01 19:25:27', 0, 777, '', 0, 1, 0),
 (918, '2014-09-23', 830, 300, 115, '2014-07-01 17:25:27', '2014-07-01 19:25:27', 0, 777, '', 0, 1, 0),
 (919, '2014-09-30', 830, 300, 115, '2014-07-01 17:25:27', '2014-07-01 19:25:27', 0, 777, '', 0, 1, 0),
 (920, '2014-10-07', 830, 300, 115, '2014-07-01 17:25:27', '2014-07-01 19:25:27', 0, 777, '', 0, 1, 0),
 (921, '2014-10-14', 830, 300, 115, '2014-07-01 17:25:27', '2014-07-01 19:25:27', 0, 777, '', 0, 1, 0),
 (922, '2014-10-21', 830, 300, 115, '2014-07-01 17:25:27', '2014-07-01 19:25:27', 0, 777, '', 0, 1, 0),
 (923, '2014-10-22', 1300, 300, 115, '2014-07-01 17:26:16', '2014-07-01 19:25:27', 0, 777, '', 0, 1, 0),
-(924, '2014-11-04', 830, 300, 115, '2014-07-01 17:25:27', '2014-07-01 19:25:27', 0, 777, '', 0, 1, 0),
+(924, '2014-11-04', 830, 300, 115, '2014-07-01 17:25:27', '2014-07-01 19:25:27', 0, 777, '', 0, 1, 0);
+INSERT INTO `seances` (`codeSeance`, `dateSeance`, `heureSeance`, `dureeSeance`, `codeEnseignement`, `dateModif`, `dateCreation`, `deleted`, `codeProprietaire`, `commentaire`, `bloquee`, `diffusable`, `annulee`) VALUES
 (925, '2014-11-12', 1300, 300, 115, '2014-07-01 17:26:44', '2014-07-01 19:25:27', 0, 777, '', 0, 1, 0),
 (926, '2014-11-18', 830, 300, 115, '2014-07-01 17:25:27', '2014-07-01 19:25:27', 0, 777, '', 0, 1, 0),
 (927, '2014-11-25', 830, 300, 115, '2014-07-01 17:25:27', '2014-07-01 19:25:27', 0, 777, '', 0, 1, 0),
@@ -6595,15 +6385,15 @@ INSERT INTO `seances` (`codeSeance`, `dateSeance`, `heureSeance`, `dureeSeance`,
 (1401, '2014-10-23', 1015, 130, 151, '2014-07-01 18:28:25', '2014-07-01 20:28:25', 0, 777, '', 0, 1, 0),
 (1402, '2014-12-11', 1015, 130, 151, '2014-07-01 18:28:32', '2014-07-01 20:28:25', 0, 777, '', 0, 1, 0),
 (1403, '2014-12-18', 1015, 130, 151, '2014-07-01 18:28:36', '2014-07-01 20:28:25', 0, 777, '', 0, 1, 0),
-(1404, '2014-11-13', 1015, 130, 151, '2014-07-01 18:28:25', '2014-07-01 20:28:25', 0, 777, '', 0, 1, 0);
-INSERT INTO `seances` (`codeSeance`, `dateSeance`, `heureSeance`, `dureeSeance`, `codeEnseignement`, `dateModif`, `dateCreation`, `deleted`, `codeProprietaire`, `commentaire`, `bloquee`, `diffusable`, `annulee`) VALUES
+(1404, '2014-11-13', 1015, 130, 151, '2014-07-01 18:28:25', '2014-07-01 20:28:25', 0, 777, '', 0, 1, 0),
 (1405, '2014-11-20', 1015, 130, 151, '2014-07-01 18:28:25', '2014-07-01 20:28:25', 0, 777, '', 0, 1, 0),
 (1406, '2014-11-27', 1015, 130, 151, '2014-07-01 18:28:25', '2014-07-01 20:28:25', 0, 777, '', 0, 1, 0),
 (1407, '2014-12-04', 1015, 130, 151, '2014-07-01 18:28:25', '2014-07-01 20:28:25', 0, 777, '', 0, 1, 0),
 (1408, '2014-09-17', 830, 130, 144, '2014-07-01 18:29:09', '2014-07-01 20:29:09', 0, 777, '', 0, 1, 0),
 (1409, '2014-09-24', 830, 130, 144, '2014-07-01 18:29:17', '2014-07-01 20:29:17', 0, 777, '', 0, 1, 0),
 (1410, '2014-10-01', 830, 130, 144, '2014-07-01 18:29:17', '2014-07-01 20:29:17', 0, 777, '', 0, 1, 0),
-(1411, '2014-10-08', 830, 130, 144, '2014-07-01 18:29:17', '2014-07-01 20:29:17', 0, 777, '', 0, 1, 0),
+(1411, '2014-10-08', 830, 130, 144, '2014-07-01 18:29:17', '2014-07-01 20:29:17', 0, 777, '', 0, 1, 0);
+INSERT INTO `seances` (`codeSeance`, `dateSeance`, `heureSeance`, `dureeSeance`, `codeEnseignement`, `dateModif`, `dateCreation`, `deleted`, `codeProprietaire`, `commentaire`, `bloquee`, `diffusable`, `annulee`) VALUES
 (1412, '2014-10-15', 830, 130, 144, '2014-07-01 18:29:17', '2014-07-01 20:29:17', 0, 777, '', 0, 1, 0),
 (1413, '2014-10-22', 830, 130, 144, '2014-07-01 18:29:17', '2014-07-01 20:29:17', 0, 777, '', 0, 1, 0),
 (1414, '2014-12-10', 830, 130, 144, '2014-07-01 18:29:27', '2014-07-01 20:29:17', 0, 777, '', 0, 1, 0),
@@ -6975,7 +6765,7 @@ INSERT INTO `seances` (`codeSeance`, `dateSeance`, `heureSeance`, `dureeSeance`,
 (1780, '2015-03-30', 830, 300, 293, '2014-09-25 13:52:40', '2014-09-25 15:52:40', 0, 777, '', 0, 0, 0),
 (1781, '2015-04-13', 830, 300, 293, '2014-09-25 13:52:40', '2014-09-25 15:52:40', 0, 777, '', 0, 0, 0),
 (1782, '2015-04-20', 830, 300, 293, '2014-09-25 13:52:40', '2014-09-25 15:52:40', 0, 777, '', 0, 0, 0),
-(1783, '2015-01-19', 830, 300, 294, '2014-09-25 13:52:41', '2014-09-25 15:52:41', 0, 777, '', 0, 0, 0),
+(1783, '2015-01-19', 830, 300, 294, '2015-01-18 00:58:36', '2014-09-25 15:52:41', 1, 777, '', 0, 0, 0),
 (1784, '2015-05-04', 830, 300, 291, '2014-09-25 13:52:41', '2014-09-25 15:52:41', 0, 777, '', 0, 0, 0),
 (1785, '2015-05-05', 830, 300, 291, '2014-09-25 13:52:42', '2014-09-25 15:52:42', 0, 777, '', 0, 0, 0),
 (1786, '2015-05-11', 830, 300, 291, '2014-09-25 13:52:42', '2014-09-25 15:52:42', 0, 777, '', 0, 0, 0),
@@ -7002,7 +6792,28 @@ INSERT INTO `seances` (`codeSeance`, `dateSeance`, `heureSeance`, `dureeSeance`,
 (1807, '2014-11-03', 830, 300, 292, '2014-09-29 06:39:03', '2014-09-29 08:39:03', 0, 777, '', 0, 0, 0),
 (1808, '2014-10-22', 830, 300, 292, '2014-09-29 06:59:19', '2014-09-29 08:59:19', 0, 777, '', 0, 0, 0),
 (1809, '2014-10-27', 1300, 300, 292, '2014-09-29 06:59:19', '2014-09-29 08:59:19', 0, 777, '', 0, 0, 0),
-(1810, '2014-11-10', 1300, 300, 292, '2014-09-29 06:59:20', '2014-09-29 08:59:20', 0, 777, '', 0, 0, 0);
+(1810, '2014-11-10', 1300, 300, 292, '2014-09-29 06:59:20', '2014-09-29 08:59:20', 0, 777, '', 0, 0, 0),
+(1811, '2015-01-14', 1115, 130, 1, '2015-01-13 09:32:17', '2015-01-13 10:32:17', 0, 777, '', 0, 0, 0),
+(1812, '2015-01-16', 1200, 130, 1, '2015-01-13 14:12:05', '2015-01-13 15:12:05', 0, 777, '', 0, 0, 0),
+(1813, '2015-01-14', 1145, 130, 1, '2015-01-13 14:15:53', '2015-01-13 15:15:53', 0, 777, '', 0, 0, 0),
+(1814, '2015-01-15', 1215, 130, 1, '2015-01-16 20:26:41', '2015-01-13 15:17:08', 1, 777, '', 0, 0, 0),
+(1815, '2015-01-14', 1215, 130, 1, '2015-01-13 14:17:54', '2015-01-13 15:17:54', 0, 777, '', 0, 0, 0),
+(1816, '2015-01-15', 1145, 130, 1, '2015-01-17 09:51:13', '2015-01-13 15:18:39', 1, 777, '', 0, 0, 0),
+(1817, '2015-01-14', 1230, 130, 1, '2015-01-13 14:21:43', '2015-01-13 15:21:43', 0, 777, '', 0, 0, 0),
+(1818, '2015-01-14', 1300, 130, 1, '2015-01-13 14:27:23', '2015-01-13 15:23:06', 1, 777, '', 0, 0, 0),
+(1819, '2015-01-14', 1045, 130, 292, '2015-01-13 14:27:40', '2015-01-13 15:23:39', 1, 777, '', 0, 0, 0),
+(1820, '2015-01-12', 1730, 130, 1, '2015-01-17 10:10:45', '2015-01-17 11:10:45', 0, 777, '', 0, 0, 0),
+(1821, '2015-01-12', 1945, 130, 1, '2015-01-18 19:45:31', '2015-01-18 20:45:31', 0, 777, '', 0, 0, 0),
+(1822, '2015-01-13', 1900, 115, 13, '2015-01-18 19:54:54', '2015-01-18 20:54:54', 0, 777, '', 0, 0, 0),
+(1823, '2015-01-14', 1715, 130, 35, '2015-01-18 19:56:28', '2015-01-18 20:56:28', 0, 777, '', 0, 0, 0),
+(1824, '2015-01-14', 1900, 130, 35, '2015-01-18 19:57:28', '2015-01-18 20:57:28', 0, 777, '', 0, 0, 0),
+(1825, '2015-01-14', 2045, 130, 1, '2015-01-18 19:59:00', '2015-01-18 20:59:00', 0, 777, '', 0, 0, 0),
+(1826, '2015-01-20', 1330, 130, 283, '2015-01-19 08:24:14', '2015-01-19 09:24:14', 0, 777, '', 0, 0, 0),
+(1827, '2015-01-20', 1545, 130, 1, '2015-01-19 08:24:58', '2015-01-19 09:24:58', 0, 777, '', 0, 0, 0),
+(1828, '2015-01-25', 1330, 130, 293, '2015-01-19 08:39:19', '2015-01-19 09:26:11', 1, 777, '', 0, 0, 0),
+(1829, '2015-01-21', 1015, 130, 293, '2015-01-19 08:39:12', '2015-01-19 09:39:08', 1, 777, '', 0, 0, 0),
+(1830, '2015-01-21', 1145, 3, 299, '2015-01-19 12:15:36', '2015-01-19 13:15:36', 0, 777, '', 0, 0, 0),
+(1831, '2015-01-22', 1130, 300, 300, '2015-01-19 13:55:46', '2015-01-19 14:55:30', 1, 777, '', 0, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -7010,15 +6821,12 @@ INSERT INTO `seances` (`codeSeance`, `dateSeance`, `heureSeance`, `dureeSeance`,
 -- Structure de la table `seances_groupes`
 --
 
-CREATE TABLE IF NOT EXISTS `seances_groupes` (
+CREATE TABLE `seances_groupes` (
   `codeSeance` int(11) NOT NULL DEFAULT '0',
   `codeRessource` int(11) NOT NULL DEFAULT '0',
   `dateModif` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `deleted` tinyint(1) NOT NULL DEFAULT '0',
-  `codeProprietaire` int(11) NOT NULL DEFAULT '0',
-  KEY `IDX_seancesGroupes_codeSeance` (`codeSeance`) USING BTREE,
-  KEY `IDX_seancesGroupes_codeGroupe` (`codeRessource`) USING BTREE,
-  KEY `IDX_seancesGroupes_dateModif` (`dateModif`) USING BTREE
+  `codeProprietaire` int(11) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -9178,7 +8986,12 @@ INSERT INTO `seances_groupes` (`codeSeance`, `codeRessource`, `dateModif`, `dele
 (1807, 13, '2014-09-29 06:39:03', 0, 777),
 (1808, 13, '2014-09-29 06:59:19', 0, 777),
 (1809, 13, '2014-09-29 06:59:19', 0, 777),
-(1810, 13, '2014-09-29 06:59:20', 0, 777);
+(1810, 13, '2014-09-29 06:59:20', 0, 777),
+(1818, 44, '2015-01-13 14:23:06', 0, 777),
+(1827, 1, '2015-01-19 08:24:58', 0, 777),
+(1828, 41, '2015-01-19 08:26:11', 0, 777),
+(1830, 11, '2015-01-19 12:15:36', 0, 777),
+(1831, 43, '2015-01-19 13:55:30', 0, 777);
 
 -- --------------------------------------------------------
 
@@ -9186,7 +8999,7 @@ INSERT INTO `seances_groupes` (`codeSeance`, `codeRessource`, `dateModif`, `dele
 -- Structure de la table `seances_historique`
 --
 
-CREATE TABLE IF NOT EXISTS `seances_historique` (
+CREATE TABLE `seances_historique` (
   `codeSeance` int(11) NOT NULL DEFAULT '0',
   `dateSeance` date NOT NULL DEFAULT '0000-00-00',
   `heureSeance` int(11) NOT NULL DEFAULT '800',
@@ -9199,12 +9012,7 @@ CREATE TABLE IF NOT EXISTS `seances_historique` (
   `bloquee` tinyint(2) NOT NULL DEFAULT '0',
   `diffusable` tinyint(2) NOT NULL DEFAULT '1',
   `codeProprietaireModifieur` int(11) DEFAULT NULL,
-  `annulee` tinyint(1) DEFAULT NULL,
-  KEY `IDX_plan_codeEns` (`codeEnseignement`) USING BTREE,
-  KEY `IDX_plan_date` (`dateSeance`) USING BTREE,
-  KEY `IDX_plan_del` (`deleted`) USING BTREE,
-  KEY `IDX_plan_prop` (`codeProprietaire`) USING BTREE,
-  KEY `IDX_plan_dateModif` (`dateModif`) USING BTREE
+  `annulee` tinyint(1) DEFAULT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -9213,15 +9021,12 @@ CREATE TABLE IF NOT EXISTS `seances_historique` (
 -- Structure de la table `seances_materiels`
 --
 
-CREATE TABLE IF NOT EXISTS `seances_materiels` (
+CREATE TABLE `seances_materiels` (
   `codeSeance` int(11) NOT NULL DEFAULT '0',
   `codeRessource` int(11) NOT NULL DEFAULT '0',
   `dateModif` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `deleted` tinyint(4) NOT NULL DEFAULT '0',
-  `codeProprietaire` int(11) NOT NULL DEFAULT '0',
-  KEY `IDX_seancesMateriels_codeSeance` (`codeSeance`) USING BTREE,
-  KEY `IDX_seancesMateriels_codeMateriel` (`codeRessource`) USING BTREE,
-  KEY `IDX_seancesMateriels_dateModif` (`dateModif`) USING BTREE
+  `codeProprietaire` int(11) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -9230,15 +9035,12 @@ CREATE TABLE IF NOT EXISTS `seances_materiels` (
 -- Structure de la table `seances_profs`
 --
 
-CREATE TABLE IF NOT EXISTS `seances_profs` (
+CREATE TABLE `seances_profs` (
   `codeSeance` int(11) NOT NULL DEFAULT '0',
   `codeRessource` int(11) NOT NULL DEFAULT '0',
   `dateModif` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `deleted` tinyint(1) NOT NULL DEFAULT '0',
-  `codeProprietaire` int(11) NOT NULL DEFAULT '0',
-  KEY `IDX_seancesProfs_codeSeance` (`codeSeance`) USING BTREE,
-  KEY `IDX_seancesProfs_codeProf` (`codeRessource`) USING BTREE,
-  KEY `IDX_seancesProfs_dateModif` (`dateModif`) USING BTREE
+  `codeProprietaire` int(11) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -9890,8 +9692,8 @@ INSERT INTO `seances_profs` (`codeSeance`, `codeRessource`, `dateModif`, `delete
 (1780, 544, '2014-09-25 13:52:40', 0, 777),
 (1781, 544, '2014-09-25 13:52:40', 0, 777),
 (1782, 544, '2014-09-25 13:52:41', 0, 777),
-(1783, 523, '2014-09-25 13:52:41', 0, 777),
-(1783, 544, '2014-09-25 13:52:41', 0, 777),
+(1783, 523, '2015-01-18 00:58:36', 1, 777),
+(1783, 544, '2015-01-18 00:58:36', 1, 777),
 (1788, 523, '2014-09-25 13:52:43', 0, 777),
 (1788, 544, '2014-09-25 13:52:43', 0, 777),
 (1801, 523, '2014-09-29 06:39:00', 0, 777),
@@ -9913,7 +9715,23 @@ INSERT INTO `seances_profs` (`codeSeance`, `codeRessource`, `dateModif`, `delete
 (1809, 523, '2014-09-29 06:59:19', 0, 777),
 (1809, 544, '2014-09-29 06:59:19', 0, 777),
 (1810, 523, '2014-09-29 06:59:20', 0, 777),
-(1810, 544, '2014-09-29 06:59:20', 0, 777);
+(1810, 544, '2014-09-29 06:59:20', 0, 777),
+(1815, 3, '0000-00-00 00:00:00', 0, 777),
+(1816, 3, '2015-01-17 09:51:13', 1, 777),
+(1817, 3, '2015-01-13 14:21:43', 0, 777),
+(1818, 3, '2015-01-13 14:27:23', 1, 777),
+(1819, 523, '2015-01-13 14:27:40', 1, 777),
+(1820, 3, '2015-01-17 10:10:45', 0, 777),
+(1821, 3, '2015-01-18 19:45:31', 0, 777),
+(1823, 527, '2015-01-18 19:56:28', 0, 777),
+(1824, 527, '2015-01-18 19:57:28', 0, 777),
+(1825, 3, '2015-01-18 19:59:00', 0, 777),
+(1826, 544, '2015-01-19 08:24:14', 0, 777),
+(1827, 3, '2015-01-19 08:24:58', 0, 777),
+(1828, 544, '2015-01-19 08:39:19', 1, 777),
+(1829, 544, '2015-01-19 08:39:12', 1, 777),
+(1830, 544, '2015-01-19 12:15:36', 0, 777),
+(1831, 544, '2015-01-19 13:55:46', 1, 777);
 
 -- --------------------------------------------------------
 
@@ -9921,14 +9739,12 @@ INSERT INTO `seances_profs` (`codeSeance`, `codeRessource`, `dateModif`, `delete
 -- Structure de la table `seances_profs_non_comptabilisees`
 --
 
-CREATE TABLE IF NOT EXISTS `seances_profs_non_comptabilisees` (
+CREATE TABLE `seances_profs_non_comptabilisees` (
   `codeSeance` int(11) NOT NULL DEFAULT '0',
   `codeRessource` int(11) NOT NULL DEFAULT '0',
   `dateModif` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `deleted` tinyint(4) NOT NULL DEFAULT '0',
-  `codeProprietaire` int(11) NOT NULL DEFAULT '0',
-  KEY `IDX_seancesCompt_codeSeance` (`codeSeance`) USING BTREE,
-  KEY `IDX_seancesCompt_codeProf` (`codeRessource`) USING BTREE
+  `codeProprietaire` int(11) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -9937,14 +9753,12 @@ CREATE TABLE IF NOT EXISTS `seances_profs_non_comptabilisees` (
 -- Structure de la table `seances_profs_payees`
 --
 
-CREATE TABLE IF NOT EXISTS `seances_profs_payees` (
+CREATE TABLE `seances_profs_payees` (
   `codeSeance` int(11) NOT NULL DEFAULT '0',
   `codeRessource` int(11) NOT NULL DEFAULT '0',
   `dateModif` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `deleted` tinyint(4) NOT NULL DEFAULT '0',
-  `codeProprietaire` int(11) NOT NULL DEFAULT '0',
-  KEY `IDX_seancesPayees_codeSeance` (`codeSeance`) USING BTREE,
-  KEY `IDX_seancesPayees_codeProf` (`codeRessource`) USING BTREE
+  `codeProprietaire` int(11) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -9953,15 +9767,12 @@ CREATE TABLE IF NOT EXISTS `seances_profs_payees` (
 -- Structure de la table `seances_salles`
 --
 
-CREATE TABLE IF NOT EXISTS `seances_salles` (
+CREATE TABLE `seances_salles` (
   `codeSeance` int(11) NOT NULL DEFAULT '0',
   `codeRessource` int(11) NOT NULL DEFAULT '0',
   `dateModif` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `deleted` tinyint(4) NOT NULL DEFAULT '0',
-  `codeProprietaire` int(11) NOT NULL DEFAULT '0',
-  KEY `IDX_seancesSalles_codeSeance` (`codeSeance`) USING BTREE,
-  KEY `IDX_seancesSalles_codeSalle` (`codeRessource`) USING BTREE,
-  KEY `IDX_seancesSalles_dateModif` (`dateModif`) USING BTREE
+  `codeProprietaire` int(11) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -10567,7 +10378,7 @@ INSERT INTO `seances_salles` (`codeSeance`, `codeRessource`, `dateModif`, `delet
 (1780, 396, '2014-09-25 13:52:40', 0, 777),
 (1781, 396, '2014-09-25 13:52:40', 0, 777),
 (1782, 396, '2014-09-25 13:52:41', 0, 777),
-(1783, 396, '2014-09-25 13:52:41', 0, 777),
+(1783, 396, '2015-01-18 00:58:36', 1, 777),
 (1784, 396, '2014-09-25 13:52:41', 0, 777),
 (1785, 396, '2014-09-25 13:52:42', 0, 777),
 (1786, 396, '2014-09-25 13:52:42', 0, 777),
@@ -10594,7 +10405,20 @@ INSERT INTO `seances_salles` (`codeSeance`, `codeRessource`, `dateModif`, `delet
 (1807, 396, '2014-09-29 06:39:03', 0, 777),
 (1808, 396, '2014-09-29 06:59:19', 0, 777),
 (1809, 396, '2014-09-29 06:59:19', 0, 777),
-(1810, 396, '2014-09-29 06:59:20', 0, 777);
+(1810, 396, '2014-09-29 06:59:20', 0, 777),
+(1818, 1, '2015-01-13 14:27:23', 1, 777),
+(1819, 259, '2015-01-13 14:27:40', 1, 777),
+(1820, 275, '2015-01-17 10:10:45', 0, 777),
+(1821, 1, '2015-01-18 19:45:31', 0, 777),
+(1823, 1, '2015-01-18 19:56:28', 0, 777),
+(1824, 1, '2015-01-18 19:57:28', 0, 777),
+(1825, 1, '2015-01-18 19:59:00', 0, 777),
+(1826, 1, '2015-01-19 08:24:14', 0, 777),
+(1827, 3, '2015-01-19 08:24:58', 0, 777),
+(1828, 1, '2015-01-19 08:39:19', 1, 777),
+(1829, 5, '2015-01-19 08:39:12', 1, 777),
+(1830, 10, '2015-01-19 12:15:36', 0, 777),
+(1831, 1, '2015-01-19 13:55:46', 1, 777);
 
 -- --------------------------------------------------------
 
@@ -10602,7 +10426,7 @@ INSERT INTO `seances_salles` (`codeSeance`, `codeRessource`, `dateModif`, `delet
 -- Structure de la table `typage_salles`
 --
 
-CREATE TABLE IF NOT EXISTS `typage_salles` (
+CREATE TABLE `typage_salles` (
   `codeSalle` int(11) NOT NULL DEFAULT '0',
   `codeType` int(11) NOT NULL DEFAULT '0',
   `dateModif` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
@@ -10649,7 +10473,7 @@ INSERT INTO `typage_salles` (`codeSalle`, `codeType`, `dateModif`, `deleted`, `c
 -- Structure de la table `types_activites`
 --
 
-CREATE TABLE IF NOT EXISTS `types_activites` (
+CREATE TABLE `types_activites` (
   `codeTypeActivite` int(11) NOT NULL,
   `identifiant` varchar(50) NOT NULL,
   `nom` varchar(150) NOT NULL,
@@ -10660,8 +10484,7 @@ CREATE TABLE IF NOT EXISTS `types_activites` (
   `dateModif` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `rang` int(3) NOT NULL,
   `codeProprietaire` int(11) NOT NULL,
-  `deleted` tinyint(1) NOT NULL,
-  PRIMARY KEY (`codeTypeActivite`)
+  `deleted` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -10678,8 +10501,7 @@ INSERT INTO `types_activites` (`codeTypeActivite`, `identifiant`, `nom`, `alias`
 (8, '8', 'Tutorat', 'TUT', '', 7321599, 0, '2014-06-10 13:35:12', 8, 300, 0),
 (9, '9', 'Devoir surveillé', 'DS', '', 255, 16777215, '2014-06-10 13:35:12', 9, 300, 0),
 (11, '11', 'Travaux pratiques en apprentissage', 'TP APP', '', 21672, 16777215, '2014-06-10 13:35:12', 11, 300, 0),
-(15, '15', 'Cours Mastère Transport Ferroviaire ', 'CM (FERRO)', 'Réservé pour l''ENSIAME', 15132415, 0, '2014-06-10 13:35:12', 15, 300, 0),
-(16, '16', 'Entreprise', 'ET', 'réservé pour les apprentis', 7872282, 27527525, '2014-11-02 23:00:00', 16, 300, 0);
+(15, '15', 'Cours Mastère Transport Ferroviaire ', 'CM (FERRO)', 'Réservé pour l''ENSIAME', 15132415, 0, '2014-06-10 13:35:12', 15, 300, 0);
 
 -- --------------------------------------------------------
 
@@ -10687,8 +10509,8 @@ INSERT INTO `types_activites` (`codeTypeActivite`, `identifiant`, `nom`, `alias`
 -- Structure de la table `types_salles`
 --
 
-CREATE TABLE IF NOT EXISTS `types_salles` (
-  `codeTypeSalle` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `types_salles` (
+`codeTypeSalle` int(11) NOT NULL,
   `couleurFond` bigint(20) NOT NULL DEFAULT '0',
   `couleurPolice` bigint(20) NOT NULL DEFAULT '0',
   `nom` varchar(150) NOT NULL DEFAULT 'NOM?',
@@ -10698,9 +10520,8 @@ CREATE TABLE IF NOT EXISTS `types_salles` (
   `codeProprietaire` int(11) NOT NULL DEFAULT '0',
   `alias` varchar(50) NOT NULL,
   `commentaire` varchar(150) NOT NULL,
-  `identifiant` varchar(50) NOT NULL,
-  PRIMARY KEY (`codeTypeSalle`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1876 ;
+  `identifiant` varchar(50) NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=1876 DEFAULT CHARSET=latin1;
 
 --
 -- Contenu de la table `types_salles`
@@ -10779,7 +10600,7 @@ INSERT INTO `types_salles` (`codeTypeSalle`, `couleurFond`, `couleurPolice`, `no
 -- Structure de la table `utilisateurs`
 --
 
-CREATE TABLE IF NOT EXISTS `utilisateurs` (
+CREATE TABLE `utilisateurs` (
   `codeUtilisateur` int(11) NOT NULL DEFAULT '0',
   `login` varchar(50) NOT NULL DEFAULT 'NOM?',
   `password` varchar(50) NOT NULL DEFAULT 'PASS?',
@@ -10808,8 +10629,7 @@ CREATE TABLE IF NOT EXISTS `utilisateurs` (
   `dureeMaxConnexion` int(10) NOT NULL DEFAULT '999999',
   `adresseMAC` varchar(20) NOT NULL,
   `verifNouvelleVersion` tinyint(1) NOT NULL DEFAULT '1',
-  `methodeDeCalcul` tinyint(1) NOT NULL DEFAULT '2',
-  PRIMARY KEY (`codeUtilisateur`)
+  `methodeDeCalcul` tinyint(1) NOT NULL DEFAULT '2'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -10858,19 +10678,16 @@ INSERT INTO `utilisateurs` (`codeUtilisateur`, `login`, `password`, `droits`, `d
 -- Structure de la table `utilisateurs_actions`
 --
 
-CREATE TABLE IF NOT EXISTS `utilisateurs_actions` (
-  `codeAction` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `utilisateurs_actions` (
+`codeAction` int(11) NOT NULL,
   `dateDebut` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `dateFin` datetime NOT NULL,
   `achevee` tinyint(1) NOT NULL DEFAULT '0',
   `typeAction` tinyint(1) NOT NULL DEFAULT '1' COMMENT '1 = ajout; 2 = modification; 3 = destruction',
   `codeUtilisateur` int(11) NOT NULL,
   `deleted` tinyint(1) NOT NULL,
-  `numeroCommande` int(11) NOT NULL,
-  PRIMARY KEY (`codeAction`),
-  KEY `IDX_actions_code` (`codeAction`) USING BTREE,
-  KEY `IDX_actions_util` (`codeUtilisateur`) USING BTREE
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5694 ;
+  `numeroCommande` int(11) NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=5694 DEFAULT CHARSET=latin1;
 
 --
 -- Contenu de la table `utilisateurs_actions`
@@ -16584,7 +16401,7 @@ INSERT INTO `utilisateurs_actions` (`codeAction`, `dateDebut`, `dateFin`, `achev
 -- Structure de la table `utilisateurs_appartenances_groupes`
 --
 
-CREATE TABLE IF NOT EXISTS `utilisateurs_appartenances_groupes` (
+CREATE TABLE `utilisateurs_appartenances_groupes` (
   `codeUtilisateur` int(11) NOT NULL DEFAULT '0',
   `codeGroupeUtilisateur` int(11) NOT NULL DEFAULT '0',
   `deleted` tinyint(4) NOT NULL DEFAULT '0'
@@ -16630,7 +16447,7 @@ INSERT INTO `utilisateurs_appartenances_groupes` (`codeUtilisateur`, `codeGroupe
 -- Structure de la table `utilisateurs_composantes`
 --
 
-CREATE TABLE IF NOT EXISTS `utilisateurs_composantes` (
+CREATE TABLE `utilisateurs_composantes` (
   `codeComposante` int(11) NOT NULL DEFAULT '0',
   `codeUtilisateur` int(11) NOT NULL DEFAULT '0',
   `deleted` tinyint(1) NOT NULL
@@ -16642,7 +16459,7 @@ CREATE TABLE IF NOT EXISTS `utilisateurs_composantes` (
 -- Structure de la table `utilisateurs_composantes_defaut`
 --
 
-CREATE TABLE IF NOT EXISTS `utilisateurs_composantes_defaut` (
+CREATE TABLE `utilisateurs_composantes_defaut` (
   `codeUtilisateur` int(11) NOT NULL,
   `codeComposante` int(11) NOT NULL,
   `deleted` tinyint(2) NOT NULL,
@@ -16655,16 +16472,15 @@ CREATE TABLE IF NOT EXISTS `utilisateurs_composantes_defaut` (
 -- Structure de la table `utilisateurs_connexions`
 --
 
-CREATE TABLE IF NOT EXISTS `utilisateurs_connexions` (
+CREATE TABLE `utilisateurs_connexions` (
   `codeUtilisateur` int(11) NOT NULL DEFAULT '0',
   `dateConnexion` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
   `dateDeconnexion` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
   `ip` varchar(255) NOT NULL DEFAULT '',
-  `numeroSession` int(11) NOT NULL AUTO_INCREMENT,
+`numeroSession` int(11) NOT NULL,
   `dateModif` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `adresseMac` varchar(20) NOT NULL,
-  PRIMARY KEY (`numeroSession`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=393 ;
+  `adresseMac` varchar(20) NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=393 DEFAULT CHARSET=latin1;
 
 --
 -- Contenu de la table `utilisateurs_connexions`
@@ -17070,12 +16886,11 @@ INSERT INTO `utilisateurs_connexions` (`codeUtilisateur`, `dateConnexion`, `date
 -- Structure de la table `utilisateurs_domaines`
 --
 
-CREATE TABLE IF NOT EXISTS `utilisateurs_domaines` (
+CREATE TABLE `utilisateurs_domaines` (
   `codeDomaine` int(11) NOT NULL DEFAULT '0',
   `nom` varchar(100) NOT NULL,
   `commentaire` varchar(250) NOT NULL,
-  `deleted` tinyint(1) NOT NULL,
-  PRIMARY KEY (`codeDomaine`)
+  `deleted` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -17084,7 +16899,7 @@ CREATE TABLE IF NOT EXISTS `utilisateurs_domaines` (
 -- Structure de la table `utilisateurs_domaines_groupes`
 --
 
-CREATE TABLE IF NOT EXISTS `utilisateurs_domaines_groupes` (
+CREATE TABLE `utilisateurs_domaines_groupes` (
   `codeDomaine` int(11) NOT NULL,
   `codeGroupeUtilisateurs` int(11) NOT NULL,
   `deleted` tinyint(1) NOT NULL
@@ -17116,18 +16931,16 @@ INSERT INTO `utilisateurs_domaines_groupes` (`codeDomaine`, `codeGroupeUtilisate
 -- Structure de la table `utilisateurs_filtrages`
 --
 
-CREATE TABLE IF NOT EXISTS `utilisateurs_filtrages` (
-  `codeFiltrage` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `utilisateurs_filtrages` (
+`codeFiltrage` int(11) NOT NULL,
   `nomFiltrage` varchar(50) NOT NULL,
   `dateModif` datetime NOT NULL,
   `deleted` tinyint(1) NOT NULL,
   `codeProprietaire` int(11) NOT NULL,
   `typeDeDonnees` tinyint(2) NOT NULL,
   `dateCreation` datetime NOT NULL,
-  `selectionDefaut` tinyint(1) NOT NULL,
-  PRIMARY KEY (`codeFiltrage`),
-  KEY `IDX_utilfil_codeProprietaire` (`codeProprietaire`) USING BTREE
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=7 ;
+  `selectionDefaut` tinyint(1) NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
 
 --
 -- Contenu de la table `utilisateurs_filtrages`
@@ -17147,14 +16960,12 @@ INSERT INTO `utilisateurs_filtrages` (`codeFiltrage`, `nomFiltrage`, `dateModif`
 -- Structure de la table `utilisateurs_filtrages_composantes`
 --
 
-CREATE TABLE IF NOT EXISTS `utilisateurs_filtrages_composantes` (
+CREATE TABLE `utilisateurs_filtrages_composantes` (
   `codeProprietaire` int(11) NOT NULL,
   `codeRessource` int(11) NOT NULL,
   `deleted` int(2) NOT NULL,
   `dateModif` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `codeFiltrage` int(11) NOT NULL,
-  KEY `IDX_utilfilcomp_codeProprietaire` (`codeProprietaire`) USING BTREE,
-  KEY `IDX_utilfilcomp_codeFiltrage` (`codeFiltrage`) USING BTREE
+  `codeFiltrage` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -17163,14 +16974,12 @@ CREATE TABLE IF NOT EXISTS `utilisateurs_filtrages_composantes` (
 -- Structure de la table `utilisateurs_filtrages_diplomes`
 --
 
-CREATE TABLE IF NOT EXISTS `utilisateurs_filtrages_diplomes` (
+CREATE TABLE `utilisateurs_filtrages_diplomes` (
   `codeProprietaire` int(11) NOT NULL,
   `codeRessource` int(11) NOT NULL,
   `deleted` int(2) NOT NULL,
   `dateModif` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `codeFiltrage` int(11) NOT NULL,
-  KEY `IDX_utilfildip_codeProprietaire` (`codeProprietaire`) USING BTREE,
-  KEY `IDX_utilfildip_codeFiltrage` (`codeFiltrage`) USING BTREE
+  `codeFiltrage` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -17179,14 +16988,12 @@ CREATE TABLE IF NOT EXISTS `utilisateurs_filtrages_diplomes` (
 -- Structure de la table `utilisateurs_filtrages_enseignements`
 --
 
-CREATE TABLE IF NOT EXISTS `utilisateurs_filtrages_enseignements` (
+CREATE TABLE `utilisateurs_filtrages_enseignements` (
   `codeProprietaire` int(11) NOT NULL,
   `codeRessource` int(11) NOT NULL,
   `deleted` int(2) NOT NULL,
   `dateModif` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `codeFiltrage` int(11) NOT NULL,
-  KEY `IDX_utilfilens_codeProprietaire` (`codeProprietaire`) USING BTREE,
-  KEY `IDX_utilfilens_codeFiltrage` (`codeFiltrage`) USING BTREE
+  `codeFiltrage` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -17222,14 +17029,12 @@ INSERT INTO `utilisateurs_filtrages_enseignements` (`codeProprietaire`, `codeRes
 -- Structure de la table `utilisateurs_filtrages_etudiants`
 --
 
-CREATE TABLE IF NOT EXISTS `utilisateurs_filtrages_etudiants` (
+CREATE TABLE `utilisateurs_filtrages_etudiants` (
   `codeProprietaire` int(11) NOT NULL,
   `codeRessource` int(11) NOT NULL,
   `deleted` int(2) NOT NULL,
   `dateModif` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `codeFiltrage` int(11) NOT NULL,
-  KEY `IDX_utilfilens_codeProprietaire` (`codeProprietaire`) USING BTREE,
-  KEY `IDX_utilfilens_codeFiltrage` (`codeFiltrage`) USING BTREE
+  `codeFiltrage` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -17247,14 +17052,12 @@ INSERT INTO `utilisateurs_filtrages_etudiants` (`codeProprietaire`, `codeRessour
 -- Structure de la table `utilisateurs_filtrages_groupes`
 --
 
-CREATE TABLE IF NOT EXISTS `utilisateurs_filtrages_groupes` (
+CREATE TABLE `utilisateurs_filtrages_groupes` (
   `codeProprietaire` int(11) NOT NULL,
   `codeRessource` int(11) NOT NULL,
   `deleted` int(2) NOT NULL,
   `dateModif` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `codeFiltrage` int(11) NOT NULL,
-  KEY `IDX_utilfilens_codeProprietaire` (`codeProprietaire`) USING BTREE,
-  KEY `IDX_utilfilens_codeFiltrage` (`codeFiltrage`) USING BTREE
+  `codeFiltrage` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -17323,14 +17126,12 @@ INSERT INTO `utilisateurs_filtrages_groupes` (`codeProprietaire`, `codeRessource
 -- Structure de la table `utilisateurs_filtrages_materiels`
 --
 
-CREATE TABLE IF NOT EXISTS `utilisateurs_filtrages_materiels` (
+CREATE TABLE `utilisateurs_filtrages_materiels` (
   `codeProprietaire` int(11) NOT NULL,
   `codeRessource` int(11) NOT NULL,
   `deleted` int(2) NOT NULL,
   `dateModif` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `codeFiltrage` int(11) NOT NULL,
-  KEY `IDX_utilfilens_codeProprietaire` (`codeProprietaire`) USING BTREE,
-  KEY `IDX_utilfilens_codeFiltrage` (`codeFiltrage`) USING BTREE
+  `codeFiltrage` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -17354,14 +17155,12 @@ INSERT INTO `utilisateurs_filtrages_materiels` (`codeProprietaire`, `codeRessour
 -- Structure de la table `utilisateurs_filtrages_matieres`
 --
 
-CREATE TABLE IF NOT EXISTS `utilisateurs_filtrages_matieres` (
+CREATE TABLE `utilisateurs_filtrages_matieres` (
   `codeProprietaire` int(11) NOT NULL,
   `codeRessource` int(11) NOT NULL,
   `deleted` int(2) NOT NULL,
   `dateModif` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `codeFiltrage` int(11) NOT NULL,
-  KEY `IDX_utilfilens_codeProprietaire` (`codeProprietaire`) USING BTREE,
-  KEY `IDX_utilfilens_codeFiltrage` (`codeFiltrage`) USING BTREE
+  `codeFiltrage` int(11) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -17370,14 +17169,12 @@ CREATE TABLE IF NOT EXISTS `utilisateurs_filtrages_matieres` (
 -- Structure de la table `utilisateurs_filtrages_modules`
 --
 
-CREATE TABLE IF NOT EXISTS `utilisateurs_filtrages_modules` (
+CREATE TABLE `utilisateurs_filtrages_modules` (
   `codeProprietaire` int(11) NOT NULL,
   `codeRessource` int(11) NOT NULL,
   `deleted` int(2) NOT NULL,
   `dateModif` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `codeFiltrage` int(11) NOT NULL,
-  KEY `IDX_utilfilens_codeProprietaire` (`codeProprietaire`) USING BTREE,
-  KEY `IDX_utilfilens_codeFiltrage` (`codeFiltrage`) USING BTREE
+  `codeFiltrage` int(11) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -17386,14 +17183,12 @@ CREATE TABLE IF NOT EXISTS `utilisateurs_filtrages_modules` (
 -- Structure de la table `utilisateurs_filtrages_niveaux`
 --
 
-CREATE TABLE IF NOT EXISTS `utilisateurs_filtrages_niveaux` (
+CREATE TABLE `utilisateurs_filtrages_niveaux` (
   `codeProprietaire` int(11) NOT NULL,
   `codeRessource` int(11) NOT NULL,
   `deleted` int(2) NOT NULL,
   `dateModif` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `codeFiltrage` int(11) NOT NULL,
-  KEY `IDX_utilfilniv_codeProprietaire` (`codeProprietaire`) USING BTREE,
-  KEY `IDX_utilfilniv_codeFiltrage` (`codeFiltrage`) USING BTREE
+  `codeFiltrage` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -17402,14 +17197,12 @@ CREATE TABLE IF NOT EXISTS `utilisateurs_filtrages_niveaux` (
 -- Structure de la table `utilisateurs_filtrages_profs`
 --
 
-CREATE TABLE IF NOT EXISTS `utilisateurs_filtrages_profs` (
+CREATE TABLE `utilisateurs_filtrages_profs` (
   `codeProprietaire` int(11) NOT NULL,
   `codeRessource` int(11) NOT NULL,
   `deleted` int(2) NOT NULL,
   `dateModif` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `codeFiltrage` int(11) NOT NULL,
-  KEY `IDX_utilfilens_codeProprietaire` (`codeProprietaire`) USING BTREE,
-  KEY `IDX_utilfilens_codeFiltrage` (`codeFiltrage`) USING BTREE
+  `codeFiltrage` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -17425,14 +17218,12 @@ INSERT INTO `utilisateurs_filtrages_profs` (`codeProprietaire`, `codeRessource`,
 -- Structure de la table `utilisateurs_filtrages_salles`
 --
 
-CREATE TABLE IF NOT EXISTS `utilisateurs_filtrages_salles` (
+CREATE TABLE `utilisateurs_filtrages_salles` (
   `codeProprietaire` int(11) NOT NULL,
   `codeRessource` int(11) NOT NULL,
   `deleted` int(2) NOT NULL,
   `dateModif` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `codeFiltrage` int(11) NOT NULL,
-  KEY `IDX_utilfilens_codeProprietaire` (`codeProprietaire`) USING BTREE,
-  KEY `IDX_utilfilens_codeFiltrage` (`codeFiltrage`) USING BTREE
+  `codeFiltrage` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -17441,15 +17232,14 @@ CREATE TABLE IF NOT EXISTS `utilisateurs_filtrages_salles` (
 -- Structure de la table `utilisateurs_groupes`
 --
 
-CREATE TABLE IF NOT EXISTS `utilisateurs_groupes` (
+CREATE TABLE `utilisateurs_groupes` (
   `codeGroupeUtilisateur` int(11) NOT NULL DEFAULT '0',
   `nom` varchar(150) NOT NULL DEFAULT 'NOM?',
   `dateModif` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `deleted` tinyint(4) NOT NULL DEFAULT '0',
   `commentaire` varchar(200) NOT NULL,
   `codeProprietaire` int(11) NOT NULL DEFAULT '0',
-  `alias` varchar(50) NOT NULL,
-  PRIMARY KEY (`codeGroupeUtilisateur`)
+  `alias` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -17487,7 +17277,7 @@ INSERT INTO `utilisateurs_groupes` (`codeGroupeUtilisateur`, `nom`, `dateModif`,
 -- Structure de la table `utilisateurs_groupeutilisateurs_droits`
 --
 
-CREATE TABLE IF NOT EXISTS `utilisateurs_groupeutilisateurs_droits` (
+CREATE TABLE `utilisateurs_groupeutilisateurs_droits` (
   `codeUtilisateur` int(11) NOT NULL,
   `codeGroupeUtilisateurs` int(11) NOT NULL,
   `deleted` tinyint(1) NOT NULL,
@@ -17561,11 +17351,9 @@ INSERT INTO `utilisateurs_groupeutilisateurs_droits` (`codeUtilisateur`, `codeGr
 -- Structure de la table `utilisateurs_modeles`
 --
 
-CREATE TABLE IF NOT EXISTS `utilisateurs_modeles` (
+CREATE TABLE `utilisateurs_modeles` (
   `codeUtilisateur` bigint(11) NOT NULL,
-  `codeModele` bigint(11) NOT NULL,
-  KEY `IDX_util_model_codeUtilisateur` (`codeUtilisateur`) USING BTREE,
-  KEY `IDX_uti_model_codeModel` (`codeModele`) USING BTREE
+  `codeModele` bigint(11) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -17574,16 +17362,13 @@ CREATE TABLE IF NOT EXISTS `utilisateurs_modeles` (
 -- Structure de la table `utilisateurs_numeros_commandes`
 --
 
-CREATE TABLE IF NOT EXISTS `utilisateurs_numeros_commandes` (
-  `numeroCommande` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `utilisateurs_numeros_commandes` (
+`numeroCommande` int(11) NOT NULL,
   `dateCreation` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `typeCommande` tinyint(1) NOT NULL DEFAULT '1' COMMENT '1 = ajout; 2 = modification; 3 = destruction',
   `codeUtilisateur` int(11) NOT NULL,
-  `deleted` tinyint(1) NOT NULL,
-  PRIMARY KEY (`numeroCommande`),
-  KEY `IDX_actions_code` (`numeroCommande`) USING BTREE,
-  KEY `IDX_actions_util` (`codeUtilisateur`) USING BTREE
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1879 ;
+  `deleted` tinyint(1) NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=1879 DEFAULT CHARSET=latin1;
 
 --
 -- Contenu de la table `utilisateurs_numeros_commandes`
@@ -19476,7 +19261,7 @@ INSERT INTO `utilisateurs_numeros_commandes` (`numeroCommande`, `dateCreation`, 
 -- Structure de la table `utilisateurs_parametres`
 --
 
-CREATE TABLE IF NOT EXISTS `utilisateurs_parametres` (
+CREATE TABLE `utilisateurs_parametres` (
   `nomParametre` int(5) NOT NULL,
   `valeurParametre` varchar(50) NOT NULL DEFAULT '',
   `commentaireParametre` varchar(250) NOT NULL DEFAULT '',
@@ -19484,9 +19269,7 @@ CREATE TABLE IF NOT EXISTS `utilisateurs_parametres` (
   `dateModif` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `rubriqueParametre` int(5) NOT NULL,
   `champParametre` varchar(50) NOT NULL,
-  `adresseMAC` varchar(20) NOT NULL,
-  KEY `IDX_params_nom` (`nomParametre`) USING BTREE,
-  KEY `IDX_params_codeUtilisateur` (`codeUtilisateur`) USING BTREE
+  `adresseMAC` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -19726,7 +19509,7 @@ INSERT INTO `utilisateurs_parametres` (`nomParametre`, `valeurParametre`, `comme
 -- Structure de la table `utilisateurs_synchronisations`
 --
 
-CREATE TABLE IF NOT EXISTS `utilisateurs_synchronisations` (
+CREATE TABLE `utilisateurs_synchronisations` (
   `codeUtilisateur` int(11) NOT NULL,
   `dateSynchronisation` datetime NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
@@ -19737,9 +19520,8 @@ CREATE TABLE IF NOT EXISTS `utilisateurs_synchronisations` (
 -- Structure de la table `vacances`
 --
 
-CREATE TABLE IF NOT EXISTS `vacances` (
-  `date` date NOT NULL,
-  PRIMARY KEY (`date`)
+CREATE TABLE `vacances` (
+  `date` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 -- --------------------------------------------------------
@@ -19748,13 +19530,12 @@ CREATE TABLE IF NOT EXISTS `vacances` (
 -- Structure de la table `visiteurs`
 --
 
-CREATE TABLE IF NOT EXISTS `visiteurs` (
+CREATE TABLE `visiteurs` (
   `codeRessource` int(11) NOT NULL DEFAULT '0',
   `heureEtDate` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
-  `code` int(11) NOT NULL AUTO_INCREMENT,
-  `ip` varchar(20) DEFAULT NULL,
-  PRIMARY KEY (`code`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+`code` int(11) NOT NULL,
+  `ip` varchar(20) DEFAULT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -19762,8 +19543,8 @@ CREATE TABLE IF NOT EXISTS `visiteurs` (
 -- Structure de la table `zones_salles`
 --
 
-CREATE TABLE IF NOT EXISTS `zones_salles` (
-  `codeZoneSalle` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `zones_salles` (
+`codeZoneSalle` int(11) NOT NULL,
   `couleurFond` bigint(20) NOT NULL DEFAULT '0',
   `couleurPolice` bigint(20) NOT NULL DEFAULT '0',
   `nom` varchar(255) NOT NULL DEFAULT 'ZONE?',
@@ -19773,9 +19554,8 @@ CREATE TABLE IF NOT EXISTS `zones_salles` (
   `codeProprietaire` int(11) NOT NULL DEFAULT '0',
   `alias` varchar(50) NOT NULL,
   `commentaire` varchar(200) NOT NULL,
-  `identifiant` varchar(50) NOT NULL,
-  PRIMARY KEY (`codeZoneSalle`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
+  `identifiant` varchar(50) NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 
 --
 -- Contenu de la table `zones_salles`
@@ -19792,7 +19572,7 @@ INSERT INTO `zones_salles` (`codeZoneSalle`, `couleurFond`, `couleurPolice`, `no
 -- Structure de la table `zones_temps`
 --
 
-CREATE TABLE IF NOT EXISTS `zones_temps` (
+CREATE TABLE `zones_temps` (
   `codeZoneSalle1` int(11) NOT NULL DEFAULT '0',
   `codeZoneSalle2` int(11) NOT NULL DEFAULT '0',
   `tempsInterZone` int(11) NOT NULL DEFAULT '0',
@@ -19802,6 +19582,726 @@ CREATE TABLE IF NOT EXISTS `zones_temps` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
+-- Index pour les tables exportées
+--
+
+--
+-- Index pour la table `absences`
+--
+ALTER TABLE `absences`
+ ADD PRIMARY KEY (`codeAbsence`), ADD KEY `idx_abs_ressource` (`codeRessource`) USING BTREE;
+
+--
+-- Index pour la table `absences_etudiants`
+--
+ALTER TABLE `absences_etudiants`
+ ADD PRIMARY KEY (`codeAbsence`), ADD KEY `IDX_absEtud_codeSeance` (`codeSeance`) USING BTREE, ADD KEY `IDX_absEtud_codeEtudiant` (`codeEtudiant`) USING BTREE, ADD KEY `IDX_absEtud_codeAbsence` (`codeAbsence`) USING BTREE;
+
+--
+-- Index pour la table `calendriers_enseignements`
+--
+ALTER TABLE `calendriers_enseignements`
+ ADD PRIMARY KEY (`code`), ADD KEY `IDX_cal_ens_del` (`deleted`) USING BTREE, ADD KEY `IDX_cal_ens_prop` (`codeProprietaire`) USING BTREE, ADD KEY `IDX_cal_ens_dateModif` (`dateModif`) USING BTREE;
+
+--
+-- Index pour la table `calendriers_filieres`
+--
+ALTER TABLE `calendriers_filieres`
+ ADD PRIMARY KEY (`code`), ADD KEY `IDX_cal_fil_del` (`deleted`) USING BTREE, ADD KEY `IDX_cal_fil_prop` (`codeProprietaire`) USING BTREE, ADD KEY `IDX_cal_fil_dateModif` (`dateModif`) USING BTREE;
+
+--
+-- Index pour la table `calendriers_groupes`
+--
+ALTER TABLE `calendriers_groupes`
+ ADD PRIMARY KEY (`code`), ADD KEY `IDX_cal_grs_del` (`deleted`) USING BTREE, ADD KEY `IDX_cal_grs_prop` (`codeProprietaire`) USING BTREE, ADD KEY `IDX_cal_grs_dateModif` (`dateModif`) USING BTREE;
+
+--
+-- Index pour la table `calendriers_materiels`
+--
+ALTER TABLE `calendriers_materiels`
+ ADD PRIMARY KEY (`code`), ADD KEY `IDX_cal_mat_del` (`deleted`) USING BTREE, ADD KEY `IDX_cal_mat_prop` (`codeProprietaire`) USING BTREE, ADD KEY `IDX_cal_mat_dateModif` (`dateModif`) USING BTREE;
+
+--
+-- Index pour la table `calendriers_profs`
+--
+ALTER TABLE `calendriers_profs`
+ ADD PRIMARY KEY (`code`), ADD KEY `IDX_cal_prof_del` (`deleted`) USING BTREE, ADD KEY `IDX_cal_prof_prop` (`codeProprietaire`) USING BTREE, ADD KEY `IDX_cal_prof_dateModif` (`dateModif`) USING BTREE;
+
+--
+-- Index pour la table `calendriers_salles`
+--
+ALTER TABLE `calendriers_salles`
+ ADD PRIMARY KEY (`code`), ADD KEY `IDX_cal_salle_del` (`deleted`) USING BTREE, ADD KEY `IDX_cal_salle_prop` (`codeProprietaire`) USING BTREE, ADD KEY `IDX_cal_salle_dateModif` (`dateModif`) USING BTREE;
+
+--
+-- Index pour la table `cnu`
+--
+ALTER TABLE `cnu`
+ ADD PRIMARY KEY (`codeCNU`), ADD KEY `IDX_cnu_del` (`deleted`) USING BTREE, ADD KEY `IDX_cnu_prop` (`codeProprietaire`) USING BTREE, ADD KEY `IDX_cnu_dateModif` (`dateModif`) USING BTREE;
+
+--
+-- Index pour la table `composantes`
+--
+ALTER TABLE `composantes`
+ ADD PRIMARY KEY (`codeComposante`), ADD KEY `IDX_comp_nom` (`nom`) USING BTREE, ADD KEY `IDX_comp_del` (`deleted`) USING BTREE, ADD KEY `IDX_comp_prop` (`codeProprietaire`) USING BTREE, ADD KEY `IDX_comp_dateModif` (`dateModif`) USING BTREE;
+
+--
+-- Index pour la table `compteur`
+--
+ALTER TABLE `compteur`
+ ADD PRIMARY KEY (`id_compteur`);
+
+--
+-- Index pour la table `diplomes`
+--
+ALTER TABLE `diplomes`
+ ADD PRIMARY KEY (`codeDiplome`), ADD KEY `IDX_diplom_nom` (`nom`) USING BTREE, ADD KEY `IDX_diplom_del` (`deleted`) USING BTREE, ADD KEY `IDX_diplom_prop` (`codeProprietaire`) USING BTREE, ADD KEY `IDX_diplom_dateModif` (`dateModif`) USING BTREE;
+
+--
+-- Index pour la table `enseignements`
+--
+ALTER TABLE `enseignements`
+ ADD PRIMARY KEY (`codeEnseignement`), ADD KEY `IDX_ens_del` (`deleted`) USING BTREE, ADD KEY `IDX_ens_prop` (`codeProprietaire`) USING BTREE, ADD KEY `IDX_ens_dateModif` (`dateModif`) USING BTREE;
+
+--
+-- Index pour la table `enseignements_groupes`
+--
+ALTER TABLE `enseignements_groupes`
+ ADD KEY `IDX_ensgrs_code` (`codeEnseignement`) USING BTREE, ADD KEY `IDX_ensgrs_codegrs` (`codeRessource`) USING BTREE, ADD KEY `IDX_ensgrs_del` (`deleted`) USING BTREE, ADD KEY `IDX_ensgrs_prop` (`codeProprietaire`) USING BTREE, ADD KEY `IDX_ensgrs_dateModif` (`dateModif`) USING BTREE;
+
+--
+-- Index pour la table `enseignements_historique`
+--
+ALTER TABLE `enseignements_historique`
+ ADD KEY `IDX_ens_del` (`deleted`) USING BTREE, ADD KEY `IDX_ens_prop` (`codeProprietaire`) USING BTREE, ADD KEY `IDX_ens_dateModif` (`dateModif`) USING BTREE;
+
+--
+-- Index pour la table `enseignements_materiels`
+--
+ALTER TABLE `enseignements_materiels`
+ ADD KEY `IDX_ensmts_code` (`codeEnseignement`) USING BTREE, ADD KEY `IDX_ensmts_codesls` (`codeRessource`) USING BTREE, ADD KEY `IDX_ensmts_del` (`deleted`) USING BTREE, ADD KEY `IDX_ensmts_prop` (`codeProprietaire`) USING BTREE, ADD KEY `IDX_ensmts_dateModif` (`dateModif`) USING BTREE;
+
+--
+-- Index pour la table `enseignements_prerequis`
+--
+ALTER TABLE `enseignements_prerequis`
+ ADD KEY `IDX_enspre_code` (`codeEnseignement`) USING BTREE, ADD KEY `IDX_enspre_codePre` (`codePrerequis`) USING BTREE, ADD KEY `IDX_enspre_del` (`deleted`) USING BTREE, ADD KEY `IDX_enspre_prop` (`codeProprietaire`) USING BTREE, ADD KEY `IDX_enspre_dateModif` (`dateModif`) USING BTREE;
+
+--
+-- Index pour la table `enseignements_profs`
+--
+ALTER TABLE `enseignements_profs`
+ ADD KEY `IDX_ensprs_code` (`codeEnseignement`) USING BTREE, ADD KEY `IDX_ensprs_codegrs` (`codeRessource`) USING BTREE, ADD KEY `IDX_ensprs_del` (`deleted`) USING BTREE, ADD KEY `IDX_ensprs_prop` (`codeProprietaire`) USING BTREE, ADD KEY `IDX_ensprs_dateModif` (`dateModif`) USING BTREE;
+
+--
+-- Index pour la table `enseignements_salles`
+--
+ALTER TABLE `enseignements_salles`
+ ADD KEY `IDX_enssls_code` (`codeEnseignement`) USING BTREE, ADD KEY `IDX_enssls_codesls` (`codeRessource`) USING BTREE, ADD KEY `IDX_enssls_del` (`deleted`) USING BTREE, ADD KEY `IDX_enssls_prop` (`codeProprietaire`) USING BTREE, ADD KEY `IDX_enssls_dateModif` (`dateModif`) USING BTREE;
+
+--
+-- Index pour la table `etudiants_diplomes`
+--
+ALTER TABLE `etudiants_diplomes`
+ ADD KEY `IDX_etud_dip_del` (`deleted`) USING BTREE, ADD KEY `IDX_etud_dip_modif` (`dateModif`) USING BTREE;
+
+--
+-- Index pour la table `filieres`
+--
+ALTER TABLE `filieres`
+ ADD PRIMARY KEY (`codeFiliere`);
+
+--
+-- Index pour la table `grades`
+--
+ALTER TABLE `grades`
+ ADD PRIMARY KEY (`codeGrade`);
+
+--
+-- Index pour la table `grades_ponderations`
+--
+ALTER TABLE `grades_ponderations`
+ ADD KEY `pondGrade` (`codeGrade`) USING BTREE, ADD KEY `pondTypActiv` (`codeTypeActivite`) USING BTREE, ADD KEY `pondDel` (`deleted`) USING BTREE;
+
+--
+-- Index pour la table `hierarchies_composantes`
+--
+ALTER TABLE `hierarchies_composantes`
+ ADD PRIMARY KEY (`code`), ADD KEY `IDX_hiecps_codeRes` (`codeRessource`) USING BTREE, ADD KEY `IDX_hiecps_codeFille` (`codeRessourceFille`) USING BTREE, ADD KEY `IDX_hiecps_del` (`deleted`) USING BTREE, ADD KEY `IDX_hiecps_prop` (`codeProprietaire`) USING BTREE, ADD KEY `IDX_hiecps_dateModif` (`dateModif`) USING BTREE;
+
+--
+-- Index pour la table `hierarchies_groupes`
+--
+ALTER TABLE `hierarchies_groupes`
+ ADD PRIMARY KEY (`code`), ADD KEY `IDX_hiegrs_codeRes` (`codeRessource`) USING BTREE, ADD KEY `IDX_hiegrs_codeFille` (`codeRessourceFille`) USING BTREE, ADD KEY `IDX_hiegrs_del` (`deleted`) USING BTREE, ADD KEY `IDX_hiegrs_prop` (`codeProprietaire`) USING BTREE, ADD KEY `IDX_hiegrs_dateModif` (`dateModif`) USING BTREE;
+
+--
+-- Index pour la table `lignes_budgetaires`
+--
+ALTER TABLE `lignes_budgetaires`
+ ADD PRIMARY KEY (`codeLigneBudgetaire`), ADD KEY `IDX_lignebudget_del` (`deleted`) USING BTREE, ADD KEY `IDX_lignebudget_prop` (`codeProprietaire`) USING BTREE, ADD KEY `IDX_lignebudget_dateModif` (`dateModif`) USING BTREE;
+
+--
+-- Index pour la table `lignes_budgetaires_enseignements`
+--
+ALTER TABLE `lignes_budgetaires_enseignements`
+ ADD KEY `IDX_ligBud_code` (`codeLigneBudgetaire`) USING BTREE, ADD KEY `IDX_ligBud_codeRes` (`codeRessource`) USING BTREE, ADD KEY `IDX_ligBud_del` (`deleted`) USING BTREE, ADD KEY `IDX_ligBud_prop` (`codeProprietaire`) USING BTREE, ADD KEY `IDX_ligBud_dateModif` (`dateModif`) USING BTREE;
+
+--
+-- Index pour la table `lignes_budgetaires_groupes`
+--
+ALTER TABLE `lignes_budgetaires_groupes`
+ ADD KEY `IDX_ligBud_code` (`codeLigneBudgetaire`) USING BTREE, ADD KEY `IDX_ligBud_codeRes` (`codeRessource`) USING BTREE, ADD KEY `IDX_ligBud_del` (`deleted`) USING BTREE, ADD KEY `IDX_ligBud_prop` (`codeProprietaire`) USING BTREE, ADD KEY `IDX_ligBud_dateModif` (`dateModif`) USING BTREE;
+
+--
+-- Index pour la table `login_prof`
+--
+ALTER TABLE `login_prof`
+ ADD PRIMARY KEY (`codeProf`);
+
+--
+-- Index pour la table `matieres`
+--
+ALTER TABLE `matieres`
+ ADD PRIMARY KEY (`codeMatiere`), ADD KEY `IDX_matiere_del` (`deleted`) USING BTREE, ADD KEY `IDX_matiere_prop` (`codeProprietaire`) USING BTREE, ADD KEY `IDX_matiere_dateModif` (`dateModif`) USING BTREE;
+
+--
+-- Index pour la table `matieres_diplomes`
+--
+ALTER TABLE `matieres_diplomes`
+ ADD KEY `IDX_matdip_del` (`deleted`) USING BTREE, ADD KEY `IDX_matdip_modif` (`dateModif`) USING BTREE;
+
+--
+-- Index pour la table `matieres_types`
+--
+ALTER TABLE `matieres_types`
+ ADD PRIMARY KEY (`codeTypeMatiere`);
+
+--
+-- Index pour la table `messages_ent`
+--
+ALTER TABLE `messages_ent`
+ ADD PRIMARY KEY (`codeMessage`);
+
+--
+-- Index pour la table `modules`
+--
+ALTER TABLE `modules`
+ ADD PRIMARY KEY (`codeModule`), ADD KEY `IDX_module_del` (`deleted`) USING BTREE, ADD KEY `IDX_module_prop` (`codeProprietaire`) USING BTREE, ADD KEY `IDX_module_dateModif` (`dateModif`) USING BTREE;
+
+--
+-- Index pour la table `modules_etudiants`
+--
+ALTER TABLE `modules_etudiants`
+ ADD KEY `IDX_modetud_code` (`codeModule`) USING BTREE, ADD KEY `IDX_modetud_codeEtud` (`codeEtudiant`) USING BTREE, ADD KEY `IDX_modetud_del` (`deleted`) USING BTREE, ADD KEY `IDX_modetud_prop` (`codeProprietaire`) USING BTREE, ADD KEY `IDX_modetud_dateModif` (`dateModif`) USING BTREE;
+
+--
+-- Index pour la table `modules_groupes`
+--
+ALTER TABLE `modules_groupes`
+ ADD KEY `IDX_modetud_code` (`codeModule`) USING BTREE, ADD KEY `IDX_modetud_codeGroup` (`codeGroupe`) USING BTREE, ADD KEY `IDX_modetud_del` (`deleted`) USING BTREE, ADD KEY `IDX_modetud_prop` (`codeProprietaire`) USING BTREE, ADD KEY `IDX_modetud_dateModif` (`dateModif`) USING BTREE;
+
+--
+-- Index pour la table `modules_matieres`
+--
+ALTER TABLE `modules_matieres`
+ ADD KEY `IDX_modmat_code` (`codeModule`) USING BTREE, ADD KEY `IDX_modmat_codeMat` (`codeMatiere`) USING BTREE, ADD KEY `IDX_modmat_del` (`deleted`) USING BTREE, ADD KEY `IDX_modmat_prop` (`codeProprietaire`) USING BTREE, ADD KEY `IDX_modmat_dateModif` (`dateModif`) USING BTREE;
+
+--
+-- Index pour la table `modules_prerequis`
+--
+ALTER TABLE `modules_prerequis`
+ ADD KEY `IDX_modpre_code` (`codeModule`) USING BTREE, ADD KEY `IDX_modpre_codePre` (`codePrerequis`) USING BTREE, ADD KEY `IDX_modpre_del` (`deleted`) USING BTREE, ADD KEY `IDX_modpre_prop` (`codeProprietaire`) USING BTREE, ADD KEY `IDX_modpre_dateModif` (`dateModif`) USING BTREE;
+
+--
+-- Index pour la table `niveaux`
+--
+ALTER TABLE `niveaux`
+ ADD PRIMARY KEY (`codeNiveau`), ADD KEY `IDX_niveau_del` (`deleted`) USING BTREE, ADD KEY `IDX_niveau_prop` (`codeProprietaire`) USING BTREE, ADD KEY `IDX_niveau_dateModif` (`dateModif`) USING BTREE;
+
+--
+-- Index pour la table `periodes`
+--
+ALTER TABLE `periodes`
+ ADD PRIMARY KEY (`codePeriode`);
+
+--
+-- Index pour la table `reservations`
+--
+ALTER TABLE `reservations`
+ ADD PRIMARY KEY (`codeReservation`), ADD KEY `IDX_reserv_date` (`dateReservation`) USING BTREE, ADD KEY `IDX_reserv_del` (`deleted`) USING BTREE, ADD KEY `IDX_reserv_prop` (`codeProprietaire`) USING BTREE, ADD KEY `IDX_reserv_dateModif` (`dateModif`) USING BTREE;
+
+--
+-- Index pour la table `reservations_enseignements`
+--
+ALTER TABLE `reservations_enseignements`
+ ADD KEY `IDX_reservEnseignements_codeSeance` (`codeReservation`) USING BTREE, ADD KEY `IDX_reservEnseignements_codeEnseignement` (`codeRessource`) USING BTREE;
+
+--
+-- Index pour la table `reservations_filieres`
+--
+ALTER TABLE `reservations_filieres`
+ ADD PRIMARY KEY (`codeReservation`), ADD KEY `IDX_reserv_date` (`dateReservation`) USING BTREE, ADD KEY `IDX_reserv_del` (`deleted`) USING BTREE, ADD KEY `IDX_reserv_prop` (`codeProprietaire`) USING BTREE, ADD KEY `IDX_reserv_dateModif` (`dateModif`) USING BTREE;
+
+--
+-- Index pour la table `reservations_groupes`
+--
+ALTER TABLE `reservations_groupes`
+ ADD KEY `IDX_reservGroupes_codeSeance` (`codeReservation`) USING BTREE, ADD KEY `IDX_reservGroupes_codeGroupe` (`codeRessource`) USING BTREE, ADD KEY `IDX_reservGroupes_dateModif` (`dateModif`) USING BTREE;
+
+--
+-- Index pour la table `reservations_historique`
+--
+ALTER TABLE `reservations_historique`
+ ADD KEY `IDX_reserv_date` (`dateReservation`) USING BTREE, ADD KEY `IDX_reserv_del` (`deleted`) USING BTREE, ADD KEY `IDX_reserv_prop` (`codeProprietaire`) USING BTREE, ADD KEY `IDX_reserv_dateModif` (`dateModif`) USING BTREE;
+
+--
+-- Index pour la table `reservations_materiels`
+--
+ALTER TABLE `reservations_materiels`
+ ADD KEY `IDX_reservMateriels_codeSeance` (`codeReservation`) USING BTREE, ADD KEY `IDX_reservMateriels_codeMateriel` (`codeRessource`) USING BTREE, ADD KEY `IDX_reservMateriels_dateModif` (`dateModif`) USING BTREE;
+
+--
+-- Index pour la table `reservations_profs`
+--
+ALTER TABLE `reservations_profs`
+ ADD KEY `IDX_reservProfs_codeSeance` (`codeReservation`) USING BTREE, ADD KEY `IDX_reservProfs_codeProf` (`codeRessource`) USING BTREE, ADD KEY `IDX_reservProfs_dateModif` (`dateModif`) USING BTREE;
+
+--
+-- Index pour la table `reservations_salles`
+--
+ALTER TABLE `reservations_salles`
+ ADD KEY `IDX_reservSalles_codeSeance` (`codeReservation`) USING BTREE, ADD KEY `IDX_reservSalles_codeSalle` (`codeRessource`) USING BTREE, ADD KEY `IDX_reservSalles_dateModif` (`dateModif`) USING BTREE;
+
+--
+-- Index pour la table `ressources_etudiants`
+--
+ALTER TABLE `ressources_etudiants`
+ ADD PRIMARY KEY (`codeEtudiant`), ADD KEY `IDX_etuds_nom` (`nom`) USING BTREE, ADD KEY `IDX_etuds_del` (`deleted`) USING BTREE, ADD KEY `IDX_etuds_prop` (`codeProprietaire`) USING BTREE, ADD KEY `IDX_etuds_dateModif` (`dateModif`) USING BTREE;
+
+--
+-- Index pour la table `ressources_groupes`
+--
+ALTER TABLE `ressources_groupes`
+ ADD PRIMARY KEY (`codeGroupe`), ADD KEY `IDX_grs_del` (`deleted`) USING BTREE, ADD KEY `IDX_grs_prop` (`codeProprietaire`) USING BTREE, ADD KEY `IDX_grs_dateModif` (`dateModif`) USING BTREE, ADD KEY `IDX_grs_composante` (`codeComposante`) USING BTREE, ADD KEY `IDX_grs_niveau` (`codeNiveau`) USING BTREE, ADD KEY `IDX_grs_diplome` (`codeDiplome`) USING BTREE;
+
+--
+-- Index pour la table `ressources_groupes_etudiants`
+--
+ALTER TABLE `ressources_groupes_etudiants`
+ ADD PRIMARY KEY (`code`), ADD KEY `IDX_grs_etuds_codeEtudiant` (`codeEtudiant`) USING BTREE, ADD KEY `IDX_grs_etuds_codeGroupe` (`codeGroupe`) USING BTREE, ADD KEY `IDX_grs_etuds_dateModif` (`dateModif`) USING BTREE, ADD KEY `IDX_grs_etuds_del` (`deleted`) USING BTREE;
+
+--
+-- Index pour la table `ressources_materiels`
+--
+ALTER TABLE `ressources_materiels`
+ ADD PRIMARY KEY (`codeMateriel`), ADD KEY `IDX_mat_nom` (`nom`) USING BTREE, ADD KEY `IDX_mat_del` (`deleted`) USING BTREE, ADD KEY `IDX_mat_prop` (`codeProprietaire`) USING BTREE, ADD KEY `IDX_mat_dateModif` (`dateModif`) USING BTREE;
+
+--
+-- Index pour la table `ressources_profs`
+--
+ALTER TABLE `ressources_profs`
+ ADD PRIMARY KEY (`codeProf`), ADD KEY `IDX_profs_code` (`codeProf`) USING BTREE, ADD KEY `IDX_profs_nom` (`nom`) USING BTREE, ADD KEY `IDX_profs_del` (`deleted`) USING BTREE, ADD KEY `IDX_profs_prop` (`codeProprietaire`) USING BTREE, ADD KEY `IDX_profs_dateModif` (`dateModif`) USING BTREE;
+
+--
+-- Index pour la table `ressources_salles`
+--
+ALTER TABLE `ressources_salles`
+ ADD PRIMARY KEY (`codeSalle`), ADD KEY `IDX_salles_code` (`codeSalle`) USING BTREE, ADD KEY `IDX_salles_nom` (`nom`) USING BTREE, ADD KEY `IDX_salles_del` (`deleted`) USING BTREE, ADD KEY `IDX_salles_prop` (`codeProprietaire`) USING BTREE, ADD KEY `IDX_salles_dateModif` (`dateModif`) USING BTREE;
+
+--
+-- Index pour la table `seances`
+--
+ALTER TABLE `seances`
+ ADD PRIMARY KEY (`codeSeance`), ADD KEY `IDX_plan_codeEns` (`codeEnseignement`) USING BTREE, ADD KEY `IDX_plan_date` (`dateSeance`) USING BTREE, ADD KEY `IDX_plan_del` (`deleted`) USING BTREE, ADD KEY `IDX_plan_prop` (`codeProprietaire`) USING BTREE, ADD KEY `IDX_plan_dateModif` (`dateModif`) USING BTREE;
+
+--
+-- Index pour la table `seances_groupes`
+--
+ALTER TABLE `seances_groupes`
+ ADD KEY `IDX_seancesGroupes_codeSeance` (`codeSeance`) USING BTREE, ADD KEY `IDX_seancesGroupes_codeGroupe` (`codeRessource`) USING BTREE, ADD KEY `IDX_seancesGroupes_dateModif` (`dateModif`) USING BTREE;
+
+--
+-- Index pour la table `seances_historique`
+--
+ALTER TABLE `seances_historique`
+ ADD KEY `IDX_plan_codeEns` (`codeEnseignement`) USING BTREE, ADD KEY `IDX_plan_date` (`dateSeance`) USING BTREE, ADD KEY `IDX_plan_del` (`deleted`) USING BTREE, ADD KEY `IDX_plan_prop` (`codeProprietaire`) USING BTREE, ADD KEY `IDX_plan_dateModif` (`dateModif`) USING BTREE;
+
+--
+-- Index pour la table `seances_materiels`
+--
+ALTER TABLE `seances_materiels`
+ ADD KEY `IDX_seancesMateriels_codeSeance` (`codeSeance`) USING BTREE, ADD KEY `IDX_seancesMateriels_codeMateriel` (`codeRessource`) USING BTREE, ADD KEY `IDX_seancesMateriels_dateModif` (`dateModif`) USING BTREE;
+
+--
+-- Index pour la table `seances_profs`
+--
+ALTER TABLE `seances_profs`
+ ADD KEY `IDX_seancesProfs_codeSeance` (`codeSeance`) USING BTREE, ADD KEY `IDX_seancesProfs_codeProf` (`codeRessource`) USING BTREE, ADD KEY `IDX_seancesProfs_dateModif` (`dateModif`) USING BTREE;
+
+--
+-- Index pour la table `seances_profs_non_comptabilisees`
+--
+ALTER TABLE `seances_profs_non_comptabilisees`
+ ADD KEY `IDX_seancesCompt_codeSeance` (`codeSeance`) USING BTREE, ADD KEY `IDX_seancesCompt_codeProf` (`codeRessource`) USING BTREE;
+
+--
+-- Index pour la table `seances_profs_payees`
+--
+ALTER TABLE `seances_profs_payees`
+ ADD KEY `IDX_seancesPayees_codeSeance` (`codeSeance`) USING BTREE, ADD KEY `IDX_seancesPayees_codeProf` (`codeRessource`) USING BTREE;
+
+--
+-- Index pour la table `seances_salles`
+--
+ALTER TABLE `seances_salles`
+ ADD KEY `IDX_seancesSalles_codeSeance` (`codeSeance`) USING BTREE, ADD KEY `IDX_seancesSalles_codeSalle` (`codeRessource`) USING BTREE, ADD KEY `IDX_seancesSalles_dateModif` (`dateModif`) USING BTREE;
+
+--
+-- Index pour la table `types_activites`
+--
+ALTER TABLE `types_activites`
+ ADD PRIMARY KEY (`codeTypeActivite`);
+
+--
+-- Index pour la table `types_salles`
+--
+ALTER TABLE `types_salles`
+ ADD PRIMARY KEY (`codeTypeSalle`);
+
+--
+-- Index pour la table `utilisateurs`
+--
+ALTER TABLE `utilisateurs`
+ ADD PRIMARY KEY (`codeUtilisateur`);
+
+--
+-- Index pour la table `utilisateurs_actions`
+--
+ALTER TABLE `utilisateurs_actions`
+ ADD PRIMARY KEY (`codeAction`), ADD KEY `IDX_actions_code` (`codeAction`) USING BTREE, ADD KEY `IDX_actions_util` (`codeUtilisateur`) USING BTREE;
+
+--
+-- Index pour la table `utilisateurs_connexions`
+--
+ALTER TABLE `utilisateurs_connexions`
+ ADD PRIMARY KEY (`numeroSession`);
+
+--
+-- Index pour la table `utilisateurs_domaines`
+--
+ALTER TABLE `utilisateurs_domaines`
+ ADD PRIMARY KEY (`codeDomaine`);
+
+--
+-- Index pour la table `utilisateurs_filtrages`
+--
+ALTER TABLE `utilisateurs_filtrages`
+ ADD PRIMARY KEY (`codeFiltrage`), ADD KEY `IDX_utilfil_codeProprietaire` (`codeProprietaire`) USING BTREE;
+
+--
+-- Index pour la table `utilisateurs_filtrages_composantes`
+--
+ALTER TABLE `utilisateurs_filtrages_composantes`
+ ADD KEY `IDX_utilfilcomp_codeProprietaire` (`codeProprietaire`) USING BTREE, ADD KEY `IDX_utilfilcomp_codeFiltrage` (`codeFiltrage`) USING BTREE;
+
+--
+-- Index pour la table `utilisateurs_filtrages_diplomes`
+--
+ALTER TABLE `utilisateurs_filtrages_diplomes`
+ ADD KEY `IDX_utilfildip_codeProprietaire` (`codeProprietaire`) USING BTREE, ADD KEY `IDX_utilfildip_codeFiltrage` (`codeFiltrage`) USING BTREE;
+
+--
+-- Index pour la table `utilisateurs_filtrages_enseignements`
+--
+ALTER TABLE `utilisateurs_filtrages_enseignements`
+ ADD KEY `IDX_utilfilens_codeProprietaire` (`codeProprietaire`) USING BTREE, ADD KEY `IDX_utilfilens_codeFiltrage` (`codeFiltrage`) USING BTREE;
+
+--
+-- Index pour la table `utilisateurs_filtrages_etudiants`
+--
+ALTER TABLE `utilisateurs_filtrages_etudiants`
+ ADD KEY `IDX_utilfilens_codeProprietaire` (`codeProprietaire`) USING BTREE, ADD KEY `IDX_utilfilens_codeFiltrage` (`codeFiltrage`) USING BTREE;
+
+--
+-- Index pour la table `utilisateurs_filtrages_groupes`
+--
+ALTER TABLE `utilisateurs_filtrages_groupes`
+ ADD KEY `IDX_utilfilens_codeProprietaire` (`codeProprietaire`) USING BTREE, ADD KEY `IDX_utilfilens_codeFiltrage` (`codeFiltrage`) USING BTREE;
+
+--
+-- Index pour la table `utilisateurs_filtrages_materiels`
+--
+ALTER TABLE `utilisateurs_filtrages_materiels`
+ ADD KEY `IDX_utilfilens_codeProprietaire` (`codeProprietaire`) USING BTREE, ADD KEY `IDX_utilfilens_codeFiltrage` (`codeFiltrage`) USING BTREE;
+
+--
+-- Index pour la table `utilisateurs_filtrages_matieres`
+--
+ALTER TABLE `utilisateurs_filtrages_matieres`
+ ADD KEY `IDX_utilfilens_codeProprietaire` (`codeProprietaire`) USING BTREE, ADD KEY `IDX_utilfilens_codeFiltrage` (`codeFiltrage`) USING BTREE;
+
+--
+-- Index pour la table `utilisateurs_filtrages_modules`
+--
+ALTER TABLE `utilisateurs_filtrages_modules`
+ ADD KEY `IDX_utilfilens_codeProprietaire` (`codeProprietaire`) USING BTREE, ADD KEY `IDX_utilfilens_codeFiltrage` (`codeFiltrage`) USING BTREE;
+
+--
+-- Index pour la table `utilisateurs_filtrages_niveaux`
+--
+ALTER TABLE `utilisateurs_filtrages_niveaux`
+ ADD KEY `IDX_utilfilniv_codeProprietaire` (`codeProprietaire`) USING BTREE, ADD KEY `IDX_utilfilniv_codeFiltrage` (`codeFiltrage`) USING BTREE;
+
+--
+-- Index pour la table `utilisateurs_filtrages_profs`
+--
+ALTER TABLE `utilisateurs_filtrages_profs`
+ ADD KEY `IDX_utilfilens_codeProprietaire` (`codeProprietaire`) USING BTREE, ADD KEY `IDX_utilfilens_codeFiltrage` (`codeFiltrage`) USING BTREE;
+
+--
+-- Index pour la table `utilisateurs_filtrages_salles`
+--
+ALTER TABLE `utilisateurs_filtrages_salles`
+ ADD KEY `IDX_utilfilens_codeProprietaire` (`codeProprietaire`) USING BTREE, ADD KEY `IDX_utilfilens_codeFiltrage` (`codeFiltrage`) USING BTREE;
+
+--
+-- Index pour la table `utilisateurs_groupes`
+--
+ALTER TABLE `utilisateurs_groupes`
+ ADD PRIMARY KEY (`codeGroupeUtilisateur`);
+
+--
+-- Index pour la table `utilisateurs_modeles`
+--
+ALTER TABLE `utilisateurs_modeles`
+ ADD KEY `IDX_util_model_codeUtilisateur` (`codeUtilisateur`) USING BTREE, ADD KEY `IDX_uti_model_codeModel` (`codeModele`) USING BTREE;
+
+--
+-- Index pour la table `utilisateurs_numeros_commandes`
+--
+ALTER TABLE `utilisateurs_numeros_commandes`
+ ADD PRIMARY KEY (`numeroCommande`), ADD KEY `IDX_actions_code` (`numeroCommande`) USING BTREE, ADD KEY `IDX_actions_util` (`codeUtilisateur`) USING BTREE;
+
+--
+-- Index pour la table `utilisateurs_parametres`
+--
+ALTER TABLE `utilisateurs_parametres`
+ ADD KEY `IDX_params_nom` (`nomParametre`) USING BTREE, ADD KEY `IDX_params_codeUtilisateur` (`codeUtilisateur`) USING BTREE;
+
+--
+-- Index pour la table `vacances`
+--
+ALTER TABLE `vacances`
+ ADD PRIMARY KEY (`date`);
+
+--
+-- Index pour la table `visiteurs`
+--
+ALTER TABLE `visiteurs`
+ ADD PRIMARY KEY (`code`);
+
+--
+-- Index pour la table `zones_salles`
+--
+ALTER TABLE `zones_salles`
+ ADD PRIMARY KEY (`codeZoneSalle`);
+
+--
+-- AUTO_INCREMENT pour les tables exportées
+--
+
+--
+-- AUTO_INCREMENT pour la table `absences`
+--
+ALTER TABLE `absences`
+MODIFY `codeAbsence` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2003;
+--
+-- AUTO_INCREMENT pour la table `absences_etudiants`
+--
+ALTER TABLE `absences_etudiants`
+MODIFY `codeAbsence` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT pour la table `calendriers_enseignements`
+--
+ALTER TABLE `calendriers_enseignements`
+MODIFY `code` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT pour la table `calendriers_filieres`
+--
+ALTER TABLE `calendriers_filieres`
+MODIFY `code` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT pour la table `calendriers_groupes`
+--
+ALTER TABLE `calendriers_groupes`
+MODIFY `code` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
+--
+-- AUTO_INCREMENT pour la table `calendriers_materiels`
+--
+ALTER TABLE `calendriers_materiels`
+MODIFY `code` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT pour la table `calendriers_profs`
+--
+ALTER TABLE `calendriers_profs`
+MODIFY `code` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT pour la table `calendriers_salles`
+--
+ALTER TABLE `calendriers_salles`
+MODIFY `code` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT pour la table `cnu`
+--
+ALTER TABLE `cnu`
+MODIFY `codeCNU` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2023;
+--
+-- AUTO_INCREMENT pour la table `composantes`
+--
+ALTER TABLE `composantes`
+MODIFY `codeComposante` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
+--
+-- AUTO_INCREMENT pour la table `diplomes`
+--
+ALTER TABLE `diplomes`
+MODIFY `codeDiplome` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT pour la table `enseignements`
+--
+ALTER TABLE `enseignements`
+MODIFY `codeEnseignement` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=301;
+--
+-- AUTO_INCREMENT pour la table `filieres`
+--
+ALTER TABLE `filieres`
+MODIFY `codeFiliere` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=64;
+--
+-- AUTO_INCREMENT pour la table `grades`
+--
+ALTER TABLE `grades`
+MODIFY `codeGrade` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=16000749;
+--
+-- AUTO_INCREMENT pour la table `hierarchies_composantes`
+--
+ALTER TABLE `hierarchies_composantes`
+MODIFY `code` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT pour la table `hierarchies_groupes`
+--
+ALTER TABLE `hierarchies_groupes`
+MODIFY `code` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=44;
+--
+-- AUTO_INCREMENT pour la table `lignes_budgetaires`
+--
+ALTER TABLE `lignes_budgetaires`
+MODIFY `codeLigneBudgetaire` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=27785327;
+--
+-- AUTO_INCREMENT pour la table `matieres`
+--
+ALTER TABLE `matieres`
+MODIFY `codeMatiere` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=1308;
+--
+-- AUTO_INCREMENT pour la table `messages_ent`
+--
+ALTER TABLE `messages_ent`
+MODIFY `codeMessage` int(10) unsigned NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT pour la table `modules`
+--
+ALTER TABLE `modules`
+MODIFY `codeModule` bigint(20) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT pour la table `niveaux`
+--
+ALTER TABLE `niveaux`
+MODIFY `codeNiveau` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=27785325;
+--
+-- AUTO_INCREMENT pour la table `periodes`
+--
+ALTER TABLE `periodes`
+MODIFY `codePeriode` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
+--
+-- AUTO_INCREMENT pour la table `reservations`
+--
+ALTER TABLE `reservations`
+MODIFY `codeReservation` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT pour la table `reservations_filieres`
+--
+ALTER TABLE `reservations_filieres`
+MODIFY `codeReservation` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT pour la table `ressources_etudiants`
+--
+ALTER TABLE `ressources_etudiants`
+MODIFY `codeEtudiant` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=8;
+--
+-- AUTO_INCREMENT pour la table `ressources_groupes`
+--
+ALTER TABLE `ressources_groupes`
+MODIFY `codeGroupe` bigint(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=64;
+--
+-- AUTO_INCREMENT pour la table `ressources_groupes_etudiants`
+--
+ALTER TABLE `ressources_groupes_etudiants`
+MODIFY `code` bigint(20) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4323198;
+--
+-- AUTO_INCREMENT pour la table `ressources_materiels`
+--
+ALTER TABLE `ressources_materiels`
+MODIFY `codeMateriel` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=10;
+--
+-- AUTO_INCREMENT pour la table `ressources_profs`
+--
+ALTER TABLE `ressources_profs`
+MODIFY `codeProf` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=622;
+--
+-- AUTO_INCREMENT pour la table `ressources_salles`
+--
+ALTER TABLE `ressources_salles`
+MODIFY `codeSalle` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=409;
+--
+-- AUTO_INCREMENT pour la table `seances`
+--
+ALTER TABLE `seances`
+MODIFY `codeSeance` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=1832;
+--
+-- AUTO_INCREMENT pour la table `types_salles`
+--
+ALTER TABLE `types_salles`
+MODIFY `codeTypeSalle` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=1876;
+--
+-- AUTO_INCREMENT pour la table `utilisateurs_actions`
+--
+ALTER TABLE `utilisateurs_actions`
+MODIFY `codeAction` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5694;
+--
+-- AUTO_INCREMENT pour la table `utilisateurs_connexions`
+--
+ALTER TABLE `utilisateurs_connexions`
+MODIFY `numeroSession` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=393;
+--
+-- AUTO_INCREMENT pour la table `utilisateurs_filtrages`
+--
+ALTER TABLE `utilisateurs_filtrages`
+MODIFY `codeFiltrage` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=7;
+--
+-- AUTO_INCREMENT pour la table `utilisateurs_numeros_commandes`
+--
+ALTER TABLE `utilisateurs_numeros_commandes`
+MODIFY `numeroCommande` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=1879;
+--
+-- AUTO_INCREMENT pour la table `visiteurs`
+--
+ALTER TABLE `visiteurs`
+MODIFY `code` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT pour la table `zones_salles`
+--
+ALTER TABLE `zones_salles`
+MODIFY `codeZoneSalle` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
+--
 -- Contraintes pour les tables exportées
 --
 
@@ -19809,8 +20309,8 @@ CREATE TABLE IF NOT EXISTS `zones_temps` (
 -- Contraintes pour la table `absences_etudiants`
 --
 ALTER TABLE `absences_etudiants`
-  ADD CONSTRAINT `absences_etudiants_ibfk_1` FOREIGN KEY (`codeSeance`) REFERENCES `seances` (`codeSeance`),
-  ADD CONSTRAINT `absences_etudiants_ibfk_2` FOREIGN KEY (`codeEtudiant`) REFERENCES `ressources_etudiants` (`codeEtudiant`);
+ADD CONSTRAINT `absences_etudiants_ibfk_1` FOREIGN KEY (`codeSeance`) REFERENCES `seances` (`codeSeance`),
+ADD CONSTRAINT `absences_etudiants_ibfk_2` FOREIGN KEY (`codeEtudiant`) REFERENCES `ressources_etudiants` (`codeEtudiant`);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

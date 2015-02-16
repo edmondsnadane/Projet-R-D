@@ -26,7 +26,7 @@ if (isset($_POST['teachLogin']) && isset($_POST['teachPwd']) && !empty($_POST['t
 	{
 		// Si le mot de passe entré à la même valeur que celui de la base de données, on l'autorise a se connecter...
 		// MD5 vers CRYTPT : https://github.com/edmondsnadane/Projet-R-D/issues/44
-		if(crypt($_POST['teachPwd'], base64_encode($_POST['teachPwd'])) == $ligne['motPasse'])
+		if(md5($_POST['teachPwd']) == $ligne['motPasse'])
 		{
 			$find = TRUE;
 			$sql="UPDATE compteur SET valeur=valeur+1 WHERE id_compteur='1'";
